@@ -13,6 +13,7 @@
 <script src="./scripts/canvas.js" defer></script>
 <script src="./scripts/dialog.js" defer></script>
 <script src="./scripts/salaryCalculator.js" defer></script>
+<script src="./scripts//template.js" defer></script>
 
 <body>
   <header>
@@ -125,9 +126,13 @@
           <h3>Pictures</h3>
         </caption>
         <picture>
-            <source srcset="https://lh3.googleusercontent.com/proxy/TyYrlB8HECwF0qDsmJafW6D8eKtiQwWSozn2w7-TvE__jdyijKbPvCsHbwIp-l9oGCuSG--9akJ9PFpvki9R3xkfMWF-DzGHL-DmcRkL" media="(min-width: 760px)">
-              <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Effective_Programming_for_America_logo.svg/1200px-Effective_Programming_for_America_logo.svg.png" media="(min-width: 500px)">
-            <img src="https://koteiki.com/wp-content/uploads/2018/02/cat-1-8.jpeg" alt="Sad cat">
+          <source
+            srcset="https://lh3.googleusercontent.com/proxy/TyYrlB8HECwF0qDsmJafW6D8eKtiQwWSozn2w7-TvE__jdyijKbPvCsHbwIp-l9oGCuSG--9akJ9PFpvki9R3xkfMWF-DzGHL-DmcRkL"
+            media="(min-width: 760px)">
+          <source
+            srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Effective_Programming_for_America_logo.svg/1200px-Effective_Programming_for_America_logo.svg.png"
+            media="(min-width: 500px)">
+          <img src="https://koteiki.com/wp-content/uploads/2018/02/cat-1-8.jpeg" alt="Sad cat">
         </picture>
 
 
@@ -137,11 +142,35 @@
 
       </article>
 
+      <article>
+        <caption>
+          <h3>Template here</h3>
+          <button onclick="appendTemplateTo(event.target.parentNode)">Append template</button>
+        </caption>
+      </article>
+
+      <article>
+        <caption>
+          <h3>Video with caption example</h3>
+        </caption>
+        <video controls src="./upc-tobymanley.theora.ogg">
+
+          <track default kind="captions" srclang="en" src="./subtitles.vtt" />
+
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </article>
+
     </section>
     <aside>
       aside
     </aside>
   </main>
+
+  <template>
+    <p>I hate waking up at <time>6:30</time> for the first lesson. But i have done it today
+      <time datetime="2020-02-13"></time>to pass this homework!</p>
+  </template>
 </body>
 
 </html>

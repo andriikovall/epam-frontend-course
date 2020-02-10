@@ -41,3 +41,7 @@ article {
     border: 2px dotted red;
     padding: 1em;
 }
+
+video::cue {
+    font-size: 1.4rem;
+}
