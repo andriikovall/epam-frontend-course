@@ -1,0 +1,20 @@
+:root {
+    --border: rgb(156, 136, 136) 1px solid;
+    --group-padding: 0.4em;
+    --input-margin: 0.2em;
+}
+
+input {
+    margin-top: var(--input-margin);
+    margin-bottom: var(--input-margin);
+}
+
+.form-group {
+    padding-top: var(--group-padding);
+    padding-bottom: var(--group-padding);
+    border-bottom: var(--border);
+}
+
+.form-group:first-child {
+    border-top: var(--border);
+}
