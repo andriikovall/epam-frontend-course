@@ -1,0 +1,10 @@
+body, html {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    background: url(./img/bg.jpg) no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+}
