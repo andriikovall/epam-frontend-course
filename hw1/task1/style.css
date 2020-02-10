@@ -45,3 +45,7 @@ article {
 video::cue {
     font-size: 1.4rem;
 }
+
+.wbr-wrapper {
+    width: 3em;
+}
