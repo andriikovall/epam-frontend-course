@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task 1</title>
+</head>
+
+<link rel="stylesheet" href="./style.css">
+
+<script src="./scripts/canvas.js" defer></script>
+<script src="./scripts/dialog.js" defer></script>
+<script src="./scripts/salaryCalculator.js" defer></script>
+
+<body>
+  <header>
+    <h1>Hw1 task 1</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Nav link1</a></li>
+        <li><a href="#">Nav link2</a></li>
+        <li><a href="#">Nav link3</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+
+      <p>Audio:</p>
+      <audio id="audio" controls>
+        <source src="./Баста - Сансара.mp3" type="audio/mpeg">
+      </audio>
+
+      <article>
+        <caption>
+          <h3>First article</h3>
+        </caption>
+
+        <details>
+          <summary>Spoiler</summary>
+          <p>Next example of &lt;bdi&gt; tag was not intented to be stolen.
+            It is just a good example)
+          </p>
+        </details>
+
+        <p dir="rtl"><bdi>שבת</bdi> — суббота</p>
+        <p>В ашкеназском произношении звучит как «ша́бос» (идиш «ша́бес»),
+          а в сефардском — как «шаба́т».</p>
+        <div class="canvas-wrap">
+          <canvas id="canvas"></canvas>
+        </div>
+
+        <p>Choose your favourite subject from datalist</p>
+        <input list="subject">
+        <datalist id="subject">
+          <option value="Epam"></option>
+          <option value="OOP"></option>
+          <option value="PE"></option>
+          <option value="Maths -_- (я больной ублюдок)"></option>
+        </datalist>
+
+      </article>
+
+      <article>
+        <caption>
+          <h3>Second article</h3>
+        </caption>
+        <dialog id="embedDialog">
+          <embed src="http://www.africau.edu/images/default/sample.pdf" width="500" height="375" type="application/pdf">
+          <button type="reset" id="cancel">Back</button>
+        </dialog>
+
+        <menu>
+          <button id="showEmbed">Show embed</button>
+        </menu>
+      </article>
+
+      <article>
+        <caption>
+          <h3>The truth... </h3>
+        </caption>
+        <figure>
+          <p><img src="https://comments.ua/img/publications/oGaQfLBVwlitTjg9Z1riK17EuyKg-Rgm.jpg"
+              alt="A succesful person who has left after 9-th form" /></p>
+          <figcaption>When left after 9-th form</figcaption>
+        </figure>
+        <figure>
+          <p><img src="https://classpic.ru/wp-content/uploads/2019/01/33783/ustavshij-student-nad-knigami.jpg"
+              alt="A student from KPI" /></p>
+          <figcaption>When a student from KPI</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <caption>
+          <h3>next article)</h3>
+        </caption>
+        <p><mark>Merked text</mark> before common one and <mark>one more</mark></p>
+        <menu>
+          <!-- unfortunately deprecated and not supported-->
+          <menuitem>nothing works about menuitem </menuitem>
+          <menuitem>sorry</menuitem>
+        </menu>
+
+        <br>
+        <p>Suspense level before exams</p>
+        <meter value="0" max="100" low="10" high="60"></meter>
+        <meter value="10" max="100" low="10" high="60"></meter>
+        <meter value="20" max="100" low="25" high="60"></meter>
+        <meter value="100" high="60" optimum="50" max="100"></meter>
+
+        <p>Calculate your future salary</p>
+        <form onsubmit="onCalculateSalary(event)">
+          <p>Enter current one:
+            <input type="number" name="sal" id="salary"></p>
+          <p>You future monthly income is: <output name="result" id="result">-</output></p>
+          <button type="submit">Predict</button>
+        </form>
+      </article>
+
+      <article>
+        <caption>
+          <h3>Pictures</h3>
+        </caption>
+        <picture>
+            <source srcset="https://lh3.googleusercontent.com/proxy/TyYrlB8HECwF0qDsmJafW6D8eKtiQwWSozn2w7-TvE__jdyijKbPvCsHbwIp-l9oGCuSG--9akJ9PFpvki9R3xkfMWF-DzGHL-DmcRkL" media="(min-width: 760px)">
+              <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Effective_Programming_for_America_logo.svg/1200px-Effective_Programming_for_America_logo.svg.png" media="(min-width: 500px)">
+            <img src="https://koteiki.com/wp-content/uploads/2018/02/cat-1-8.jpeg" alt="Sad cat">
+        </picture>
+
+
+        <p>You have almoust finished reviewing this homework!</p>
+        <progress max="100" value="60"></progress>
+        <p>Stay quiet)</p>
+
+      </article>
+
+    </section>
+    <aside>
+      aside
+    </aside>
+  </main>
+</body>
+
+</html>
