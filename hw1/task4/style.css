@@ -3,8 +3,169 @@ body, html {
     margin: 0 auto;
 }
 
-body {
+body > section {
     background: url(./img/bg.jpg) no-repeat;
-    background-clip: border-box;
     background-size: cover;
+    background-position: center;
+    padding: 4em;
 }
+
+img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    /* padding-top: 0.2em; */
+    /* padding-bottom: 1em; */
+    --border: 2px solid black;
+    border-top: var(--border);
+    border-bottom: var(--border);
+}
+
+
+body > section {
+    margin: 0 auto;
+}
+
+header section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header section:first-child {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-top: 1px solid black;
+}
+
+header section {
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid black;
+}
+
+header .heading-meta {
+    /* text-align: center; */
+    font-style: italic;
+}
+
+header .header-meta {
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header .heading h1 {
+    font-size: 3em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+main .main-title {
+    /* text-align: center; */
+    margin-top: 1em;
+}
+
+main h2 {
+    font-size: 6em;
+    margin: 0;
+}
+
+main h3 {
+    font-size: 3em;
+    margin: 0;
+    font-weight: 100;
+}
+
+main .content {
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+}
+
+main section {
+    margin-bottom: 2em;
+}
+
+
+.note {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.note p {
+    margin: 0; 
+    padding-bottom: 0.1em;
+    padding-top: 0.1em;
+    font-size: 4em;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+
+article h4, 
+article h5 {
+    margin: 0;
+}
+
+main article {
+    margin: 1em;
+}
+
+#important {
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+#extra {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#old {
+    grid-row-start: 4;
+}
+
+#img {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#usuall {
+    grid-column-start: 2 span;
+    grid-row-start: 3 span;
+}
+
+
+#old h4 { 
+    font-size: 2em;
+}
+
+#old h5 {
+    font-size: 1.4em;
+}
+
+.extra-heading-main {
+    font-size: 2em;
+}
+
+.extra-heading-info {
+    font-size: 1.7em;
+}
+
