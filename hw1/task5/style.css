@@ -36,7 +36,7 @@ img {
 }
 
 #centered {
-    padding-top: 25%;
+    height: calc(var(--row-height) * 2);
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 2;
