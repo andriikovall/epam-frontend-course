@@ -1,0 +1,45 @@
+:root {
+    --max-windth-heigth: 200px;
+}
+
+body,
+html {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.collage-container {
+    border: 1px solid grey;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+.img-container {
+    text-align: center; 
+    overflow: hidden;
+    position: relative; 
+    max-width: var(--max-windth-heigth);
+}
+
+#centered {
+    margin: 0 auto;
+    margin-top: 10%;
+    --doubled-max-w-h: calc(var(--max-windth-heigth) * 2);
+    max-width: var(--doubled-max-w-h);
+    max-height: var(--doubled-max-w-h);
+    height: 350px;
+}
