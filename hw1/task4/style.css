@@ -1,3 +1,7 @@
+:root {
+    --newspaper-black: rgb(56, 56, 56);
+}
+
 body, html {
     max-width: 1200px;
     margin: 0 auto;
@@ -12,14 +16,14 @@ body > section {
 
 img {
     width: 100%;
-    margin: 0;
+    margin-top: 0;
     padding: 0;
 }
 
 header {
     /* padding-top: 0.2em; */
     /* padding-bottom: 1em; */
-    --border: 2px solid black;
+    --border: 2px solid var(--newspaper-black);
     border-top: var(--border);
     border-bottom: var(--border);
 }
@@ -39,17 +43,16 @@ header section:first-child {
     margin-top: 0.5em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-top: 1px solid black;
+    border-top: 1px solid var(--newspaper-black);
 }
 
 header section {
     margin-bottom: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--newspaper-black);
 }
 
 header .heading-meta {
-    /* text-align: center; */
     font-style: italic;
 }
 
@@ -57,13 +60,15 @@ header .header-meta {
     padding-top: 0.4em;
     padding-bottom: 0.4em;
     width: 100%;
+    font-size: 1.4em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 header .heading h1 {
-    font-size: 3em;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3.8em;
     margin-top: 0.2em;
     margin-bottom: 0.2em;
 }
@@ -83,11 +88,15 @@ main .main-title {
 }
 
 main h2 {
-    font-size: 6em;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 5px;
+    font-style: italic;
+    font-size: 5.5em;
     margin: 0;
 }
 
 main h3 {
+    letter-spacing: 0.1em;
     font-size: 3em;
     margin: 0;
     font-weight: 100;
@@ -113,8 +122,9 @@ main section {
     padding-bottom: 0.1em;
     padding-top: 0.1em;
     font-size: 4em;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    font-weight: bold;
+    border-top: 1px solid var(--newspaper-black);
+    border-bottom: 1px solid var(--newspaper-black);
 }
 
 
@@ -127,18 +137,28 @@ main article {
     margin: 1em;
 }
 
+.emphasised {
+    background: var(--newspaper-black);
+    color: rgba(255, 255, 255, 0.788); 
+    font-size: 3.4em;
+    font-family: 'Odibee Sans', cursive;
+}
+
 #important {
     grid-row-start: 2;
     grid-row-end: 4;
 }
 
+
 #extra {
     grid-row-start: 2;
     grid-row-end: 3;
+    border-bottom: 1px solid var(--newspaper-black);
 }
 
 #old {
     grid-row-start: 4;
+    border-top: 3px solid var(--newspaper-black);
 }
 
 #img {
@@ -152,20 +172,45 @@ main article {
     grid-row-start: 3 span;
 }
 
+#usuall .article-heading {
+    font-size: 2.4em;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 
 #old h4 { 
-    font-size: 2em;
+    font-size: 2.5em;
 }
 
 #old h5 {
     font-size: 1.4em;
 }
 
+#extra .article-heading {
+    font-family: 'Bevan', cursive;
+}
+
+#old .article-heading {
+    font-family: 'Bevan', cursive;
+}
+
 .extra-heading-main {
-    font-size: 2em;
+    font-weight: bold; 
+    font-size: 1.9em; 
 }
 
 .extra-heading-info {
-    font-size: 1.7em;
+    font-size: 1.4em;
 }
 
+.date-emphasised {
+    margin-right: 10px;
+    font-size: 1.3em;
+    padding: 0.6em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.date-emphasised em {
+    font-size: 4em;
+    margin: 0;
+}
