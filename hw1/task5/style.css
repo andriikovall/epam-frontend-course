@@ -1,0 +1,44 @@
+:root {
+    --row-height: 150px;
+}
+
+body,
+html {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.collage-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: var(--row-height);
+}
+
+img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.container {
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+}
+
+.img-container {
+    position: relative;
+    height: var(--row-height);
+    overflow: hidden;
+}
+
+#centered {
+    padding-top: 25%;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
