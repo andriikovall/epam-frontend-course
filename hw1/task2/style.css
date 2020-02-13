@@ -4,6 +4,15 @@
     --input-margin: 0.2em;
 }
 
+body {
+    width: 20%;
+    margin: 0 auto;
+}
+
+form {
+    margin: 1em;
+}
+
 input {
     margin-top: var(--input-margin);
     margin-bottom: var(--input-margin);
