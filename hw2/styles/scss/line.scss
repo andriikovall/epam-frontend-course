@@ -1,0 +1,3 @@
+@mixin line($height) {
+    border: $height solid lighten(#000000, 20);
+}

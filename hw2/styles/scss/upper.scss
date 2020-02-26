@@ -1,25 +1,41 @@
 .upper {
 
-    &__wrapper { 
-      height: 25px;
-      line-height: 25px;
-      background: #000;
-    }
-  
-    &__content {
-      margin-left: auto; 
-      display: flex;
-      color: #c4bcbc;
-      float: right;
-    }
-  
-    &__link {
-      padding-right: 20px;
-    }
-  
-    &__icon {
-      color: #333333;
-      padding-left: 10px;
-    }
-  
+  &__wrapper {
+    height: 25px;
+    line-height: 25px;
+    background: #000;
   }
+
+  &__content {
+    margin-left: auto;
+    display: flex;
+    color: #c4bcbc;
+    float: right;
+  }
+
+  &__link {
+    $link-colour: #c4bcbc;
+    color: $link-colour;
+
+    padding-right: 20px;
+    text-decoration: none;
+
+    
+    &:hover {
+      color: lighten($link-colour, 30%);
+    }
+  }
+
+  &__icon {
+    $icon-color: #333333;
+    
+    cursor: pointer;
+    color: $icon-color;
+    padding-left: 10px;
+
+    &:hover {
+      color: lighten($icon-color, 30);
+    }
+  }
+
+}

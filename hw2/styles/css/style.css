@@ -1,6 +1,13 @@
-.upper, .main {
+.upper, .page-wrapper {
   margin: 0 auto;
   max-width: 940px;
+}
+
+.main {
+  margin-top: 30px;
+  display: grid;
+  grid-template-rows: minmax(auto, 257px) 300px;
+  grid-template-columns: minmax(auto, 620px) 300px;
 }
 
 .upper__wrapper {
@@ -15,11 +22,46 @@
   float: right;
 }
 .upper__link {
+  color: #c4bcbc;
   padding-right: 20px;
+  text-decoration: none;
+}
+.upper__link:hover {
+  color: white;
 }
 .upper__icon {
+  cursor: pointer;
   color: #333333;
   padding-left: 10px;
+}
+.upper__icon:hover {
+  color: gray;
+}
+
+.nav, .nav__ul {
+  display: flex;
+}
+
+.nav {
+  justify-content: space-between;
+  height: 27px;
+  line-height: 27px;
+}
+.nav__ul {
+  margin: 0;
+  padding-left: 0;
+}
+.nav__item {
+  list-style: none;
+  padding-right: 20px;
+  font-size: 17px;
+  color: #333333;
+}
+.nav a {
+  text-decoration: none;
+}
+.nav__line {
+  border: 1px solid #333333;
 }
 
 img {
