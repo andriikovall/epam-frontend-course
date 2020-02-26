@@ -1,0 +1,14 @@
+@import './style.scss';
+@import './variables.scss';
+@import './upper.scss';
+
+img {
+    margin: 0;
+    max-width: 100%;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}

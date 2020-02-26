@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Task 1</title>
+    <meta name="description" content="This is an example of a meta description.">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>EPAM HomeWork 1, Task 1</h1>
+        <label for="iq">Мой IQ:</label>
+
+        <meter id="iq" min="0" max="300" low="60" high="150" optimum="200" value="40">
+            at 40/300
+        </meter>
+
+        <nav>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Друзья</a></li>
+                <li><a href="#">Паставьти троичку</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <hr />
+    <main>
+        <section>
+            <article>
+                <p>Тэг <b>&lt;article&gt;</b> представляет самостоятельную часть документа, страницы, приложения или
+                    сайта
+                </p>
+
+                <aside>
+                    <p><i>В то время как тэг <b>&lt;aside&gt;</b> представляет собой часть документа, чье содержимое
+                            только
+                            косвенно связанно с основным содержимым документа</p></i>
+                </aside>
+
+                <p>предназначенную для независимого распространения или повторного использования.</p>
+            </article>
+        </section>
+        <section>
+            <audio controls src="https://www.computerhope.com/jargon/m/example.mp3"></audio><br />
+
+            <video controls src="./video.MP4">
+                <track default kind="captions" src="./track.vtt" srclang="en" />
+            </video><br/>
+
+            <bdo dir="rtl">Этот тэг отразит ваш текст, <bdi>только если этот тэг не помешает этому</bdi>, хотя особо и
+                не
+                понятно зачем</bdo><br />
+
+            <canvas style="border: 1px solid black;" id="canvas" width="200" height="200"></canvas><br />
+            <script>
+                const element = document.getElementById('canvas');
+                const canvas = element.getContext('2d');
+
+                const grd = canvas.createLinearGradient(0, 0, 200, 0);
+                grd.addColorStop(0, "red");
+                grd.addColorStop(1, "white");
+                canvas.fillStyle = grd;
+                canvas.fillRect(0, 0, 200, 200);
+            </script>
+
+            <input list="datalist" placeholder="Click!">
+
+            <datalist id="datalist">
+                <option>datalist</option>
+                <option>содержит</option>
+                <option>набор</option>
+                <option>опций</option>
+            </datalist><br />
+        </section>
+        <section>
+            <details>
+                <summary>Details</summary>
+                используется для раскрытия дополнительной информации.
+            </details><br />
+
+            <button id="popUp">Dialog</button><br />
+            <dialog id="dialog">Вау! Вы открыли диалоговое окно!<br /><button id="cancel">Cancel</button></dialog>
+
+            <script>
+                const popUp = document.getElementById('popUp');
+                const dialog = document.getElementById('dialog');
+                const cancel = document.getElementById('cancel');
+
+                popUp.addEventListener('click', function () {
+                    dialog.showModal();
+                })
+
+                cancel.addEventListener('click', function () {
+                    dialog.close();
+                })
+            </script>
+
+            <embed type="image/gif" width="300" height="300" src="gif.gif">
+
+            <figure style="margin: 0;">
+                <img width="300" height="300"
+                    src="https://i.pinimg.com/736x/61/e0/9d/61e09d6ff43a5b2da4da5f6a6f045a91.jpg">
+                <figcaption>Илюстрация с необязательной подписью</figcaption>
+            </figure>
+
+            <p>Текст без выделений | <mark>Выделенный текст</mark></p>
+            <div contextmenu="menu" style="padding: 30px; background-color: chartreuse;">Кликни правой кнопкой что бы
+                увидеть меню!</div>
+            <menu type="context" id="menu">
+                <menuitem label="Вот такая">
+                </menuitem>
+                <menuitem label="вот менюшка.">
+                </menuitem>
+                <menuitem label="Ток почему-то">
+                </menuitem>
+                <menuitem label="в Chrome">
+                </menuitem>
+                <menuitem label="не работает :с">
+                </menuitem>
+            </menu>
+
+            <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+                <input type="number" name="b" value="0" /> +
+                <input type="number" name="a" value="0" /> =
+                <output name="result">0</output>
+            </form>
+
+            <picture>
+                <source srcset="https://pngimg.com/uploads/muscle/muscle_PNG53.png" media="(max-height: 500px)">
+                <img src="https://pngimage.net/wp-content/uploads/2018/06/%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA-%D0%BB%D0%B5%D0%B6%D0%B8%D1%82-png-.png"
+                    alt="Мужчина лежит">
+            </picture><br />
+
+            <label for="prog">Выполнение домашек:</label>
+            <progress id="prog" max="100" value="15"> 15% </progress>
+
+
+            <template id="template">
+                <div>
+                    <h2>Time:</h2>
+                    <time>20:45</time>
+                </div>
+            </template>
+
+            <div id="numbers">
+
+            </div>
+            <button onclick="addNumber()">Add time</button>
+            <script>
+                function addNumber() {
+                    const numP = document.getElementById('num');
+                    const temp = document.getElementById('template');
+                    const numbers = document.getElementById('numbers');
+                    const content = temp.content.cloneNode(true);
+                    numbers.appendChild(content);
+                }
+            </script>
+            <p style="width: 100px;">xserdcgbjmko,l;jnhgfdxestfghjmkl,;.,mhjgtfdcxrctfgbhjmkol.,kojihugy</p>
+            <p style="width: 100px;">xserdcgbjmk<wbr>o,l;jnhg<wbr>fdxestfghjmk<wbr>l,;.,mhjgtfdc<wbr>xrctfgbhjmko<wbr>l.,kojihu<wbr>gy</p>
+        </section>
+    </main>
+
+
+    <footer>
+        <hr />
+        <p>Romanich 2020 inc. (c) All rights reserved</p>
+    </footer>
+</body>
+
+</html>
+
+<!--
+• <wbr> Определяет возможный разрыв строки 
+-->

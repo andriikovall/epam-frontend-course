@@ -1,0 +1,36 @@
+.upper, .main {
+  margin: 0 auto;
+  max-width: 940px;
+}
+
+.upper__wrapper {
+  height: 25px;
+  line-height: 25px;
+  background: #000;
+}
+.upper__content {
+  margin-left: auto;
+  display: flex;
+  color: #c4bcbc;
+  float: right;
+}
+.upper__link {
+  padding-right: 20px;
+}
+.upper__icon {
+  color: #333333;
+  padding-left: 10px;
+}
+
+img {
+  margin: 0;
+  max-width: 100%;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*# sourceMappingURL=style.css.map */
