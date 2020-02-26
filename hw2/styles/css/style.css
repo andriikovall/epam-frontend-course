@@ -16,6 +16,7 @@
   background-color: #f7f9fa;
   height: 250px;
   width: 620px;
+  border-bottom: 5px solid #c80000;
 }
 .main-article__image {
   overflow: hidden;
@@ -90,7 +91,8 @@
   color: gray;
 }
 
-.nav, .nav__ul {
+.nav,
+.nav__ul {
   display: flex;
 }
 

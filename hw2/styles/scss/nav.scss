@@ -1,33 +1,34 @@
 @import './line.scss';
 
-.nav, .nav__ul {
+.nav,
+.nav__ul {
     display: flex;
-  }
-  
-  .nav {
+}
+
+.nav {
     justify-content: space-between;
-  
+
     height: 27px;
     line-height: 27px;
-  
+
     &__ul {
-      margin: 0;
-      padding-left: 0;
+        margin: 0;
+        padding-left: 0;
     }
-  
+
     &__item {
-      list-style: none;
-      padding-right: 20px;
-      font-size: 17px;
-      color: lighten($color: #000000, $amount: 20);
+        list-style: none;
+        padding-right: 20px;
+        font-size: 17px;
+        color: lighten($color: #000000, $amount: 20);
     }
-  
-  
+
+
     a {
-      text-decoration: none;
+        text-decoration: none;
     }
-  
+
     &__line {
-      @include line(1px);
-    } 
-  }
+        @include line(1px);
+    }
+}
