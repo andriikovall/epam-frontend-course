@@ -1,6 +1,7 @@
 @import './variables.scss';
 
-.upper, .page-wrapper {
+.upper,
+.page-wrapper {
   margin: 0 auto;
   max-width: $max-width;
 }
@@ -13,3 +14,61 @@
   grid-template-columns: minmax(auto, 620px) 300px;
 }
 
+.main-article {
+  display: flex;
+  background-color: #f7f9fa;
+  height: 250px;
+  width: 620px;
+
+  &__image {
+    overflow: hidden;
+  }
+
+  &__caption {
+    font-size: 30px;
+    color: #c80000;
+    font-family: "PT Serif";
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  &__content {
+    padding: 20px;
+    width: 240px;
+  }
+
+  &__counter {
+    float: right;
+  }
+}
+
+.counter {
+
+  display: flex;
+  position: relative;
+  bottom: -25px;
+  font-size: 1.5em;
+  color: #c80000;
+
+  &__value {
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 18px;
+    color: #333333;
+    font-family: "PT Sans";
+    font-weight: 700;
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+}
+
+.article {
+  &__text {
+    font-size: 14px;
+    line-height: 18px;
+    color: #333333;
+    font-family: "PT Sans";
+    font-weight: 400;
+  }
+}
