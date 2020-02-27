@@ -2,12 +2,50 @@
 @import './line.scss';
 
 
-.mics {
-    grid-column-start: 1;
-    grid-column-end: 3;
+.misc {
+  grid-column-start: 1;
+  grid-column-end: 3;
 
-    &__heading {
-        display: flex;
-        flex-direction: row;
-    }
+  &__heading {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__caroosel {
+    display: flex;
+  }
+
+  .counter {
+    font-size: 3em;
+  }
+
+  &__items {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__item {
+    width: 138px;
+    margin: 0;
+  }
+
+  &__item-image {
+    overflow: hidden;
+  }
+
+  &__item-caption {
+    margin-bottom: 0.8em;
+    height: 18px;
+    font-size: 14px;
+    color: $main-red;
+    font-family: "PT Sans";
+    font-weight: 400;
+  }
+
+  &__item-text {
+    color: #5788d3;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
