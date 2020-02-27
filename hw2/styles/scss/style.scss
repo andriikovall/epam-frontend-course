@@ -11,7 +11,7 @@
 .main {
   margin-top: 30px;
   display: grid;
-  grid-template-rows: minmax(auto, 257px) 300px;
+  grid-template-rows: minmax(auto, 257px) 300px 200px;
   grid-template-columns: minmax(auto, 620px) 300px;
 }
 
@@ -130,7 +130,8 @@
 .heading-underlined {
   h4 {
     margin: 0;
-    min-width: 120px;
+    padding-right: 10px;
+    white-space: nowrap;
     font-size: 24px;
     letter-spacing: 0px;
     line-height: 30px;

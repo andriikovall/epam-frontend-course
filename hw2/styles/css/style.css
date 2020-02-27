@@ -7,7 +7,7 @@
 .main {
   margin-top: 30px;
   display: grid;
-  grid-template-rows: minmax(auto, 257px) 300px;
+  grid-template-rows: minmax(auto, 257px) 300px 200px;
   grid-template-columns: minmax(auto, 620px) 300px;
 }
 
@@ -107,7 +107,8 @@
 
 .heading-underlined h4 {
   margin: 0;
-  min-width: 120px;
+  padding-right: 10px;
+  white-space: nowrap;
   font-size: 24px;
   letter-spacing: 0px;
   line-height: 30px;
@@ -248,6 +249,28 @@
   position: relative;
   bottom: 1.2px;
   left: 1px;
+}
+.video__more-videos-link {
+  font-size: 18px;
+  line-height: 20px;
+  text-decoration: none;
+  font-family: "PT Sans";
+  font-weight: 400;
+}
+.video__bottom-line {
+  margin-top: 0.4em;
+  border-bottom: 5px solid #333333;
+  content: "";
+  width: 100%;
+}
+
+.mics {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.mics__heading {
+  display: flex;
+  flex-direction: row;
 }
 
 img {

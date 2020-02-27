@@ -73,10 +73,25 @@
     border: 2px solid white;
     left: 5px;
     bottom: 28px;
+
     i {
       position: relative;
       bottom: 1.2px;
       left: 1px;
     }
+  }
+
+  &__more-videos-link {
+    font-size: 18px;
+    line-height: 20px;
+    text-decoration: none;
+    // color: #3d76cc;
+    font-family: "PT Sans";
+    font-weight: 400;
+  }
+
+  &__bottom-line {
+    margin-top: 0.4em;
+    @include line(5px);
   }
 }

@@ -1,0 +1,13 @@
+@import './variables.scss';
+@import './line.scss';
+
+
+.mics {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    &__heading {
+        display: flex;
+        flex-direction: row;
+    }
+}
