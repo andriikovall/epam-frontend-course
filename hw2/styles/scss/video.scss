@@ -1,0 +1,82 @@
+@import './variables.scss';
+@import './line.scss';
+
+
+.video {
+  margin-left: 20px;
+
+  &__ul {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__heading {
+    h4 {
+      text-transform: uppercase;
+      color: $main-purple;
+      margin: 0;
+      margin-left: 0.4em;
+      margin-right: 0.4em;
+    }
+
+    display: flex;
+  }
+
+  &__line-left {
+    @include line(2px);
+    margin-bottom: 0.5em;
+  }
+
+  &__line-right {
+    @include line(2px);
+    margin-bottom: 0.5em;
+  }
+
+  &__item {
+    margin: 0;
+    height: 88px;
+    display: flex;
+  }
+
+  &__image {
+    img {
+      width: 140px;
+      // height: 100%;
+    }
+
+    padding-top: 0.1em;
+    overflow: hidden;
+  }
+
+  &__text {
+    overflow: hidden;
+    padding-left: 10px;
+    width: 160px;
+    font-size: 14px;
+    color: $main-grey;
+    font-family: "PT Sans";
+    font-weight: 700;
+  }
+
+  &__play-btn {
+    position: relative;
+    // padding: 0.5em;
+    text-align: center;
+    color: white;
+    width: 20px;
+    height: 15px;
+    border-radius: 5px;
+    background-color: $main-purple;
+    border: 2px solid white;
+    left: 5px;
+    bottom: 28px;
+    i {
+      position: relative;
+      bottom: 1.2px;
+      left: 1px;
+    }
+  }
+}

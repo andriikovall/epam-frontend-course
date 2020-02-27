@@ -90,26 +90,10 @@
   color: #463f3f;
   font-family: "PT Sans";
   font-weight: 400;
+  overflow: hidden;
 }
 .news__heading {
-  min-width: 1px;
   display: flex;
-}
-.news__heading h4 {
-  margin: 0;
-  min-width: 120px;
-  font-size: 24px;
-  letter-spacing: 0px;
-  line-height: 30px;
-  color: #333333;
-  font-family: "PT Sans";
-  font-weight: 400;
-}
-.news__line {
-  border-bottom: 2px solid #333333;
-  content: "";
-  width: 100%;
-  margin-bottom: 0.4em;
 }
 .news__image {
   height: 88px;
@@ -119,6 +103,23 @@
 .news__image img {
   height: 100%;
   width: 100%;
+}
+
+.heading-underlined h4 {
+  margin: 0;
+  min-width: 120px;
+  font-size: 24px;
+  letter-spacing: 0px;
+  line-height: 30px;
+  color: #333333;
+  font-family: "PT Sans";
+  font-weight: 400;
+}
+.heading-underlined__line {
+  border-bottom: 2px solid #333333;
+  content: "";
+  width: 100%;
+  margin-bottom: 0.4em;
 }
 
 .upper__wrapper {
@@ -176,6 +177,77 @@
   border-bottom: 2px solid #333333;
   content: "";
   width: 100%;
+}
+
+.video {
+  margin-left: 20px;
+}
+.video__ul {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.video__heading {
+  display: flex;
+}
+.video__heading h4 {
+  text-transform: uppercase;
+  color: #6a0099;
+  margin: 0;
+  margin-left: 0.4em;
+  margin-right: 0.4em;
+}
+.video__line-left {
+  border-bottom: 2px solid #333333;
+  content: "";
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+.video__line-right {
+  border-bottom: 2px solid #333333;
+  content: "";
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+.video__item {
+  margin: 0;
+  height: 88px;
+  display: flex;
+}
+.video__image {
+  padding-top: 0.1em;
+  overflow: hidden;
+}
+.video__image img {
+  width: 140px;
+}
+.video__text {
+  overflow: hidden;
+  padding-left: 10px;
+  width: 160px;
+  font-size: 14px;
+  color: #333333;
+  font-family: "PT Sans";
+  font-weight: 700;
+}
+.video__play-btn {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 20px;
+  height: 15px;
+  border-radius: 5px;
+  background-color: #6a0099;
+  border: 2px solid white;
+  left: 5px;
+  bottom: 28px;
+}
+.video__play-btn i {
+  position: relative;
+  bottom: 1.2px;
+  left: 1px;
 }
 
 img {
