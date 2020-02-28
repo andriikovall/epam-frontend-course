@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.footer {
+  background: #f7f9fa;
+  padding-top: 50px;
+
+  &__copiright {
+    color: $main-grey;
+    font-family: "PT Sans";
+    font-weight: 400;
+  }
+
+  &__links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  &__link {
+    text-decoration: none;
+    margin-right: 1em;
+    color: $main-link;
+    &:visited {
+      color: $main-link;
+    }
+  }
+}

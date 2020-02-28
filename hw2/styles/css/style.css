@@ -173,9 +173,13 @@
   padding-right: 20px;
   font-size: 17px;
   color: #333333;
+  font-family: "PT Sans";
 }
 .nav a {
   text-decoration: none;
+}
+.nav a:visited {
+  color: #333333;
 }
 
 .video {
@@ -253,6 +257,7 @@
   font-size: 18px;
   line-height: 20px;
   text-decoration: none;
+  color: #5788d3;
   font-family: "PT Sans";
   font-weight: 400;
 }
@@ -318,6 +323,29 @@
   cursor: pointer;
   overflow: hidden;
   max-height: 3.9em;
+}
+
+.footer {
+  background: #f7f9fa;
+  padding-top: 50px;
+}
+.footer__copiright {
+  color: #333333;
+  font-family: "PT Sans";
+  font-weight: 400;
+}
+.footer__links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+.footer__link {
+  text-decoration: none;
+  margin-right: 1em;
+  color: #5788d3;
+}
+.footer__link:visited {
+  color: #5788d3;
 }
 
 img {

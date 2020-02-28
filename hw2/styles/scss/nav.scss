@@ -22,11 +22,15 @@
     padding-right: 20px;
     font-size: 17px;
     color: $main-grey;
+    font-family: "PT Sans";
   }
 
 
   a {
     text-decoration: none;
+    &:visited {
+      color: $main-grey;
+    }
   }
 
   @include line(2px);
