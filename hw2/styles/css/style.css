@@ -8,7 +8,7 @@
   margin-top: 30px;
   display: grid;
   grid-template-rows: minmax(auto, 257px) 300px auto;
-  grid-template-columns: minmax(auto, 620px) 300px;
+  grid-template-columns: 640px 300px;
 }
 
 .main-article {
@@ -281,6 +281,7 @@
 .misc {
   grid-column-start: 1;
   grid-column-end: 3;
+  z-index: 0;
   height: 210px;
   border-bottom: 2px solid #333333;
   content: "";
@@ -296,22 +297,28 @@
 }
 .misc .counter {
   font-size: 3em;
+  z-index: 2;
 }
 .misc .counter__right, .misc .counter__left {
+  position: relative;
   height: 94px;
   width: 5%;
   text-align: center;
   line-height: 94px;
 }
 .misc__items {
-  width: 90%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   margin-top: -20px;
+  overflow: hidden;
 }
 .misc__item {
-  max-width: 138px;
+  z-index: 1;
   margin: 0;
+  min-width: 138px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .misc__item-image {
   overflow: hidden;

@@ -6,6 +6,8 @@
   grid-column-start: 1;
   grid-column-end: 3;
 
+  z-index: 0;
+
   $image-height: 94px;
 
   height: 210px;
@@ -22,9 +24,10 @@
 
   .counter {
     font-size: 3em;
-
+    z-index: 2;
     &__right,
     &__left {
+      position: relative;
       height: $image-height;
       width: 5%;
       text-align: center;
@@ -33,15 +36,19 @@
   }
 
   &__items {
-    width: 90%;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
     margin-top: -20px;
+    overflow: hidden;
   }
 
   &__item {
-    max-width: 138px;
+    z-index: 1;
     margin: 0;
+    min-width: 138px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 
   &__item-image {
