@@ -7,7 +7,7 @@
 .main {
   margin-top: 30px;
   display: grid;
-  grid-template-rows: minmax(auto, 257px) 300px 200px;
+  grid-template-rows: minmax(auto, 257px) 300px auto;
   grid-template-columns: minmax(auto, 620px) 300px;
 }
 
@@ -160,6 +160,9 @@
   justify-content: space-between;
   height: 27px;
   line-height: 27px;
+  border-bottom: 2px solid #333333;
+  content: "";
+  width: 100%;
 }
 .nav__ul {
   margin: 0;
@@ -173,11 +176,6 @@
 }
 .nav a {
   text-decoration: none;
-}
-.nav__line {
-  border-bottom: 2px solid #333333;
-  content: "";
-  width: 100%;
 }
 
 .video {
@@ -268,6 +266,10 @@
 .misc {
   grid-column-start: 1;
   grid-column-end: 3;
+  height: 210px;
+  border-bottom: 2px solid #333333;
+  content: "";
+  width: 100%;
 }
 .misc__heading {
   display: flex;
@@ -275,34 +277,47 @@
 }
 .misc__caroosel {
   display: flex;
+  height: 165px;
 }
 .misc .counter {
   font-size: 3em;
 }
+.misc .counter__right, .misc .counter__left {
+  height: 94px;
+  width: 60px;
+  text-align: center;
+  line-height: 94px;
+}
+.misc .counter__right:hover, .misc .counter__left:hover {
+  cursor: pointer;
+  color: #ff2f2f;
+}
 .misc__items {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  margin-top: -20px;
 }
 .misc__item {
-  width: 138px;
+  max-width: 138px;
   margin: 0;
 }
 .misc__item-image {
   overflow: hidden;
+  height: 94px;
 }
 .misc__item-caption {
-  margin-bottom: 0.8em;
-  height: 18px;
+  margin-bottom: 0.5em;
   font-size: 14px;
   color: #c80000;
   font-family: "PT Sans";
-  font-weight: 400;
 }
 .misc__item-text {
   color: #5788d3;
   text-decoration: none;
   cursor: pointer;
+  overflow: hidden;
+  max-height: 3.9em;
 }
 
 img {

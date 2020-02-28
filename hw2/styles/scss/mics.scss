@@ -6,6 +6,10 @@
   grid-column-start: 1;
   grid-column-end: 3;
 
+  $image-height: 94px;
+
+  height: 210px;
+
   &__heading {
     display: flex;
     flex-direction: row;
@@ -13,39 +17,56 @@
 
   &__caroosel {
     display: flex;
+    height: 165px;
   }
 
   .counter {
     font-size: 3em;
+
+    &__right,
+    &__left {
+      height: $image-height;
+      width: 60px;
+      text-align: center;
+      line-height: $image-height;
+
+      &:hover {
+        cursor: pointer;
+        color: lighten($main-red, 20);
+      }
+    }
   }
 
   &__items {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin-top: -20px;
   }
 
   &__item {
-    width: 138px;
+    max-width: 138px;
     margin: 0;
   }
 
   &__item-image {
     overflow: hidden;
+    height: $image-height;
   }
 
   &__item-caption {
-    margin-bottom: 0.8em;
-    height: 18px;
+    margin-bottom: 0.5em;
     font-size: 14px;
     color: $main-red;
     font-family: "PT Sans";
-    font-weight: 400;
   }
 
   &__item-text {
     color: #5788d3;
     text-decoration: none;
     cursor: pointer;
+    overflow: hidden;
+    max-height: 3.9em;
   }
+  @include line(2px);
 }

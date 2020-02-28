@@ -1,34 +1,33 @@
 @import './line.scss';
+@import './variables.scss';
 
 .nav,
 .nav__ul {
-    display: flex;
+  display: flex;
 }
 
 .nav {
-    justify-content: space-between;
+  justify-content: space-between;
 
-    height: 27px;
-    line-height: 27px;
+  height: 27px;
+  line-height: 27px;
 
-    &__ul {
-        margin: 0;
-        padding-left: 0;
-    }
+  &__ul {
+    margin: 0;
+    padding-left: 0;
+  }
 
-    &__item {
-        list-style: none;
-        padding-right: 20px;
-        font-size: 17px;
-        color: lighten($color: #000000, $amount: 20);
-    }
+  &__item {
+    list-style: none;
+    padding-right: 20px;
+    font-size: 17px;
+    color: $main-grey;
+  }
 
 
-    a {
-        text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 
-    &__line {
-        @include line(2px);
-    }
+  @include line(2px);
 }
