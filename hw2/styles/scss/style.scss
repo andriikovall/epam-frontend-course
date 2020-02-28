@@ -20,7 +20,7 @@
   background-color: #f7f9fa;
   height: 250px;
   max-width: 100%;
-  
+
   margin-bottom: 30px;
 
   border-bottom: 5px solid $main-red;
@@ -65,6 +65,14 @@
     font-weight: 700;
     margin-right: 3px;
     margin-left: 3px;
+  }
+
+  &__right,
+  &__left {
+    &:hover {
+      cursor: pointer;
+      color: lighten($main-red, 20);
+    }
   }
 }
 
@@ -119,6 +127,7 @@
     height: $height;
     overflow: hidden;
     text-align: center;
+
     img {
       height: 100%;
       width: 100%;

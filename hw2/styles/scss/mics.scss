@@ -29,11 +29,6 @@
       width: 5%;
       text-align: center;
       line-height: $image-height;
-
-      &:hover {
-        cursor: pointer;
-        color: lighten($main-red, 20);
-      }
     }
   }
 
@@ -67,6 +62,10 @@
     cursor: pointer;
     overflow: hidden;
     max-height: 3.9em;
+  }
+
+  &__link {
+    text-decoration: none;
   }
   @include line(2px);
 }

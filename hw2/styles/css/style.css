@@ -55,6 +55,10 @@
   margin-right: 3px;
   margin-left: 3px;
 }
+.counter__right:hover, .counter__left:hover {
+  cursor: pointer;
+  color: #ff2f2f;
+}
 
 .article__text {
   font-size: 14px;
@@ -144,11 +148,11 @@
 }
 .upper__icon {
   cursor: pointer;
-  color: #333333;
+  color: #4d4d4d;
   padding-left: 10px;
 }
 .upper__icon:hover {
-  color: gray;
+  color: #999999;
 }
 
 .nav,
@@ -175,11 +179,17 @@
   color: #333333;
   font-family: "PT Sans";
 }
+.nav__item:hover {
+  text-decoration: underline;
+}
 .nav a {
   text-decoration: none;
 }
 .nav a:visited {
   color: #333333;
+}
+.nav__button {
+  cursor: pointer;
 }
 
 .video {
@@ -293,10 +303,6 @@
   text-align: center;
   line-height: 94px;
 }
-.misc .counter__right:hover, .misc .counter__left:hover {
-  cursor: pointer;
-  color: #ff2f2f;
-}
 .misc__items {
   width: 90%;
   display: flex;
@@ -323,6 +329,9 @@
   cursor: pointer;
   overflow: hidden;
   max-height: 3.9em;
+}
+.misc__link {
+  text-decoration: none;
 }
 
 .footer {

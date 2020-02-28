@@ -23,6 +23,10 @@
     font-size: 17px;
     color: $main-grey;
     font-family: "PT Sans";
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
 
@@ -31,6 +35,10 @@
     &:visited {
       color: $main-grey;
     }
+  }
+
+  &__button {
+    cursor: pointer;
   }
 
   @include line(2px);
