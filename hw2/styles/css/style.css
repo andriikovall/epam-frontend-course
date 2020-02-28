@@ -281,7 +281,7 @@
 .misc {
   grid-column-start: 1;
   grid-column-end: 3;
-  z-index: 0;
+  z-index: 1;
   height: 210px;
   border-bottom: 2px solid #333333;
   content: "";
@@ -293,28 +293,39 @@
 }
 .misc__caroosel {
   display: flex;
+  justify-content: space-around;
   height: 165px;
+  margin-top: -20px;
 }
 .misc .counter {
   font-size: 3em;
-  z-index: 2;
 }
 .misc .counter__right, .misc .counter__left {
-  position: relative;
-  height: 94px;
+  position: absolute;
+  height: 80%;
   width: 5%;
   text-align: center;
-  line-height: 94px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-top: 0.8em;
+}
+.misc .counter__right {
+  z-index: 10;
+  right: 1px;
+}
+.misc .counter__left {
+  z-index: 10;
+  left: 1px;
 }
 .misc__items {
+  z-index: 2;
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: start;
-  margin-top: -20px;
   overflow: hidden;
 }
 .misc__item {
-  z-index: 1;
+  z-index: 3;
   margin: 0;
   min-width: 138px;
   margin-right: 10px;
@@ -323,6 +334,9 @@
 .misc__item-image {
   overflow: hidden;
   height: 94px;
+}
+.misc__item-image img {
+  position: relative;
 }
 .misc__item-caption {
   margin-bottom: 0.5em;
@@ -438,6 +452,10 @@ img {
   content: "";
   display: table;
   clear: both;
+}
+
+body {
+  z-index: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
