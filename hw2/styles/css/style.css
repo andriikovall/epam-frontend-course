@@ -282,7 +282,7 @@
   grid-column-start: 1;
   grid-column-end: 3;
   z-index: 1;
-  height: 210px;
+  height: 220px;
   border-bottom: 2px solid #333333;
   content: "";
   width: 100%;
@@ -296,6 +296,7 @@
   justify-content: space-around;
   height: 165px;
   margin-top: -20px;
+  height: 180px;
 }
 .misc .counter {
   font-size: 3em;
@@ -349,7 +350,7 @@
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
-  max-height: 3.9em;
+  height: 4em;
 }
 .misc__link {
   text-decoration: none;

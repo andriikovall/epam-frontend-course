@@ -10,7 +10,7 @@
 
   $image-height: 94px;
 
-  height: 210px;
+  height: 220px;
 
   &__heading {
     display: flex;
@@ -22,6 +22,7 @@
     justify-content: space-around;
     height: 165px;
     margin-top: -20px;
+    height: 180px;
   }
 
   .counter {
@@ -84,7 +85,7 @@
     text-decoration: none;
     cursor: pointer;
     overflow: hidden;
-    max-height: 3.9em;
+    height: 4em;
   }
 
   &__link {
