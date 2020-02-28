@@ -289,7 +289,7 @@
 }
 .misc .counter__right, .misc .counter__left {
   height: 94px;
-  width: 60px;
+  width: 5%;
   text-align: center;
   line-height: 94px;
 }
@@ -298,7 +298,7 @@
   color: #ff2f2f;
 }
 .misc__items {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-around;
   margin-top: -20px;
