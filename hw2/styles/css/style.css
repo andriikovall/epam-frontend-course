@@ -48,7 +48,6 @@
 .counter__value {
   font-size: 18px;
   letter-spacing: 0px;
-  line-height: 18px;
   color: #333333;
   font-family: "PT Sans";
   font-weight: 700;
@@ -66,6 +65,9 @@
   color: #333333;
   font-family: "PT Sans";
   font-weight: 400;
+  max-height: 90px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .news {

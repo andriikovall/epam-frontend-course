@@ -59,7 +59,7 @@
   &__value {
     font-size: 18px;
     letter-spacing: 0px;
-    line-height: 18px;
+    // line-height: 100%;
     color: $main-grey;
     font-family: "PT Sans";
     font-weight: 700;
@@ -83,6 +83,9 @@
     color: $main-grey;
     font-family: "PT Sans";
     font-weight: 400;
+    max-height: 90px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 
