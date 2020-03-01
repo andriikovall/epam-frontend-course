@@ -1,8 +1,7 @@
 @import './variables.scss';
 
 @mixin line($height) {
-    $border: $height solid $main-grey;
-    border-bottom: $border;
+    border-bottom: $height solid $main-grey;
     content: '';
     width: 100%;
 }

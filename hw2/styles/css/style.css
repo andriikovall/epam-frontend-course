@@ -65,7 +65,7 @@
   color: #333333;
   font-family: "PT Sans";
   font-weight: 400;
-  max-height: 90px;
+  max-height: 70px;
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -275,7 +275,7 @@
 }
 .video__bottom-line {
   margin-top: 0.4em;
-  border-bottom: 5px solid #333333;
+  border-bottom: 4px solid #333333;
   content: "";
   width: 100%;
 }
