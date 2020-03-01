@@ -41,14 +41,8 @@
   }
 
   &__image {
-
     min-width: 140px;
-
-    padding-top: 0.1em;
-    img {
-      width: 100%;
-      // height: 100%;
-    }
+    padding-top: 0.1em;    
   }
 
   &__text {
@@ -63,20 +57,23 @@
 
   &__play-btn {
     position: relative;
-    text-align: center;
     color: white;
-    width: 20px;
-    height: 15px;
+    width: 21px;
+    height: 16px;
     border-radius: 5px;
-    background-color: $main-purple;
+    background-color: white;
     border: 2px solid white;
     left: 5px;
     bottom: 28px;
 
-    i {
+    &::after {
+      display: block;
       position: relative;
-      bottom: 1.2px;
-      left: 1px;
+      background-image: url('../../img/play-btn.png');
+      background-repeat: no-repeat;
+      content: '';
+      width: 21px;
+      height: 16px;
     }
   }
 
