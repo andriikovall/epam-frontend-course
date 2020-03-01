@@ -211,13 +211,7 @@
   margin-right: 0.4em;
   font-family: "PT Sans";
 }
-.video__line-left {
-  border-bottom: 2px solid #333333;
-  content: "";
-  width: 100%;
-  margin-bottom: 0.5em;
-}
-.video__line-right {
+.video__line-left, .video__line-right {
   border-bottom: 2px solid #333333;
   content: "";
   width: 100%;
@@ -225,29 +219,25 @@
 }
 .video__item {
   margin: 0;
-  height: 88px;
+  height: 85px;
   display: flex;
-  margin-bottom: 1em;
+  margin-bottom: 10px;
 }
 .video__image {
-  width: 40%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  min-width: 140px;
   padding-top: 0.1em;
-  overflow: hidden;
 }
 .video__image img {
-  width: 140px;
+  width: 100%;
 }
 .video__text {
   overflow: hidden;
   padding-left: 10px;
-  width: 160px;
   font-size: 14px;
   color: #333333;
   font-family: "PT Sans";
   font-weight: 700;
+  max-height: 85%;
 }
 .video__play-btn {
   position: relative;
