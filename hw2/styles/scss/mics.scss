@@ -30,8 +30,9 @@
     &__right,
     &__left {
       position: absolute;
-      height: 90%;
-      width: 5%;
+      z-index: 10;
+      height: 100%;
+      width: 60px;
       text-align: center; 
       background-color: transparentize(white, 0.2);
       // padding-top: 0.8em;
@@ -39,13 +40,11 @@
     }
 
     &__right {
-      z-index: 10;
-      right: 1px;
+      right: 0;
     }
 
     &__left {
-      z-index: 10;
-      left: 1px;
+      left: 0;
     }
   }
 
@@ -56,6 +55,7 @@
     display: flex;
     justify-content: start;
     overflow: hidden;
+    margin-left: 60px;
   }
 
   &__item {
