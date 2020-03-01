@@ -296,11 +296,11 @@
 }
 .misc .counter__right, .misc .counter__left {
   position: absolute;
-  height: 80%;
+  height: 90%;
   width: 5%;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
-  padding-top: 0.8em;
+  line-height: 140px;
 }
 .misc .counter__right {
   z-index: 10;
