@@ -45,9 +45,6 @@
   &__content {
     padding: 20px;
     position: relative;
-    
-    // min-width: 240px;
-    // max-width: 40%;
   }
   
   &__counter {
@@ -120,12 +117,10 @@
   }
 
   &__details {
-    width: 139px;
-    height: 73px;
+    height: 70px;
     font-size: 14px;
-    letter-spacing: 0px;
     line-height: 18px;
-    color: #463f3f;
+    color: $main-grey;
     font-family: "PT Sans";
     font-weight: 400;
     overflow: hidden;
@@ -137,14 +132,6 @@
 
   &__image {
     $height: 88px;
-    height: $height;
-    overflow: hidden;
-    text-align: center;
-
-    img {
-      height: 100%;
-      width: 100%;
-    }
   }
 
 }
