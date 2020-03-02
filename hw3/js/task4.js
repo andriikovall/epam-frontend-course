@@ -10,8 +10,8 @@ const arr = [
 
 
 function task4() {
-  console.log(task4_1());
-  console.log(task4_2());
+  output('4-1: ' + task4_1());
+  output('4-2: ' + JSON.stringify(task4_2(), null, ' '));
 }
 
 function task4_1() {

@@ -11,7 +11,7 @@ function task2() {
 
   triangleValues.forEach(row => {
     const stringFromRow = getStringForPifagorianRow(row, defaultNumberSpacing, lastRowStringLength);
-    console.log(stringFromRow);
+    output(stringFromRow);
   });
 }
 

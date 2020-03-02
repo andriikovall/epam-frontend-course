@@ -7,3 +7,15 @@ function randInt(min, max) {
   const rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
+
+const contentBox = document.getElementById('output');
+
+function output(str) {
+  contentBox.innerHTML += str.toString() + '\n';
+}
+
+function clearOutput() {
+  contentBox.innerHTML = '';
+}
+
+clearOutput();

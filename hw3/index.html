@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/helpers.js"></script>
+    <script src="./js/helpers.js" defer></script>
     <script src="js/task1.js" defer></script>
-    <script src="./js/task2.js"></script>
-    <script src="./js/task4.js"></script>
+    <script src="./js/task2.js" defer></script>
+    <script src="./js/task4.js" defer></script>
+    <script src="./js/main.js" defer></script>
+
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-
+  <main>
+    <div class="buttons">
+      <button class="btn" id="task-1">Завдання 1</button>
+      <button class="btn" id="task-2">Завдання 2</button>
+      <button class="btn" id="task-3">Завдання 3</button>
+      <button class="btn" id="task-4">Завдання 4</button>
+      <button class="btn" id="clear-btn">Очистити</button>
+    </div>
+    <pre id="output">
+    </pre>
+  </main>
 </body>
 </html>
