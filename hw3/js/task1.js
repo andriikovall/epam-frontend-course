@@ -3,7 +3,7 @@ const profecions = [
   'Сантехнік', 'Програміст',
   'Вчитель', 'Пілот', 'Підприємець',
   'Співак', 'Хімік', 'Фізик',
-  'Актор', 'Дизайнер', 'Психолог',
+  'Актор', 'Дизайнер', 'Психолог'
 ];
 
 const maleNames = [
@@ -22,7 +22,7 @@ const maleNames = [
   'ЮРІЙ',
   'РОМАН',
   'БОГДАН',
-  'ВОЛОДИМИР',
+  'ВОЛОДИМИР'
 ].map(capitalizeFirstLetter);
 
 const femaleNames = [
@@ -40,7 +40,7 @@ const femaleNames = [
   'ДАРИНА',
   'ЮЛІЯ',
   'ХРИСТИНА',
-  'АНГЕЛІНА',
+  'АНГЕЛІНА'
 ].map(capitalizeFirstLetter);
 
 const countries = [
@@ -61,7 +61,7 @@ const countries = [
   'Сам Марино',
   'Балі',
   'Північна Корея))',
-  'СРСР',
+  'СРСР'
 ];
 
 const male = 'Ч';
@@ -102,34 +102,34 @@ function task1() {
 function getPossiblePartnerName(sex) {
   const allPossiblePartnerNames = sex === male ? [...femaleNames] : [...maleNames];
   const quantityKoef = 0.5;
-  const severalPossiblePartnerNames =  new Array(Math.round(allPossiblePartnerNames.length * quantityKoef)).fill('').map(_ => allPossiblePartnerNames[randInt(0, allPossiblePartnerNames.length - 1)]);
-  return promptList([...(new Set(severalPossiblePartnerNames))], 'Ваш майбутній партнер',
-  'Нажаль, ми не змогли підібрати ідеального імені. Але не засмучуйтеся, бо кажуть, що все, що ми задумали, неодмінно збудеться! Уведіть бажане ім\'я');
+  const severalPossiblePartnerNames = new Array(Math.round(allPossiblePartnerNames.length * quantityKoef)).fill('').map(_ => allPossiblePartnerNames[randInt(0, allPossiblePartnerNames.length - 1)]);
+  return promptList([...new Set(severalPossiblePartnerNames)], 'Ваш майбутній партнер',
+    'Нажаль, ми не змогли підібрати ідеального імені. Але не засмучуйтеся, бо кажуть, що все, що ми задумали, неодмінно збудеться! Уведіть бажане ім\'я');
 }
 
 function getPossibleJob() {
   const quantityKoef = 0.5;
-  const severalPossibleJobs =  new Array(Math.round(profecions.length * quantityKoef)).fill('').map(_ => profecions[randInt(0, profecions.length - 1)]);
-  return promptList([...(new Set(severalPossibleJobs))], 'Ваша майбутня робота',
-  'Нажаль, ми не змогли підібрати ідеальну роботу для вас. Але не засмучуйтеся, бо кажуть, що все, що ми задумали, неодмінно збудеться! Уведіть бажану роботу');
+  const severalPossibleJobs = new Array(Math.round(profecions.length * quantityKoef)).fill('').map(_ => profecions[randInt(0, profecions.length - 1)]);
+  return promptList([...new Set(severalPossibleJobs)], 'Ваша майбутня робота',
+    'Нажаль, ми не змогли підібрати ідеальну роботу для вас. Але не засмучуйтеся, бо кажуть, що все, що ми задумали, неодмінно збудеться! Уведіть бажану роботу');
 }
 
 
 function getPossibleCountry() {
   const quantityKoef = 0.5;
-  const severalPossibleCountries =  new Array(Math.round(countries.length * quantityKoef)).fill('').map(_ => countries[randInt(0, countries.length - 1)]);
-  return promptList([...(new Set(severalPossibleCountries))], 'Ваша майбутня країна проживання',
-  'Нажаль, ми не змогли підібрати країну для вас. Але не засмучуйтеся, бо кажуть, що все, що ми задумали, неодмінно збудеться! Уведіть бажану країну');
+  const severalPossibleCountries = new Array(Math.round(countries.length * quantityKoef)).fill('').map(_ => countries[randInt(0, countries.length - 1)]);
+  return promptList([...new Set(severalPossibleCountries)], 'Ваша майбутня країна проживання',
+    'Нажаль, ми не змогли підібрати країну для вас. Але не засмучуйтеся, бо кажуть, що все, що ми задумали, неодмінно збудеться! Уведіть бажану країну');
 }
 
 function getPossibleChildrenCount() {
-  const possibleChildrenCountList = [...(new Set(new Array(maxChildren * 0.8).fill(0).map(v => randInt(0, maxChildren))))];
+  const possibleChildrenCountList = [...new Set(new Array(maxChildren * 0.8).fill(0).map(_ => randInt(0, maxChildren)))];
   return promptList(possibleChildrenCountList, 'Кількість майбутніх дітей', 'Нажаль, ми не передбачаємо у вас іншу кількість дітей. Але не засмучуйтеся, бо кажуть, що все, що ми задумали, неодмінно збудеться! Уведіть бажану кількість дітей');
 }
 
 function createOutputMessage(partner, childrenCount, job, country) {
   const msg = `Ви укладете шлюб з ${partner} та у Вас буде ${childrenCount} дітей. ` +
-              `Ви переїдете у ${country} на посаду ${job}`;
+    `Ви переїдете у ${country} на посаду ${job}`;
   return msg;
 }
 

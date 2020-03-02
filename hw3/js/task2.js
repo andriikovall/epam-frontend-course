@@ -4,18 +4,22 @@ function task2() {
     alert('Невірно введені дані');
     return;
   }
+  let defaultSpacesNum = 3;
+  const spacing = parseInt(prompt('При бажанні можете задати свою кількість пробілів між числами. Дефолтне значення ' + defaultSpacesNum)) || -1;
+  if (spacing > 0) {
+    defaultSpacesNum = spacing;
+  }
 
   const triangleValues = getValuesForPifagorianTringle(n);
   const lastRow = triangleValues[triangleValues.length - 1];
-  const lastRowStringLength = getStringForPifagorianRow(lastRow, defaultNumberSpacing).length;
+  const lastRowStringLength = getStringForPifagorianRow(lastRow, defaultSpacesNum).length;
 
   triangleValues.forEach(row => {
-    const stringFromRow = getStringForPifagorianRow(row, defaultNumberSpacing, lastRowStringLength);
+    const stringFromRow = getStringForPifagorianRow(row, defaultSpacesNum, lastRowStringLength);
     output(stringFromRow);
   });
 }
 
-const defaultNumberSpacing = 3;
 
 function getStringForPifagorianRow(row, spacingNumber, preferableLength = -1) {
   const space = ' '.repeat(spacingNumber);

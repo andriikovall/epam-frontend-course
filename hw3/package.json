@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "editorconfig": "^0.15.3",
-    "eslint": "^6.1.0",
+    "eslint": "^6.1.0"
   },
   "keywords": [],
   "author": "",
