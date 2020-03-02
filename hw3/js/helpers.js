@@ -12,6 +12,7 @@ const contentBox = document.getElementById('output');
 
 function output(str) {
   contentBox.innerHTML += str.toString() + '\n';
+  contentBox.scrollTop = contentBox.scrollHeight
 }
 
 function clearOutput() {
