@@ -40,6 +40,11 @@
     font-weight: 400;
     margin: 0;
     margin-bottom: 15px;
+    cursor: pointer;
+
+    &:hover {
+      color: lighten($color: $main-red, $amount: 8);
+    }
   }
   
   &__content {

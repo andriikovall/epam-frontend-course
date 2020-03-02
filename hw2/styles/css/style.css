@@ -33,6 +33,10 @@
   font-weight: 400;
   margin: 0;
   margin-bottom: 15px;
+  cursor: pointer;
+}
+.main-article__caption:hover {
+  color: #f10000;
 }
 .main-article__content {
   padding: 20px;
@@ -223,6 +227,9 @@
   display: flex;
   margin-bottom: 10px;
 }
+.video__item:hover {
+  cursor: pointer;
+}
 .video__image {
   min-width: 140px;
   padding-top: 0.1em;
@@ -295,7 +302,7 @@
 .misc .counter__right, .misc .counter__left {
   position: absolute;
   z-index: 10;
-  height: 95%;
+  height: 92%;
   width: 60px;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
@@ -319,9 +326,7 @@
 }
 .misc ::-webkit-scrollbar {
   width: 0px;
-  /* Remove scrollbar space */
   background: rgba(0, 0, 0, 0);
-  /* Optional: just make scrollbar invisible */
 }
 .misc__item {
   z-index: 3;
@@ -333,9 +338,6 @@
 .misc__item-image {
   overflow: hidden;
   height: 94px;
-}
-.misc__item-image img {
-  position: relative;
 }
 .misc__item-caption {
   margin-bottom: 0.5em;
@@ -435,10 +437,40 @@
     width: auto;
     height: auto;
   }
+
+  .feedback {
+    display: none;
+  }
 }
+.feedback {
+  cursor: pointer;
+  position: fixed;
+  right: -36px;
+  bottom: 50vh;
+  transform: rotate(-90deg);
+  opacity: 1;
+  background-color: #BFBFC0;
+  color: white;
+  font-size: 11px;
+  font-family: "PT Sans";
+  font-weight: bold;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 13px;
+  padding-left: 13px;
+}
+.feedback:hover {
+  background: #d9d9d9;
+  transition: 0.1s;
+}
+
 img {
   margin: 0;
   max-width: 100%;
+}
+
+p {
+  margin: 0;
 }
 
 .clearfix:after {

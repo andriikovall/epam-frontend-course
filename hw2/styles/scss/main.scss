@@ -6,10 +6,15 @@
 @import './mics.scss';
 @import './footer.scss';
 @import './media.scss';
+@import './feedback.scss';
 
 img {
     margin: 0;
     max-width: 100%;
+}
+
+p {
+    margin: 0;
 }
 
 .clearfix:after {

@@ -38,6 +38,9 @@
     height: 85px;
     display: flex;
     margin-bottom: 10px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__image {

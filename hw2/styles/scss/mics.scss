@@ -30,7 +30,7 @@
     &__left {
       position: absolute;
       z-index: 10;
-      height: 95%;
+      height: 92%;
       width: 60px;
       text-align: center;
       background-color: transparentize(white, 0.2);
@@ -55,15 +55,12 @@
     overflow-y: scroll;
     padding-left: 60px;
     padding-right: 60px;
-    // scroll-padding-left: 60px;
-
   }
-      ::-webkit-scrollbar {
-        width: 0px;
-        /* Remove scrollbar space */
-        background: rgba($color: #000000, $alpha: 0);
-        /* Optional: just make scrollbar invisible */
-      }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: rgba($color: #000000, $alpha: 0);
+  }
 
   &__item {
     z-index: 3;
@@ -76,10 +73,6 @@
   &__item-image {
     overflow: hidden;
     height: $image-height;
-
-    img {
-      position: relative;
-    }
   }
 
   &__item-caption {
