@@ -287,9 +287,7 @@
 .misc__caroosel {
   display: flex;
   justify-content: space-around;
-  height: 165px;
   margin-top: -20px;
-  height: 180px;
 }
 .misc .counter {
   font-size: 3em;
@@ -297,7 +295,7 @@
 .misc .counter__right, .misc .counter__left {
   position: absolute;
   z-index: 10;
-  height: 100%;
+  height: 95%;
   width: 60px;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
@@ -315,8 +313,15 @@
   width: 100%;
   display: flex;
   justify-content: start;
-  overflow: hidden;
-  margin-left: 60px;
+  overflow-y: scroll;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.misc ::-webkit-scrollbar {
+  width: 0px;
+  /* Remove scrollbar space */
+  background: rgba(0, 0, 0, 0);
+  /* Optional: just make scrollbar invisible */
 }
 .misc__item {
   z-index: 3;
