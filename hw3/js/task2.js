@@ -47,6 +47,6 @@ const task2 = (function(){
       const stringFromRow = getStringForPifagorianRow(row, defaultSpacesNum, lastRowStringLength);
       output(stringFromRow);
     });
-  }
-})()
+  };
+})();
 

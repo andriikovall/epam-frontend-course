@@ -1,18 +1,22 @@
-function task3() {
-  let bottlesCount = parseInt(prompt('Уведіть кількість пляшок')) || -1;
+const task3 = (function() {
 
-  if (bottlesCount <= 0) {
-    alert('Неправильна кількість пляшок');
+  function printBottle(count) {
+    if (count <= 0) {
+      output('Жодної');
+      return;
+    }
+    output(`${count} пляшок стоїть на стіні, одна упала і залишилось`);
+    setTimeout(() => printBottle(count - 1), 200);
   }
 
-  printBottle(bottlesCount);
-}
+  return function () {
+    let bottlesCount = parseInt(prompt('Уведіть кількість пляшок')) || -1;
 
-function printBottle(count) {
-  if (count <= 0) {
-    output('Жодної');
-    return;
-  }
-  output(`${count} пляшок стоїть на стіні, одна упала і залишилось`);
-  setTimeout(() => printBottle(count - 1), 200);
-}
+    if (bottlesCount <= 0) {
+      alert('Неправильна кількість пляшок');
+    }
+
+    printBottle(bottlesCount);
+  };
+})();
+

@@ -39,6 +39,7 @@ module.exports = {
     "no-useless-constructor": "error",
     "no-prototype-builtins": "off",
     "no-var": "warn",
-    "no-unused-vars": ["error", { "vars": "local" }]
+    "no-unused-vars": ["error", { "vars": "local" }],
+    "semi":"error"
   }
 }
