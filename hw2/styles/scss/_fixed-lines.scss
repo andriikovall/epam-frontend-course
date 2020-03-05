@@ -1,0 +1,6 @@
+@mixin fixed-lines($font-size, $line-height, $rows) {
+    font-size: $font-size;
+    // $line-height: $font-size * $line-height-koef;
+    line-height: $line-height;
+    max-height: $line-height * $rows;
+}

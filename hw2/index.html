@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="./styles/css/style.css">
 
   <script src="https://kit.fontawesome.com/44e5838acf.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
 </head>
 
 <body>
-  <div class="upper__wrapper">
+  <div class="upper-wrapper">
     <div class="upper clearfix">
       <div class="upper__content">
         <a href="#" class="upper__link">Sign in</a>
@@ -26,23 +27,21 @@
 
   <div class="page-wrapper">
     <div class="nav-wrapper">
-
       <nav class="nav">
         <ul class="nav__ul">
-          <li class="nav__item"><a href="#">News</a></li>
-          <li class="nav__item"><a href="#">Finance</a></li>
-          <li class="nav__item"><a href="#">Sports</a></li>
-          <li class="nav__item"><a href="#">Tech</a></li>
-          <li class="nav__item"><a href="#">Automotive</a></li>
-          <li class="nav__item"><a href="#">Showbiz</a></li>
-          <li class="nav__item"><a href="#">Funny</a></li>
-          <li class="nav__item"><a href="#">Video</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">News</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Finance</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Sports</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Tech</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Automotive</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Showbiz</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Funny</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Video</a></li>
         </ul>
-
-        <div class="nav__button"><i class="fas fa-bars"></i></div>
       </nav>
+      <div class="nav__button"><img src="./img/hamburger.png" alt="hamburger nav icon"></div>
     </div>
-    <main class="main">
+    <main class="l-main">
       <article class="main-article article">
         <div class="main-article__image">
           <img src="./img/football.png" alt="barcenola match">
@@ -60,42 +59,40 @@
               <i class="fas fa-chevron-left"></i>
             </div>
             <div class="counter__value">
-              7/20
+              <span>7</span>/20
             </div>
             <div class="counter__right">
-              <i class="fas fa-chevron-right"></i>
+              <!-- <i class="fas fa-chevron-right"></i> -->
+              <img src="/img/right.png" alt="">
             </div>
           </div>
         </div>
       </article>
-      <div class="news">
+      <section class="news">
         <div class="news__heading heading-underlined">
-          <h4>OMG News</h4>
+          <h4 class="heading-underlined__caption">OMG News</h4>
           <div class="heading-underlined__line"></div>
         </div>
         <ul class="news__ul">
           <li>
             <figure class="news__item">
               <div class="news__image">
-                <img
-                  src="./img/jerard.png"
-                  alt="gerard de parte">
+                <img src="./img/jerard.png" alt="gerard de parte">
               </div>
-              <div class="news__details">
+              <figcaption class="news__details">
                 A YouTuber's fancy Bali vacation sure looked nice. Nope, the photos were taken in an lkea
-              </div>
+                A YouTuber's fancy Bali vacation sure looked nice. Nope, the photos were taken in an lkea
+              </figcaption>
             </figure>
           </li>
           <li>
             <figure class="news__item">
               <div class="news__image">
-                <img
-                  src="./img/stadium.png"
-                  alt="football stadium">
+                <img src="./img/stadium.png" alt="football stadium">
               </div>
-              <div class="news__details">
+              <figcaption class="news__details">
                 Kayaker makes spectacular descent down 134-foot waterfall
-              </div>
+              </figcaption>
             </figure>
           </li>
           <li>
@@ -103,18 +100,17 @@
               <div class="news__image">
                 <img src="./img/train.png" alt="speed train">
               </div>
-              <div class="news__details">
+              <figcaption class="news__details">
                 Assange's lawyers say he was told to call back when trying to w
-              </div>
+              </figcaption>
             </figure>
           </li>
           <li>
             <figure class="news__item">
               <div class="news__image">
-                <img src="./img/barca-girls.png"
-                  alt="beautiful barcenola women">
+                <img src="./img/barca-girls.png" alt="beautiful barcenola women">
               </div>
-              <div class="news__details">
+              <figcaption class="news__details">
                 CDC warns coronavirus spread in US is inevitableCDC warns coronavirus spread in US is inevitableCDC
                 warns coronavirus spread in US is inevitableCDC warns coronavirus spread in US is inevitable
                 CDC warns coronavirus spread in US is inevitableCDC warns coronavirus spread in US is inevitableCDC
@@ -127,107 +123,107 @@
                 warns coronavirus spread in US is inevitableCDC warns coronavirus spread in US is inevitable
                 CDC warns coronavirus spread in US is inevitableCDC warns coronavirus spread in US is inevitableCDC
                 warns coronavirus spread in US is inevitableCDC warns coronavirus spread in US is inevitable
-              </div>
+              </figcaption>
             </figure>
           </li>
         </ul>
-      </div>
+      </section>
       <aside class="video">
         <div class="video__heading">
           <div class="video__line-left"></div>
-          <h4>video</h4>
+          <h4 class="video__caption">video</h4>
           <div class="video__line-right"></div>
         </div>
         <ul class="video__ul">
           <li>
-            <figure class="video__item">
-              <div class="video__image"> 
-                <img
-                  src="./img/ded.png"
-                  alt="some well known old star">
-                <div class="video__play-btn">
+            <a href="#">
+              <figure class="video__item">
+                <div class="video__image">
+                  <img src="./img/ded.png" alt="some well known old star">
+                  <div class="video__play-btn">
+                  </div>
                 </div>
-              </div>
-              <figcaption class="video__text">
-                FBI raids fashion mogul's office after he was accused of sex as
-                FBI raids fashion mogul's office after he was accused of sex as
-                FBI raids fashion mogul's office after he was accused of sex as
+                <figcaption class="video__text">
+                  FBI raids fashion mogul's office after he was accused of sex as
+                  FBI raids fashion mogul's office after he was accused of sex as
+                  FBI raids fashion mogul's office after he was accused of sex as
 
-                FBI raids fashion mogul's office after he was accused of sex as
-              </figcaption>
-            </figure>
+                  FBI raids fashion mogul's office after he was accused of sex as
+                </figcaption>
+              </figure>
+            </a>
           </li>
           <li>
-            <figure class="video__item">
-              <div class="video__image">
-                <img
-                  src="./img/egypt.png"
-                  alt="egypt">
-                <div class="video__play-btn">
+            <a href="#">
+              <figure class="video__item">
+                <div class="video__image">
+                  <img src="./img/egypt.png" alt="egypt">
+                  <div class="video__play-btn">
+                  </div>
                 </div>
-              </div>
-              <figcaption class="video__text">
-                There is no fun in Egypt any more
-              </figcaption>
-            </figure>
+                <figcaption class="video__text">
+                  There is no fun in Egypt any more
+                </figcaption>
+              </figure>
+            </a>
           </li>
           <li>
-            <figure class="video__item">
-              <div class="video__image">
-                <img
-                  src="./img/students.png"
-                  alt="students doing something">
-                <div class="video__play-btn">
+            <a href="#">
+              <figure class="video__item">
+                <div class="video__image">
+                  <img src="./img/students.png" alt="students doing something">
+                  <div class="video__play-btn">
+                  </div>
                 </div>
-              </div>
-              <figcaption class="video__text">
-                Two students had a problem with exams after not finishing lab :D
-              </figcaption>
-            </figure>
+                <figcaption class="video__text">
+                  Two students had a problem with exams after not finishing lab :D
+                </figcaption>
+              </figure>
+            </a>
           </li>
           <li>
-            <figure class="video__item">
-              <div class="video__image">
-                <img
-                  src="./img/science.png"
-                  alt="scientist">
-                <div class="video__play-btn">
+            <a href="#">
+
+              <figure class="video__item">
+                <div class="video__image">
+                  <img src="./img/science.png" alt="scientist">
+                  <div class="video__play-btn">
+                  </div>
                 </div>
-              </div>
-              <figcaption class="video__text">
-                Scientists say it's not easy!
-                Scientists say it's not easy!
-                Scientists say it's not easy!
-                Scientists say it's not easy!
-                Scientists say it's not easy!
-                Scientists say it's not easy!
-                Scientists say it's not easy!
-                Scientists say it's not easy!
-                Scientists say it's not easy!
-              </figcaption>
-            </figure>
+                <figcaption class="video__text">
+                  Scientists say it's not easy!
+                  Scientists say it's not easy!
+                  Scientists say it's not easy!
+                  Scientists say it's not easy!
+                  Scientists say it's not easy!
+                  Scientists say it's not easy!
+                  Scientists say it's not easy!
+                  Scientists say it's not easy!
+                  Scientists say it's not easy!
+                </figcaption>
+              </figure>
+            </a>
           </li>
           <li>
-            <figure class="video__item">
-              <div class="video__image">
-                <img
-                  src="./img/best.png"
-                  alt="woman">
-                <div class="video__play-btn">
+            <a href="#">
+              <figure class="video__item">
+                <div class="video__image">
+                  <img src="./img/best.png" alt="woman">
+                  <div class="video__play-btn">
+                  </div>
                 </div>
-              </div>
-              <figcaption class="video__text">
-                Best 'the video' blind audiences
-              </figcaption>
-            </figure>
+                <figcaption class="video__text">
+                  Best 'the video' blind audiences
+                </figcaption>
+              </figure>
+            </a>
           </li>
         </ul>
         <a class="video__more-videos-link" href="#">More videos</a>
-        <div class="video__bottom-line"></div>
       </aside>
-      <div class="misc">
+      <section class="misc">
         <div class="heading-underlined misc__heading">
-          <h4>Misc</h4>
+          <h4 class="heading-underlined__caption">Misc</h4>
           <div class="heading-underlined__line"></div>
         </div>
         <div class="misc__caroosel counter">
@@ -235,121 +231,115 @@
             <i class="fas fa-chevron-left"></i>
           </div>
           <div class="misc__items">
-            <figure class="misc__item article">
-              <a class="misc__link" href="#">
-                <figcaption class="misc__item-caption">
+            <figure class="misc-item article">
+              <a class="misc-item__link" href="#">
+                <div class="misc-item__caption">
                   Relations
-                </figcaption>
-                <div class="misc__item-image">
-                  <img
-                    src="./img/relations.png"
-                    alt="Indian woman">
                 </div>
-                <div class="misc__item-text article__text">
+                <div class="misc-item__image">
+                  <img src="./img/relations.png" alt="Indian woman">
+                </div>
+                <figcaption class="misc-item__text article__text">
                   Actors IRL vs actors in movies
-                </div>
+                </figcaption>
               </a>
             </figure>
-            <figure class="misc__item article">
-              <a href="#" class="misc__link">
-                <figcaption class="misc__item-caption">
+            <figure class="misc-item article">
+              <a href="#" class="misc-item__link">
+                <div class="misc-item__caption">
                   Workout
-                </figcaption>
-                <div class="misc__item-image">
-                  <img
-                    src="./img/workout.png"
-                    alt="Training man">
                 </div>
-                <div class="misc__item-text article__text">
+                <div class="misc-item__image">
+                  <img src="./img/workout.png" alt="Training man">
+                </div>
+                <figcaption class="misc-item__text article__text">
                   Go go for workout
-                </div>
+                </figcaption>
               </a>
             </figure>
-            <figure class="misc__item article">
-              <a href="#" class="misc__link">
-                <figcaption class="misc__item-caption">
+            <figure class="misc-item article">
+              <a href="#" class="misc-item__link">
+                <div class="misc-item__caption">
                   Finance
-                </figcaption>
-                <div class="misc__item-image">
-                  <img
-                    src="./img/finance.png"
-                    alt="Working with finances">
                 </div>
-                <div class="misc__item-text article__text">
+                <div class="misc-item__image">
+                  <img src="./img/finance.png" alt="Working with finances">
+                </div>
+                <figcaption class="misc-item__text article__text">
                   Different people - different income
-                </div>
+                </figcaption>
               </a>
             </figure>
-            <figure class="misc__item article">
-              <a href="#" class="misc__link">
-                <figcaption class="misc__item-caption">
+            <figure class="misc-item article">
+              <a href="#" class="misc-item__link">
+                <div class="misc-item__caption">
                   LOL
-                </figcaption>
-                <div class="misc__item-image">
+                </div>
+                <div class="misc-item__image">
                   <img src="./img/lol.png" alt="funny guy">
                 </div>
-                <div class="misc__item-text article__text">
+                <figcaption class="misc-item__text article__text">
                   Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek
                   Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek Lol kek
-                </div>
+                </figcaption>
               </a>
             </figure>
-            <figure class="article misc__item">
-              <a href="#" class="misc__link">
-                <figcaption class="misc__item-caption">
+            <figure class="misc-item article">
+              <a href="#" class="misc-item__link">
+                <div class="misc-item__caption">
                   Mobile
-                </figcaption>
-                <div class="misc__item-image">
+                </div>
+                <div class="misc-item__image">
                   <img src="./img/auto.png" alt="old car from russia">
                 </div>
-                <div class="misc__item-text article__text">
+                <figcaption class="misc-item__text article__text">
                   New leak from Apple
-                </div>
+                </figcaption>
               </a>
             </figure>
-            <figure class="misc__item article">
-              <a href="#" class="misc__link">
-                <figcaption class="misc__item-caption">
+            <figure class="misc-item article">
+              <a href="#" class="misc-item__link">
+                <div class="misc-item__caption">
                   Finance
-                </figcaption>
-                <div class="misc__item-image">
+                </div>
+                <div class="misc-item__image">
                   <img
                     src="https://money-debate.com/wp-content/uploads/2019/08/alphagamma-7-surprising-benefits-of-taking-a-career-in-finance-entrepreneurship-1021x580.jpg"
                     alt="Working with finances">
                 </div>
-                <div class="misc__item-text article__text">
+                <figcaption class="misc-item__text article__text">
                   Different people - different income
-                </div>
+                </figcaption>
               </a>
             </figure>
-            <figure class="misc__item article">
-              <a href="#" class="misc__link">
-                <figcaption class="misc__item-caption">
+            <figure class="misc-item article">
+              <a href="#" class="misc-item__link">
+                <div class="misc-item__caption">
                   Finance
-                </figcaption>
-                <div class="misc__item-image">
+                </div>
+                <div class="misc-item__image">
                   <img
                     src="https://money-debate.com/wp-content/uploads/2019/08/alphagamma-7-surprising-benefits-of-taking-a-career-in-finance-entrepreneurship-1021x580.jpg"
                     alt="Working with finances">
                 </div>
-                <div class="misc__item-text article__text">
+                <figcaption class="misc-item__text article__text">
                   Different people - different income
-                </div>
+                </figcaption>
               </a>
             </figure>
-            <figure class="misc__item article">
-              <a href="#" class="misc__link">
-                <figcaption class="misc__item-caption">
+            <figure class="misc-item article">
+              <a href="#" class="misc-item__link">
+                <div class="misc-item__caption">
                   Finance
-                </figcaption>
-                <div class="misc__item-image">
+                </div>
+                <div class="misc-item__image">
                   <img
                     src="https://money-debate.com/wp-content/uploads/2019/08/alphagamma-7-surprising-benefits-of-taking-a-career-in-finance-entrepreneurship-1021x580.jpg"
                     alt="Working with finances">
                 </div>
-                <div class="misc__item-text article__text">
+                <figcaption class="misc-item__text article__text">
                   Different people - different income
-                </div>
+                </figcaption>
               </a>
             </figure>
           </div>
@@ -357,8 +347,12 @@
             <i class="fas fa-chevron-right"></i>
           </div>
         </div>
-      </div>
+      </section>
     </main>
+  </div>
+
+
+  <div class="footer-wrapper">
     <footer class="footer">
       <div class="footer__copiright">
         <p>

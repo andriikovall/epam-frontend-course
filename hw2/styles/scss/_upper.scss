@@ -1,12 +1,12 @@
 @import './variables.scss';
 
-.upper {
 
-  &__wrapper {
-    height: 25px;
-    line-height: 25px;
-    background: #000;
-  }
+.upper-wrapper {
+  line-height: 1.6em;
+  background: #000;
+}
+
+.upper {
 
   &__content {
     margin-left: auto;

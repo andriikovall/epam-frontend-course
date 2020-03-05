@@ -1,28 +1,15 @@
-@import './style.scss';
-@import './variables.scss';
-@import './upper.scss';
-@import './nav.scss';
-@import './video.scss';
-@import './mics.scss';
-@import './footer.scss';
-@import './media.scss';
-@import './feedback.scss';
+@import '_variables.scss';
+@import '_generic.scss';
+@import '_style.scss';
+@import '_upper.scss';
+@import '_nav.scss';
+@import '_video.scss';
+@import '_mics.scss';
+@import '_footer.scss';
+@import '_media.scss';
+@import '_feedback.scss';
+@import '_news.scss';
 
-img {
-    margin: 0;
-    max-width: 100%;
-}
+@import '_utils.scss'; 
 
-p {
-    margin: 0;
-}
 
-.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-body {
-    z-index: 0;
-}

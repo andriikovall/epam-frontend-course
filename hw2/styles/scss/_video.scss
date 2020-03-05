@@ -1,9 +1,18 @@
 @import './variables.scss';
 @import './line.scss';
+@import './fixed-lines.scss';
 
 
 .video {
   margin-left: 20px;
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+
+  @include line(4px);
+
+  a {
+    text-decoration: none;
+  }
 
   &__ul {
     padding-left: 0;
@@ -14,16 +23,18 @@
   }
 
   &__heading {
-    h4 {
-      text-transform: uppercase;
-      color: $main-purple;
-      margin: 0;
-      margin-left: 0.4em;
-      margin-right: 0.4em;
-      font-family: "PT Sans";
-    }
-
     display: flex;
+  }
+
+  &__caption {
+    text-transform: uppercase;
+    color: $main-purple;
+    margin: 0;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    font-family: "PT Sans";
+    font-size: 1.1em;
+
   }
 
   &__line-left,
@@ -34,8 +45,7 @@
 
   &__item {
     margin: 0;
-    // width: 288px;
-    height: 85px;
+    height: 89px;
     display: flex;
     margin-bottom: 10px;
     &:hover {
@@ -51,11 +61,12 @@
   &__text {
     overflow: hidden;
     padding-left: 10px;
-    font-size: 14px;
     color: $main-grey;
     font-family: "PT Sans";
     font-weight: 700;
-    max-height: 85%;
+    $font-size: 14px;
+    @include fixed-lines($font-size, 16px, 4);
+    text-overflow: ellipsis; //почему не работает?!
   }
 
   &__play-btn {
@@ -71,7 +82,7 @@
 
     &::after {
       display: block;
-      position: relative;
+      position: absolute;
       background-image: url('../../img/play-btn.png');
       background-repeat: no-repeat;
       content: '';

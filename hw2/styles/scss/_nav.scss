@@ -2,8 +2,15 @@
 @import './variables.scss';
 
 .nav,
-.nav__ul {
+.nav__ul,
+.nav-wrapper {
   display: flex;
+}
+
+.nav-wrapper {
+  justify-content: space-between;
+  line-height: 100%;
+  @include line(2px);
 }
 
 .nav {
@@ -22,7 +29,7 @@
     padding-right: 20px;
     font-size: 17px;
     color: $main-grey;
-    font-family: "PT Sans";
+    font-family: $font-primary;
 
     &:hover {
       text-decoration: underline;
@@ -30,17 +37,13 @@
   }
 
 
-  a {
+  &__link {
     text-decoration: none;
     color: $main-grey;
-    &:visited {
-      color: $main-grey;
-    }
   }
 
   &__button {
+    margin: auto 0;
     cursor: pointer;
   }
-
-  @include line(2px);
 }

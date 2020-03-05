@@ -1,14 +1,16 @@
 @import './variables.scss';
 @import './line.scss';
+@import './fixed-lines.scss';
 
 .upper,
-.page-wrapper {
+.page-wrapper, 
+.footer {
   margin: 0 auto;
   max-width: $max-width;
 }
 
 
-.main {
+.l-main {
   margin-top: 30px;
   display: grid;
   grid-template-rows: minmax(auto, 252px) 300px auto;
@@ -18,7 +20,7 @@
 .main-article {
   display: flex;
   background-color: #f7f9fa;
-  height: fit-content;
+  height: fit-content; 
   max-width: 100%;
   
   margin-bottom: 30px;
@@ -34,7 +36,12 @@
   }
   
   &__caption {
-    font-size: 30px;
+    // $font-size: 30px;
+    $font-size: 30px;
+    $line-height: 32px;
+    @include fixed-lines($font-size, $line-height, 2);
+    overflow: hidden;
+
     color: $main-red;
     font-family: "PT Serif";
     font-weight: 400;
@@ -73,7 +80,7 @@
     letter-spacing: 0px;
     // line-height: 100%;
     color: $main-grey;
-    font-family: "PT Sans";
+    font-family: $font-primary;
     font-weight: 700;
     margin-right: 3px;
     margin-left: 3px;
@@ -90,59 +97,20 @@
 
 .article {
   &__text {
-    font-size: 14px;
-    line-height: 18px;
+    $font-size: 14px;
+    $line-height: 18px;
+    @include fixed-lines($font-size, $line-height, 6);
     color: $main-grey;
-    font-family: "PT Sans";
+    font-family: $font-primary;
     font-weight: 400;
-    max-height: 90px;
-    text-overflow: ellipsis;
+    // text-overflow: ellipsis;
     overflow: hidden;
+    // padding-bottom: 25px;
   }
-}
-
-.news {
-
-  &__ul {
-    padding-left: 0;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    margin-top: 8px;
-  }
-
-  grid-row-start: 2;
-  grid-row-end: 2;
-  grid-column-start: 1;
-  grid-column-end: 1;
-
-  &__item {
-    margin: 0;
-    width: 140px;
-  }
-
-  &__details {
-    height: 70px;
-    font-size: 14px;
-    line-height: 18px;
-    color: $main-grey;
-    font-family: "PT Sans";
-    font-weight: 400;
-    overflow: hidden;
-  }
-
-  &__heading {
-    display: flex;
-  }
-
-  &__image {
-    $height: 88px;
-  }
-
 }
 
 .heading-underlined {
-  h4 {
+  &__caption {
     margin: 0;
     padding-right: 10px;
     white-space: nowrap;
@@ -150,12 +118,12 @@
     letter-spacing: 0px;
     line-height: 30px;
     color: $main-grey;
-    font-family: "PT Sans";
+    font-family: $font-primary;
     font-weight: 400;
   }
 
   &__line {
     @include line(2px);
-    margin-bottom: 0.4em;
+    margin-bottom: 5px;
   }
 }

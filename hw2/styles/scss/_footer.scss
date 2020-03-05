@@ -1,12 +1,18 @@
 @import './variables.scss';
 
-.footer {
+
+.footer-wrapper {
   background: #f7f9fa;
-  padding-top: 50px;
+  margin-top: 40px;
+  padding-top: 25px;
+}
+
+
+.footer {
 
   &__copiright {
     color: $main-grey;
-    font-family: "PT Sans";
+    font-family: $font-primary;
     font-weight: 400;
   }
 
@@ -15,11 +21,12 @@
     list-style: none;
     padding: 0;
   }
-  
+
   &__link {
     text-decoration: none;
     margin-right: 1em;
     color: $main-link;
+
     &:visited {
       color: $main-link;
     }
