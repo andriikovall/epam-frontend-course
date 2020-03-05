@@ -22,7 +22,7 @@ p {
   margin-top: 30px;
   display: grid;
   grid-template-rows: minmax(auto, 252px) 300px auto;
-  grid-template-columns: 640px 300px;
+  grid-template-columns: 640px 20px 280px;
 }
 
 .main-article {
@@ -197,8 +197,8 @@ p {
 }
 
 .video {
-  padding-left: 20px;
-  grid-column: 2/3;
+  width: 80%;
+  grid-column: 3/4;
   grid-row: 1/3;
   border-bottom: 4px solid #333333;
   content: "";
@@ -298,7 +298,7 @@ p {
 }
 
 .misc {
-  grid-column: 1/3;
+  grid-column: 1/4;
   z-index: 1;
   height: 220px;
   border-bottom: 2px solid #333333;
