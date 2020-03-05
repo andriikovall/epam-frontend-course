@@ -6,6 +6,8 @@
   grid-column: 1 / 4;
   z-index: 1;
 
+  margin-top: 50px;
+
   height: 220px;
 
   &__heading {
@@ -49,8 +51,7 @@
     display: flex;
     justify-content: start;
     overflow-y: scroll;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 70px;
   }
 
   ::-webkit-scrollbar {
@@ -64,7 +65,7 @@
 .misc-item {
   z-index: 3;
   margin: 0;
-  min-width: 138px;
+  min-width: 140px;
   margin-right: 10px;
   margin-left: 10px;
 

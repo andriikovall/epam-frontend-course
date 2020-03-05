@@ -300,6 +300,7 @@ p {
 .misc {
   grid-column: 1/4;
   z-index: 1;
+  margin-top: 50px;
   height: 220px;
   border-bottom: 2px solid #333333;
   content: "";
@@ -339,8 +340,7 @@ p {
   display: flex;
   justify-content: start;
   overflow-y: scroll;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 70px;
 }
 .misc ::-webkit-scrollbar {
   width: 0px;
@@ -350,7 +350,7 @@ p {
 .misc-item {
   z-index: 3;
   margin: 0;
-  min-width: 138px;
+  min-width: 140px;
   margin-right: 10px;
   margin-left: 10px;
 }
