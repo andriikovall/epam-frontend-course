@@ -1,15 +1,14 @@
 @import '_variables.scss';
 @import '_generic.scss';
-@import '_style.scss';
-@import '_upper.scss';
-@import '_nav.scss';
-@import '_video.scss';
-@import '_mics.scss';
-@import '_footer.scss';
-@import '_media.scss';
-@import '_feedback.scss';
-@import '_news.scss';
+@import './blocks/style';
+@import './blocks/upper';
+@import './blocks/nav';
+@import './blocks/video';
+@import './blocks/mics';
+@import './blocks/footer';
+@import './blocks/feedback';
+@import './blocks/news';
 
-@import '_utils.scss'; 
+@import './utils/utils'; 
 
 

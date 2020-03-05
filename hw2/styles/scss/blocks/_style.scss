@@ -1,6 +1,6 @@
-@import './variables.scss';
-@import './line.scss';
-@import './fixed-lines.scss';
+@import '../variables';
+@import '../utils/line';
+@import '../utils/fixed-lines';
 
 .upper,
 .page-wrapper, 
@@ -14,7 +14,7 @@
   margin-top: 30px;
   display: grid;
   grid-template-rows: minmax(auto, 252px) 300px auto;
-  grid-template-columns: 640px 300px;
+  grid-template-columns: 640px $max-width - 640px;
 }
 
 .main-article {
@@ -125,5 +125,17 @@
   &__line {
     @include line(2px);
     margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .l-main {
+    grid-template-rows: minmax(auto, 257px) auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main-article {
+    grid-row: 1 / 1;
+    grid-column: 1 / 3;
   }
 }

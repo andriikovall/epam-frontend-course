@@ -1,5 +1,5 @@
-@import './variables.scss';
-@import './line.scss';
+@import '../variables.scss';
+@import '../utils/line';
 
 
 .misc {
@@ -90,5 +90,26 @@
     cursor: pointer;
     overflow: hidden;
     @include fixed-lines(14px, 16px, 3);
+  }
+}
+
+
+@media screen and (max-width: 940px) {
+  .misc {
+    &__item {
+      width: 15%;
+    }
+
+    &__item-image {
+      margin-top: auto;
+      margin-bottom: auto;
+      img {
+        display: block;
+        max-width:230px;
+        max-height:95px;
+        width: auto;
+        height: auto;
+      }
+    }
   }
 }

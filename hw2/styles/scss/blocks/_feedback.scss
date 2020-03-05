@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import '../variables.scss';
 
 .feedback {
     cursor: pointer;
@@ -22,4 +22,10 @@
         background: lighten($color: $bg-color, $amount: 10);
         transition: 0.1s;
     }
+}
+
+@media screen and (max-width: 940px) {
+    .feedback {
+        display: none;
+      }
 }
