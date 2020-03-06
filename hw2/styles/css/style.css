@@ -456,19 +456,6 @@ p {
   list-style: none;
   margin-top: 8px;
 }
-.news__item {
-  margin: 0;
-  width: 140px;
-}
-.news__details {
-  font-size: 14px;
-  line-height: 18px;
-  max-height: 72px;
-  color: #333333;
-  font-family: "PT Sans";
-  font-weight: 400;
-  overflow: hidden;
-}
 .news__heading {
   display: flex;
 }
@@ -480,19 +467,35 @@ p {
   .news__ul {
     flex-direction: column;
   }
-  .news__item {
+}
+
+.news-item {
+  margin: 0;
+  width: 140px;
+}
+.news-item__details {
+  font-size: 14px;
+  line-height: 18px;
+  max-height: 72px;
+  color: #333333;
+  font-family: "PT Sans";
+  font-weight: 400;
+  overflow: hidden;
+}
+@media screen and (max-width: 940px) {
+  .news-item {
     margin-bottom: 1em;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: start;
   }
-  .news__details {
+  .news-item__image {
+    width: 140px;
+  }
+  .news-item__details {
     width: 60%;
     padding-left: 1em;
-  }
-  .news__image {
-    width: 140px;
   }
 }
 
