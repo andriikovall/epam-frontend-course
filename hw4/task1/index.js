@@ -2,6 +2,8 @@
   const form = document.forms['image-form'];
   const formInputs = form.querySelectorAll('input');
   const imageEl = document.querySelector('.main__image img');
+  const defaultBorderThicknes = '2px';
+  const defaultBorderColor = 'red';
 
   function isColor(colorStr) {
     const s = new Option().style;
@@ -45,6 +47,14 @@
       .map( ({ name }) => form[name]); 
   }
 
+  function configureDefaultFormValues() {
+    form.height.value = getComputedStyle(imageEl).height;
+    form.width.value = getComputedStyle(imageEl).width;
+    form['border-thickness'].value = defaultBorderThicknes;
+    form['border-color'].value = defaultBorderColor;
+    form.alt.value = imageEl.getAttribute('alt');
+  }
+
   function applyImageChanges({ height, width, borderThickness, borderColor, alt}) {
     console.log(imageEl.style);
     imageEl.style.height = height + 'px';
@@ -53,6 +63,8 @@
     imageEl.setAttribute('alt', alt);
     console.log(imageEl.style);
   }
+
+  configureDefaultFormValues();
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
