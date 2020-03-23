@@ -4,7 +4,6 @@ img {
 
 .main {
   max-width: 600px;
-  z-index: 0;
 }
 
 .form .input-group-prepend {
@@ -13,7 +12,6 @@ img {
 
 .input-group-text {
   width: 100%;
-  z-index: 1;
 }
 
 .form-group input.invalid {

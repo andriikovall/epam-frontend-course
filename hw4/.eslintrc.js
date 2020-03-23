@@ -11,8 +11,6 @@ module.exports = {
     "no-console": "off",
     "no-extra-parens": ["error", "all"],
     "array-callback-return": "error",
-    "curly": "error",
-    "default-case": "warn",
     "guard-for-in": "warn",
     "no-caller": "error",
     "no-empty-function": "error",
