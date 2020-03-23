@@ -1,9 +1,9 @@
 img {
-  max-width: 100%;
+  width: 100%;
 }
 
 .main {
-  max-width: 600px;
+  width: 600px;
 }
 
 .form .input-group-prepend {
@@ -15,5 +15,5 @@ img {
 }
 
 .form-group input.invalid {
-  box-shadow: 1px 0px 11px 7px rgba(203,0,0,0.93);
+  box-shadow: 1px 0px 11px 7px rgba(204, 0, 0, 0.93);
 }

@@ -1,5 +1,7 @@
 (function () {
   const form = document.forms['image-form'];
+  const formInputs = form.querySelectorAll('input');
+  const imageEl = document.querySelector('.main__image img');
 
   function isColor(colorStr) {
     const s = new Option().style;
@@ -43,11 +45,34 @@
       .map( ({ name }) => form[name]); 
   }
 
+  function applyImageChanges({ height, width, borderThickness, borderColor, alt}) {
+    console.log(imageEl.style);
+    imageEl.style.height = height + 'px';
+    imageEl.style.width = width + 'px';
+    imageEl.style.border = `${borderThickness}px solid ${borderColor}`;
+    imageEl.setAttribute('alt', alt);
+    console.log(imageEl.style);
+  }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const invalidElems = getInvalidElements();
-    [...form.querySelectorAll('input')].forEach(el => el.classList.remove('invalid'));
+
+    for (const formInputEl of formInputs) {
+      formInputEl.classList.remove('invalid');
+    }
     invalidElems.forEach(el => el.classList.add('invalid'));
+
+    if (invalidElems.length === 0) {
+      const imageOpts = {
+        height: form.height.value, 
+        width: form.width.value, 
+        borderThickness: form['border-thickness'].value, 
+        borderColor: form['border-color'].value, 
+        alt: form.alt.value
+      };
+      applyImageChanges(imageOpts);
+    }
   });
 
 })();
