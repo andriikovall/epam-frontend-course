@@ -1,0 +1,21 @@
+img {
+  max-width: 100%;
+}
+
+.main {
+  max-width: 600px;
+  z-index: 0;
+}
+
+.form .input-group-prepend {
+  width: 35%;
+}
+
+.input-group-text {
+  width: 100%;
+  z-index: 1;
+}
+
+.form-group input.invalid {
+  box-shadow: 1px 0px 11px 7px rgba(203,0,0,0.93);
+}
