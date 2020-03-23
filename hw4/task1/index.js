@@ -1,7 +1,7 @@
 (function () {
   const form = document.forms['image-form'];
   const formInputs = form.querySelectorAll('input');
-  const imageEl = document.querySelector('.main__image img');
+  const imageEl = document.querySelector('.main__image .img');
   const defaultBorderThicknes = '1px';
   const defaultBorderColor = 'red';
 
@@ -61,7 +61,7 @@
 
   function applyImageChanges({ height, width, borderThickness, borderColor, alt }) {
     imageEl.style.height = configureEndingWithStr(height, 'px');
-    imageEl.style.width = configureEndingWithStr(width, 'px');
+    document.querySelector('.main__image').style.width = configureEndingWithStr(width, 'px');
     imageEl.style.border = `${configureEndingWithStr(borderThickness, 'px')} solid ${borderColor}`;
     imageEl.setAttribute('alt', alt);
   }
