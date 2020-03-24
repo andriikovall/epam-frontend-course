@@ -8,7 +8,6 @@
   function isColor(colorStr) {
     const s = new Option().style;
     s.color = colorStr;
-    console.log(colorStr, s.color == colorStr);
     return s.color == colorStr;
   }
 
