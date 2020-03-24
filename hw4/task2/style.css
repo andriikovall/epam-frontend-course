@@ -1,3 +1,8 @@
 .diagram__col {
   width: 100%;
 }
+
+
+#diagram {
+  overflow-x: scroll;
+}

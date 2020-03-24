@@ -1,4 +1,6 @@
-(function () {
+const onDeleteClicked = (function () {
+
+  let nextId = 1;
 
   const btnAdd = document.getElementById('btn-add');
   const table = document.getElementById('table-main');
@@ -9,7 +11,7 @@
     e.preventDefault();
 
     //@todo add modal for input
-    addGroup({ name: 'afdsf', count: Math.trunc(Math.random() * 100) });
+    addGroup({ name: 'Group name', count: Math.trunc(Math.random() * 100) });
   });
 
   diagram.addEventListener('mouseover', (e) => {
@@ -27,7 +29,7 @@
   });
 
   function rebuildDiagram() {
-    const data = getDiagramData();
+    const data = getDiagramData().map(val => ({ ...val, count: parseInt(val.count) }));
     const colors = getDiagramColors();
     const diagramCols = getDigramColums(data, colors);
     clearChildren(diagram);
@@ -38,19 +40,27 @@
     const datasetRef = e.target.parentNode.dataset;
     datasetRef[e.target.dataset.key] = e.target.innerText;
     rebuildDiagram();
-  })
+  });
+
+
+  
 
   function addGroup({ name, count }) {
     const cols = groupTemplate.content.querySelectorAll('td');
-
+    
     cols[0].dataset[cols[0].firstChild.dataset.key] = name;
     cols[0].firstChild.innerText = name;
-
+    
     cols[1].dataset[cols[1].firstChild.dataset.key] = count;
     cols[1].firstChild.innerText = count;
-
+    
+    // cols[2].querySelector('.btn').addEventListener('click', e => {
+    //   console.log('delete');
+    //  ???????????????????
+    // })
+    
     const clonedRow = cols[0].parentNode.cloneNode(true);
-
+    
     table.appendChild(clonedRow);
     rebuildDiagram();
   }
@@ -93,5 +103,12 @@
     });
   });
   observer.observe(table, { attributes: true, characterData: true, subtree: true });
+
+  return function onDeleteClicked(e) {
+    console.log('dsfsfds');
+    const tableRowEl = e.target.parentNode.parentNode;
+    tableRowEl.parentNode.removeChild(tableRowEl);
+    rebuildDiagram();
+  }
 
 })();

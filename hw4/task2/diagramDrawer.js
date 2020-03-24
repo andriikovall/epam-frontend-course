@@ -1,8 +1,8 @@
 const getDigramColums = (function () {
-  const maxHeight = 200;
+  const maxHeight = 100;
 
   function addHeightToValues(rows) {
-    const maxRowCount = rows.reduce((acc, curr) => curr.count > acc ? curr.count : acc, 0);
+    const maxRowCount = rows.reduce((acc, curr) => curr.count >= acc ? curr.count : acc, 0);
     return rows.map(row => ({ ...row, height: maxHeight / maxRowCount * row.count }));
   }
 
@@ -11,7 +11,7 @@ const getDigramColums = (function () {
     const blockElems = cols.map(({ height, name, count }) => getDiagramColumn(height, name, count));
 
 
-    for (let i = 0; i < colors.length; i++) {
+    for (let i = 0; i < colors.length && i < blockElems.length; i++) {
       const rect = blockElems[i].firstChild;
       rect.style.backgroundColor = colors[i];
     }
