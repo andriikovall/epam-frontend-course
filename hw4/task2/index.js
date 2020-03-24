@@ -1,6 +1,4 @@
-const onDeleteClicked = (function () {
-
-  let nextId = 1;
+(function () {
 
   const btnAdd = document.getElementById('btn-add');
   const table = document.getElementById('table-main');
@@ -43,24 +41,22 @@ const onDeleteClicked = (function () {
   });
 
 
-  
+
 
   function addGroup({ name, count }) {
     const cols = groupTemplate.content.querySelectorAll('td');
-    
+
     cols[0].dataset[cols[0].firstChild.dataset.key] = name;
     cols[0].firstChild.innerText = name;
-    
+
     cols[1].dataset[cols[1].firstChild.dataset.key] = count;
     cols[1].firstChild.innerText = count;
-    
-    // cols[2].querySelector('.btn').addEventListener('click', e => {
-    //   console.log('delete');
-    //  ???????????????????
-    // })
-    
+
+
     const clonedRow = cols[0].parentNode.cloneNode(true);
-    
+
+    clonedRow.querySelector('.btn').addEventListener('click', onDeleteClicked);
+
     table.appendChild(clonedRow);
     rebuildDiagram();
   }
@@ -104,8 +100,7 @@ const onDeleteClicked = (function () {
   });
   observer.observe(table, { attributes: true, characterData: true, subtree: true });
 
-  return function onDeleteClicked(e) {
-    console.log('dsfsfds');
+  function onDeleteClicked(e) {
     const tableRowEl = e.target.parentNode.parentNode;
     tableRowEl.parentNode.removeChild(tableRowEl);
     rebuildDiagram();

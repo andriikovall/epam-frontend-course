@@ -1,5 +1,5 @@
 const getDigramColums = (function () {
-  const maxHeight = 100;
+  const maxHeight = 300;
 
   function addHeightToValues(rows) {
     const maxRowCount = rows.reduce((acc, curr) => curr.count >= acc ? curr.count : acc, 0);
