@@ -1,4 +1,4 @@
-const getDigramColums = (function(){
+const getDigramColums = (function () {
   const maxHeight = 200;
 
   function addHeightToValues(rows) {
@@ -6,9 +6,16 @@ const getDigramColums = (function(){
     return rows.map(row => ({ ...row, height: maxHeight / maxRowCount * row.count }));
   }
 
-  return function(rows) {
+  return function (rows, colors = []) {
     const cols = addHeightToValues(rows);
-    const blockElems = cols.map(({ height, name }) => getDiagramColumn(height, name));
+    const blockElems = cols.map(({ height, name, count }) => getDiagramColumn(height, name, count));
+
+
+    for (let i = 0; i < colors.length; i++) {
+      const rect = blockElems[i].firstChild;
+      rect.style.backgroundColor = colors[i];
+    }
+
     return blockElems;
   }
 })();

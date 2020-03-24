@@ -10,17 +10,20 @@ const getDiagramColumn = (function(){
     return Math.floor(Math.random()*16777215).toString(16);
   } 
   
-  return function getDiagramColumn(height, name, color = getRandomColourInHex()) {
+  return function getDiagramColumn(height, name, count, color = getRandomColourInHex()) {
     const rect = document.createElement('div');
-    rect.dataset.name = name;
+    rect.classList.add('diagram__rect');
     rect.style.height = `${height}px`;
     rect.style.width = '100%';
-    rect.style.background = isColor(color) ? color : '#' + getRandomColourInHex();
+    rect.style.backgroundColor = isColor(color) ? color : '#' + getRandomColourInHex();
     
     const nameEl = document.createElement('p');
+    nameEl.classList.add('text-center');
     nameEl.innerText = name;
-
+    
     const col = document.createElement('div');
+    col.dataset.name = name;
+    col.dataset.count = count;
     col.classList.add('diagram__col');
     col.classList.add('mx-2');
     col.append(rect, nameEl);

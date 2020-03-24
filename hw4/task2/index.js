@@ -1,7 +1,6 @@
 (function () {
 
   const btnAdd = document.getElementById('btn-add');
-  const btnBuild = document.getElementById('btn-build');
   const table = document.getElementById('table-main');
   const groupTemplate = document.getElementById('row-template');
   const diagram = document.getElementById('diagram');
@@ -13,13 +12,24 @@
     addGroup({ name: 'afdsf', count: Math.trunc(Math.random() * 100) });
   });
 
-  btnBuild.addEventListener('click', e => {
-    rebuildDiagram();
-  })
+  diagram.addEventListener('mouseover', (e) => {
+    const target = e.target;
+    if (target.classList.contains('diagram__rect')) {
+      target.nextSibling.innerText = target.parentNode.dataset.count;
+    }
+  });
+
+  diagram.addEventListener('mouseout', (e) => {
+    const target = e.target;
+    if (target.classList.contains('diagram__rect')) {
+      target.nextSibling.innerText = target.parentNode.dataset.name;
+    }
+  });
 
   function rebuildDiagram() {
     const data = getDiagramData();
-    const diagramCols = getDigramColums(data);
+    const colors = getDiagramColors();
+    const diagramCols = getDigramColums(data, colors);
     clearChildren(diagram);
     diagram.append(...diagramCols);
   }
@@ -42,6 +52,7 @@
     const clonedRow = cols[0].parentNode.cloneNode(true);
 
     table.appendChild(clonedRow);
+    rebuildDiagram();
   }
 
   function getDiagramData() {
@@ -51,9 +62,18 @@
         .map(dataEl => ({ ...dataEl.dataset }));
       return rowData;
     });
-    console.log(data);
     return data.filter(row => row.length)
       .map(row => row.reduce((acc, curr) => ({ ...acc, ...curr })));
+  }
+
+  function getDiagramColors() {
+    const cols = document.querySelectorAll('.diagram__rect');
+    const colors = [];
+    for (const col of cols) {
+      const colorValue = getComputedStyle(col).backgroundColor;
+      colors.push(colorValue);
+    }
+    return colors;
   }
 
   function clearChildren(elem) {
