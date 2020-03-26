@@ -5,10 +5,17 @@
   const groupTemplate = document.getElementById('row-template');
   const diagram = document.getElementById('diagram');
 
+  [
+    { name: 'KP-83', count: Math.trunc(Math.random() * 100) }, 
+    { name: 'KP-93', count: Math.trunc(Math.random() * 100) }, 
+    { name: 'KP-92', count: Math.trunc(Math.random() * 100) }, 
+    { name: 'KP-91', count: Math.trunc(Math.random() * 100) }, 
+  ].forEach(addGroup);
+  
+
   btnAdd.addEventListener('click', (e) => {
     e.preventDefault();
 
-    //@todo add modal for input
     addGroup({ name: 'Group name', count: Math.trunc(Math.random() * 100) });
   });
 
@@ -89,16 +96,6 @@
     // elem.innerHTML = ''; 
   }
 
-  const observer = new MutationObserver((mutations) => {
-
-    mutations.forEach((mutation) => {
-
-      if (mutation.type === 'characterData') {
-        mutation.target.innerText = mutation.target.textContent;
-      }
-    });
-  });
-  observer.observe(table, { attributes: true, characterData: true, subtree: true });
 
   function onDeleteClicked(e) {
     const tableRowEl = e.target.parentNode.parentNode;
