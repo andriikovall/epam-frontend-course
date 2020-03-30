@@ -2,7 +2,8 @@ module.exports = {
   "extends": "eslint:recommended",
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true, 
+    "node": true
   },
   "parserOptions": {
     "ecmaVersion": 2017
@@ -11,8 +12,6 @@ module.exports = {
     "no-console": "off",
     "no-extra-parens": ["error", "all"],
     "array-callback-return": "error",
-    "curly": "error",
-    "default-case": "warn",
     "guard-for-in": "warn",
     "no-caller": "error",
     "no-empty-function": "error",
