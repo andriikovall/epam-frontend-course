@@ -11,7 +11,7 @@ const container = document.getElementById('root');
 (async function main() {
     await appendImages(25);
  
-    const debouncedScrollEvent = fromEvent(window, 'scroll').pipe(throttleTime(200));
+    const debouncedScrollEvent = fromEvent(window, 'scroll').pipe(throttleTime(500));
     debouncedScrollEvent.subscribe(e => { 
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 700) {
             appendImages(25);
@@ -24,8 +24,8 @@ const container = document.getElementById('root');
 async function appendImages(count) {
     try {
         const images = await getUsersImages(count);
-        images.forEach(img => {
-            const imgElem = createImageElementWithoutSrc(img.medium);
+        images.forEach(src => {
+            const imgElem = createImageElementWithoutSrc(src.medium);
             container.appendChild(styleImageToHide(imgElem));
             lazyLoad(imgElem, () => {
                 styleImageToShow(imgElem);
