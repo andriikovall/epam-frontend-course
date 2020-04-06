@@ -4,6 +4,7 @@ export const lazyLoad = (target, intersectingCb) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 intersectingCb();
+                observer.disconnect();
             }
         })
 
