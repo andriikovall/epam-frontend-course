@@ -1,6 +1,7 @@
 export const createImageElementWithoutSrc = (src) => {
     const elem = document.createElement('img');
-    elem.dataset.src = src; 
+    // elem.src = src
+    elem.dataset.src = src;
     return elem; 
 }
 

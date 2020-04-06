@@ -1,44 +1,39 @@
 import { getUsersImages } from './api';
-import { createImageElementWithoutSrc, styleImageToShow, styleImageToHide } from './imageHelper';
+import { createImageElementWithoutSrc, styleImageToHide, styleImageToShow } from './imageHelper';  
+import { lazyLoad } from './lazyLoader';
 
 
 const container = document.getElementById('root');
 
 (async function main() {
 
-    const count = parseInt(prompt('Enter images count', '50'));
+    await appendImages(25);
+    window.onscroll = e => { 
+         
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 300) {
+            appendImages(5);
+            console.log('appending'); 
+        } 
+    };
+    
+})()
+
+
+async function appendImages(count) {
     try {
         const images = await getUsersImages(count);
         images.forEach(img => {
             const imgElem = createImageElementWithoutSrc(img.medium);  
             container.appendChild(styleImageToHide(imgElem)); 
+            lazyLoad(imgElem, () => {
+                styleImageToShow(imgElem);
+                imgElem.setAttribute('src', imgElem.dataset.src);
+            });
         });   
     } catch(err) {
         alert('invalid count value or ither error ' + err);
     }
- 
-    const targets = document.getElementsByClassName('user-image'); 
-    
-    const lazyLoad = (target) => {
-        const intersectionObserver = new IntersectionObserver((entries, observer) => {
-
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const imageEl = entry.target;
-                    imageEl.setAttribute('src', imageEl.dataset.src);
-                    styleImageToShow(imageEl);
-                }
-            })
- 
-        });
-     
-        intersectionObserver.observe(target);
-    } 
-    
-    for (const target of targets) {
-        lazyLoad(target);
-    }
-})()
+}
 
 
 
