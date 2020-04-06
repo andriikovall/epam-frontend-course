@@ -1,0 +1,39 @@
+<div class="mobile-title-bar">
+  <h1 class="heading">Some name</h1>
+  <a class="navbar-toggle" (click)="this.toggleSidebar()"><i class="fas fa-bars fa-2x"></i></a>
+</div>
+
+<nav class="navbar" [class.navbar-active]="this.isSidebarOpened" (mouseenter)="this.toggleSidebar()" (mouseleave)="this.toggleSidebar()">
+
+  <ul class="navbar__items">
+
+    <li class="navbar__item item item-important">
+      <span class="item__icon">
+        <i class="fa fa-user fa-3x"></i>
+      </span>
+      <span class="item__text">text</span>
+    </li>
+
+    <li class="navbar__item item">
+      <span class="item__icon">
+        <i class="fa fa-home fa-3x"></i>
+      </span>
+      <span class="item__text">Home</span>
+    </li>
+
+    <li class="navbar__item item">
+      <span class="item__icon">
+        <i class="fa fa-film fa-3x"></i>
+      </span>
+      <span class="item__text">Sessions</span>
+    </li>
+
+    <li class="navbar__item item">
+      <span class="item__icon">
+        <i class="fa fa-address-card fa-3x"></i>
+      </span>
+      <span class="item__text">About us</span>
+    </li>
+
+  </ul>
+</nav>
