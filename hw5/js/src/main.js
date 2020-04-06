@@ -2,21 +2,21 @@ import { getUsersImages } from './api';
 import { createImageElementWithoutSrc, styleImageToHide, styleImageToShow } from './imageHelper';
 import { lazyLoad } from './lazyLoader';
 import { fromEvent } from 'rxjs';
-import { debounceTime } from 'rxjs/operators'
+import { throttleTime } from 'rxjs/operators'
 
 
 
 const container = document.getElementById('root');
- 
-(async function main() {    
-    await appendImages(25);
 
-    const debouncedScrollEvent = fromEvent(window, 'scroll').pipe(debounceTime(100));
-    debouncedScrollEvent.subscribe(e => {
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 450) {
+(async function main() {
+    await appendImages(25);
+ 
+    const debouncedScrollEvent = fromEvent(window, 'scroll').pipe(throttleTime(200));
+    debouncedScrollEvent.subscribe(e => { 
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 700) {
             appendImages(25);
         }
-    }) 
+    })
 
 })()
 
@@ -39,4 +39,4 @@ async function appendImages(count) {
 
 
 
- 
+
