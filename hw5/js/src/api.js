@@ -26,7 +26,7 @@ const getRequest = (url, query = {}) => {
 
 export const getUsersImages = (count) => {
     if (typeof count !== 'number' || count < 0) {
-        Promise.reject(count);
+        return Promise.reject(count);
     }
 
     const apiUrl = 'https://randomuser.me/api/';

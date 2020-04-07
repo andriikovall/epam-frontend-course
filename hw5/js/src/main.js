@@ -33,7 +33,7 @@ async function appendImages(count) {
             });
         });
     } catch (err) {
-        alert('invalid count value or ither error ' + err);
+        alert('Some error occured: ' + err.message);
     }
 }
 
