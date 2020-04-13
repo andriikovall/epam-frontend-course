@@ -35,7 +35,6 @@ $(document).ready(function () {
         });
 
         const body = $(this).serializeArray().reduce((acc, { name, value }) => { acc[name] = value; return acc; }, {});
-        console.log(body);
 
         if (isValidForm && Object.keys(body).length)
             sendPostRequest('http://kubanutyi.herokuapp.com/api/v1', body);
@@ -67,7 +66,7 @@ $(document).ready(function () {
             data: JSON.stringify(body),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-        });;
+        });
     }
 
 });

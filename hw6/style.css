@@ -4,21 +4,6 @@
     box-sizing: border-box;
 }
 
-textarea,
-input {
-    width: 100%;
-}
-
-.invalid-feedback {
-    color: brown;
-    font-size: 0.8em;
-}
-
-.form-group {
-    margin-bottom: 1em;
-}
-
-form {
-    max-width: 400px;
-    margin: 0 1em;
+td, th {
+    text-align: center;
 }
