@@ -54,18 +54,21 @@ th, td {
     justify-content: space-between;
 }
 
-button {
+.time-btn {
     box-shadow: 0 8px 6px -6px black;
+    font-size: 0.9em;
+    
     cursor: pointer;
     user-select: none;
     border-radius: 10px;
     background: none;
     border: none;
     shadow: none;
-    padding: 15px;
+    padding: 10px;
     width: auto;
     background-color: red;
     box-sizing: border-box;
+    margin: 2px;
 }
 
 button:active {
@@ -75,5 +78,5 @@ button:active {
 button:focus {
     outline: none;
     border: 1px black solid;
-    padding: 14px;
+    /* padding: 14px; */
 }
