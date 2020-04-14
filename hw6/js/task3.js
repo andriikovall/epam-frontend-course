@@ -27,7 +27,11 @@ $(document).ready(function() {
     }
 
     function setTimerValue(seconds, milliseconds) {
-        $('.screen').text(`${normalizeNumberToString(seconds, 2)}:${normalizeNumberToString(milliseconds, 2)}`);
+        const outputSeconds = (seconds < 10 ? '0' : '') + seconds;
+        const outputMilliseconds = (milliseconds >= 100 ? 
+                                    Math.trunc(milliseconds  / 10): 
+                                    (milliseconds < 10 ? '0' : '') + milliseconds);
+        $('.screen').text(`${outputSeconds}:${outputMilliseconds}`);
     }
 
     function normalizeNumberToString(num, length) {
