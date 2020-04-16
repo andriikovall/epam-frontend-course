@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+
+  <div class="container">
+
+    <form class="form" id="form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name">
+        <div class="invalid-feedback" id="name-feedback"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" id="email">
+        <div class="invalid-feedback" id="email-feedback"></div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="3" class="form-control"></textarea>
+        <div class="invalid-feedback" id="message-feedback"></div>
+      </div>
+
+      <button id="submit-btn" type="submit">Submit</button>
+    </form>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="./js/task1.js"></script>
+</body>
+
+</html>
