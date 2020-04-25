@@ -9,7 +9,7 @@ import { trigger, state, style, transition, animate, sequence } from '@angular/a
   animations: [
     trigger('openedClosed', [
       state('opened', style({
-        left: '0',
+        marginLeft: '0',
         opacity: 1,
       })),
       state('closed', style({
