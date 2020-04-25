@@ -1,0 +1,17 @@
+@import './app/variables.scss';
+
+.card {
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+  padding: 1em;
+  margin: 1em;
+  // background-color: $main-dark-blue;
+  // color: lighten($main-grey, 20);
+  border-radius: 10px;
+
+  &__title {
+    border-bottom: 1px solid $main-dark-blue;
+    padding-bottom: 0.5em;
+  }
+}

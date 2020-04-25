@@ -1,4 +1,5 @@
 @import './app/variables.scss';
+@import './common.scss';
 
 
 * {
@@ -84,4 +85,34 @@ body {
 
 .mr-auto {
   margin-right: auto;
+}
+
+@media screen and (max-width: $sm) {
+  .d-sm-none {
+    display: none;
+  }
+
+  .d-sm-block {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .d-sm-none {
+    display: none;
+  }
+
+  .d-sm-block {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .d-lg-block {
+    display: block;
+  }
+
+  .d-lg-none {
+    display: none;
+  }
 }
