@@ -1,4 +1,4 @@
-@import '../../../variables.scss';
+@import '../../../shared/styles/variables.scss';
 
 .navbar {
   position: fixed;
@@ -52,7 +52,8 @@
   cursor: pointer;
 
   &:hover {
-    color: lighten($color: $main-grey, $amount: 20);
+    // color: lighten($color: $main-grey, $amount: 20);
+    color: $main-blue;
   }
 
   &.item-important {

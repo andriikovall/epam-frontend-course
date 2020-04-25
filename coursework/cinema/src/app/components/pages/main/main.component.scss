@@ -1,0 +1,9 @@
+.newest-films {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+
+  &__film-li {
+    flex-basis: 30%;
+  }
+}

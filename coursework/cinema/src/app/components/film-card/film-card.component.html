@@ -1,0 +1,27 @@
+<div class="film-card">
+  <figure class="film-item">
+    <img src="{{film.imageUrl}}" alt="{{film.title + ' image'}}" class="film-item__image">
+    <figcaption class="film-item__details">
+      <div class="film-item__title text-center">
+        {{film.title}}
+      </div>
+      <div class="film-item__front">
+        <div class="film-item__details">
+          <table>
+            <tr>
+              <th>Release date</th>
+              <td>{{film.date | date: 'MMM d'}}</td>
+            </tr>
+            <tr>
+              <th>{{film.directors.length > 1 ? 'Directors' : 'Director'}}</th>
+              <td>{{film.directors.join(' ')}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- <div class="film-item__back">
+
+        </div> -->
+    </figcaption>
+  </figure>
+</div>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule }   from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilmCardComponent } from './components/film-card/film-card.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     MainComponent,
     CarouselComponent,
+    FilmCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

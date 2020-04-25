@@ -1,0 +1,91 @@
+{
+    "films": [
+        {
+            "id": "34243",
+            "title": "Avengers: the Endgame",
+            "bio": "Twenty-three days after Thanos had used the Infinity Gauntlet to disintegrate half of all life in the universe,[N 1] Carol Danvers rescues Tony Stark and Nebula from deep space and returns them to Earth, where they reunite with the remaining Avengers—Bruce Banner, Steve Rogers, Thor, Natasha Romanoff, and James Rhodes—and Rocket. Locating Thanos on an uninhabited planet, they plan to use the Infinity Stones to reverse \"the Snap\", but Thanos reveals he destroyed the Stones to prevent further use.",
+            "directors": [
+                "Jo Ruso",
+                "Someone else Ruso"
+            ],
+            "date": 1556199903358,
+            "genres": [
+                "fantastic",
+                "science fiction",
+                "comix",
+                "marvel"
+            ],
+            "comments": [
+                {
+                    "userId": "u_1",
+                    "date": "2010-02-18T22:00:00.000Z",
+                    "text": "Good film, I love it!"
+                }
+            ],
+            "imageUrl": "https://avatars.mds.yandex.net/get-kinopoisk-post-img/1101693/26100c5b49f851337109a5f792436a29/960x540",
+            "availableTime": [], 
+            "duration": 130
+        },
+        {
+            "id": "s213f23f",
+            "title": "Green Book",
+            "bio": "Green Book is a 2018 American biographical road comedy-drama film directed by Peter Farrelly. Set in 1962, the film is inspired by the true story of a tour of the Deep South by African American classical and jazz pianist Don Shirley and Italian American bouncer Frank \"Tony Lip\" Vallelonga who served as Shirley's driver and bodyguard. The film was written by Farrelly, Brian Hayes Currie and Vallelonga's son, Nick Vallelonga, based on interviews with his father and Shirley, as well as letters his father wrote to his mother.[6] The film is named after The Negro Motorist Green Book, a mid-20th century guidebook for African-American travelers written by Victor Hugo Green",
+            "directors": [
+                "Peter Farrelly"
+            ],
+            "date": 1536613200000,
+            "genres": [
+                "thriller",
+                "biographical"
+            ],
+            "comments": [
+                "comment_2",
+                "comment_3"
+            ],
+            "imageUrl": "https://a.radikal.ru/a15/1901/08/75a32b057caf.jpg",
+            "availableTime": [], 
+            "duration": 150
+        },
+        {
+            "id": "rgefrhtgfe342",
+            "title": "Shutter Island",
+            "bio": "Shutter Island is a 2010 American neo-noir psychological thriller film directed by Martin Scorsese and written by Laeta Kalogridis, based on Dennis Lehane's 2003 novel of the same name. Leonardo DiCaprio stars as U.S. Marshal Edward \"Teddy\" Daniels, who is investigating a psychiatric facility on Shutter Island after one of the patients goes missing. Mark Ruffalo plays his partner officer; Ben Kingsley is the facility's lead psychiatrist; Max von Sydow is a German doctor; and Michelle Williams is Daniels's wife. Released on February 19, 2010, the film received mostly positive reviews from critics, was chosen by National Board of Review as one of the top ten films of 2010, and grossed over $294 million worldwide.",
+            "directors": [
+                "Martin Scorsese"
+            ],
+            "date": 1266530400000,
+            "genres": [
+                "biographical",
+                "detective",
+                "thriller"
+            ],
+            "comments": [
+                "comment_4",
+                "comment_3"
+            ],
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/ru/thumb/2/22/Kinopoisk.ru-Shutter-Island-1094940.jpg/203px-Kinopoisk.ru-Shutter-Island-1094940.jpg",
+            "availableTime": [], 
+            "duration": 130
+        },
+        {
+            "id": "dsff",
+            "title": "It",
+            "bio": "It, retroactively known as It Chapter One, is a 2017 American supernatural horror film based on Stephen King's 1986 novel of the same name.[5] Produced by New Line Cinema, KatzSmith Productions, Lin Pictures, Vertigo Entertainment,[6][7] and distributed by Warner Bros.[8] It is the first film in the It film series as well as being the second adaptation following Tommy Lee Wallace's 1990 miniseries.[9][10][11] The film tells the story of seven children in Derry, Maine, who are terrorized by the eponymous being, only to face their own personal demons in the process.[12][13] The film is also known as It: Part 1 – The Losers' Club.",
+            "directors": [
+                "Andy Muschietti"
+            ],
+            "date": 1504558800000,
+            "genres": [
+                "horror",
+                "thriller"
+            ],
+            "comments": [
+                "comment_2",
+                "comment_23"
+            ],
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5a/It_%282017%29_poster.jpg",
+            "availableTime": [], 
+            "duration": 122
+        }
+    ]
+}

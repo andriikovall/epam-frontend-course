@@ -4,7 +4,8 @@ export class Film {
   title: string;
   bio: string;
   directors: string[];
-  date: Date;
+  imageUrl: string;
+  date: number;
   genres: string[];
   comments: Comment[];
   availableTime: RoomState[];
