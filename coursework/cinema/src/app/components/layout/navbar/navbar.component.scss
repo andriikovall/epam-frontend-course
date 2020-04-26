@@ -109,7 +109,7 @@ $sm: 600px;
     &:focus,
     &:hover {
       cursor: pointer;
-      border: none;
+      outline: none;
       &:after {
         transition: all 0.2s;
         width: 100%;
