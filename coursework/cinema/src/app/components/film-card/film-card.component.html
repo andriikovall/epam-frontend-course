@@ -1,27 +1,43 @@
-<div class="film-card">
-  <figure class="film-item">
-    <img src="{{film.imageUrl}}" alt="{{film.title + ' image'}}" class="film-item__image">
-    <figcaption class="film-item__details">
-      <div class="film-item__title text-center">
-        {{film.title}}
-      </div>
-      <div class="film-item__front">
-        <div class="film-item__details">
-          <table>
-            <tr>
-              <th>Release date</th>
-              <td>{{film.date | date: 'MMM d'}}</td>
-            </tr>
-            <tr>
-              <th>{{film.directors.length > 1 ? 'Directors' : 'Director'}}</th>
-              <td>{{film.directors.join(' ')}}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <!-- <div class="film-item__back">
+<!-- <div class="film-card">
+  <div class="film-card__front">
 
-        </div> -->
-    </figcaption>
-  </figure>
-</div>
+  </div>
+  <div class="film-card__back">
+    fdfbdbd
+  </div>
+</div> -->
+
+  <div class="film-card">
+    <div class="film-card__front">
+      <figure class="film-item">
+        <img src="{{film.imageUrl}}" alt="{{film.title + ' image'}}" class="film-item__image">
+      </figure>
+    </div>
+    <div class="film-card__back">
+      <figcaption class="film-details">
+        <div class="film-details__title text-center">
+          {{film.title}}
+        </div>
+        <div class="film-details__duration duration">
+          <span class="duration__text">
+            <i class="fas fa-clock"></i>
+            {{film.duration}} m
+          </span>
+        </div>
+
+        <div class="details-list">
+          <div class="details-list__name">{{film.directors.length > 1 ? 'Directors' : 'Director'}}</div>
+          <div *ngFor="let dir of film.directors" class="details-list__value">{{dir}}</div>
+        </div>
+
+        <div class="details-list">
+          <div class="details-list__name">{{film.genres.length > 1 ? 'Genres' : 'Genre'}}</div>
+          <div *ngFor="let genre of film.genres" class="details-list__value">{{genre}}</div>
+        </div>
+
+        <div class="film-details__date text-center">
+          {{film.date | date: 'MMMM d, y'}}
+        </div>
+      </figcaption>
+    </div>
+  </div>

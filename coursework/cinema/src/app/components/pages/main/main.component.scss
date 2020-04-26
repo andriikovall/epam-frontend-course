@@ -1,9 +1,15 @@
+@import '../../../shared/styles/variables.scss';
+
 .newest-films {
   display: flex;
   list-style: none;
-  justify-content: space-between;
+  justify-content: space-around;
 
-  &__film-li {
-    flex-basis: 30%;
+  // &__film-li {
+  //   flex-basis: 30%;
+  // }
+
+  @media screen and (max-width: $sm) {
+    flex-direction: column;
   }
 }

@@ -9,6 +9,7 @@ export class Film {
   genres: string[];
   comments: Comment[];
   availableTime: RoomState[];
+  duration: number;
 }
 
 export class Comment {
