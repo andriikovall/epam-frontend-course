@@ -1,93 +1,126 @@
 @import '../../../shared/styles/variables.scss';
+$orange: rgb(170, 63, 31);
+$sm: 600px;
 
-.navbar {
+.header {
+  background-color: $main-black;
+  color: darken($color: white, $amount: 20);
+  min-height: 3em;
   position: fixed;
+  z-index: 50;
+  width: 100%;
   top: 0;
-  height: 100vh;
-  background: $main-black;
-  color: $main-grey;
-  transition: 0.2s;
+}
 
-  z-index: 30;
+.nav {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  // top: 0;
+  z-index: 50;
 
   &__items {
-    display: flex;
-    flex-direction: column;
     margin: 0;
-    padding: 0;
+    display: flex;
     list-style: none;
-    align-items: center;
-    justify-content: space-around;
+    padding: 0;
+    padding-bottom: .3em;
+
+    @media screen and (mAx-width: $sm) {
+      display: none;
+      flex-direction: column;
+    }
+
+    &-active {
+      display: block;
+      transition: all 0.2s;
+    }
   }
 
-  // hover
-  &-active  {
-    display: block !important;
-    .item {
-      transition: all 0.2s;
-      &__text {
-        display: inline-block;
-        margin-right: 2em;
-        align-self: center;
+  &__toggle {
+    position: absolute;
+    right: 1em;
+    min-height: 3em;
+    transition: all 0.2s;
+    display: none;
+    content: '';
+    width: 2em;
+    cursor: pointer;
+
+    @media screen and (max-width: $sm) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  &__toggle-btn {
+
+    height: 4px;
+    background-color: $main-grey;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before,
+    &::after {
+      cursor: pointer;
+      content: '';
+      display: block;
+      background-color: darken($color: white, $amount: 20);
+      border-radius: 5px;
+      width: 100%;
+      height: 4px;
+    }
+
+    &::before {
+      transform: translateY(-10px);
+    }
+
+    &::after {
+      transform: translateY(6px);
+    }
+
+  }
+
+  &__item {
+    padding: 1em 1.3em;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.2s;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      content: '';
+      height: 2px;
+      background-color: $main-grey;
+    }
+
+    &:active,
+    &:visited,
+    &:focus,
+    &:hover {
+      cursor: pointer;
+      border: none;
+      &:after {
+        transition: all 0.2s;
+        width: 100%;
       }
     }
-  }
 
-}
-
-.mobile-title-bar {
-  display: none;
-  position: sticky;
-  top: 0;
-  background: $main-black;
-  color: $main-grey;
-  z-index: 10;
-}
-
-.item {
-  margin-top: 1em;
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  cursor: pointer;
-
-  &:hover {
-    // color: lighten($color: $main-grey, $amount: 20);
-    color: $main-blue;
-  }
-
-  &.item-important {
-    padding-top: 3em;
-    padding-bottom: 3em;
-  }
-
-  &__icon {
-    min-width: $nav-left-width;
-    text-align: center;
-  }
-
-  &__text {
-    display: none;
-  }
-}
-
-@media screen and (max-width: $sm) {
-  .mobile-title-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .heading {
-      margin: 0;
-      padding: 0.2em;
-    }
-
-    .navbar-toggle {
-      padding-right: 0.5em;
-    }
-  }
-
-  .navbar {
-    display: none;
+    // &:visited {
+    //   &:after {
+    //     transition: all 0.2s;
+    //     width: 100%;
+    //   }
+    // }
   }
 }

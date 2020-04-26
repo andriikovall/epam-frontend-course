@@ -1,9 +1,0 @@
-@import './shared/styles/variables.scss';
-
-.main {
-  margin-left: $nav-left-width;
-  @media screen and (max-width: $sm) {
-    margin-left: 0;
-  }
-
-}

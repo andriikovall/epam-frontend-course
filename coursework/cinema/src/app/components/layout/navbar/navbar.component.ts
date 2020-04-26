@@ -1,21 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter, tap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
-  isSidebarOpened = false;
+  public isNavbarExpanded = false;
+  private routerEventSubscription: Subscription;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.routerEventSubscription =
+      this.router.events.pipe(filter(ev => ev instanceof NavigationEnd))
+        .subscribe(() => this.isNavbarExpanded = false);
   }
 
-  toggleSidebar() {
-    this.isSidebarOpened = !this.isSidebarOpened;
+  toggleNavbar() {
+    this.isNavbarExpanded = !this.isNavbarExpanded;
+  }
+
+  ngOnDestroy(): void {
+    this.routerEventSubscription.unsubscribe();
   }
 
 }

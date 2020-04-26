@@ -1,39 +1,12 @@
-<div class="mobile-title-bar">
-  <h1 class="heading">Some name</h1>
-  <a class="navbar-toggle" (click)="this.toggleSidebar()"><i class="fas fa-bars fa-2x"></i></a>
-</div>
-
-<nav class="navbar" [class.navbar-active]="this.isSidebarOpened" (mouseenter)="this.toggleSidebar()" (mouseleave)="this.toggleSidebar()">
-
-  <ul class="navbar__items">
-
-    <li class="navbar__item item item-important">
-      <span class="item__icon">
-        <i class="fa fa-user fa-3x"></i>
-      </span>
-      <span class="item__text">text</span>
-    </li>
-
-    <li class="navbar__item item" routerLink="/home">
-      <span class="item__icon">
-        <i class="fa fa-home fa-3x"></i>
-      </span>
-      <span class="item__text">Home</span>
-    </li>
-
-    <li class="navbar__item item" routerLink="/films">
-      <span class="item__icon">
-        <i class="fa fa-film fa-3x"></i>
-      </span>
-      <span class="item__text">Films</span>
-    </li>
-
-    <li class="navbar__item item">
-      <span class="item__icon">
-        <i class="fa fa-info-circle fa-3x"></i>
-      </span>
-      <span class="item__text">About us</span>
-    </li>
-
-  </ul>
-</nav>
+<header class="header">
+  <nav class="nav">
+      <ul class="nav__items" [class.nav__items-active]="this.isNavbarExpanded" id="nav-items">
+          <li class="nav__item" routerLink="/home">Home</li>
+          <li class="nav__item" routerLink="/films">Films</li>
+          <li class="nav__item" routerLink="/about">About</li>
+      </ul>
+      <div class="nav__toggle" (click)="toggleNavbar()">
+          <div class="nav__toggle-btn"></div>
+      </div>
+  </nav>
+</header>

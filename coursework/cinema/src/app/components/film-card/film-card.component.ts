@@ -13,7 +13,6 @@ export class FilmCardComponent implements OnInit {
   @Input() film: Film;
 
   ngOnInit() {
-    console.log(this.film);
   }
 
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav__items" id="nav-items">
+                <li class="nav__item">Home</li>
+                <li class="nav__item">Films</li>
+                <li class="nav__item">About</li>
+                <!-- <li class="nav__item user">
+                    <div class="user__img">
+                        <img src="https://www.dovercourt.org/wp-content/uploads/2019/11/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.jpg" alt="User image">
+                    </div>
+                </li> -->
+            </ul>
+            <div class="nav__toggle" id="nav-toggle">
+                <div class="nav__toggle-btn"></div>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.getElementById('nav-toggle');
+        const items = document.getElementById('nav-items');
+        toggle.onclick = (ev) => {
+            ev.preventDefault();
+            items.classList.toggle('        ');
+        }
+    </script>
+    
+</body>
+</html>
