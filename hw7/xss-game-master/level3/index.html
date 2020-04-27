@@ -13,7 +13,13 @@
     <script>
       function chooseTab(num) {
         // Dynamically load the appropriate image.
-        var html = "Image " + parseInt(num) + "<br>";
+        num = parseInt(num);
+        
+        if (isNaN(num)) {
+          return;
+        }
+        var html = "Image " + num + "<br>";
+
         html += "<img src='https://xss-game.appspot.com/static/level3/cloud" + num + ".jpg' />";
         $('#tabContent').html(html);
  
@@ -22,7 +28,7 @@
         // Select the current tab
         var tabs = document.querySelectorAll('.tab');
         for (var i = 0; i < tabs.length; i++) {
-          if (tabs[i].id == "tab" + parseInt(num)) {
+          if (tabs[i].id == "tab" + num) {
             tabs[i].className = "tab active";
             } else {
             tabs[i].className = "tab";
