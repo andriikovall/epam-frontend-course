@@ -26,6 +26,7 @@ main_page_markup = """
 </form>
 """
 import webapp2 as webapp
+import cgi
 class MainPage(webapp.RequestHandler):
  
   def render_string(self, s):
@@ -42,7 +43,7 @@ class MainPage(webapp.RequestHandler):
       query = self.request.get('query', '[empty]')
        
       # Our search engine broke, we found no results :-(
-      message = "Sorry, no results were found for <b>" + query + "</b>."
+      message = "Sorry, no results were found for <b>" + cgi.escape(query) + "</b>."
       message += " <a href='?'>Try again</a>."
  
       # Display the results page
