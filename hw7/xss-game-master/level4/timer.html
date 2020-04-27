@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Internal game scripts/styles, mostly boring stuff -->
+    <script src="https://xss-game.appspot.com/static/game-frame.js"></script>
+    <link rel="stylesheet" href="https://xss-game.appspot.com/static/game-frame-styles.css" />
+ 
+    <script>
+      function startTimer(seconds) {
+        seconds = parseInt(seconds) || 3;
+        setTimeout(function() { 
+          window.confirm("Time is up!");
+          window.history.back();
+        }, seconds * 1000);
+      }
+    </script>
+  </head>
+  <body id="level4">
+    <img src="https://xss-game.appspot.com/static/logos/level4.png" />
+    <br>
+    <img src="https://xss-game.appspot.com/static/loading.gif" onload="startTimer('{{ timer }}');" />
+    <br>
+    <div id="message">Your timer will execute in {{ timer }} seconds.</div>
+  </body>
+</html>
