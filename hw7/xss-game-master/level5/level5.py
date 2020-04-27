@@ -8,18 +8,27 @@ def render(tpl_path, context = {}):
         loader=jinja2.FileSystemLoader(path or './')
     ).get_template(filename).render(context)
 
+def sanitize_route_from_script(route, default_route):
+  if route.lower().startswith('javascript:'):
+    return default_route
+  else: 
+    return route
+
 class MainPage(webapp.RequestHandler): 
   def get(self):
     # Disable the reflected XSS filter for demonstration purposes
     self.response.headers.add_header("X-XSS-Protection", "0")
- 
+
+    # clearing route from possible javascript attack
+    next_route = sanitize_route_from_script(self.request.get('next'), 'welcome')
+
     # Route the request to the appropriate template
     if "signup" in self.request.path:
       self.response.out.write(render('signup.html', 
-        {'next': self.request.get('next')}))
+        {'next': next_route}))
     elif "confirm" in self.request.path:
       self.response.out.write(render('confirm.html', 
-        {'next': self.request.get('next', 'welcome')}))
+        {'next': next_route}))
     else:
       self.response.out.write(render('welcome.html', {}))
      
