@@ -14,6 +14,16 @@
         + "<span style='color: #f00ba7'>madness</span>.";
  
       var DB = new PostDB(defaultMessage);
+
+      function createBlockquoteFromMessage(message) {
+        const blockquote = document.createElement('blockquote');
+        blockquote.innerHTML = message;
+        for (const el of blockquote.querySelectorAll('[src]')) {
+          el.onerror = null;
+        }
+
+        return blockquote;
+      }
  
       function displayPosts() {
         var containerEl = document.getElementById("post-container");
@@ -21,15 +31,55 @@
  
         var posts = DB.getPosts();
         for (var i=0; i<posts.length; i++) {
-          var html = '<table class="message"> <tr> <td valign=top> '
-            + '<img src="https://xss-game.appspot.com/static/level2_icon.png"> </td> <td valign=top '
-            + ' class="message-container"> <div class="shim"></div>';
+          const table = document.createElement('table');
+          table.classList.add('message');
+
+          const row = document.createElement('tr');
+          const col = document.createElement('td');
+          col.setAttribute('valign', 'top');
+
+          const userImage = document.createElement('img');
+          userImage.src = 'https://xss-game.appspot.com/static/level2_icon.png';
+
+          const secondCol = col.cloneNode(true);
+          secondCol.classList.add('message-container');
+          const shim = document.createElement('div');
+          shim.classList.add('shim');
+
+          const userName = document.createElement('b');
+          userName.innerText = 'You';
+
+          const date = document.createElement('span');
+          date.innerText = new Date(posts[i].date);
+
+          const blockquote = createBlockquoteFromMessage(posts[i].message);
+
+          col.appendChild(userImage);
+          secondCol.appendChild(shim);
+          secondCol.appendChild(userName);
+          secondCol.appendChild(date);
+          secondCol.appendChild(blockquote);
+
+          row.appendChild(col);
+          row.appendChild(secondCol);
+
+          table.appendChild(row);
+
+          containerEl.appendChild(table);
+          
+          
+          /*
+            Previous code left here to show what was before
+          */
+          // var html = '<table class="message"> <tr> <td valign=top> '
+          //   + '<img src="https://xss-game.appspot.com/static/level2_icon.png"> </td> <td valign=top '
+          //   + ' class="message-container"> <div class="shim"></div>';
  
-          html += '<b>You</b>';
-          html += '<span class="date">' + new Date(posts[i].date) + '</span>';
-          html += "<blockquote>" + posts[i].message + "</blockquote";
-          html += "</td></tr></table>"
-          containerEl.innerHTML += html; 
+          // html += '<b>You</b>';
+          // html += '<span class="date">' + new Date(posts[i].date) + '</span>';
+          // html += "<blockquote>" + posts[i].message + "</blockquote";
+          // html += "</td></tr></table>"
+          // containerEl.innerHTML += html; 
         }
       }
  
