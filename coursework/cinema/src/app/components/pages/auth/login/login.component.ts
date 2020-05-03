@@ -13,6 +13,14 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
+  public get loginControl(): AbstractControl {
+    return this.loginForm.get('login');
+  }
+
+  public get passwordControl(): AbstractControl {
+    return this.loginForm.get('password');
+  }
+
   ngOnInit() {
 
     const loginValidators = [Validators.required, trimmedMinLength(3)];
@@ -22,6 +30,10 @@ export class LoginComponent implements OnInit {
       login: new FormControl('', loginValidators),
       password: new FormControl('', passwordValidators)
     })
+  }
+
+  public onSubmit() {
+    console.log(this.loginForm.value);
   }
 
 

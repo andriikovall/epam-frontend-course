@@ -1,14 +1,16 @@
 <div class="section-wrapper">
   <section class="auth-section section">
-    <form class="form" [formGroup]="this.loginForm">
+    <form class="form" [formGroup]="this.loginForm" (submit)="this.onSubmit()" >
       <div class="form__group">
-        <input class="form__control" type="text" [formControlName]="'login'" placeholder="Login">
+        <input class="form__control" type="text" [formControlName]="'login'" placeholder="Login"
+        [class.invalid]="this.loginControl.invalid && this.loginControl.touched">
       </div>
       <div class="form__group">
-        <input type="password" class="form__control" [formControlName]="'password'" placeholder="Password">
+        <input type="password" class="form__control" [formControlName]="'password'" placeholder="Password"
+        [class.invalid]="this.passwordControl.invalid && this.passwordControl.touched">
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block">Login</button>
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="!this.loginForm.valid">Login</button>
       <div class="form__divider divider">
         <p class="divider__text">
           Or use social networks
