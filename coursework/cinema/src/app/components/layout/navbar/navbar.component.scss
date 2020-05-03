@@ -93,6 +93,7 @@ $sm: 600px;
     font-weight: bold;
     position: relative;
     transition: all 0.2s;
+    font-size: 1.5em;
 
     &:after {
       position: absolute;
@@ -116,11 +117,5 @@ $sm: 600px;
       }
     }
 
-    // &:visited {
-    //   &:after {
-    //     transition: all 0.2s;
-    //     width: 100%;
-    //   }
-    // }
   }
 }

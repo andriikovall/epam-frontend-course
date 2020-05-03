@@ -86,6 +86,30 @@
             "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5a/It_%282017%29_poster.jpg",
             "availableTime": [], 
             "duration": 122
+        }, 
+        {
+            "id": "34243",
+            "title": "Skooby doo",
+            "bio": "Scoob! is an upcoming American computer-animated adventure comedy film produced by the Warner Animation Group and based on the Scooby-Doo franchise.[1][2] The film is directed by Tony Cervone from a screenplay by Adam Sztykiel, Jack Donaldson, Derek Elliott, and Matt Lieberman, and a story by Lieberman, Eyal Podell, and Jonathon E. Stewart. It stars the voices of Frank Welker (who, as the title character, is the only member of the original cast to reprise his role), Will Forte, Gina Rodriguez, Zac Efron, and Amanda Seyfried as the Scooby gang, with Mark Wahlberg, Jason Isaacs, Kiersey Clemons, Ken Jeong and Tracy Morgan as other classic Hanna-Barbera animated characters. It is a reboot of the Scooby-Doo film series, and is intended to be the first installment in a series of films set within a Hanna-Barbera shared cinematic universe",
+            "directors": [
+                "Tony Cervone"  
+            ],
+            "date": 1592168400000,
+            "genres": [
+                "fantastic",
+                "comix", 
+                "cartoon"
+            ],
+            "comments": [
+                {
+                    "userId": "u_1",
+                    "date": "2010-02-18T22:00:00.000Z",
+                    "text": "Good film, I love it!"
+                }
+            ],
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4b/Scoob_2020_film_poster.png",
+            "availableTime": [], 
+            "duration": 130
         }
     ]
 }

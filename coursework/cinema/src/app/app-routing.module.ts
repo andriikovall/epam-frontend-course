@@ -5,12 +5,13 @@ import { MainComponent } from './components/pages/main/main.component';
 
 const routes: Routes = [
   {
-    path: 'films', loadChildren: () => import('./components/pages/filmsModule/films.module').then(m => m.FilmsModule)
+    path: 'films', loadChildren: () => import('./components/pages/filmsModule/films.module').then(({ FilmsModule }) => FilmsModule)
   },
   {
-    path: 'home', component: MainComponent,
-    data: { breadCrumbTitle: 'Home' }
+    path: 'auth', loadChildren: () => import('./components/pages/auth/auth.module').then(({ AuthModule }) => AuthModule)
   },
+  {
+    path: 'home', component: MainComponent },
   {
     path: '', redirectTo: 'home', pathMatch: 'prefix',
   }
