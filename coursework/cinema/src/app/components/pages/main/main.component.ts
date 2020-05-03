@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
     this.filmsLoading = true;
     this.newestFilms = this.filmsService.getFilms().pipe(
       map(films => films.sort((f1, f2) => f2.date > f1.date ? 1 : -1)),
-      map(films => films.slice(0, 3)),
+      map(films => films.slice(0, 5)),
       tap((_) => this.filmsLoading = false)
     )
   }

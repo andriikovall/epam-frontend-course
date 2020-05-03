@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FilmsService {
-  private baseUrl = environment.baseApiUrl +  'films';
+  private baseUrl = environment.baseApiUrl +  'films/';
 
   constructor(private http: HttpClient) { }
 

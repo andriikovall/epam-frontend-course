@@ -12,6 +12,14 @@
   text-align: end;
 }
 
+.text-link {
+  color: rgb(55, 67, 138);
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
 .d-flex {
   display: flex;
 }
@@ -119,17 +127,20 @@
 
 .btn {
   padding: 7px 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 
   cursor: pointer;
+  transition: 0.2s;
 
   border-width: 2px;
   border-style: solid;
   border-radius: 0.2em;
+  border-color: $main-black;
 
   &:hover {
     background: white;
-    border-width: 3px;
-    transition: 0.2s;
+    color: black;
   }
 
   &-block {

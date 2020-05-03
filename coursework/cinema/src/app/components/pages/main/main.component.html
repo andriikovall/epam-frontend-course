@@ -1,4 +1,16 @@
 <app-carousel></app-carousel>
+
+<section class="section">
+  <h2 class="section__title">
+    Watch new releases just at the time they come out in the world!
+  </h2>
+  <ul class="newest-films">
+    <li *ngFor="let film of newestFilms | async" class="newest-films__film-li">
+      <app-film-card class="newest-films__film" [film]="film"></app-film-card>
+    </li>
+  </ul>
+</section>
+
 <section class="section">
       <h2 class="section__title">Raise you emotions form the movie</h2>
       <p class="section__text">
@@ -10,15 +22,4 @@
         projectors which make you movie experience unforgettable
       </p>
 
-</section>
-
-<section class="section">
-  <h2 class="section__title">
-    Watch new releases just at the time they come out in the world!
-  </h2>
-  <ul class="newest-films">
-    <li *ngFor="let film of newestFilms | async" class="newest-films__film-li">
-      <app-film-card class="newest-films__film" [film]="film"></app-film-card>
-    </li>
-  </ul>
 </section>

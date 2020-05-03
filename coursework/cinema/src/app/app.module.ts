@@ -24,7 +24,7 @@ import { FilmCardComponent } from './components/film-card/film-card.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

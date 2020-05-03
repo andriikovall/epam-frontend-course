@@ -14,7 +14,7 @@ $sm: 600px;
 
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   min-height: 100%;
   // top: 0;
   z-index: 50;
@@ -25,6 +25,7 @@ $sm: 600px;
     list-style: none;
     padding: 0;
     padding-bottom: .3em;
+    width: 100%;
 
     @media screen and (mAx-width: $sm) {
       display: none;
@@ -94,6 +95,7 @@ $sm: 600px;
     position: relative;
     transition: all 0.2s;
     font-size: 1.5em;
+    text-align: center;
 
     &:after {
       position: absolute;

@@ -1,3 +1,11 @@
+@import './shared/styles/variables.scss';
+
 .main {
-  margin-top: 2em;
+  margin-top: 80px;
+
+  @media screen and (max-width: $sm) {
+    margin-top: 48px;
+  }
 }
+
+

@@ -1,6 +1,7 @@
 import { RoomState } from './room';
 
 export class Film {
+  id: string;
   title: string;
   bio: string;
   directors: string[];
@@ -13,6 +14,7 @@ export class Film {
 }
 
 export class Comment {
+  id: string;
   date: Date;
   text: string;
   userId: string;
