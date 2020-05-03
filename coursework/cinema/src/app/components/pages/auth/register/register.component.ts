@@ -11,30 +11,42 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  public passwordsEqual(): boolean {
-    return this.registerForm.get('password').value ===
-      this.registerForm.get('passwordRepeat').value;
+  public get loginControl(): AbstractControl {
+    return this.registerForm.get('login');
   }
 
-  constructor() { }
+  public get passwordControl(): AbstractControl {
+    return this.registerForm.get('password');
+  }
+
+  public get passwordRepeatControl(): AbstractControl {
+    return this.registerForm.get('passwordRepeat');
+  }
+
+  passwordsInvalid: boolean;
+
+  constructor() {
+  }
 
   ngOnInit() {
-
-    const passwordsValidators = [trimmedMinLength(3), this.passwordsValidator];
-
     this.registerForm = new FormGroup({
       firstName: new FormControl(''),
       lastName: new FormControl(''),
-      login: new FormControl('', passwordsValidators),
-      password: new FormControl('', passwordsValidators),
-      passwordRepeat: new FormControl('')
+      login: new FormControl('', [trimmedMinLength(3)]),
+      password: new FormControl('', [trimmedMinLength(3)]),
+      passwordRepeat: new FormControl('', [trimmedMinLength(3)])
     })
   }
 
-  passwordsValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      return this.passwordsEqual() ? null : ({ passwordsNotEqualError: true });
-    };
+  public onSubmit() {
+    if (this.passwordControl.value !== this.passwordRepeatControl.value) {
+      this.passwordsInvalid = true;
+      return;
+    }
+
+    this.passwordsInvalid = false;
+    console.log(this.registerForm.value);
+
   }
 
 }

@@ -20,6 +20,10 @@
   }
 }
 
+.text-danger {
+  color: $color-warning;
+}
+
 .d-flex {
   display: flex;
 }
@@ -143,6 +147,10 @@
     color: black;
   }
 
+  &:disabled {
+    cursor: default;
+  }
+
   &-block {
     display: block;
     width: 100%;
@@ -156,6 +164,14 @@
     &:hover {
       color: $color-primary;
     }
+
+    &:disabled {
+      &:hover {
+        background-color: $color-primary;
+        color: white;
+      }
+    }
+
   }
 
   &-secondary {
@@ -165,6 +181,13 @@
 
     &:hover {
       color: $color-secondary;
+    }
+
+    &:disabled {
+      &:hover {
+        background-color: $color-secondary;
+        color: white;
+      }
     }
   }
 }

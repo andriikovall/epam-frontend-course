@@ -1,6 +1,6 @@
 <div class="section-wrapper">
   <section class="auth-section section">
-    <form class="form" [formGroup]="this.registerForm">
+    <form class="form" [formGroup]="registerForm" (submit)="this.onSubmit()">
 
       <div class="form__group">
         <input class="form__control" type="text" formControlName="firstName" placeholder="First name">
@@ -8,14 +8,15 @@
       </div>
 
       <div class="form__group">
-        <input class="form__control" type="text" formControlName="login" placeholder="Login">
+        <input class="form__control" [class.invalid]="!this.loginControl.valid && this.loginControl.touched"  type="text" formControlName="login" placeholder="Login">
       </div>
       <div class="form__group">
-        <input type="password" class="form__control" formControlName="password" placeholder="Password">
-        <input type="password" class="form__control" formControlName="passwordRepeat" placeholder="Repeat password">
+        <input type="password" class="form__control" formControlName="password" placeholder="Password" [class.invalid]="this.passwordsInvalid">
+        <input type="password" class="form__control" formControlName="passwordRepeat" placeholder="Repeat password" [class.invalid]="this.passwordsInvalid">
+        <p class="form__feedback text-danger" *ngIf="this.passwordsInvalid">Passwords differ or are to short. Min length is 3</p>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block">Login</button>
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="!this.registerForm.valid">Login</button>
       <div class="form__divider divider">
         <p class="divider__text">
           Or use social networks
@@ -32,5 +33,7 @@
         </p>
       </div>
     </form>
+    {{this.registerForm.value | json}}
+    {{this.registerForm.valid | json}}
   </section>
 </div>
