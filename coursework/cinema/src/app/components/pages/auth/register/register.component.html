@@ -1,1 +1,36 @@
-<p>register works!</p>
+<div class="section-wrapper">
+  <section class="auth-section section">
+    <form class="form" [formGroup]="this.registerForm">
+
+      <div class="form__group">
+        <input class="form__control" type="text" formControlName="firstName" placeholder="First name">
+        <input class="form__control" type="text" formControlName="lastName" placeholder="Last name">
+      </div>
+
+      <div class="form__group">
+        <input class="form__control" type="text" formControlName="login" placeholder="Login">
+      </div>
+      <div class="form__group">
+        <input type="password" class="form__control" formControlName="password" placeholder="Password">
+        <input type="password" class="form__control" formControlName="passwordRepeat" placeholder="Repeat password">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Login</button>
+      <div class="form__divider divider">
+        <p class="divider__text">
+          Or use social networks
+        </p>
+      </div>
+      <div class="social-btns d-flex justify-content-around">
+        <button class="btn btn-google">
+          <i class="fab fa-google"></i>
+        </button>
+      </div>
+      <div class="form__divider divider">
+        <p class="divider__text">
+          Already have an account? <a class="text-link" routerLink="/auth/login">Login</a>
+        </p>
+      </div>
+    </form>
+  </section>
+</div>

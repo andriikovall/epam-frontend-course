@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { trimmedMinLength } from 'src/app/utils/validators';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-    const loginValidators = [Validators.required, this.trimmedMinLength(3)];
+    const loginValidators = [Validators.required, trimmedMinLength(3)];
     const passwordValidators = [Validators.required];
 
     this.loginForm = new FormGroup({
@@ -23,11 +24,5 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  private trimmedMinLength(minLength: number): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      const value: string = control.value || '';
-      return value.trim().length >= minLength ? null : ({ trimmedLengthError: { value } });
-    };
-  }
 
 }

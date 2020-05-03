@@ -1,11 +1,11 @@
 <div class="section-wrapper">
-  <section class="section">
+  <section class="auth-section section">
     <form class="form" [formGroup]="this.loginForm">
       <div class="form__group">
-        <input class="form__control" type="text" [formControl]="'login'" placeholder="Login">
+        <input class="form__control" type="text" [formControlName]="'login'" placeholder="Login">
       </div>
       <div class="form__group">
-        <input type="password" class="form__control" [formControl]="'password'" placeholder="Password">
+        <input type="password" class="form__control" [formControlName]="'password'" placeholder="Password">
       </div>
 
       <button type="submit" class="btn btn-primary btn-block">Login</button>
@@ -21,7 +21,7 @@
       </div>
       <div class="form__divider divider">
         <p class="divider__text">
-          Don't have an account? <a class="text-link">Register</a>
+          Don't have an account? <a class="text-link" routerLink="/auth/register">Register</a>
         </p>
       </div>
     </form>

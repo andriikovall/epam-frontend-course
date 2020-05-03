@@ -2,6 +2,10 @@
 
 
 .section-wrapper {
+  background-image: url('../../../../assets/auth/login-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -15,24 +19,29 @@
 
 .auth-section {
   max-width: $sm;
-  width: 100%;
+  // width: 100%;
+  margin-left: 600px;
+  @media screen and (max-width: $md){
+    margin-left: 0;
+  }
+
 }
 
 .form {
   font-size: 1.3em;
-
-
 
   &__control {
     border-style: solid;
     border: none;
     border: 1px solid #cccccc;
     border-radius: 5px;
-    padding: 5px;
+    padding: 0.6em;
+    width: 100%;
+    margin: 0.5em 0.1em;
   }
 
   &__group {
-    margin: 0.5em 0.1em;
+    margin: 0.8em 0.1em;
   }
 }
 
