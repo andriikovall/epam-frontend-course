@@ -12,7 +12,7 @@ import { FilmsService } from 'src/app/services/films.service';
 export class MainComponent implements OnInit {
 
   public newestFilms: Observable<Film[]>;
-  public filmsLoading;
+  public filmsLoading: boolean;
 
   constructor(private filmsService: FilmsService) { }
 
@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
     this.newestFilms = this.filmsService.getFilms().pipe(
       map(films => films.sort((f1, f2) => f2.date > f1.date ? 1 : -1)),
       map(films => films.slice(0, 5)),
-      tap((_) => this.filmsLoading = false)
+      tap((_) => {setTimeout(() =>this.filmsLoading = false, 0)})
     )
   }
 

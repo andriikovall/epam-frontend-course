@@ -11,6 +11,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilmCardComponent } from './components/film-card/film-card.component';
+import { LoadingDirective } from './directives/loading.directive';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,10 @@ import { FilmCardComponent } from './components/film-card/film-card.component';
     MainComponent,
     CarouselComponent,
     FilmCardComponent,
+    LoadingDirective,
+    LoaderComponent,
   ],
+  entryComponents: [LoaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
