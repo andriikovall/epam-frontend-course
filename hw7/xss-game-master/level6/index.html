@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- Internal game scripts/styles, mostly boring stuff -->
+  <script src="https://xss-game.appspot.com/static/game-frame.js"></script>
+  <link rel="stylesheet" href="https://xss-game.appspot.com/static/game-frame-styles.css" />
+
+  <script defer>
+
+    window.onload = () => {
+
+      function setInnerText(element, value) {
+        if (element.innerText) {
+          element.innerText = value;
+        } else {
+          element.textContent = value;
+        }
+      }
+
+      function checkUrl(url) {
+        url = url.trim();
+        const logElem = document.getElementById("log");
+
+        if (url.match(/^https?:\/\//)) {
+          setInnerText(logElem, "Sorry, cannot load a URL containing \"http\".");
+          return false;
+        }
+
+        const possiblyDangerousScriptMimetypes = [
+          'application/ecmascript',
+          'application/javascript',
+          'application/x-ecmascript',
+          'application/x-javascript',
+          'text/ecmascript',
+          'text/javascript',
+          'text/javascript1.0',
+          'text/javascript1.1',
+          'text/javascript1.2',
+          'text/javascript1.3',
+          'text/javascript1.4',
+          'text/javascript1.5',
+          'text/jscript',
+          'text/livescript',
+          'text/x-ecmascript',
+          'text/x-javascript',
+          'text/php'
+        ]
+
+        const isBearScript = possiblyDangerousScriptMimetypes.some(type => url.includes(type));
+        if (isBearScript) {
+          setInnerText(logElem, 'Sorry, cannot load bear script');
+        }
+        return !isBearScript
+      }
+
+      function includeGadget(url) {
+        var scriptEl = document.createElement('script');
+
+        // This will totally prevent us from loading evil URLs!
+        if (!checkUrl(url)) {
+          return;
+        }
+
+        // Load this awesome gadget
+        scriptEl.src = url;
+        console.log(url)
+
+        // Show log messages
+        scriptEl.onload = function () {
+          setInnerText(document.getElementById("log"),
+            "Loaded gadget from " + url);
+        }
+        scriptEl.onerror = function () {
+          setInnerText(document.getElementById("log"),
+            "Couldn't load gadget from " + url);
+        }
+
+        document.head.appendChild(scriptEl);
+      }
+
+      // Take the value after # and use it as the gadget filename.
+      function getGadgetName() {
+        return window.location.hash.substr(1) || "/gadget.js";
+      }
+
+      includeGadget(getGadgetName());
+
+      // Extra code so that we can communicate with the parent page
+      window.addEventListener("message", function (event) {
+        if (event.source == parent) {
+          includeGadget(getGadgetName());
+        }
+      }, false);
+
+    }
+  </script>
+</head>
+
+<body id="level6">
+  <img src="https://xss-game.appspot.com/static/logos/level6.png">
+  <img id="cube" src="https://xss-game.appspot.com/static/level6_cube.png">
+  <div id="log">Loading gadget...</div>
+</body>
+
+</html>
