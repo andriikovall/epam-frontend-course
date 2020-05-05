@@ -3,6 +3,7 @@
   height: 100vh;
 }
 
+
 .login-form-section {
   max-width: 500px;
   border-radius: 5px;
@@ -10,4 +11,10 @@
 
 .card {
   background-color: #ffffff;
+}
+
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
 }
