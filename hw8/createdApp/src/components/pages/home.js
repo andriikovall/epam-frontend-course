@@ -12,6 +12,8 @@ export default function Home(props) {
     const [ weatherLoading, setWeatherLoading ] = useState(true);
     const [ currentWeather, setCurrentWether ] = useState(null);
     const [ currentDaySelectedIndex, setCurrentDaySelectedIndex ] = useState(0);
+    // London
+    const defautLocationId = 44418;
 
     if (!getCurrentUser()) {
         return <Redirect to="/login"/>
@@ -24,11 +26,12 @@ export default function Home(props) {
     if (!currentWeather) {
         getCurrentGeoLocationCoordinates()
             .then(coords => WeatherService.getWeatherForPosition(coords.latitude, coords.longitude))
+            .catch(err => WeatherService.getWeatherForLocation(defautLocationId))
             .then(res => setCurrentWether(res))
             .catch(err => {
-                console.log(err);
+                alert('An error occured while loading the weather')
             })
-            .then(() => setWeatherLoading(false));
+            .then(() => setWeatherLoading(false))
     }
 
     return (
