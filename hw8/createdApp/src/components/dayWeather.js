@@ -3,13 +3,12 @@ import WeatherService from '../services/weatherService';
 import moment from 'moment';
 
 export default function DayWeather({ weather, sunRise, sunSet, title, expanded }) {
-    console.log(new Date(sunRise).getDay());
     if (expanded) {
         return (
-            <div className="p-3">
+            <div className="p-3 weather-card">
                 <div className="d-flex align-items-center">
                     <h2>{title}</h2>
-                    <div className="font-weight-bold ml-2">{moment(weather.applicable_date).format('MMM Do YYYY')}</div>
+                    <div className="font-weight-bold ml-2">{moment(weather.applicable_date).format('dddd MMM Do YYYY')}</div>
                 </div>
                 <div className="row p-3">
                     <div className="col-sm-6 col-md-2">
@@ -32,24 +31,24 @@ export default function DayWeather({ weather, sunRise, sunSet, title, expanded }
                                     <td>{weather.humidity}%</td>
                                 </tr>
                                 {
-                                    new Date(sunRise).getDate() === new Date(weather.applicable_date).getDate() ? 
-                                    <>
-                                        <tr>
-                                            <th>Sub rise</th>
-                                            <td>{moment(sunRise).format('LTS')}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Sub set</th>
-                                            <td>{moment(sunSet).format('LTS')}</td>
-                                        </tr>
-                                    </>                                                :
-                                    <></>
+                                    new Date(sunRise).getDate() === new Date(weather.applicable_date).getDate() ?
+                                        <>
+                                            <tr>
+                                                <th>Sun rise</th>
+                                                <td>{moment(sunRise).format('LTS')}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Sun set</th>
+                                                <td>{moment(sunSet).format('LTS')}</td>
+                                            </tr>
+                                        </> :
+                                        <></>
                                 }
                             </tbody>
                         </table>
                     </div>
 
-                    <div className="col d-flex flex-column justify-content-around">
+                    <div className="col col-lg-4 d-flex flex-column justify-content-around">
                         <table className="table table-borderless">
                             <tbody>
                                 <tr>
@@ -67,8 +66,8 @@ export default function DayWeather({ weather, sunRise, sunSet, title, expanded }
                                 <tr>
                                     <th>Wind direction</th>
                                     <td>
-                                        <img style={{'transform': `rotate(${weather.wind_direction - 90}deg)`}} 
-                                        src="arrow.svg" className="wind-arrow-img" alt="direction arrow"/>
+                                        <img style={{ 'transform': `rotate(${weather.wind_direction - 90}deg)` }}
+                                            src="arrow.svg" className="wind-arrow-img" alt="direction arrow" />
                                     </td>
                                 </tr>
                             </tbody>
@@ -79,7 +78,25 @@ export default function DayWeather({ weather, sunRise, sunSet, title, expanded }
         )
     } else {
         return (
-            <pre>{JSON.stringify({ weather, sunRise, sunSet, title }, null, 2)}</pre>
+            <div className="card weather-card p-4">
+                <h3 className="card-title">{moment(weather.applicable_date).format('ddd')}</h3>
+                <div className="row align-items-center my-2">
+                    <div className="col-5">
+                        <img src={WeatherService.getSmallWeatherStateImageUrl(weather.weather_state_abbr)}
+                            alt={weather.weather_state_name}></img>
+                    </div>
+                    <div className="col-7">
+                        <p>{weather.weather_state_name}</p>
+                    </div>
+                </div>
+                <p>Max: <span>{Math.round(weather.max_temp * 100) / 100}</span>°C</p>
+                <p>Min: <span>{Math.round(weather.min_temp * 100) / 100}</span>°C</p>
+                <div className="wind d-flex justify-content-between align-items-center">
+                    <p>{Math.round(weather.wind_speed * 100) / 100}mph</p>
+                    <img style={{ 'transform': `rotate(${weather.wind_direction - 90}deg)` }}
+                        src="arrow.svg" className="wind-arrow-img" alt="direction arrow" />
+                </div>
+            </div>
         )
     }
 }
