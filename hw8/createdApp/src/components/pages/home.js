@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import AuthContext from '../../contexts/authContext';
 import { Redirect } from 'react-router';
 import Loader from '../loader';
@@ -15,6 +15,18 @@ export default function Home(props) {
     // London
     const defautLocationId = 44418;
 
+    useEffect(() => {
+        getCurrentGeoLocationCoordinates()
+        .then(coords => WeatherService.getWeatherForPosition(coords.latitude, coords.longitude))
+        .catch(err => WeatherService.getWeatherForLocation(defautLocationId))
+        .then(res => setCurrentWether(res))
+        .catch(err => {
+            alert('An error occured while loading the weather')
+        })
+        .then(() => setWeatherLoading(false))
+    }, []);
+
+
     if (!getCurrentUser()) {
         return <Redirect to="/login" />
     }
@@ -23,16 +35,6 @@ export default function Home(props) {
         setCurrentDaySelectedIndex(index);
     }
 
-    if (!currentWeather) {
-        getCurrentGeoLocationCoordinates()
-            .then(coords => WeatherService.getWeatherForPosition(coords.latitude, coords.longitude))
-            .catch(err => WeatherService.getWeatherForLocation(defautLocationId))
-            .then(res => setCurrentWether(res))
-            .catch(err => {
-                alert('An error occured while loading the weather')
-            })
-            .then(() => setWeatherLoading(false))
-    }
 
     return (
         <div className="p-2 bg-info">
