@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { trimmedMinLength } from 'src/app/utils/validators';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   public get loginControl(): AbstractControl {
     return this.loginForm.get('login');
@@ -19,6 +21,12 @@ export class LoginComponent implements OnInit {
 
   public get passwordControl(): AbstractControl {
     return this.loginForm.get('password');
+  }
+
+  public errorOccured = false;
+
+  private navigateAfterSuccess() {
+    window.location.href = '/';
   }
 
   ngOnInit() {
@@ -32,8 +40,25 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  public onSubmit() {
-    console.log(this.loginForm.value);
+  public onSubmit(value) {
+    if (!this.loginForm.valid)
+      return;
+    this.authService.login(value.login, value.password)
+      .then((user: User) => {
+        if (user) {
+          this.navigateAfterSuccess();
+          this.errorOccured = false;
+        }
+        else {
+          this.errorOccured = true;
+        }
+      })
+
+  }
+
+  public onGoogleAuth(user) {
+    this.authService.onSocialAuth(user)
+    .then(() => this.navigateAfterSuccess());
   }
 
 

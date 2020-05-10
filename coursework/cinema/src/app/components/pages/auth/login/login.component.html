@@ -1,6 +1,6 @@
 <div class="section-wrapper">
   <section class="auth-section section">
-    <form class="form" [formGroup]="this.loginForm" (submit)="this.onSubmit()" >
+    <form class="form" [formGroup]="this.loginForm" (submit)="this.onSubmit(this.loginForm.value)" >
       <div class="form__group">
         <input class="form__control" type="text" [formControlName]="'login'" placeholder="Login"
         [class.invalid]="this.loginControl.invalid && this.loginControl.touched">
@@ -10,16 +10,16 @@
         [class.invalid]="this.passwordControl.invalid && this.passwordControl.touched">
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block" [disabled]="!this.loginForm.valid">Login</button>
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="!this.loginForm.valid || (this.authService.authLoading | async)">Login</button>
+      <p class="text-danger" *ngIf="this.errorOccured && !(this.authService.authLoading | async)">No user found with such login or password</p>
+      <app-loader *ngIf="(this.authService.authLoading | async) && this.errorOccured"></app-loader>
       <div class="form__divider divider">
         <p class="divider__text">
           Or use social networks
         </p>
       </div>
       <div class="social-btns d-flex justify-content-around">
-        <button class="btn btn-google">
-          <i class="fab fa-google"></i>
-        </button>
+        <app-google-auth (userAuthenticated)="onGoogleAuth($event)"></app-google-auth>
       </div>
       <div class="form__divider divider">
         <p class="divider__text">

@@ -29,7 +29,6 @@
 }
 
 .form {
-  font-size: 1.3em;
 
   &__control {
     border-style: solid;
@@ -54,17 +53,6 @@
   }
 }
 
-.btn-google {
-  $google-color: #DB4437;
-  background-color: $google-color;
-  border: none;
-  color: white;
-
-
-  &:hover {
-    background-color: darken($color: $google-color, $amount: 10);
-  }
-}
 
 .divider {
   font-size: 0.8em;

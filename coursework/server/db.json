@@ -1,116 +1,170 @@
 {
-    "films": [
+  "films": [
+    {
+      "id": "34243",
+      "title": "Avengers: the Endgame",
+      "bio": "Twenty-three days after Thanos had used the Infinity Gauntlet to disintegrate half of all life in the universe,[N 1] Carol Danvers rescues Tony Stark and Nebula from deep space and returns them to Earth, where they reunite with the remaining Avengers—Bruce Banner, Steve Rogers, Thor, Natasha Romanoff, and James Rhodes—and Rocket. Locating Thanos on an uninhabited planet, they plan to use the Infinity Stones to reverse \"the Snap\", but Thanos reveals he destroyed the Stones to prevent further use.",
+      "directors": [
+        "Jo Ruso",
+        "Someone else Ruso"
+      ],
+      "date": 1556199903358,
+      "genres": [
+        "fantastic",
+        "science fiction",
+        "comix",
+        "marvel"
+      ],
+      "comments": [
         {
-            "id": "34243",
-            "title": "Avengers: the Endgame",
-            "bio": "Twenty-three days after Thanos had used the Infinity Gauntlet to disintegrate half of all life in the universe,[N 1] Carol Danvers rescues Tony Stark and Nebula from deep space and returns them to Earth, where they reunite with the remaining Avengers—Bruce Banner, Steve Rogers, Thor, Natasha Romanoff, and James Rhodes—and Rocket. Locating Thanos on an uninhabited planet, they plan to use the Infinity Stones to reverse \"the Snap\", but Thanos reveals he destroyed the Stones to prevent further use.",
-            "directors": [
-                "Jo Ruso",
-                "Someone else Ruso"
-            ],
-            "date": 1556199903358,
-            "genres": [
-                "fantastic",
-                "science fiction",
-                "comix",
-                "marvel"
-            ],
-            "comments": [
-                {
-                    "userId": "u_1",
-                    "date": "2010-02-18T22:00:00.000Z",
-                    "text": "Good film, I love it!"
-                }
-            ],
-            "imageUrl": "https://avatars.mds.yandex.net/get-kinopoisk-post-img/1101693/26100c5b49f851337109a5f792436a29/960x540",
-            "availableTime": [], 
-            "duration": 130
-        },
-        {
-            "id": "s213f23f",
-            "title": "Green Book",
-            "bio": "Green Book is a 2018 American biographical road comedy-drama film directed by Peter Farrelly. Set in 1962, the film is inspired by the true story of a tour of the Deep South by African American classical and jazz pianist Don Shirley and Italian American bouncer Frank \"Tony Lip\" Vallelonga who served as Shirley's driver and bodyguard. The film was written by Farrelly, Brian Hayes Currie and Vallelonga's son, Nick Vallelonga, based on interviews with his father and Shirley, as well as letters his father wrote to his mother.[6] The film is named after The Negro Motorist Green Book, a mid-20th century guidebook for African-American travelers written by Victor Hugo Green",
-            "directors": [
-                "Peter Farrelly"
-            ],
-            "date": 1536613200000,
-            "genres": [
-                "thriller",
-                "biographical"
-            ],
-            "comments": [
-                "comment_2",
-                "comment_3"
-            ],
-            "imageUrl": "https://a.radikal.ru/a15/1901/08/75a32b057caf.jpg",
-            "availableTime": [], 
-            "duration": 150
-        },
-        {
-            "id": "rgefrhtgfe342",
-            "title": "Shutter Island",
-            "bio": "Shutter Island is a 2010 American neo-noir psychological thriller film directed by Martin Scorsese and written by Laeta Kalogridis, based on Dennis Lehane's 2003 novel of the same name. Leonardo DiCaprio stars as U.S. Marshal Edward \"Teddy\" Daniels, who is investigating a psychiatric facility on Shutter Island after one of the patients goes missing. Mark Ruffalo plays his partner officer; Ben Kingsley is the facility's lead psychiatrist; Max von Sydow is a German doctor; and Michelle Williams is Daniels's wife. Released on February 19, 2010, the film received mostly positive reviews from critics, was chosen by National Board of Review as one of the top ten films of 2010, and grossed over $294 million worldwide.",
-            "directors": [
-                "Martin Scorsese"
-            ],
-            "date": 1266530400000,
-            "genres": [
-                "biographical",
-                "detective",
-                "thriller"
-            ],
-            "comments": [
-                "comment_4",
-                "comment_3"
-            ],
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/ru/thumb/2/22/Kinopoisk.ru-Shutter-Island-1094940.jpg/203px-Kinopoisk.ru-Shutter-Island-1094940.jpg",
-            "availableTime": [], 
-            "duration": 130
-        },
-        {
-            "id": "dsff",
-            "title": "It",
-            "bio": "It, retroactively known as It Chapter One, is a 2017 American supernatural horror film based on Stephen King's 1986 novel of the same name.[5] Produced by New Line Cinema, KatzSmith Productions, Lin Pictures, Vertigo Entertainment,[6][7] and distributed by Warner Bros.[8] It is the first film in the It film series as well as being the second adaptation following Tommy Lee Wallace's 1990 miniseries.[9][10][11] The film tells the story of seven children in Derry, Maine, who are terrorized by the eponymous being, only to face their own personal demons in the process.[12][13] The film is also known as It: Part 1 – The Losers' Club.",
-            "directors": [
-                "Andy Muschietti"
-            ],
-            "date": 1504558800000,
-            "genres": [
-                "horror",
-                "thriller"
-            ],
-            "comments": [
-                "comment_2",
-                "comment_23"
-            ],
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5a/It_%282017%29_poster.jpg",
-            "availableTime": [], 
-            "duration": 122
-        }, 
-        {
-            "id": "34243",
-            "title": "Skooby doo",
-            "bio": "Scoob! is an upcoming American computer-animated adventure comedy film produced by the Warner Animation Group and based on the Scooby-Doo franchise.[1][2] The film is directed by Tony Cervone from a screenplay by Adam Sztykiel, Jack Donaldson, Derek Elliott, and Matt Lieberman, and a story by Lieberman, Eyal Podell, and Jonathon E. Stewart. It stars the voices of Frank Welker (who, as the title character, is the only member of the original cast to reprise his role), Will Forte, Gina Rodriguez, Zac Efron, and Amanda Seyfried as the Scooby gang, with Mark Wahlberg, Jason Isaacs, Kiersey Clemons, Ken Jeong and Tracy Morgan as other classic Hanna-Barbera animated characters. It is a reboot of the Scooby-Doo film series, and is intended to be the first installment in a series of films set within a Hanna-Barbera shared cinematic universe",
-            "directors": [
-                "Tony Cervone"  
-            ],
-            "date": 1592168400000,
-            "genres": [
-                "fantastic",
-                "comix", 
-                "cartoon"
-            ],
-            "comments": [
-                {
-                    "userId": "u_1",
-                    "date": "2010-02-18T22:00:00.000Z",
-                    "text": "Good film, I love it!"
-                }
-            ],
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4b/Scoob_2020_film_poster.png",
-            "availableTime": [], 
-            "duration": 130
+          "userId": "u_1",
+          "date": "2010-02-18T22:00:00.000Z",
+          "text": "Good film, I love it!"
         }
-    ], 
-    "users": []
+      ],
+      "imageUrl": "https://avatars.mds.yandex.net/get-kinopoisk-post-img/1101693/26100c5b49f851337109a5f792436a29/960x540",
+      "availableTime": [],
+      "duration": 130
+    },
+    {
+      "id": "s213f23f",
+      "title": "Green Book",
+      "bio": "Green Book is a 2018 American biographical road comedy-drama film directed by Peter Farrelly. Set in 1962, the film is inspired by the true story of a tour of the Deep South by African American classical and jazz pianist Don Shirley and Italian American bouncer Frank \"Tony Lip\" Vallelonga who served as Shirley's driver and bodyguard. The film was written by Farrelly, Brian Hayes Currie and Vallelonga's son, Nick Vallelonga, based on interviews with his father and Shirley, as well as letters his father wrote to his mother.[6] The film is named after The Negro Motorist Green Book, a mid-20th century guidebook for African-American travelers written by Victor Hugo Green",
+      "directors": [
+        "Peter Farrelly"
+      ],
+      "date": 1536613200000,
+      "genres": [
+        "thriller",
+        "biographical"
+      ],
+      "comments": [
+        "comment_2",
+        "comment_3"
+      ],
+      "imageUrl": "https://a.radikal.ru/a15/1901/08/75a32b057caf.jpg",
+      "availableTime": [],
+      "duration": 150
+    },
+    {
+      "id": "rgefrhtgfe342",
+      "title": "Shutter Island",
+      "bio": "Shutter Island is a 2010 American neo-noir psychological thriller film directed by Martin Scorsese and written by Laeta Kalogridis, based on Dennis Lehane's 2003 novel of the same name. Leonardo DiCaprio stars as U.S. Marshal Edward \"Teddy\" Daniels, who is investigating a psychiatric facility on Shutter Island after one of the patients goes missing. Mark Ruffalo plays his partner officer; Ben Kingsley is the facility's lead psychiatrist; Max von Sydow is a German doctor; and Michelle Williams is Daniels's wife. Released on February 19, 2010, the film received mostly positive reviews from critics, was chosen by National Board of Review as one of the top ten films of 2010, and grossed over $294 million worldwide.",
+      "directors": [
+        "Martin Scorsese"
+      ],
+      "date": 1266530400000,
+      "genres": [
+        "biographical",
+        "detective",
+        "thriller"
+      ],
+      "comments": [
+        "comment_4",
+        "comment_3"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/ru/thumb/2/22/Kinopoisk.ru-Shutter-Island-1094940.jpg/203px-Kinopoisk.ru-Shutter-Island-1094940.jpg",
+      "availableTime": [],
+      "duration": 130
+    },
+    {
+      "id": "dsff",
+      "title": "It",
+      "bio": "It, retroactively known as It Chapter One, is a 2017 American supernatural horror film based on Stephen King's 1986 novel of the same name.[5] Produced by New Line Cinema, KatzSmith Productions, Lin Pictures, Vertigo Entertainment,[6][7] and distributed by Warner Bros.[8] It is the first film in the It film series as well as being the second adaptation following Tommy Lee Wallace's 1990 miniseries.[9][10][11] The film tells the story of seven children in Derry, Maine, who are terrorized by the eponymous being, only to face their own personal demons in the process.[12][13] The film is also known as It: Part 1 – The Losers' Club.",
+      "directors": [
+        "Andy Muschietti"
+      ],
+      "date": 1504558800000,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "comments": [
+        "comment_2",
+        "comment_23"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5a/It_%282017%29_poster.jpg",
+      "availableTime": [],
+      "duration": 122
+    },
+    {
+      "id": "34243",
+      "title": "Skooby doo",
+      "bio": "Scoob! is an upcoming American computer-animated adventure comedy film produced by the Warner Animation Group and based on the Scooby-Doo franchise.[1][2] The film is directed by Tony Cervone from a screenplay by Adam Sztykiel, Jack Donaldson, Derek Elliott, and Matt Lieberman, and a story by Lieberman, Eyal Podell, and Jonathon E. Stewart. It stars the voices of Frank Welker (who, as the title character, is the only member of the original cast to reprise his role), Will Forte, Gina Rodriguez, Zac Efron, and Amanda Seyfried as the Scooby gang, with Mark Wahlberg, Jason Isaacs, Kiersey Clemons, Ken Jeong and Tracy Morgan as other classic Hanna-Barbera animated characters. It is a reboot of the Scooby-Doo film series, and is intended to be the first installment in a series of films set within a Hanna-Barbera shared cinematic universe",
+      "directors": [
+        "Tony Cervone"
+      ],
+      "date": 1592168400000,
+      "genres": [
+        "fantastic",
+        "comix",
+        "cartoon"
+      ],
+      "comments": [
+        {
+          "userId": "u_1",
+          "date": "2010-02-18T22:00:00.000Z",
+          "text": "Good film, I love it!"
+        }
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4b/Scoob_2020_film_poster.png",
+      "availableTime": [],
+      "duration": 130
+    }
+  ],
+  "users": [
+    {
+      "firstName": "Bob",
+      "lastName": "Marley",
+      "id": "uuid_213213",
+      "login": "login",
+      "password": "pass"
+    },
+    {
+      "firstName": "Someone",
+      "lastName": "Else",
+      "id": "dskfmsdlkfmsdkfm",
+      "login": "login2",
+      "password": "pass2"
+    },
+    {
+      "login": "llll",
+      "password": "passw",
+      "id": "_KNYLx4"
+    },
+    {
+      "firstName": "Андрей",
+      "lastName": "Коваль",
+      "avaUrl": "https://lh5.googleusercontent.com/-icX0vm8uMA4/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuckxgEg8Wmy__Ph_fYAqjsjjpKDlyA/s96-c/photo.jpg",
+      "id": "116296055330750796735"
+    },
+    {
+      "firstName": "Andrey",
+      "lastName": "Koval",
+      "avaUrl": "https://lh3.googleusercontent.com/a-/AOh14GhTAccxyJ-qUs5JTGdCtSsjlZdKDdMVTaxo7lX9=s96-c",
+      "id": "110447915028256995015"
+    },
+    {
+      "id": "zPO4DJM"
+    },
+    {
+      "id": "Ccp4sjK"
+    },
+    {
+      "firstName": "sdfdsflm",
+      "lastName": "dfdf",
+      "login": "fff",
+      "password": "fff",
+      "passwordRepeat": "fff",
+      "id": "VKvzF7G"
+    },
+    {
+      "firstName": "sdfdsflm",
+      "lastName": "dfdf",
+      "login": "fff",
+      "password": "fff",
+      "passwordRepeat": "fff",
+      "id": "IaaD2hy"
+    }
+  ]
 }

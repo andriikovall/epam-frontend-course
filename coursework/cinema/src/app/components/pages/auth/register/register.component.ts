@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
 import { trimmedMinLength } from 'src/app/utils/validators';
+import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -23,9 +25,13 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('passwordRepeat');
   }
 
+  private redirectAfterSuccess() {
+    window.location.href = '/';
+  }
+
   passwordsInvalid: boolean;
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -38,15 +44,22 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  public onSubmit() {
+  public onSubmit(value) {
     if (this.passwordControl.value !== this.passwordRepeatControl.value) {
       this.passwordsInvalid = true;
       return;
     }
 
     this.passwordsInvalid = false;
-    console.log(this.registerForm.value);
 
+    this.authService.register(value)
+      .then(res => console.log(res));
+
+  }
+
+  onGoogleAuth(user: User) {
+    this.authService.onSocialAuth(user)
+    .then(() => this.redirectAfterSuccess());
   }
 
 }
