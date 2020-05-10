@@ -8,15 +8,23 @@
       </div>
 
       <div class="form__group">
-        <input class="form__control" [class.invalid]="!this.loginControl.valid && this.loginControl.touched"  type="text" formControlName="login" placeholder="Login">
+        <input class="form__control" [class.invalid]="!this.loginControl.valid && this.loginControl.touched || this.loginUsed"  type="text" formControlName="login" placeholder="Login">
+        <p class="form__feedback text-danger" *ngIf="this.loginUsed">Login already used</p>
       </div>
       <div class="form__group">
-        <input type="password" class="form__control" formControlName="password" placeholder="Password" [class.invalid]="this.passwordsInvalid">
-        <input type="password" class="form__control" formControlName="passwordRepeat" placeholder="Repeat password" [class.invalid]="this.passwordsInvalid">
-        <p class="form__feedback text-danger" *ngIf="this.passwordsInvalid">Passwords differ or are to short. Min length is 3</p>
+        <input type="password" class="form__control" formControlName="password" placeholder="Password" [class.invalid]="this.passwordsAreInvalid()">
+        <input type="password" class="form__control" formControlName="passwordRepeat" placeholder="Repeat password" [class.invalid]="this.passwordsAreInvalid()">
+        <p class="form__feedback text-danger" *ngIf="this.passwordsAreInvalid()">Passwords differ or are to short. Min length is 3</p>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block" [disabled]="!this.registerForm.valid">Register</button>
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="!this.registerForm.valid || (this.authService.authLoading | async)">
+        <ng-container *ngIf="(this.authService.authLoading | async); else elseButton">
+          <app-loader></app-loader>
+        </ng-container>
+        <ng-template #elseButton>
+          Sign up
+        </ng-template>
+      </button>
       <div class="form__divider divider">
         <p class="divider__text">
           Or use social networks

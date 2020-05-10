@@ -29,12 +29,21 @@ export class RegisterComponent implements OnInit {
     window.location.href = '/';
   }
 
-  passwordsInvalid: boolean;
+  public passwordsAreInvalid(): boolean {
+    return this.passwordsDontEqual ||
+           (this.passwordControl.touched && this.passwordControl.invalid ||
+           this.passwordRepeatControl.touched && this.passwordRepeatControl.invalid);
 
-  constructor(private authService: AuthService) {
+  }
+
+  passwordsDontEqual: boolean;
+  loginUsed: boolean;
+
+  constructor(public authService: AuthService) {
   }
 
   ngOnInit() {
+    this.loginUsed = false;
     this.registerForm = new FormGroup({
       firstName: new FormControl(''),
       lastName: new FormControl(''),
@@ -46,18 +55,31 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(value) {
     if (this.passwordControl.value !== this.passwordRepeatControl.value) {
-      this.passwordsInvalid = true;
+      this.passwordsDontEqual = true;
       return;
     }
 
-    this.passwordsInvalid = false;
+    if (this.registerForm.invalid)
+      return;
+
+    this.passwordsDontEqual = false;
+    this.loginUsed = false;
 
     this.authService.register(value)
-      .then(res => console.log(res));
+      .then(res => {
+        if (!res) {
+          this.loginUsed = true;
+        } else {
+          this.redirectAfterSuccess();
+        }
+      });
 
   }
 
   onGoogleAuth(user: User) {
+    this.passwordsDontEqual = false;
+    this.loginUsed = false;
+
     this.authService.onSocialAuth(user)
     .then(() => this.redirectAfterSuccess());
   }

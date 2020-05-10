@@ -1,18 +1,27 @@
 <div class="section-wrapper">
   <section class="auth-section section">
-    <form class="form" [formGroup]="this.loginForm" (submit)="this.onSubmit(this.loginForm.value)" >
+    <form class="form" [formGroup]="this.loginForm" (submit)="this.onSubmit(this.loginForm.value)">
       <div class="form__group">
         <input class="form__control" type="text" [formControlName]="'login'" placeholder="Login"
-        [class.invalid]="this.loginControl.invalid && this.loginControl.touched">
+          [class.invalid]="this.loginControl.invalid && this.loginControl.touched">
       </div>
       <div class="form__group">
         <input type="password" class="form__control" [formControlName]="'password'" placeholder="Password"
-        [class.invalid]="this.passwordControl.invalid && this.passwordControl.touched">
+          [class.invalid]="this.passwordControl.invalid && this.passwordControl.touched">
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block" [disabled]="!this.loginForm.valid || (this.authService.authLoading | async)">Login</button>
-      <p class="text-danger" *ngIf="this.errorOccured && !(this.authService.authLoading | async)">No user found with such login or password</p>
-      <app-loader *ngIf="(this.authService.authLoading | async) && this.errorOccured"></app-loader>
+      <button type="submit" class="btn btn-primary btn-block"
+        [disabled]="!this.loginForm.valid || (this.authService.authLoading | async)">
+        <ng-container *ngIf="(this.authService.authLoading | async); else elseButton">
+          <app-loader></app-loader>
+        </ng-container>
+        <ng-template #elseButton>
+          Login
+        </ng-template>
+      </button>
+
+      <p class="form__feedback text-danger" *ngIf="this.errorOccured && !(this.authService.authLoading | async)">No user
+        found with such login or password</p>
       <div class="form__divider divider">
         <p class="divider__text">
           Or use social networks
