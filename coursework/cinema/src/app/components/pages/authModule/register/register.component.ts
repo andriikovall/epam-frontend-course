@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   }
 
   private redirectAfterSuccess() {
+    // @todo add query param after redirect
     window.location.href = '/';
   }
 
