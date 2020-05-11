@@ -4,21 +4,23 @@ import { User } from '../models/user';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap, switchMap } from 'rxjs/operators';
+import { BaseService } from './base.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService extends BaseService {
 
   private salt: string = 'some_salt';
 
-  private usersBaseUrl = environment.baseApiUrl +  'users/';
+  private usersBaseUrl = environment.baseApiUrl + 'users/';
 
   public currentUser: BehaviorSubject<User>;
   public authLoading: BehaviorSubject<boolean>;
 
   constructor(private httpClient: HttpClient) {
+    super();
     this.loadUser();
   }
 
@@ -45,8 +47,13 @@ export class AuthService {
 
   login(login: string, password: string): Promise<User> {
     this.authLoading.next(true);
-    return this.httpClient.get<User[]>(this.usersBaseUrl, { params: { login, password }})
+    this.networkError.next(false);
+    return this.httpClient.get<User[]>(this.usersBaseUrl, { params: { login, password } })
       .pipe(
+        catchError(err => {
+          this.networkError.next(true);
+          return of(null);
+        }),
         map(users => users[0]),
         catchError(err => of(null)),
         tap(
@@ -59,6 +66,7 @@ export class AuthService {
 
   register(registrationValue): Promise<User> {
     this.authLoading.next(true);
+    this.networkError.next(false);
     return this.getUserByLogin(registrationValue.login).pipe(
       switchMap((user) => {
         if (user)
@@ -66,22 +74,24 @@ export class AuthService {
 
         return this.httpClient.post<User>(this.usersBaseUrl, registrationValue)
           .pipe(
-            tap(
-              (user) => this.saveUser(user),
-              (user) => this.currentUser.next(user),
-            ),
             catchError(err => of(null))
           )
       }),
       tap(
-        () => this.authLoading.next(false)
-      )
+        (user) => {this.currentUser.next(user)},
+        (user) => this.saveUser(user),
+        () => this.authLoading.next(false),
+      ),
+      catchError((err) => {
+        this.networkError.next(true);
+        return of(null)
+      }),
     ).toPromise();
 
   }
 
   private getUserByLogin(login: string): Observable<User> {
-    return this.httpClient.get<User>(this.usersBaseUrl, { params: { login }})
+    return this.httpClient.get<User>(this.usersBaseUrl, { params: { login } })
       .pipe(
         map(users => users[0] || null)
       );

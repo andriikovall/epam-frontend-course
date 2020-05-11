@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit(value) {
+    this.loginForm.markAllAsTouched();
     if (!this.loginForm.valid)
       return;
     this.authService.login(value.login, value.password)

@@ -55,6 +55,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public onSubmit(value) {
+    this.registerForm.markAllAsTouched();
     if (this.passwordControl.value !== this.passwordRepeatControl.value) {
       this.passwordsDontEqual = true;
       return;
@@ -73,7 +74,7 @@ export class RegisterComponent implements OnInit {
         } else {
           this.redirectAfterSuccess();
         }
-      });
+      })
 
   }
 

@@ -10,8 +10,10 @@
           [class.invalid]="this.passwordControl.invalid && this.passwordControl.touched">
       </div>
 
+      <p class="form__feedback text-danger" *ngIf="(this.authService.networkError | async)">A network error occured, try again later</p>
+
       <button type="submit" class="btn btn-primary btn-block"
-        [disabled]="!this.loginForm.valid || (this.authService.authLoading | async)">
+        [disabled]="(this.authService.authLoading | async)">
         <ng-container *ngIf="(this.authService.authLoading | async); else elseButton">
           <app-loader></app-loader>
         </ng-container>
@@ -20,8 +22,8 @@
         </ng-template>
       </button>
 
-      <p class="form__feedback text-danger" *ngIf="this.errorOccured && !(this.authService.authLoading | async)">No user
-        found with such login or password</p>
+      <p class="form__feedback text-danger" *ngIf="this.errorOccured && !(this.authService.authLoading | async) && !(this.authService.networkError | async)">
+        No user found with such login or password</p>
       <div class="form__divider divider">
         <p class="divider__text">
           Or use social networks
@@ -32,7 +34,7 @@
       </div>
       <div class="form__divider divider">
         <p class="divider__text">
-          Don't have an account? <a class="text-link" routerLink="/auth/register">Register</a>
+          Don't have an account? <a class="text-link" routerLink="/auth/register">Sign up</a>
         </p>
       </div>
     </form>
