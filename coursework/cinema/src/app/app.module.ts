@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilmCardComponent } from './components/film-card/film-card.component';
 import { LoadingDirective } from './directives/loading.directive';
 import { SharedModule } from './shared/shared.module';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     CarouselComponent,
     FilmCardComponent,
     LoadingDirective,
+    FooterComponent,
   ],
   entryComponents: [],
   imports: [
