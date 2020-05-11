@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: 'http://localhost:3000/'
+  baseApiUrl: 'http://localhost:3000/',
+  GOOGLE_OUAUTH_CLIENT_ID: '173411363139-6cihlplbvosvpk20303o4msrn77o3m66.apps.googleusercontent.com'
 };
 
 /*

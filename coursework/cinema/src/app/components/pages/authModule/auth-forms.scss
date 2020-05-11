@@ -19,16 +19,16 @@
 
 .auth-section {
   max-width: $sm;
-  // width: 100%;
+  margin-top: $nav-heigth-big;
   margin-left: 600px;
   @media screen and (max-width: $md){
+    top: $nav-heigth-small;
     margin-left: 0;
   }
 
 }
 
 .form {
-  font-size: 1.3em;
 
   &__control {
     border-style: solid;
@@ -46,6 +46,7 @@
 
   &__feedback {
     font-size: 0.7em;
+    padding-left: 0.6em;
   }
 
   &__group {
@@ -53,17 +54,6 @@
   }
 }
 
-.btn-google {
-  $google-color: #DB4437;
-  background-color: $google-color;
-  border: none;
-  color: white;
-
-
-  &:hover {
-    background-color: darken($color: $google-color, $amount: 10);
-  }
-}
 
 .divider {
   font-size: 0.8em;

@@ -1,0 +1,46 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.login-form-section {
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+.card {
+  background-color: #ffffff;
+  animation: fade-in 0.5s;
+}
+
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+}
+
+.wind-arrow-img {
+  max-width: 35px;
+}
+
+.weather-card:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 3px 16px -1px rgba(78, 70, 70, 0.75);
+  -moz-box-shadow: 0px 3px 16px -1px rgba(78, 70, 70, 0.75);
+  box-shadow: 0px 3px 16px -1px rgba(78, 70, 70, 0.75);
+  transition: 0.1s;
+}
+
+
+@keyframes fade-in {
+  from {
+    margin-top: 20px;
+    opacity: 0;
+  }
+
+  to {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}

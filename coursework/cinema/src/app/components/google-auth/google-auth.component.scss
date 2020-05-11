@@ -1,0 +1,14 @@
+@import '../../shared/styles/variables.scss';
+
+
+.btn-google {
+  $google-color: #DB4437;
+  background-color: $google-color;
+  border: none;
+  color: white;
+
+
+  &:hover {
+    background-color: darken($color: $google-color, $amount: 10);
+  }
+}

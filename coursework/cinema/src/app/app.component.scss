@@ -1,10 +1,10 @@
 @import './shared/styles/variables.scss';
 
 .main {
-  margin-top: 80px;
+  margin-top: $nav-heigth-big;
 
   @media screen and (max-width: $sm) {
-    margin-top: 48px;
+    margin-top: $nav-heigth-small;
   }
 }
 

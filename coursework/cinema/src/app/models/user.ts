@@ -1,6 +1,7 @@
 export class User {
-  id: string;
-  login: string;
+  id?: string;
+  login?: string;
   firstName?: string;
   lastName?: string;
+  avaUrl?: string;
 }

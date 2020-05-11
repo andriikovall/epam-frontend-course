@@ -12,7 +12,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilmCardComponent } from './components/film-card/film-card.component';
 import { LoadingDirective } from './directives/loading.directive';
-import { LoaderComponent } from './components/loader/loader.component';
+import { SharedModule } from './shared/shared.module';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,15 @@ import { LoaderComponent } from './components/loader/loader.component';
     CarouselComponent,
     FilmCardComponent,
     LoadingDirective,
-    LoaderComponent,
+    FooterComponent,
   ],
-  entryComponents: [LoaderComponent],
+  entryComponents: [],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

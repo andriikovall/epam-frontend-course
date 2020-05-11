@@ -1,0 +1,43 @@
+<div class="section-wrapper">
+  <section class="auth-section section">
+    <form class="form" [formGroup]="registerForm" (submit)="this.onSubmit(this.registerForm.value)">
+
+      <div class="form__group">
+        <input class="form__control" type="text" formControlName="firstName" placeholder="First name">
+        <input class="form__control" type="text" formControlName="lastName" placeholder="Last name">
+      </div>
+
+      <div class="form__group">
+        <input class="form__control" [class.invalid]="!this.loginControl.valid && this.loginControl.touched || this.loginUsed"  type="text" formControlName="login" placeholder="Login">
+        <p class="form__feedback text-danger" *ngIf="this.loginUsed">Login already used</p>
+      </div>
+      <div class="form__group">
+        <input type="password" class="form__control" formControlName="password" placeholder="Password" [class.invalid]="this.passwordsAreInvalid()">
+        <input type="password" class="form__control" formControlName="passwordRepeat" placeholder="Repeat password" [class.invalid]="this.passwordsAreInvalid()">
+        <p class="form__feedback text-danger" *ngIf="this.passwordsAreInvalid()">Passwords differ or are to short. Min length is 3</p>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="!this.registerForm.valid || (this.authService.authLoading | async)">
+        <ng-container *ngIf="(this.authService.authLoading | async); else elseButton">
+          <app-loader></app-loader>
+        </ng-container>
+        <ng-template #elseButton>
+          Sign up
+        </ng-template>
+      </button>
+      <div class="form__divider divider">
+        <p class="divider__text">
+          Or use social networks
+        </p>
+      </div>
+      <div class="social-btns d-flex justify-content-around">
+        <app-google-auth (userAuthenticated)="onGoogleAuth($event)"></app-google-auth>
+      </div>
+      <div class="form__divider divider">
+        <p class="divider__text">
+          Already have an account? <a class="text-link" routerLink="/auth/login">Login</a>
+        </p>
+      </div>
+    </form>
+  </section>
+</div>

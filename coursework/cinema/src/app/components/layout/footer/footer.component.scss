@@ -1,0 +1,14 @@
+@import '../../../shared/styles/variables.scss';
+
+.footer {
+  background-color: $color-bg;
+
+  &__text {
+    margin: 0.3em;
+  }
+}
+
+.social-link {
+  font-size: 1.3em;
+  margin-left: 0.3em;
+}
