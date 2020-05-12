@@ -106,6 +106,7 @@ $sm: 600px;
     &-dropdown {
       padding: 0;
       position: relative;
+
       &:after {
         height: 0px;
         content: none !important;
@@ -142,11 +143,47 @@ $sm: 600px;
     &:hover {
       cursor: pointer;
       outline: none;
+
       &:after {
         transition: all 0.2s;
         width: 100%;
       }
     }
 
+  }
+}
+
+@keyframes loader-animation {
+  0% {
+    left: -100%;
+  }
+
+  49% {
+    left: 100%;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: -100%;
+  }
+}
+
+.nav-loader {
+  $height: 4px;
+  height: $height;
+  width: 100%;
+
+  &__bar {
+    width: 100%;
+    position: absolute;
+    height: $height;
+    background-color: $color-primary;
+    animation-name: loader-animation;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
   }
 }

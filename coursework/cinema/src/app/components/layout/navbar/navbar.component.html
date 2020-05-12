@@ -3,6 +3,7 @@
       <ul class="nav__items" [class.nav__items-active]="this.isNavbarExpanded" id="nav-items">
           <li class="nav__item" routerLink="/home">Home</li>
           <li class="nav__item" routerLink="/films">Films</li>
+          <li class="nav__item" routerLink="/sessions">Sessions</li>
           <li class="nav__item" routerLink="/contacts">Contact us</li>
           <ng-container *ngIf="this.authService.currentUser | async; else elseAuthTemplate">
             <li class="nav__item nav__item-dropdown ml-auto" (click)="this.toggleDropdown()">
@@ -27,4 +28,7 @@
           <div class="nav__toggle-btn"></div>
       </div>
   </nav>
+  <div class="nav-loader" *ngIf="this.navigationLoading">
+    <div class="nav-loader__bar"></div>
+  </div>
 </header>

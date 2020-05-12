@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public isNavbarExpanded = false;
   public isDropdoenExpanded = false;
+  public navigationLoading = false;
 
   private routerEventSubscription: Subscription;
 
@@ -20,8 +21,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.routerEventSubscription =
-      this.router.events.pipe(filter(ev => ev instanceof NavigationEnd))
-        .subscribe(() => this.isNavbarExpanded = false);
+      this.router.events
+        .subscribe((ev) => {
+          if (ev instanceof NavigationStart) {
+            this.navigationLoading = true;
+          }
+          if (ev instanceof NavigationEnd) {
+            this.isNavbarExpanded = false;
+            this.navigationLoading = false;
+          }
+        });
   }
 
   toggleNavbar() {

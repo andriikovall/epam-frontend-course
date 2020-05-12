@@ -17,6 +17,9 @@ const routes: Routes = [
     path: 'contacts', loadChildren: () => import('./components/pages/contactsModule/contacts.module').then(({ ContactsModule }) => ContactsModule)
   },
   {
+    path: 'sessions', loadChildren: () => import('./components/pages/sessionsModule/sessions.module').then(({ SessionsModule }) => SessionsModule)
+  },
+  {
     path: '', redirectTo: 'home', pathMatch: 'prefix',
   }
 ];
