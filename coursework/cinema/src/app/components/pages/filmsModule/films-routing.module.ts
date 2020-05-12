@@ -7,11 +7,9 @@ import { FilmComponent } from './film/film.component';
 const routes: Routes = [
   {
     path: '', component: FilmsComponent,
-    data: { breadCrumbTitle: 'Films' }
   },
   {
     path: ':id', component: FilmComponent,
-    data: { breadCrumbTitle: 'Home' }
   }
 ];
 
