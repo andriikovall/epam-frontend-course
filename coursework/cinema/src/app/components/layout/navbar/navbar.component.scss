@@ -4,7 +4,7 @@ $sm: 600px;
 
 .header {
   background-color: $main-black;
-  color: darken($color: white, $amount: 20);
+  color: $color-bg;
   min-height: 3em;
   position: fixed;
   z-index: 50;
@@ -16,7 +16,6 @@ $sm: 600px;
   display: flex;
   justify-content: flex-start;
   min-height: 100%;
-  // top: 0;
   z-index: 50;
 
   &__items {
@@ -34,7 +33,9 @@ $sm: 600px;
 
     &-active {
       display: block;
+      height: auto;
       transition: all 0.2s;
+      opacity: 1;
     }
   }
 
@@ -89,13 +90,41 @@ $sm: 600px;
 
   }
 
+
   &__item {
-    padding: 1em 1.3em;
+
+    padding: 15px 20px;
     font-weight: bold;
     position: relative;
     transition: all 0.2s;
-    font-size: 1.3em;
-    text-align: center;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    background-color: $main-black;
+
+
+    &-dropdown {
+      padding: 0;
+      position: relative;
+      &:after {
+        height: 0px;
+        content: none !important;
+      }
+
+
+      .nav__items {
+        top: 100vh;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.2s;
+
+        &-dropped {
+          top: 100%;
+          opacity: 1;
+          display: block;
+        }
+      }
+    }
 
     &:after {
       position: absolute;

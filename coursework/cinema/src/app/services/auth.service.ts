@@ -41,6 +41,11 @@ export class AuthService extends BaseService {
     sessionStorage.setItem('user', JSON.stringify(user));
   }
 
+  public logout() {
+    sessionStorage.removeItem('user');
+    this.currentUser.next(null);
+  }
+
   // private hashFunc(string: string) {
   //   return string;
   // }

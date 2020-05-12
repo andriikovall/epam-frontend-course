@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,9 +12,11 @@ import { Subscription } from 'rxjs';
 export class NavbarComponent implements OnInit, OnDestroy {
 
   public isNavbarExpanded = false;
+  public isDropdoenExpanded = false;
+
   private routerEventSubscription: Subscription;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public authService: AuthService) { }
 
   ngOnInit() {
     this.routerEventSubscription =
@@ -25,8 +28,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.isNavbarExpanded = !this.isNavbarExpanded;
   }
 
+  toggleDropdown() {
+    this.isDropdoenExpanded = !this.isDropdoenExpanded;
+  }
+
   ngOnDestroy(): void {
     this.routerEventSubscription.unsubscribe();
+  }
+
+  onLogout() {
+    if (confirm('Dou you want to log out?')) {
+      this.authService.logout();
+      this.toggleDropdown();
+    }
   }
 
 }
