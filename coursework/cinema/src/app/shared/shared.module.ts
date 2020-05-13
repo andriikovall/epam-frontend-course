@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../components/loader/loader.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserAvaComponent } from '../components/user-ava/user-ava.component';
+import { SessionPickerComponent } from '../components/session-picker/session-picker.component';
+import { FilmCardComponent } from '../components/film-card/film-card.component';
+
 
 
 
@@ -10,7 +13,9 @@ import { UserAvaComponent } from '../components/user-ava/user-ava.component';
 @NgModule({
   declarations: [
     LoaderComponent,
-    UserAvaComponent
+    UserAvaComponent,
+    SessionPickerComponent,
+    FilmCardComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +26,9 @@ import { UserAvaComponent } from '../components/user-ava/user-ava.component';
     LoaderComponent,
     FormsModule,
     ReactiveFormsModule,
-    UserAvaComponent
+    UserAvaComponent,
+    FilmCardComponent,
+    SessionPickerComponent
   ]
 })
 export class SharedModule { }

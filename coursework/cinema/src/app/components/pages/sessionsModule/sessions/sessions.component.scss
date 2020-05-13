@@ -1,10 +1,42 @@
 @import '../../../../shared/styles/variables.scss';
 
 .sessions-grid {
+  // display: flex;
+  // flex-wrap: wrap;
+  // flex-direction: row;
+  // justify-content: space-around;
   display: grid;
-  grid-template-columns: 40% 60%;
-  gap: 10px;
-  @media screen and (max-width: $sm) {
+  grid-template-columns: 35% 62%;
+  // gap: 20px;
+  @media screen and (max-width: $md) {
+    // flex-direction: column;
     grid-template-columns: 1fr;
   }
 }
+
+// .filters-container {
+//   @media screen and (max-width: $sm) {
+//     width: auto;
+//   }
+// }
+
+// .filters-wrapper {
+//   width: 40%;
+// }
+
+// .sessions-container {
+//   width: 50%;
+//   @media screen and (max-width: $sm) {
+//     width: auto;
+//   }
+// }
+
+.loader-container {
+  margin-top: 30px;
+}
+
+.film-session {
+  display: flex;
+  justify-content: space-around;
+}
+

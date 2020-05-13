@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LoaderComponent implements OnInit {
 
-  @Input() heigth: string = '1em';
+  @Input() height: string = '1em';
 
   constructor() { }
 

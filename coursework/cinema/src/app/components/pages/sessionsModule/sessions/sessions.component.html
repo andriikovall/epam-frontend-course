@@ -1,14 +1,24 @@
 <div class="content-wrapper">
-  <div class="sessions-grid">
-    <section class="section">
-      <div class="section__title">
-        Filters
-      </div>
-    </section>
-    <section class="section">
+  <div class="loader-container" *ngIf="this.sessionsLoading">
+    <app-loader height="40px"></app-loader>
+  </div>
+  <div class="sessions-grid" *ngIf="!this.sessionsLoading">
+    <div class="filters-wrapper">
+      <section class="section filters-container">
+        <div class="section__title">
+          Filters
+        </div>
+      </section>
+    </div>
+    <section class="section sessions-container">
       <h2 class="section__title">
         Sessions
       </h2>
+      <div class="film-session" *ngFor="let filmSession of this.filmsSessions">
+        <app-film-card [film]="filmSession.film"></app-film-card>
+        <app-session-picker [sessions]="filmSession.sessions" (timeSelected)="onTimeSelected($event)">
+        </app-session-picker>
+      </div>
     </section>
   </div>
 </div>

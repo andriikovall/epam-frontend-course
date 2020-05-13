@@ -19,7 +19,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.filmsLoading = true;
     this.newestFilms = this.filmsService.getNewestFilms().pipe(
-      tap((_) => this.filmsLoading = false)
+      tap((_) => {setTimeout(() => this.filmsLoading = false, 0)})
     )
   }
 

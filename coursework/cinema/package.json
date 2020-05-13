@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "cd ../server && json-server db.json --delay 500"
+    "server": "cd ../server && json-server db.json --delay 200"
   },
   "private": true,
   "dependencies": {

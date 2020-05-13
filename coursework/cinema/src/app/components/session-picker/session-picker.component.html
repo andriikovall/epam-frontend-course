@@ -1,0 +1,3 @@
+<div class="session-picker-container">
+  <button (click)="onTimeClicked(session)" class="btn btn-secondary" *ngFor="let session of sessions">{{session.timestamp | date:'shortTime'}}</button>
+</div>

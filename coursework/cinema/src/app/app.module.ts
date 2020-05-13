@@ -10,7 +10,6 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FilmCardComponent } from './components/film-card/film-card.component';
 import { LoadingDirective } from './directives/loading.directive';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './components/layout/footer/footer.component';
@@ -21,7 +20,6 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     NavbarComponent,
     MainComponent,
     CarouselComponent,
-    FilmCardComponent,
     LoadingDirective,
     FooterComponent,
   ],
