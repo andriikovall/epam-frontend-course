@@ -26,7 +26,7 @@ export class RoomsService extends BaseService {
 
   cacheRooms(): Observable<Room[]> {
     if (!this.allRoomsCached) {
-      return this.getAllRooms().pipe(
+      return this.http.get<Room[]>(this.baseUrl).pipe(
         tap(rooms => rooms.forEach((r) => this.cacheRoom(r))),
         tap(() => this.allRoomsCached = true)
         )
@@ -49,6 +49,10 @@ export class RoomsService extends BaseService {
   }
 
   getAllRooms(): Observable<Room[]> {
-    return this.http.get<Room[]>(this.baseUrl);
+    if (this.allRoomsCached)
+      return of([...this.cachedRooms.values()]);
+    else
+      return this.cacheRooms();
+    // return this.http.get<Room[]>(this.baseUrl);
   }
 }
