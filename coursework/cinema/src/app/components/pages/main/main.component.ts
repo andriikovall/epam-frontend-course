@@ -18,10 +18,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.filmsLoading = true;
-    this.newestFilms = this.filmsService.getFilms().pipe(
-      map(films => films.sort((f1, f2) => f2.date > f1.date ? 1 : -1)),
-      map(films => films.slice(0, 5)),
-      tap((_) => {setTimeout(() =>this.filmsLoading = false, 0)})
+    this.newestFilms = this.filmsService.getNewestFilms().pipe(
+      tap((_) => this.filmsLoading = false)
     )
   }
 

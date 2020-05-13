@@ -1,0 +1,10 @@
+@import '../../../../shared/styles/variables.scss';
+
+.sessions-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 10px;
+  @media screen and (max-width: $sm) {
+    grid-template-columns: 1fr;
+  }
+}

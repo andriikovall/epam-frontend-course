@@ -50,7 +50,7 @@ export class AuthService extends BaseService {
   //   return string;
   // }
 
-  login(login: string, password: string): Promise<User> {
+  login(login: string, password: string): Observable<User> {
     this.authLoading.next(true);
     this.networkError.next(false);
     return this.httpClient.get<User[]>(this.usersBaseUrl, { params: { login, password } })
@@ -66,10 +66,10 @@ export class AuthService extends BaseService {
           (user) => this.currentUser.next(user),
           () => this.authLoading.next(false)
         ),
-      ).toPromise()
+      )
   }
 
-  register(registrationValue): Promise<User> {
+  register(registrationValue): Observable<User> {
     this.authLoading.next(true);
     this.networkError.next(false);
     return this.getUserByLogin(registrationValue.login).pipe(
@@ -91,7 +91,7 @@ export class AuthService extends BaseService {
         this.networkError.next(true);
         return of(null)
       }),
-    ).toPromise();
+    );
 
   }
 
@@ -102,7 +102,7 @@ export class AuthService extends BaseService {
       );
   }
 
-  onSocialAuth(user: User): Promise<User> {
+  onSocialAuth(user: User): Observable<User> {
     if (!user)
       return;
 
@@ -111,7 +111,7 @@ export class AuthService extends BaseService {
     return this.httpClient.post<User>(this.usersBaseUrl, user)
       .pipe(
         catchError(err => this.httpClient.put<User>(this.usersBaseUrl + user.id, user))
-      ).toPromise();
+      );
   }
 
 

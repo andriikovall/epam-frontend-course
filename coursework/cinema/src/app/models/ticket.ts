@@ -1,6 +1,12 @@
+import { Room } from './room';
+import { User } from './user';
+import { Film } from './film';
+
 export class Ticket {
-  sittingId: string;
-  roomId: string;
-  filmId: string;
-  userId: string;
+  sessionId: string;
+  room: Room;
+  user: User;
+  film: Film;
+  row: number;
+  col: number;
 }

@@ -18,7 +18,7 @@ export class FeedbackService extends BaseService {
     super();
   }
 
-  saveFeedback(fb: FeedBack): Promise<FeedBack> {
+  saveFeedback(fb: FeedBack): Observable<FeedBack> {
     this.feedbackLoading.next(true);
     this.networkError.next(false);
     return this.httpClient.post<FeedBack>(this.feedbackApiBaseUrl, fb).pipe(
@@ -27,7 +27,6 @@ export class FeedbackService extends BaseService {
         return of(null);
       }),
       tap(() => this.feedbackLoading.next(false))
-    )
-    .toPromise();
+    );
   }
 }

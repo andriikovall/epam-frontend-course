@@ -5,7 +5,7 @@
       Watch new releases just at the time they come out in the world!
     </h2>
     <ul class="newest-films">
-      <app-loader *ngIf="filmsLoading" [heigth]="'50px'"></app-loader>
+      <app-loader *ngIf="filmsLoading" heigth="100px"></app-loader>
       <li *ngFor="let film of newestFilms | async" class="newest-films__film-li">
         <app-film-card class="newest-films__film" [film]="film"></app-film-card>
       </li>

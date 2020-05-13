@@ -1,11 +1,7 @@
-export class RoomState {
-  roomId: string;
-  date: Date;
-  sittings: Sitting[];
-}
-
-export class Sitting {
+export class Room {
+  id: string;
+  rows: number;
+  cols: number;
   price: number;
-  row: number;
-  number: number;
+  name: string;
 }

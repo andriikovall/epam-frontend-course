@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid)
       return;
     this.authService.login(value.login, value.password)
-      .then((user: User) => {
+      .subscribe((user: User) => {
         if (user) {
           this.navigateAfterSuccess();
           this.errorOccured = false;
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
   public onGoogleAuth(user) {
     this.authService.onSocialAuth(user)
-    .then(() => this.navigateAfterSuccess());
+    .subscribe(() => this.navigateAfterSuccess());
   }
 
 

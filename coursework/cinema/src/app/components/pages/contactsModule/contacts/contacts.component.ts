@@ -51,7 +51,7 @@ export class ContactsComponent implements OnInit {
     }
     const feedback: FeedBack = { ...formValue, timestamp: Date.now() }
     this.feedbackService.saveFeedback(feedback)
-      .then(res => {
+      .subscribe(res => {
         if (res) {
           this.feedbackAdded = true;
         }

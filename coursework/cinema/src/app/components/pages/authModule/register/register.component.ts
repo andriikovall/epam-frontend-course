@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
     this.loginUsed = false;
 
     this.authService.register(value)
-      .then(res => {
+      .subscribe(res => {
         if (!res) {
           this.loginUsed = true;
         } else {
@@ -83,7 +83,7 @@ export class RegisterComponent implements OnInit {
     this.loginUsed = false;
 
     this.authService.onSocialAuth(user)
-    .then(() => this.redirectAfterSuccess());
+    .subscribe(() => this.redirectAfterSuccess());
   }
 
 }
