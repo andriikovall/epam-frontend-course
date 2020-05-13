@@ -3,6 +3,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private routerEventSubscription: Subscription;
 
-  constructor(private router: Router, public authService: AuthService) { }
+  constructor(private router: Router,
+              public authService: AuthService,
+              private viewportScroller: ViewportScroller) { }
 
   ngOnInit() {
     this.routerEventSubscription =
@@ -29,6 +32,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
           if (ev instanceof NavigationEnd) {
             this.isNavbarExpanded = false;
             this.navigationLoading = false;
+            this.scrollToTop();
           }
         });
   }
@@ -50,6 +54,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.authService.logout();
       this.toggleDropdown();
     }
+  }
+
+  public scrollToTop(): void {
+    window.scrollTo(0, 0);
   }
 
 }
