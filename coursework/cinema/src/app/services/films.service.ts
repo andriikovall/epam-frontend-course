@@ -13,6 +13,7 @@ export class FilmsService extends BaseService {
   private baseUrl = environment.baseApiUrl +  'films/';
 
   private cachedFilms = new Map<string, Film>();
+  private allFilmsAreCached: boolean;
 
   constructor(private http: HttpClient) {
     super();
@@ -22,34 +23,39 @@ export class FilmsService extends BaseService {
     this.cachedFilms.set(film.id, film);
   }
 
+  cacheFilms(): Observable<Film[]> {
+    if (!this.allFilmsAreCached) {
+      return this.http.get<Film[]>(this.baseUrl).pipe(
+        tap(films => films.forEach((f) => this.cacheFilm(f))),
+        tap(() => this.allFilmsAreCached = true),
+        catchError(err => {
+          console.log('err:', err)
+          this.networkError.next(true);
+          return of(null);
+        })
+      );
+    }
+    return of(null);
+  }
+
   getFilmById(id: string): Observable<Film> {
     this.networkError.next(false);
     if (this.cachedFilms.has(id)) {
       return of (this.cachedFilms.get(id));
     }
-    return this.http.get<Film>(this.baseUrl + encodeURIComponent(id)).pipe(
-      tap(film => this.cacheFilm(film)),
-      catchError(err => {
-        this.networkError.next(true);
-        return of(null);
-      })
-    );
+    return
   }
 
   getFilms(): Observable<Film[]> {
     this.networkError.next(false);
-    return this.http.get<Film[]>(this.baseUrl).pipe(
-      tap(films => films.forEach((f) => this.cacheFilm(f))),
-      catchError(err => {
-        console.log('err:', err)
-        this.networkError.next(true);
-        return of(null);
-      })
-    );
+    if (this.allFilmsAreCached) {
+      return of([...this.cachedFilms.values()]);
+    } else {
+      return this.cacheFilms();
+    }
   }
 
   getNewestFilms(count: number = 5): Observable<Film[]> {
-    console.log('getNewestFilms:)');
     return this.getFilms().pipe(
       map(films => films.sort((f1, f2) => f2.date > f1.date ? 1 : -1)),
       map(films => films.slice(0, count))

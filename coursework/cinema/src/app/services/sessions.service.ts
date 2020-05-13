@@ -35,6 +35,11 @@ export class SessionsService extends BaseService {
 
   private async getAllSessionsHelper(): Promise<Session[]> {
     const sessionsDTO = await this.http.get<SessionDTO[]>(this.baseUrl).toPromise();
+    await Promise.all([
+      await this.roomService.cacheRooms().toPromise(),
+      await this.filmService.cacheFilms().toPromise()
+    ]);
+
     const promises: Promise<[Film, Room]>[] = sessionsDTO.map(s => Promise.all([
       this.filmService.getFilmById(s.filmId).toPromise(),
       this.roomService.getRoomById(s.roomId).toPromise()
