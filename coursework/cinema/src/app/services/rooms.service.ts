@@ -41,7 +41,6 @@ export class RoomsService extends BaseService {
       return this.http.get<Room>(this.baseUrl + id).pipe(
         tap(room => this.cacheRoom(room)),
         catchError(err => {
-          this.networkError.next(true)
           return of(null);
         })
       );

@@ -28,11 +28,9 @@ export class FilmsService extends BaseService {
       return this.http.get<Film[]>(this.baseUrl).pipe(
         tap(films => films.forEach((f) => this.cacheFilm(f))),
         tap(() => this.allFilmsAreCached = true),
-        catchError(err => {
-          console.log('err:', err)
-          this.networkError.next(true);
-          return of(null);
-        })
+        // catchError(err => {
+        //   return of(null);
+        // })
       );
     }
     return of(null);

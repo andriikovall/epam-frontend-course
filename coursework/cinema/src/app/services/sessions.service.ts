@@ -26,8 +26,6 @@ export class SessionsService extends BaseService {
   getAllSessions(): Observable<Session[]> {
     return from(this.getAllSessionsHelper()).pipe(
       catchError(err => {
-        console.log('err:', err);
-        this.networkError.next(true);
         return of(null);
       })
     );

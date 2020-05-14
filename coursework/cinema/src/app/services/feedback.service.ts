@@ -23,7 +23,6 @@ export class FeedbackService extends BaseService {
     this.networkError.next(false);
     return this.httpClient.post<FeedBack>(this.feedbackApiBaseUrl, fb).pipe(
       catchError(() => {
-        this.networkError.next(true);
         return of(null);
       }),
       tap(() => this.feedbackLoading.next(false))

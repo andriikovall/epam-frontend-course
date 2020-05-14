@@ -88,7 +88,6 @@ export class AuthService extends BaseService {
         () => this.authLoading.next(false),
       ),
       catchError((err) => {
-        this.networkError.next(true);
         return of(null)
       }),
     );
