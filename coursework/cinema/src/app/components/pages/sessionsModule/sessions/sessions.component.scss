@@ -2,7 +2,7 @@
 
 .sessions-grid {
   display: grid;
-  grid-template-columns: 35% 62%;
+  grid-template-columns: 35% 64%;
   @media screen and (max-width: $md) {
     grid-template-columns: 1fr;
   }
@@ -13,7 +13,24 @@
 }
 
 .film-session {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 30% 60%;
+  gap: 1em;
+
+  @media screen and(max-width: $sm){
+    grid-template-columns: 1fr;
+  }
+
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  // border-bottom-right-radius: 20px;
+
+  $border-style: 1px solid $main-dark-blue;
+  border-bottom: $border-style;
+  border-top: $border-style;
+  border-left: $border-style;
 }
 

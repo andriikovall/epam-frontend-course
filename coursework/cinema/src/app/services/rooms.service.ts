@@ -53,6 +53,5 @@ export class RoomsService extends BaseService {
       return of([...this.cachedRooms.values()]);
     else
       return this.cacheRooms();
-    // return this.http.get<Room[]>(this.baseUrl);
   }
 }

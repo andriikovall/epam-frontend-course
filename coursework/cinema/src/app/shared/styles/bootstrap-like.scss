@@ -146,8 +146,8 @@
   border-radius: 0.2em;
   border-color: $main-black;
 
-  &:hover {
-    background: white;
+  &:hover, &[class*=active] {
+    background: white !important;
     color: black;
   }
 
@@ -165,7 +165,7 @@
     border-color: $color-primary;
     color: white;
 
-    &:hover {
+    &:hover, &[class*=active] {
       color: $color-primary;
     }
 
@@ -175,7 +175,6 @@
         color: white;
       }
     }
-
   }
 
   &-secondary {
@@ -183,13 +182,30 @@
     border-color: $color-secondary;
     color: white;
 
-    &:hover {
+    &:hover, &[class*=active] {
       color: $color-secondary;
     }
 
     &:disabled {
       &:hover {
         background-color: $color-secondary;
+        color: white;
+      }
+    }
+  }
+
+  &-info {
+    background-color: $color-info;
+    border-color: $color-info;
+    color: white;
+
+    &:hover, &[class*=active] {
+      color: $color-info;
+    }
+
+    &:disabled {
+      &:hover {
+        background-color: $color-info;
         color: white;
       }
     }

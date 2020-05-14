@@ -5,7 +5,7 @@ $main-dark-blue: #003459;
 
 $color-primary: rgb(30, 137, 187);
 $color-secondary: $main-dark-blue;
-$color-info: $main-dark-blue;
+$color-info: darken($main-grey, 30);
 $color-warning: rgb(184, 34, 34);
 $color-success: rgb(20, 180, 41);
 $color-bg: $main-grey;

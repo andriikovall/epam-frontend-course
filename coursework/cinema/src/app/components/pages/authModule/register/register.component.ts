@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
 import { trimmedMinLength } from 'src/app/utils/validators';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { BaseService } from 'src/app/services/base.service';
 
 @Component({
   selector: 'app-register',
@@ -52,6 +53,7 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [trimmedMinLength(3)]),
       passwordRepeat: new FormControl('', [trimmedMinLength(3)])
     })
+
   }
 
   public onSubmit(value) {

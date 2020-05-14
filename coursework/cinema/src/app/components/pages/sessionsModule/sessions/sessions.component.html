@@ -8,17 +8,25 @@
         <div class="section__title">
           Filters
         </div>
+        <div class="section__subtitle">
+          Date
+        </div>
+        <app-date-picker [dates]="this.availableDates" (dateSelected)="this.onDateSelected($event)" [initialDate]="this.initialDate"></app-date-picker>
       </section>
     </div>
     <section class="section sessions-container">
       <h2 class="section__title">
         Sessions
       </h2>
-      <div class="film-session" *ngFor="let filmSession of this.filmsSessions">
-        <app-film-card [film]="filmSession.film"></app-film-card>
-        <app-session-picker [sessions]="filmSession.sessions" (timeSelected)="onTimeSelected($event)">
-        </app-session-picker>
-      </div>
+      <ng-container  *ngFor="let filmSession of this.filteredFilmsSessions">
+        <div class="film-session" *ngIf="filmSession.sessions.length">
+          <div class="d-flex justify-content-around">
+            <app-film-card [film]="filmSession.film"></app-film-card>
+          </div>
+          <app-session-picker [sessions]="filmSession.sessions" (timeSelected)="onTimeSelected($event)">
+          </app-session-picker>
+        </div>
+      </ng-container>
     </section>
   </div>
 </div>
