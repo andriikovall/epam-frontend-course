@@ -7,5 +7,6 @@ export class Film {
   date: number;
   genres: string[];
   duration: number;
+  sessionTypes: string[];
 }
 

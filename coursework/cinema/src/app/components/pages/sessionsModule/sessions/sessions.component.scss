@@ -2,10 +2,11 @@
 
 .sessions-grid {
   display: grid;
-  grid-template-columns: 35% 64%;
+  grid-template-columns: 3fr 5fr;
   @media screen and (max-width: $md) {
     grid-template-columns: 1fr;
   }
+
 }
 
 .loader-container {
@@ -14,7 +15,7 @@
 
 .film-session {
   display: grid;
-  grid-template-columns: 30% 60%;
+  grid-template-columns: 3fr 5fr;
   gap: 1em;
 
   @media screen and(max-width: $sm){

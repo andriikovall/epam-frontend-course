@@ -38,8 +38,8 @@ function getRowColsForRoom(roomId) {
 const filmIds = db.films.map(f => f.id);
 const roomIds = db.rooms.map(r => r.id);
 
-const daysToGenerate = 40;
-const sessionsToGenerate = 100;
+const daysToGenerate = 10;
+const sessionsToGenerate = 200;
 
 for (let i = 1; i <= sessionsToGenerate; i++) {
     const roomId = randomElement(roomIds);

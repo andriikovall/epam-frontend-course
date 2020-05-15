@@ -8,6 +8,8 @@ import { FilmSessions } from 'src/app/models/filmSessions';
 import { FilmsService } from 'src/app/services/films.service';
 import { Film } from 'src/app/models/film';
 import { isValidDate } from '../../../../utils/date';
+import { SessionFilter } from 'src/app/models/sessionFilter';
+import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-sessions',
   templateUrl: './sessions.component.html',
@@ -27,6 +29,15 @@ export class SessionsComponent implements OnInit, OnDestroy {
   public selectedSession: Session;
   public availableDates: Date[];
   public initialDate: Date;
+  public sessionTypesForm: FormGroup;
+
+  public get control2D(): AbstractControl {
+    return this.sessionTypesForm.get('2D');
+  }
+
+  public get control3D(): AbstractControl {
+    return this.sessionTypesForm.get('3D');
+  }
 
   private films: Film[];
 
@@ -41,41 +52,65 @@ export class SessionsComponent implements OnInit, OnDestroy {
         this.sessionsLoading = false;
         this.createFilmsSessions();
         this.createDates();
-        this.createInitialDate();
+        this.createInitialFiltersFromQuery();
       })
 
     this.paramsSubscription = this.route.queryParams
       .subscribe((params) => this.onQueryParamsChanged(params));
+
+    this.route.snapshot.queryParamMap
+    this.sessionTypesForm = new FormGroup({
+      '2D': new FormControl(false),
+      '3D': new FormControl(false)
+    });
   }
 
   private onQueryParamsChanged(params: Params) {
-    console.log('params:', params)
-    if (params.date && this.filmsSessions) {
-      this.updateSessionsByFilters(params.date);
-    }
+    if (this.filteredFilmsSessions)
+      this.updateSessionsByFilters(params);
   }
 
-  private updateQueryParams(date: Date, film: Film = null) {
-    // @todo add more filters
-    const params: Params = {
-      date: date.toDateString(),
-      film: film ? film.id : null
-    };
+  private updateQueryParams(filter: SessionFilter) {
+
+    const params: Params = Object.keys(filter)
+    .reduce((accum, key) => {
+      if (filter[key]) {
+        accum[key] = filter[key];
+      }
+      return accum;
+    }, {});
 
     this.router.navigate(
       [],
       {
         relativeTo: this.route,
         queryParams: params,
+        queryParamsHandling: 'merge',
       });
   }
 
-  private updateSessionsByFilters(date: string, filmId: string = null) {
+  private updateSessionsByFilters(filters: SessionFilter) {
+    console.log('filters:', filters)
     this.filteredFilmsSessions = this.filmsSessions.map(filmsSession => {
-      const sessions: Session[] =
-        filmsSession.sessions.filter(s => new Date(s.timestamp).toDateString() == date);
 
-      return { ...filmsSession, sessions};
+      let filteredSessions: Session[] = [];
+
+      if (filters.date) {
+        filteredSessions = filmsSession.sessions
+          .filter(s => new Date(s.timestamp).toDateString() == filters.date);
+      }
+
+      if (filters.sessionTypes) {
+        try {
+          const sessionTypes: string[] = JSON.parse(filters.sessionTypes) || [];
+          this.setInitialSessionsTypesFormValues(sessionTypes);
+          if (sessionTypes.length) {
+            filteredSessions = filteredSessions.filter(s => sessionTypes.includes(s.sessionType));
+          }
+        } catch (err) {}
+      }
+
+        return { ...filmsSession, sessions: filteredSessions};
     });
   }
 
@@ -101,14 +136,36 @@ export class SessionsComponent implements OnInit, OnDestroy {
     this.availableDates = this.sessions.map(s => new Date(s.timestamp));
   }
 
-  private createInitialDate() {
+  private createInitialFiltersFromQuery() {
     const date = new Date(this.route.snapshot.queryParamMap.get('date'));
     if (isValidDate(date)) {
       this.initialDate = date;
-      this.updateSessionsByFilters(date.toDateString());
     } else {
       this.initialDate = null;
     }
+    let initialSessionsTypes: string[] = [];
+    try {
+      initialSessionsTypes = JSON.parse(this.route.snapshot.queryParamMap.get('sessionTypes'));
+    } catch(err) {}
+
+    this.updateSessionsByFilters({
+      date: date.toDateString(),
+      sessionTypes: JSON.stringify(initialSessionsTypes)
+    });
+
+    this.setInitialSessionsTypesFormValues(initialSessionsTypes);
+  }
+
+  setInitialSessionsTypesFormValues(values: string[]) {
+    values.forEach((curr) => {
+      this.sessionTypesForm.get(curr).setValue(true);
+    });
+  }
+
+  onSessionsFormChange() {
+    const sessionTypes = Object.keys(this.sessionTypesForm.value)
+      .filter(key => this.sessionTypesForm.value[key]);
+    this.updateQueryParams({ sessionTypes: JSON.stringify(sessionTypes) });
   }
 
   onTimeSelected(session: Session) {
@@ -116,7 +173,7 @@ export class SessionsComponent implements OnInit, OnDestroy {
   }
 
   onDateSelected(date: Date) {
-    this.updateQueryParams(date);
+    this.updateQueryParams({ date: date.toDateString() });
   }
 
   ngOnDestroy(): void {

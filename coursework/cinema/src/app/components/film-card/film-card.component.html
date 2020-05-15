@@ -29,6 +29,12 @@
             class="details-list__value">{{genre + ((index === film.genres.length - 1) ? '' : ', ')}}</span>
         </div>
 
+        <div class="details-list">
+          <div class="details-list__name">Session types</div>
+          <span *ngFor="let type of film.sessionTypes; index as index"
+            class="details-list__value">{{type + ((index === film.sessionTypes.length - 1) ? '' : ', ')}}</span>
+        </div>
+
         <div class="film-details__date text-center">
           {{film.date | date: 'MMMM d, y'}}
         </div>

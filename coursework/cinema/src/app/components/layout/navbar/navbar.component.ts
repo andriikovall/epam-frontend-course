@@ -4,6 +4,7 @@ import { filter, tap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ViewportScroller } from '@angular/common';
+import { BaseService } from 'src/app/services/base.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               public authService: AuthService,
-              private viewportScroller: ViewportScroller) { }
+              public baseService: BaseService) { }
 
   ngOnInit() {
     this.routerEventSubscription =

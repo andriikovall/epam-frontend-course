@@ -26,8 +26,9 @@
 
 
 .film-card {
-  width: 200px;
-  height: 300px;
+  $width: 250px;
+  width: $width;
+  height: $width * 3 / 2;
   position: relative;
 
   &__front,

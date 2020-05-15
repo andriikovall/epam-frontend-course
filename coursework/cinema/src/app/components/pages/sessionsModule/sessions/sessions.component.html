@@ -4,14 +4,26 @@
   </div>
   <div class="sessions-grid" *ngIf="!this.sessionsLoading">
     <div class="filters-wrapper">
-      <section class="section filters-container">
+      <section class="section">
         <div class="section__title">
-          Filters
-        </div>
-        <div class="section__subtitle">
           Date
         </div>
         <app-date-picker [dates]="this.availableDates" (dateSelected)="this.onDateSelected($event)" [initialDate]="this.initialDate"></app-date-picker>
+      </section>
+
+      <section class="section">
+        <div class="section__title">
+          Session types
+        </div>
+          <form class="form" [formGroup]="this.sessionTypesForm" (change)="onSessionsFormChange($event)">
+            <div class="form__group d-flex">
+              <input class="form__control checkox" type="checkbox" id="type-2d" formControlName="2D">
+              <label for="type-2d">2D</label>
+
+              <input class="form__control checkox" type="checkbox" id="type-3d" formControlName="3D">
+              <label for="type-3d">3D</label>
+            </div>
+          </form>
       </section>
     </div>
     <section class="section sessions-container">

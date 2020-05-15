@@ -14,7 +14,7 @@ export class FilmCardComponent implements OnInit {
   @Input() film: Film;
 
   public get currentDate(): number {
-    return Date.now()
+    return Date.now();
   }
 
   ngOnInit() {
