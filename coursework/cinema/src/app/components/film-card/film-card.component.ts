@@ -12,6 +12,7 @@ export class FilmCardComponent implements OnInit {
   constructor() { }
 
   @Input() film: Film;
+  @Input() width: number = 250;
 
   public get currentDate(): number {
     return Date.now();

@@ -8,37 +8,41 @@
         <div class="section__title">
           Date
         </div>
-        <app-date-picker [dates]="this.availableDates" (dateSelected)="this.onDateSelected($event)" [initialDate]="this.initialDate"></app-date-picker>
+        <app-date-picker [dates]="this.availableDates" (dateSelected)="this.onDateSelected($event)"
+          [initialDate]="this.initialDate"></app-date-picker>
       </section>
 
       <section class="section">
         <div class="section__title">
           Session types
         </div>
-          <form class="form" [formGroup]="this.sessionTypesForm" (change)="onSessionsFormChange($event)">
-            <div class="form__group d-flex">
-              <input class="form__control checkox" type="checkbox" id="type-2d" formControlName="2D">
-              <label for="type-2d">2D</label>
+        <form class="form" [formGroup]="this.sessionTypesForm" (change)="onSessionsFormChange($event)">
+          <div class="form__group d-flex">
+            <input class="form__control checkox" type="checkbox" id="type-2d" formControlName="2D">
+            <label for="type-2d">2D</label>
 
-              <input class="form__control checkox" type="checkbox" id="type-3d" formControlName="3D">
-              <label for="type-3d">3D</label>
-            </div>
-          </form>
+            <input class="form__control checkox" type="checkbox" id="type-3d" formControlName="3D">
+            <label for="type-3d">3D</label>
+          </div>
+        </form>
       </section>
     </div>
-    <section class="section sessions-container">
-      <h2 class="section__title">
-        Sessions
-      </h2>
-      <ng-container  *ngFor="let filmSession of this.filteredFilmsSessions">
-        <div class="film-session" *ngIf="filmSession.sessions.length">
-          <div class="d-flex justify-content-around">
-            <app-film-card [film]="filmSession.film"></app-film-card>
+    <div class="sessions-wrapper">
+
+      <section class="section">
+        <h2 class="section__title">
+          Sessions
+        </h2>
+        <ng-container *ngFor="let filmSession of this.filteredFilmsSessions">
+          <div class="film-session" *ngIf="filmSession.sessions.length">
+            <div class="d-flex justify-content-center">
+              <app-film-card [film]="filmSession.film" [width]=200></app-film-card>
+            </div>
+            <app-session-picker [sessions]="filmSession.sessions" (timeSelected)="onTimeSelected($event)">
+            </app-session-picker>
           </div>
-          <app-session-picker [sessions]="filmSession.sessions" (timeSelected)="onTimeSelected($event)">
-          </app-session-picker>
-        </div>
-      </ng-container>
-    </section>
+        </ng-container>
+      </section>
+    </div>
   </div>
 </div>

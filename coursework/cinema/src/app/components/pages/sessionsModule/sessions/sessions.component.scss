@@ -15,7 +15,7 @@
 
 .film-session {
   display: grid;
-  grid-template-columns: 3fr 5fr;
+  grid-template-columns: 2fr 4fr;
   gap: 1em;
 
   @media screen and(max-width: $sm){

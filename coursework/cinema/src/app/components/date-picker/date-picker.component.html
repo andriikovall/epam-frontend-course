@@ -1,11 +1,15 @@
 <div class="date-picker-container">
   <div class="month">
     <div class="month__header">
-      <div class="month__arrow arrow arrow-left" (click)="onMonthLeftClicked()"><<</div>
+      <div class="month__arrow arrow arrow-left" (click)="onMonthLeftClicked()">
+        &lt;&lt;
+      </div>
       <div class="month__name">
         {{this.monthDays.get(this.currentMonthIndex)[0] | date:'MMMM'}}
       </div>
-      <div class="month__arrow arrow arrow-right" (click)="onMonthRightClicked()">>></div>
+      <div class="month__arrow arrow arrow-right" (click)="onMonthRightClicked()">
+        &gt;&gt;
+      </div>
     </div>
     <div class="month__days">
       <span class="month__day">Mon</span>
@@ -18,7 +22,8 @@
     </div>
     <div class="month__dates">
       <button class="month__date-btn btn btn-primary" *ngFor="let date of this.currentMonthDatesCalendar"
-        (click)="onDateSecelted(date)" [class.active]="this.selectedDate && this.selectedDate.toDateString() == date?.toDateString()">
+        (click)="onDateSecelted(date)"
+        [class.active]="this.selectedDate && this.selectedDate.toDateString() == date?.toDateString()">
         {{date | date:'d'}}
       </button>
     </div>

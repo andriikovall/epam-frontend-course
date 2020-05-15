@@ -82,6 +82,7 @@
       position: absolute;
       z-index: -1;
       opacity: 0;
+      width: initial;
 
       &+label {
         margin-right: 1em;

@@ -1,4 +1,4 @@
-<div class="film-card">
+<div class="film-card" [ngStyle]="{'width': this.width + 'px', 'height': this.width * 3 / 2 + 'px'}">
   <div class="film-card__front">
     <figure class="film-item">
       <img src="{{film.imageUrl}}" alt="{{film.title + ' image'}}" class="film-item__image">

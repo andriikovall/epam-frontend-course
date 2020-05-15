@@ -90,7 +90,6 @@ export class SessionsComponent implements OnInit, OnDestroy {
   }
 
   private updateSessionsByFilters(filters: SessionFilter) {
-    console.log('filters:', filters)
     this.filteredFilmsSessions = this.filmsSessions.map(filmsSession => {
 
       let filteredSessions: Session[] = [];
@@ -157,6 +156,8 @@ export class SessionsComponent implements OnInit, OnDestroy {
   }
 
   setInitialSessionsTypesFormValues(values: string[]) {
+    if (!values)
+      return;
     values.forEach((curr) => {
       this.sessionTypesForm.get(curr).setValue(true);
     });
