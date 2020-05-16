@@ -5,9 +5,9 @@
           <li class="nav__item" routerLink="/films">Films</li>
           <li class="nav__item" routerLink="/sessions">Sessions</li>
           <li class="nav__item" routerLink="/contacts">Contact us</li>
-          <ng-container *ngIf="this.baseService.networkError | async">
+          <!-- <ng-container *ngIf="this.baseService.networkError | async">
             <li class="nav__item" routerLink="/contacts">dsfsdf</li>
-          </ng-container>
+          </ng-container> -->
 
           <ng-container *ngIf="this.authService.currentUser | async; else elseAuthTemplate">
             <li class="nav__item nav__item-dropdown ml-auto" (click)="this.toggleDropdown()">
@@ -16,7 +16,7 @@
                 {{(this.authService.currentUser | async).firstName}} {{(this.authService.currentUser | async).lastName}}
               </div>
               <ul class="nav__items d-flex flex-column" [class.nav__items-dropped]="this.isDropdoenExpanded">
-                <li class="nav__item">My tickets</li>
+                <li class="nav__item" routerLink="/tickets">My tickets</li>
                 <li class="nav__item" (click)="this.onLogout()">Log out<i class="fas fa-sign-out-alt"></i></li>
               </ul>
             </li>

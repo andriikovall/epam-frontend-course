@@ -20,6 +20,9 @@ const routes: Routes = [
     path: 'sessions', loadChildren: () => import('./components/pages/sessionsModule/sessions.module').then(({ SessionsModule }) => SessionsModule)
   },
   {
+    path: 'tickets', loadChildren: () => import('./components/pages/ticketsModule/tickets.module').then(({ TicketsModule }) => TicketsModule)
+  },
+  {
     path: '', redirectTo: 'home', pathMatch: 'prefix',
   }
 ];
