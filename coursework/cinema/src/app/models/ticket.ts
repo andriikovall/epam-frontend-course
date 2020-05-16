@@ -14,10 +14,12 @@ export class Ticket {
 }
 
 export class TicketDTO {
+  id: string;
   sessionId: string;
   roomId: string;
   userId?: string;
   filmId: string;
   row: number;
   col: number;
+  price: number;
 }

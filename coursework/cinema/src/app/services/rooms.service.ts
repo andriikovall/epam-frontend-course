@@ -31,26 +31,29 @@ export class RoomsService extends BaseService {
         tap(() => this.allRoomsCached = true)
         )
     }
-    return of(null);
+
+    return of([...this.cachedRooms.values()]);
   }
 
   getRoomById(id: string): Observable<Room> {
     if (this.cachedRooms.has(id)) {
       return of(this.cachedRooms.get(id));
-    } else {
-      return this.http.get<Room>(this.baseUrl + id).pipe(
-        tap(room => this.cacheRoom(room)),
-        catchError(err => {
-          return of(null);
-        })
+    } else if (!this.allRoomsCached) {
+      return this.cacheRooms().pipe(
+        map(() => this.cachedRooms.get(id))
       );
     }
+    return this.http.get<Room>(this.baseUrl + id).pipe(
+      tap(room => this.cacheRoom(room))
+    );
   }
 
   getAllRooms(): Observable<Room[]> {
+    this.networkError.next(false);
     if (this.allRoomsCached)
       return of([...this.cachedRooms.values()]);
     else
       return this.cacheRooms();
+
   }
 }

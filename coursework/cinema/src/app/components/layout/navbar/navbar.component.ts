@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router, NavigationEnd, NavigationStart, NavigationError, NavigationCancel } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -30,7 +30,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
           if (ev instanceof NavigationStart) {
             this.navigationLoading = true;
           }
-          if (ev instanceof NavigationEnd) {
+          if (ev instanceof NavigationEnd ||
+              ev instanceof NavigationCancel ||
+              ev instanceof NavigationError) {
             this.isNavbarExpanded = false;
             this.navigationLoading = false;
             this.scrollToTop();
@@ -46,10 +48,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.isDropdoenExpanded = !this.isDropdoenExpanded;
   }
 
-  ngOnDestroy(): void {
-    this.routerEventSubscription.unsubscribe();
-  }
-
   onLogout() {
     if (confirm('Dou you want to log out?')) {
       this.authService.logout();
@@ -60,5 +58,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public scrollToTop(): void {
     window.scrollTo(0, 0);
   }
+
+  ngOnDestroy(): void {
+    this.routerEventSubscription.unsubscribe();
+  }
+
 
 }

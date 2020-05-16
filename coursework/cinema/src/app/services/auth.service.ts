@@ -12,12 +12,14 @@ import { BaseService } from './base.service';
 })
 export class AuthService extends BaseService {
 
-  private salt: string = 'some_salt';
-
-  private usersBaseUrl = environment.baseApiUrl + 'users/';
-
   public currentUser: BehaviorSubject<User>;
   public authLoading: BehaviorSubject<boolean>;
+
+  public get isAuthenticated(): boolean {
+    return !!(this.currentUser.getValue());
+  }
+
+  private usersBaseUrl = environment.baseApiUrl + 'users/';
 
   constructor(private httpClient: HttpClient) {
     super();
@@ -46,9 +48,6 @@ export class AuthService extends BaseService {
     this.currentUser.next(null);
   }
 
-  // private hashFunc(string: string) {
-  //   return string;
-  // }
 
   login(login: string, password: string): Observable<User> {
     this.authLoading.next(true);

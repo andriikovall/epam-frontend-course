@@ -28,9 +28,6 @@ export class FilmsService extends BaseService {
       return this.http.get<Film[]>(this.baseUrl).pipe(
         tap(films => films.forEach((f) => this.cacheFilm(f))),
         tap(() => this.allFilmsAreCached = true),
-        // catchError(err => {
-        //   return of(null);
-        // })
       );
     }
     return of(null);
@@ -41,7 +38,7 @@ export class FilmsService extends BaseService {
     if (this.cachedFilms.has(id)) {
       return of (this.cachedFilms.get(id));
     }
-    return
+    return this.http.get<Film>(this.baseUrl + id);
   }
 
   getFilms(): Observable<Film[]> {

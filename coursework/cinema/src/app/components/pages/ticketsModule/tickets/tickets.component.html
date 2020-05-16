@@ -1,12 +1,19 @@
 <div class="content-wrapper">
-  <p>tickets works!</p>
-  <p>tickets works!</p>
-  <p>tickets works!</p>
-  <p>tickets works!</p>
-  <p>tickets works!</p>
-  <p>tickets works!</p>
-  <p>tickets works!</p>
-  <p>tickets works!</p>
-  <p>tickets works!</p>
-  <p>tickets works!</p>
+  <div class="top-loader-container" *ngIf="this.ticketsLoading">
+    <app-loader height="40px"></app-loader>
+  </div>
+  <div class="tickets-container" *ngIf="tickets">
+    <p (click)="this.setCurrentPage(this.currentPage + 1)">tickets works!</p>
+    <p (click)="this.setCurrentPage(this.currentPage - 1)">tickets works!</p>
+    <p>tickets works!</p>
+    <p>tickets works!</p>
+    <p>tickets works!</p>
+    <p>tickets works!</p>
+    <p>tickets works!</p>
+    <p>tickets works!</p>
+    <p>tickets works!</p>
+    <p>tickets works!</p>
+    {{paginatedTickets|json}}
+    {{this.currentPage}}
+  </div>
 </div>
