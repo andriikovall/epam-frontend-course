@@ -1,0 +1,72 @@
+@import '../../shared/styles/variables.scss';
+
+
+.sittings {
+  width: 100%;
+
+  &__item {
+    $sitting-size: 30px;
+    margin: 5px;
+    padding: 0;
+    content: ' ';
+    height: $sitting-size;
+    width: $sitting-size;
+
+    @media screen and (max-width: $sm) {
+      $sitting-size: 18px;
+      margin: 3px;
+      height: $sitting-size;
+      width: $sitting-size;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.details {
+  font-size: 1.3em;
+
+  &__name {
+    text-align: left;
+  }
+
+  &__value {
+    padding-left: 1rem;
+  }
+
+  &__item {
+    margin: .6em;
+
+  }
+  &__table {
+    border-collapse:separate;
+    border-spacing: 0 .5em;
+  }
+}
+
+.tickets-info {
+  &__item {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+}
+
+.ticket {
+
+  &__details {
+    display: flex;
+  }
+
+  &__remove-icon {
+    font-size: 2.5em;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+  }
+}

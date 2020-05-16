@@ -31,27 +31,23 @@
 
       <section class="section">
         <h2 class="section__title">
-          Sessions
+          Sessions on <span class="date">{{this.currentDateSelected | date: 'EEEE, MMMM d'}}</span>
         </h2>
         <ng-container *ngFor="let filmSession of this.filteredFilmsSessions">
           <div class="film-session" *ngIf="filmSession.sessions.length">
-            <div class="d-flex justify-content-center">
-              <app-film-card [film]="filmSession.film" [width]=240></app-film-card>
+            <div class="film-session__grid">
+              <div class="d-flex justify-content-center">
+                <app-film-card [film]="filmSession.film" [width]=240></app-film-card>
+              </div>
+              <app-session-picker [sessions]="filmSession.sessions" (timeSelected)="onTimeSelected($event)">
+              </app-session-picker>
             </div>
-            <app-session-picker [sessions]="filmSession.sessions" (timeSelected)="onTimeSelected($event)">
-            </app-session-picker>
+            <div class="film-session__session" *ngIf="this.selectedSession">
+              <app-collapse [expanded]="this.selectedSession.film.id === filmSession.film.id">
+                <app-session [session]="this.selectedSession"></app-session>
+              </app-collapse>
+            </div>
           </div>
-          <!-- <ng-container *ngIf="this.selectedSession"> -->
-            <app-collapse [expanded]="this.selectedSession &&this.selectedSession.film.id === filmSession.film.id">
-              <p>dsfdsfsd</p>
-              <p>dsfdsfsd</p>
-              <p>dsfdsfsd</p>
-              <p>dsfdsfsd</p>
-              <p>dsfdsfsd</p>
-              <p>dsfdsfsd</p>
-              <p>dsfdsfsd</p>
-            </app-collapse>
-          <!-- </ng-container> -->
         </ng-container>
       </section>
     </div>

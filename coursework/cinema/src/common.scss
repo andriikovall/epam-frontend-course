@@ -156,3 +156,7 @@
   margin: 0 .5em;
 }
 
+
+.price::after {
+  content: ' ₴';
+}

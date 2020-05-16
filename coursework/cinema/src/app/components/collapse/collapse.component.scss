@@ -1,10 +1,14 @@
 .collapse-container {
+  max-width: 98%;
   height: 0;
-  opacity: .3;
+  opacity: 0;
+  display: none;
+  padding: 10px;
 }
 
 .expanded {
   height: auto;
+  display: block;
   opacity: 1;
-  transition: all .2s;
+  transition: all 1s;
 }

@@ -30,6 +30,7 @@ export class SessionsComponent implements OnInit, OnDestroy {
   public availableDates: Date[];
   public initialDate: Date;
   public sessionTypesForm: FormGroup;
+  public currentDateSelected: Date;
 
   public get control2D(): AbstractControl {
     return this.sessionTypesForm.get('2D');
@@ -66,7 +67,7 @@ export class SessionsComponent implements OnInit, OnDestroy {
   }
 
   private onQueryParamsChanged(params: Params) {
-    if (this.filteredFilmsSessions)
+    if (this.filmsSessions)
       this.updateSessionsByFilters(params);
   }
 
@@ -92,12 +93,13 @@ export class SessionsComponent implements OnInit, OnDestroy {
   private updateSessionsByFilters(filters: SessionFilter) {
     this.filteredFilmsSessions = this.filmsSessions.map(filmsSession => {
 
-      let filteredSessions: Session[] = [];
+      let filteredSessions: Session[] = filmsSession.sessions;
 
-      if (filters.date) {
-        filteredSessions = filmsSession.sessions
-          .filter(s => new Date(s.timestamp).toDateString() == filters.date);
-      }
+      // handle case without filters;
+      const dateToFilterBy: string = filters.date || this.currentDateSelected.toDateString();
+
+      filteredSessions = filmsSession.sessions
+        .filter(s => new Date(s.timestamp).toDateString() == dateToFilterBy);
 
       if (filters.sessionTypes) {
         try {
@@ -171,10 +173,10 @@ export class SessionsComponent implements OnInit, OnDestroy {
 
   onTimeSelected(session: Session) {
     this.selectedSession = session;
-    console.log('this.selectedSession:', this.selectedSession);
   }
 
   onDateSelected(date: Date) {
+    this.currentDateSelected = date;
     this.updateQueryParams({ date: date.toDateString() });
   }
 

@@ -1,0 +1,63 @@
+<div class="session">
+  <div class="session__details details">
+    <table class="details__table">
+      <tr class="details__item">
+        <th class="details__name">Movie</th>
+        <td class="details__value">{{this.session.film.title}}</td>
+      </tr>
+      <tr class="details__item">
+        <th class="details__name">Ticket price</th>
+        <td class="details__value price">{{this.session.room.price}}</td>
+      </tr>
+      <tr class="details__item">
+        <th class="details__name">Date</th>
+        <td class="details__value">{{this.session.timestamp | date: 'MMM d, h:mm a'}}</td>
+      </tr>
+      <tr class="details__item">
+        <th class="details__name">Room</th>
+        <td class="details__value">{{this.session.room.name}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="session__sittings sittings">
+    <ng-container *ngFor="let row of this.session.sittings; index as i">
+      <div class="sittings__row">
+        <button *ngFor="let col of row; index as j" class="sittings__item btn btn-secondary" [class.active]="col"
+          (click)="onPlaceSelected(i, j)">
+          <span *ngIf="isSittingSelected(i, j)">
+            &#10004;
+          </span>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="session__tickets tickets-info">
+    <ul class="tickets-info__list">
+      <li class="tickets-info__item ticket" *ngFor="let ticket of this.tickets">
+          <div class="ticket__details details">
+            <table class="details__table">
+              <tr class="details__item">
+                <th class="details__name">Row</th>
+                <td class="details__value">{{ticket.row + 1}}</td>
+              </tr>
+              <tr class="details__item">
+                <th class="details__name">Sitting number</th>
+                <td class="details__value">{{ticket.col + 1}}</td>
+              </tr>
+            </table>
+          <span class="ticket__remove-icon" (click)="this.onPlaceSelected(ticket.row, ticket.col)"> &#10006; </span>
+        </div>
+      </li>
+      <li class="tickets-info__item details">
+        <table class="details__table">
+          <tr class="details__item" *ngIf="this.totalTicketsPrice">
+            <th class="details__name">Total price</th>
+            <td class="details__value price">{{this.totalTicketsPrice}}</td>
+          </tr>
+        </table>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -7,9 +7,7 @@ import { SessionPickerComponent } from '../components/session-picker/session-pic
 import { FilmCardComponent } from '../components/film-card/film-card.component';
 import { DatePickerComponent } from '../components/date-picker/date-picker.component';
 import { CollapseComponent } from '../components/collapse/collapse.component';
-
-
-
+import { SessionComponent } from '../components/session/session.component';
 
 
 @NgModule({
@@ -19,7 +17,8 @@ import { CollapseComponent } from '../components/collapse/collapse.component';
     SessionPickerComponent,
     FilmCardComponent,
     DatePickerComponent,
-    CollapseComponent
+    CollapseComponent,
+    SessionComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +33,8 @@ import { CollapseComponent } from '../components/collapse/collapse.component';
     FilmCardComponent,
     SessionPickerComponent,
     DatePickerComponent,
-    CollapseComponent
+    CollapseComponent,
+    SessionComponent
   ]
 })
 export class SharedModule { }
