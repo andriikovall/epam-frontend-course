@@ -9,6 +9,8 @@ import { DatePickerComponent } from '../components/date-picker/date-picker.compo
 import { CollapseComponent } from '../components/collapse/collapse.component';
 import { SessionComponent } from '../components/session/session.component';
 
+import { LoadingDirective } from '../directives/loading.directive';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { SessionComponent } from '../components/session/session.component';
     FilmCardComponent,
     DatePickerComponent,
     CollapseComponent,
-    SessionComponent
+    SessionComponent,
+    LoadingDirective
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,11 @@ import { SessionComponent } from '../components/session/session.component';
     SessionPickerComponent,
     DatePickerComponent,
     CollapseComponent,
-    SessionComponent
+    SessionComponent,
+    LoadingDirective
+  ],
+  entryComponents: [
+    LoaderComponent
   ]
 })
 export class SharedModule { }

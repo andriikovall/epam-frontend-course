@@ -44,7 +44,7 @@
             </div>
             <div class="film-session__session" *ngIf="this.selectedSession">
               <app-collapse [expanded]="this.selectedSession.film.id === filmSession.film.id">
-                <app-session [session]="this.selectedSession"></app-session>
+                <app-session [session]="this.selectedSession" (close)="this.onCloseSessionDetails()"></app-session>
               </app-collapse>
             </div>
           </div>

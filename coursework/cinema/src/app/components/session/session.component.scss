@@ -62,11 +62,23 @@
   }
 
   &__remove-icon {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-left: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
+  }
+}
+
+.session {
+  &__controls {
+    margin-top: 20px;
+  }
+}
+
+.controls {
+  &__buy-btn {
+    font-size: 1.3em;
   }
 }

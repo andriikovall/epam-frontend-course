@@ -165,6 +165,12 @@ export class SessionsComponent implements OnInit, OnDestroy {
     });
   }
 
+  onCloseSessionDetails() {
+    setTimeout(() => {
+      this.selectedSession = null;
+    }, 0);
+  }
+
   onSessionsFormChange() {
     const sessionTypes = Object.keys(this.sessionTypesForm.value)
       .filter(key => this.sessionTypesForm.value[key]);

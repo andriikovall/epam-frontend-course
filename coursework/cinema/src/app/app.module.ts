@@ -10,7 +10,6 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoadingDirective } from './directives/loading.directive';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './components/layout/footer/footer.component';
 
@@ -23,7 +22,6 @@ import { BaseService } from './services/base.service';
     NavbarComponent,
     MainComponent,
     CarouselComponent,
-    LoadingDirective,
     FooterComponent,
   ],
   entryComponents: [],

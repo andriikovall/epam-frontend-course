@@ -20,7 +20,6 @@ export class LoadingDirective {
   }
 
   @Input() set appLoading (isLoading: boolean) {
-    console.log('loader here');
     this.viewContainerRef.clear();
     if (isLoading) {
       this.loaderComponent = this.viewContainerRef.createComponent(this.loaderFactory);

@@ -36,17 +36,17 @@
   <div class="session__tickets tickets-info">
     <ul class="tickets-info__list">
       <li class="tickets-info__item ticket" *ngFor="let ticket of this.tickets">
-          <div class="ticket__details details">
-            <table class="details__table">
-              <tr class="details__item">
-                <th class="details__name">Row</th>
-                <td class="details__value">{{ticket.row + 1}}</td>
-              </tr>
-              <tr class="details__item">
-                <th class="details__name">Sitting number</th>
-                <td class="details__value">{{ticket.col + 1}}</td>
-              </tr>
-            </table>
+        <div class="ticket__details details">
+          <table class="details__table">
+            <tr class="details__item">
+              <th class="details__name">Row</th>
+              <td class="details__value">{{ticket.row + 1}}</td>
+            </tr>
+            <tr class="details__item">
+              <th class="details__name">Sitting number</th>
+              <td class="details__value">{{ticket.col + 1}}</td>
+            </tr>
+          </table>
           <span class="ticket__remove-icon" (click)="this.onPlaceSelected(ticket.row, ticket.col)"> &#10006; </span>
         </div>
       </li>
@@ -59,5 +59,27 @@
         </table>
       </li>
     </ul>
+  </div>
+
+
+  <div class="session__controls controls" *ngIf="this.totalTicketsPrice">
+
+    <ng-container *ngIf="!this.currentUser">
+      <p class="controls__message">
+        You should log in to see your tickets in your personal cabinet.
+        Otherwise recieve your tickets via email.
+      </p>
+      <input type="email" class="form__control" placeholder="Enter your email" [formControl]="this.emailControl"
+        [class.invalid]="this.emailControl.dirty && this.emailControl.invalid">
+      <p class="form__feedback text-danger" *ngIf="this.emailControl.dirty && this.emailControl.invalid">
+        Enter valid email
+      </p>
+    </ng-container>
+    <button type="submit" class="controls__buy-btn btn btn-primary" (click)="this.onBuyClicked()"
+      *appLoading="(this.sessionsService.sessionUpdating | async)">
+      Buy tickets
+    </button>
+    <p *ngIf="(this.baseService.networkError | async)" class="text-danger">Some error occured</p>
+
   </div>
 </div>

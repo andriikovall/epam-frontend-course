@@ -16,7 +16,6 @@ export class HTPPInterseptorService implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError(err => {
         this.baseService.networkError.next(true);
-        console.log('interseptor HERE');
         return throwError(err);
       })
     )
