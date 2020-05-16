@@ -6,6 +6,7 @@ import { UserAvaComponent } from '../components/user-ava/user-ava.component';
 import { SessionPickerComponent } from '../components/session-picker/session-picker.component';
 import { FilmCardComponent } from '../components/film-card/film-card.component';
 import { DatePickerComponent } from '../components/date-picker/date-picker.component';
+import { CollapseComponent } from '../components/collapse/collapse.component';
 
 
 
@@ -17,7 +18,8 @@ import { DatePickerComponent } from '../components/date-picker/date-picker.compo
     UserAvaComponent,
     SessionPickerComponent,
     FilmCardComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    CollapseComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { DatePickerComponent } from '../components/date-picker/date-picker.compo
     UserAvaComponent,
     FilmCardComponent,
     SessionPickerComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    CollapseComponent
   ]
 })
 export class SharedModule { }

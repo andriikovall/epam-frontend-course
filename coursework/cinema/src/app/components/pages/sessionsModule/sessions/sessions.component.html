@@ -36,11 +36,22 @@
         <ng-container *ngFor="let filmSession of this.filteredFilmsSessions">
           <div class="film-session" *ngIf="filmSession.sessions.length">
             <div class="d-flex justify-content-center">
-              <app-film-card [film]="filmSession.film" [width]=200></app-film-card>
+              <app-film-card [film]="filmSession.film" [width]=240></app-film-card>
             </div>
             <app-session-picker [sessions]="filmSession.sessions" (timeSelected)="onTimeSelected($event)">
             </app-session-picker>
           </div>
+          <!-- <ng-container *ngIf="this.selectedSession"> -->
+            <app-collapse [expanded]="this.selectedSession &&this.selectedSession.film.id === filmSession.film.id">
+              <p>dsfdsfsd</p>
+              <p>dsfdsfsd</p>
+              <p>dsfdsfsd</p>
+              <p>dsfdsfsd</p>
+              <p>dsfdsfsd</p>
+              <p>dsfdsfsd</p>
+              <p>dsfdsfsd</p>
+            </app-collapse>
+          <!-- </ng-container> -->
         </ng-container>
       </section>
     </div>

@@ -171,6 +171,7 @@ export class SessionsComponent implements OnInit, OnDestroy {
 
   onTimeSelected(session: Session) {
     this.selectedSession = session;
+    console.log('this.selectedSession:', this.selectedSession);
   }
 
   onDateSelected(date: Date) {
