@@ -1,5 +1,35 @@
-<div class="section">
-  <div class="section__title">
-    {{ticket.timestamp | date: 'EEEE, MMMM d' }}
+<div class="section section-ticket">
+  <h3 class="section__title">
+    {{ticket.film.title}}
+  </h3>
+  <div class="ticket">
+    <div class="ticket__film">
+      <app-film-card [film]="ticket.film" [flip]="false" [width]="200"></app-film-card>
+    </div>
+
+    <div class="ticket__details details">
+      <table class="details__table">
+        <tr class="details__item">
+          <th class="details__name">Film</th>
+          <td class="details__value">{{ticket.film.title}}</td>
+        </tr>
+        <tr class="details__item">
+          <th class="details__name">Date</th>
+          <td class="details__value">{{ticket.timestamp | date: 'EEEE, MMMM d' }}</td>
+        </tr>
+        <tr class="details__item">
+          <th class="details__name">Price</th>
+          <td class="details__value price">{{ticket.price}}</td>
+        </tr>
+        <tr class="details__item">
+          <th class="details__name">Row</th>
+          <td class="details__value">{{ticket.row + 1}}</td>
+        </tr>
+        <tr class="details__item">
+          <th class="details__name">Sitting</th>
+          <td class="details__value">{{ticket.col + 1}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

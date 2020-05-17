@@ -1,0 +1,14 @@
+<div class="pagination">
+  <ul class="pagination__list">
+    <li class="pagination__item arrow arrow-left" (click)="this.onPrevPage()">
+      <button class="btn btn-info">&lt;&lt;</button>
+    </li>
+    <li class="pagination__item" (click)="this.onPageSelected(item)"
+      *ngFor="let item of this.getPagesNumbersList(); trackBy:trackByFn">
+      <button class="btn btn-info" [class.active]="this.currentPage === item">{{item}}</button>
+    </li>
+    <li class="pagination__item arrow arrow-right" (click)="this.onNextPage()">
+      <button class="btn btn-info">&gt;&gt;</button>
+    </li>
+  </ul>
+</div>

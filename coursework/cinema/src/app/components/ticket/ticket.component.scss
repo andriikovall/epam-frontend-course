@@ -1,0 +1,18 @@
+@import '../../shared/styles/variables.scss';
+
+.ticket {
+
+  &__film {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.section-ticket {
+
+  &:after {
+    content: url('../../../assets/ticket-circles.svg');
+    overflow: hidden;
+    padding-bottom: 30px;
+  }
+}

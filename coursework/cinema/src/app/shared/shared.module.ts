@@ -8,6 +8,7 @@ import { FilmCardComponent } from '../components/film-card/film-card.component';
 import { DatePickerComponent } from '../components/date-picker/date-picker.component';
 import { CollapseComponent } from '../components/collapse/collapse.component';
 import { SessionComponent } from '../components/session/session.component';
+import { PaginationComponent } from '../components/pagination/pagination.component';
 
 import { LoadingDirective } from '../directives/loading.directive';
 
@@ -21,7 +22,8 @@ import { LoadingDirective } from '../directives/loading.directive';
     DatePickerComponent,
     CollapseComponent,
     SessionComponent,
-    LoadingDirective
+    LoadingDirective,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { LoadingDirective } from '../directives/loading.directive';
     DatePickerComponent,
     CollapseComponent,
     SessionComponent,
-    LoadingDirective
+    LoadingDirective,
+    PaginationComponent
   ],
   entryComponents: [
     LoaderComponent

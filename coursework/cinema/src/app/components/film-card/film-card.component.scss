@@ -49,11 +49,11 @@
 
 
   &:hover {
-    .film-card__front {
+    .film-card__front[class*=flipable] {
       transform: rotateY(180deg);
     }
 
-    .film-card__back {
+    .film-card__back[class*=flipable] {
       transform: rotateY(360deg);
     }
   }

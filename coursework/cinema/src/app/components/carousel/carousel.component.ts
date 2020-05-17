@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarouselItem } from 'src/app/models/carouselItem';
+import { CarouselItem } from 'src/app/models/helpers/carouselItem';
 import { trigger, state, style, transition, animate, sequence } from '@angular/animations';
 
 @Component({

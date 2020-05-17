@@ -13,6 +13,7 @@ export class FilmCardComponent implements OnInit {
 
   @Input() film: Film;
   @Input() width: number = 250;
+  @Input() flip: boolean = true;
 
   public get currentDate(): number {
     return Date.now();

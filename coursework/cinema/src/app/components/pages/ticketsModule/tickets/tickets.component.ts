@@ -4,6 +4,7 @@ import { TicketsService } from 'src/app/services/tickets.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BaseComponent } from 'src/app/components/base.component';
+import { PaginationEvent } from 'src/app/models/helpers/paginationEvent';
 
 @Component({
   selector: 'app-tickets',
@@ -19,11 +20,11 @@ export class TicketsComponent extends BaseComponent implements OnInit {
       return null;
 
     return this.tickets.slice((this.currentPage - 1) * this.itemsPerPage,
-                               this.currentPage * this.itemsPerPage + 1);
+                               this.currentPage * this.itemsPerPage);
   }
   public currentPage: number;
 
-  private itemsPerPage = 3;
+  public itemsPerPage = 5;
 
   constructor(private ticketsService: TicketsService,
               private authService: AuthService,
@@ -36,7 +37,6 @@ export class TicketsComponent extends BaseComponent implements OnInit {
     this.ticketsLoading = true;
     this.ticketsService.getUserTickets(this.authService.currentUser.getValue().id)
       .subscribe(tickets => {
-        console.log('tickets:', tickets);
         this.tickets = tickets;
         this.ticketsLoading = false;
       })
@@ -45,17 +45,12 @@ export class TicketsComponent extends BaseComponent implements OnInit {
   }
 
   setCurrentPage(page: number) {
-    if (page < 1 || isNaN(page)) {
-      this.router.navigate(['tickets/page/1']);
-      return;
-    }
-    const prevPageNum = this.currentPage;
     this.currentPage = page;
-
-    if (this.paginatedTickets && !this.paginatedTickets.length) {
-      this.currentPage = prevPageNum;
-    }
     this.router.navigate(['tickets/page', page]);
+  }
+
+  onPageChanged(event: PaginationEvent) {
+    this.setCurrentPage(event.currentPage);
   }
 
 }

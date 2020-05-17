@@ -9,3 +9,5 @@ async pipe
 date pipe
 
 unsubscribe
+
+pagination

@@ -1,10 +1,10 @@
 <div class="film-card" [ngStyle]="{'width': this.width + 'px', 'height': this.width * 3 / 2 + 'px'}">
-  <div class="film-card__front">
+  <div class="film-card__front" [class.film-card__flipable]="this.flip">
     <figure class="film-item">
       <img src="{{film.imageUrl}}" alt="{{film.title + ' image'}}" class="film-item__image">
     </figure>
   </div>
-  <div class="film-card__back d-flex justify-content-around">
+  <div class="film-card__back d-flex justify-content-around" [class.film-card__flipable]="this.flip" *ngIf="this.flip">
       <figcaption class="film-details">
 
         <div class="film-details__title text-center">
