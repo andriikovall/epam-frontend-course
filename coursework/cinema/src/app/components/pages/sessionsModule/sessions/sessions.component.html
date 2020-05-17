@@ -33,7 +33,10 @@
         <h2 class="section__title">
           Sessions on <span class="date">{{this.currentDateSelected | date: 'EEEE, MMMM d'}}</span>
         </h2>
-        <ng-container *ngFor="let filmSession of this.filteredFilmsSessions">
+        <p class="section__text" *ngIf="noSessionsForCurrentDay">
+          Soryy, there is no sessions for this day for current filtres
+        </p>
+        <ng-container *ngFor="let filmSession of this.filteredFilmsSessions;trackBy:trackByFn ">
           <div class="film-session" *ngIf="filmSession.sessions.length">
             <div class="film-session__grid">
               <div class="d-flex justify-content-center">

@@ -11,6 +11,7 @@ export class Ticket {
   row: number;
   col: number;
   price: number;
+  timestamp: number;
 }
 
 export class TicketDTO {
@@ -22,4 +23,5 @@ export class TicketDTO {
   row: number;
   col: number;
   price: number;
+  timestamp: number;
 }

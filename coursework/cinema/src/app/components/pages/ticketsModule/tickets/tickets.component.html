@@ -5,15 +5,17 @@
   <div class="tickets-container" *ngIf="tickets">
     <p (click)="this.setCurrentPage(this.currentPage + 1)">tickets works!</p>
     <p (click)="this.setCurrentPage(this.currentPage - 1)">tickets works!</p>
-    <p>tickets works!</p>
-    <p>tickets works!</p>
-    <p>tickets works!</p>
-    <p>tickets works!</p>
-    <p>tickets works!</p>
-    <p>tickets works!</p>
-    <p>tickets works!</p>
-    <p>tickets works!</p>
-    {{paginatedTickets|json}}
-    {{this.currentPage}}
+    <section class="section" *ngIf="!this.paginatedTickets.length">
+      <div class="section__title">
+        No tickets yet
+      </div>
+      <p class="section__text">
+        You haven't bounght any tickets yet. Go ahead and visit our cinema!
+      </p>
+      <button class="btn btn-primary" routerLink="/sessions">Go to film sessions</button>
+    </section>
+    <div class="ticket-wrapper" *ngFor="let ticket of this.paginatedTickets; trackBy:trackByFn">
+      <app-ticket [ticket]="ticket"></app-ticket>
+    </div>
   </div>
 </div>

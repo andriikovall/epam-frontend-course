@@ -3,13 +3,14 @@ import { Ticket } from 'src/app/models/ticket';
 import { TicketsService } from 'src/app/services/tickets.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BaseComponent } from 'src/app/components/base.component';
 
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
   styleUrls: ['./tickets.component.scss']
 })
-export class TicketsComponent implements OnInit {
+export class TicketsComponent extends BaseComponent implements OnInit {
 
   public tickets: Ticket[];
   public ticketsLoading: boolean;
@@ -17,8 +18,6 @@ export class TicketsComponent implements OnInit {
     if (!this.tickets)
       return null;
 
-    console.log((this.currentPage - 1) * this.itemsPerPage)
-    console.log(this.currentPage * this.itemsPerPage + 1)
     return this.tickets.slice((this.currentPage - 1) * this.itemsPerPage,
                                this.currentPage * this.itemsPerPage + 1);
   }
@@ -29,7 +28,9 @@ export class TicketsComponent implements OnInit {
   constructor(private ticketsService: TicketsService,
               private authService: AuthService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+    super();
+  }
 
   ngOnInit() {
     this.ticketsLoading = true;

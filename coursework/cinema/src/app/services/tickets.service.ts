@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of, combineLatest } from 'rxjs';
 import { Ticket, TicketDTO } from '../models/ticket';
 import { environment } from 'src/environments/environment';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, takeWhile, combineAll } from 'rxjs/operators';
 import { FilmsService } from './films.service';
 import { RoomsService } from './rooms.service';
 import { Film } from '../models/film';
@@ -26,8 +26,15 @@ export class TicketsService {
 
   getUserTickets(userId: string): Observable<Ticket[]> {
     return this.http.get<TicketDTO[]>(this.baseUrl).pipe(
-      map(tickets => tickets.filter(t => t.userId == userId)),
-      switchMap(tickets => combineLatest(tickets.map(t => this.mapDTOToTicket(t))))
+      map(tickets => {
+        return tickets.filter(t => t.userId == userId)
+      }),
+      switchMap(tickets => {
+        if (!tickets.length) {
+          return of([]);
+        }
+        return combineLatest(tickets.map(t => this.mapDTOToTicket(t)))
+      })
     );
   }
 

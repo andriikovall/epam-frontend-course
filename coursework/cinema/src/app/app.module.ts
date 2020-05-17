@@ -15,6 +15,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 
 import { HTPPInterseptorService } from './services/htppinterseptor.service';
 import { BaseService } from './services/base.service';
+import { BaseComponent } from './components/base.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BaseService } from './services/base.service';
     MainComponent,
     CarouselComponent,
     FooterComponent,
+    BaseComponent,
   ],
   entryComponents: [],
   imports: [

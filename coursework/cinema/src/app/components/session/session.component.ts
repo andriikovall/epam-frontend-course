@@ -60,6 +60,7 @@ export class SessionComponent implements OnInit, OnDestroy {
         sessionId: this.session.id,
         room: this.session.room,
         price: this.session.room.price,
+        timestamp: this.session.timestamp
       };
 
       if (this.currentUser) {

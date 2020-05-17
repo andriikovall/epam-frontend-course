@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { combineLatest, Subscription } from 'rxjs';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 
 import { SessionsService } from 'src/app/services/sessions.service';
 import { Session } from 'src/app/models/session';
@@ -9,18 +10,21 @@ import { FilmsService } from 'src/app/services/films.service';
 import { Film } from 'src/app/models/film';
 import { isValidDate } from '../../../../utils/date';
 import { SessionFilter } from 'src/app/models/sessionFilter';
-import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
+import { BaseComponent } from 'src/app/components/base.component';
+
 @Component({
   selector: 'app-sessions',
   templateUrl: './sessions.component.html',
   styleUrls: ['./sessions.component.scss']
 })
-export class SessionsComponent implements OnInit, OnDestroy {
+export class SessionsComponent extends BaseComponent implements OnInit, OnDestroy {
 
   constructor(private sessionsService: SessionsService,
               private filmsService: FilmsService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+                super();
+              }
 
   public sessions: Session[];
   public sessionsLoading: boolean;
@@ -38,6 +42,10 @@ export class SessionsComponent implements OnInit, OnDestroy {
 
   public get control3D(): AbstractControl {
     return this.sessionTypesForm.get('3D');
+  }
+
+  public get noSessionsForCurrentDay(): boolean {
+    return this.filteredFilmsSessions.every(f => f.sessions.length === 0);
   }
 
   private films: Film[];
@@ -163,6 +171,12 @@ export class SessionsComponent implements OnInit, OnDestroy {
     values.forEach((curr) => {
       this.sessionTypesForm.get(curr).setValue(true);
     });
+  }
+
+  trackByFn(index: number, fs: FilmSessions) {
+    const filmId = fs.film.id;
+    const sessionId = fs.sessions && fs.sessions.length ? fs.sessions[0] : '';
+    return `${filmId}_${sessionId}`;
   }
 
   onCloseSessionDetails() {

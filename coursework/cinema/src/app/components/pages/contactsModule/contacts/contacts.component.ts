@@ -2,13 +2,14 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { FeedBack } from 'src/app/models/feedback';
+import { BaseComponent } from 'src/app/components/base.component';
 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent extends BaseComponent implements OnInit {
 
   feedbackForm: FormGroup;
   feedbackAdded: boolean;
@@ -31,7 +32,9 @@ export class ContactsComponent implements OnInit {
     return this.feedbackForm.get('message');
   }
 
-  constructor(public feedbackService: FeedbackService) { }
+  constructor(public feedbackService: FeedbackService) {
+    super();
+  }
 
   ngOnInit() {
     this.feedbackForm = new FormGroup({

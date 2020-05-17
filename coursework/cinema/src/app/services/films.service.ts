@@ -38,7 +38,9 @@ export class FilmsService extends BaseService {
     if (this.cachedFilms.has(id)) {
       return of (this.cachedFilms.get(id));
     }
-    return this.http.get<Film>(this.baseUrl + id);
+    return this.http.get<Film>(this.baseUrl + id).pipe(
+      tap(f => this.cacheFilm(f))
+    );
   }
 
   getFilms(): Observable<Film[]> {
