@@ -83,4 +83,11 @@ export class DatePickerComponent implements OnInit {
       this.currentMonthIndex -=1;
   }
 
+  dayTrackByFn(index, day: number) {
+    if (!this.selectedDate) {
+      return day;
+    }
+    return `${this.selectedDate.getFullYear()}_${this.selectedDate.getMonth()}_${day}`;
+  }
+
 }

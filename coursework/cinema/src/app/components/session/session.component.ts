@@ -7,13 +7,14 @@ import { User } from 'src/app/models/user';
 import { FormControl, Validators } from '@angular/forms';
 import { SessionsService } from 'src/app/services/sessions.service';
 import { BaseService } from 'src/app/services/base.service';
+import { BaseComponent } from '../base.component';
 
 @Component({
   selector: 'app-session',
   templateUrl: './session.component.html',
   styleUrls: ['./session.component.scss']
 })
-export class SessionComponent implements OnInit, OnDestroy {
+export class SessionComponent extends BaseComponent implements OnInit, OnDestroy {
 
   @Input() session: Session;
   @Output() close = new EventEmitter();
@@ -31,7 +32,9 @@ export class SessionComponent implements OnInit, OnDestroy {
 
   constructor(public authService: AuthService,
               public sessionsService: SessionsService,
-              public baseService: BaseService) { }
+              public baseService: BaseService) {
+    super();
+  }
 
   ngOnInit() {
     this.authServiceSubsription = this.authService.currentUser.subscribe(user => {
@@ -41,11 +44,11 @@ export class SessionComponent implements OnInit, OnDestroy {
     this.emailControl = new FormControl('', [ Validators.email, Validators.required ]);
   }
 
-  public isSittingSelected(row: number, col: number) {
+  isSittingSelected(row: number, col: number) {
     return this.tickets.some(t => t.row == row && t.col == col);
   }
 
-  public onPlaceSelected(row: number, col: number) {
+  onPlaceSelected(row: number, col: number) {
     if (this.session.sittings[row][col]) {
       return;
     }
@@ -85,6 +88,11 @@ export class SessionComponent implements OnInit, OnDestroy {
     })
 
   }
+
+  ticketTrackFn(index, ticket: Ticket) {
+    return `${ticket.row}_${ticket.col}`;
+  }
+
 
   ngOnDestroy(): void {
     this.authServiceSubsription.unsubscribe();

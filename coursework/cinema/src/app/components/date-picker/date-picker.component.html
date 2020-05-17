@@ -21,7 +21,7 @@
       <span class="month__day">Sun</span>
     </div>
     <div class="month__dates">
-      <button class="month__date-btn btn btn-primary" *ngFor="let date of this.currentMonthDatesCalendar"
+      <button class="month__date-btn btn btn-primary" *ngFor="let date of this.currentMonthDatesCalendar;trackBy:dayTrackByFn"
         (click)="onDateSecelted(date)"
         [class.active]="this.selectedDate && this.selectedDate.toDateString() == date?.toDateString()">
         {{date | date:'d'}}

@@ -1,3 +1,9 @@
 <div class="session-picker-container">
-  <button (click)="onTimeClicked(session)" class="btn btn-secondary" *ngFor="let session of sessions">{{session.timestamp | date:'shortTime'}}</button>
+  <button
+    [class.active]="this.selectedSession && this.selectedSession.id === session.id"
+    (click)="onTimeClicked(session)"
+    class="btn btn-secondary"
+    *ngFor="let session of sessions;trackBy:trackByFn">
+    {{session.timestamp | date:'shortTime'}}
+  </button>
 </div>

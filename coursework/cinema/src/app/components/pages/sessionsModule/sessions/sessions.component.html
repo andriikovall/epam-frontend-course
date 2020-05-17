@@ -8,7 +8,10 @@
         <div class="section__title">
           Date
         </div>
-        <app-date-picker [dates]="this.availableDates" (dateSelected)="this.onDateSelected($event)"
+
+        <app-date-picker
+          *ngIf="this.initialDate"
+          [dates]="this.availableDates" (dateSelected)="this.onDateSelected($event)"
           [initialDate]="this.initialDate"></app-date-picker>
       </section>
 
@@ -36,23 +39,30 @@
         <p class="section__text" *ngIf="noSessionsForCurrentDay">
           Soryy, there is no sessions for this day for current filtres
         </p>
-        <ng-container *ngFor="let filmSession of this.filteredFilmsSessions;trackBy:trackByFn ">
-          <div class="film-session" *ngIf="filmSession.sessions.length">
-            <div class="film-session__grid">
-              <div class="d-flex justify-content-center">
-                <app-film-card [film]="filmSession.film" [width]=240></app-film-card>
+      </section>
+      <ul class="sessions-list">
+        <li *ngFor="let filmSessions of this.filteredFilmsSessions;trackBy:trackByFn" class="film-session-wrapper">
+          <div class="section" *ngIf="filmSessions.sessions.length">
+            <h3 class="section__title">
+              {{filmSessions.film.title}}
+            </h3>
+            <div class="film-session">
+              <div class="film-session__grid">
+                <div class="d-flex justify-content-center">
+                  <app-film-card [film]="filmSessions.film" [width]=240></app-film-card>
+                </div>
+                <app-session-picker [sessions]="filmSessions.sessions" (timeSelected)="onTimeSelected($event)">
+                </app-session-picker>
               </div>
-              <app-session-picker [sessions]="filmSession.sessions" (timeSelected)="onTimeSelected($event)">
-              </app-session-picker>
-            </div>
-            <div class="film-session__session" *ngIf="this.selectedSession">
-              <app-collapse [expanded]="this.selectedSession.film.id === filmSession.film.id">
-                <app-session [session]="this.selectedSession" (close)="this.onCloseSessionDetails()"></app-session>
-              </app-collapse>
+              <div class="film-session__session" *ngIf="this.selectedSession">
+                <app-collapse [expanded]="this.selectedSession.film.id === filmSessions.film.id">
+                  <app-session [session]="this.selectedSession" (close)="this.onCloseSessionDetails()"></app-session>
+                </app-collapse>
+              </div>
             </div>
           </div>
-        </ng-container>
-      </section>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

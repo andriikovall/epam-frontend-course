@@ -7,7 +7,10 @@
   @media screen and (max-width: $md) {
     grid-template-columns: 1fr;
   }
+}
 
+.sessions-list {
+  list-style: none;
 }
 
 .film-session {
@@ -28,17 +31,5 @@
       grid-template-columns: 1fr;
     }
   }
-
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  // border-bottom-right-radius: 20px;
-
-  $border-style: 1px solid $main-dark-blue;
-  border-bottom: $border-style;
-  border-top: $border-style;
-  border-left: $border-style;
 }
 
