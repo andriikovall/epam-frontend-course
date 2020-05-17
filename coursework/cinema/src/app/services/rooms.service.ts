@@ -36,12 +36,9 @@ export class RoomsService extends BaseService {
   }
 
   getRoomById(id: string): Observable<Room> {
+    this.networkError.next(false);
     if (this.cachedRooms.has(id)) {
       return of(this.cachedRooms.get(id));
-    } else if (!this.allRoomsCached) {
-      return this.cacheRooms().pipe(
-        map(() => this.cachedRooms.get(id))
-      );
     }
     return this.http.get<Room>(this.baseUrl + id).pipe(
       tap(room => this.cacheRoom(room))
