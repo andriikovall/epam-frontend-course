@@ -11,6 +11,7 @@ import { SessionComponent } from '../components/session/session.component';
 import { PaginationComponent } from '../components/pagination/pagination.component';
 
 import { LoadingDirective } from '../directives/loading.directive';
+import { ToastsContainerComponent } from '../components/toasts-container/toasts-container.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LoadingDirective } from '../directives/loading.directive';
     CollapseComponent,
     SessionComponent,
     LoadingDirective,
-    PaginationComponent
+    PaginationComponent,
+    ToastsContainerComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { LoadingDirective } from '../directives/loading.directive';
     CollapseComponent,
     SessionComponent,
     LoadingDirective,
-    PaginationComponent
+    PaginationComponent,
+    ToastsContainerComponent
   ],
   entryComponents: [
     LoaderComponent
