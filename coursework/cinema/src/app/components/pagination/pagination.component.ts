@@ -17,7 +17,7 @@ export class PaginationComponent extends BaseComponent implements OnInit {
   @Output() pageChanged = new EventEmitter<PaginationEvent>();
 
   public getPagesNumbersList(): number[] {
-    const length = Math.trunc(this.total / this.pageSize + 1);
+    const length = Math.ceil(this.total / this.pageSize);
     return new Array(length).fill(1).map((_, index) => index + 1);
   }
 
@@ -29,6 +29,9 @@ export class PaginationComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     this.currentPage = this.initialPage;
+    if (!this.isValidPage(this.currentPage)) {
+      this.onPageSelected(1);
+    }
   }
 
   trackByFn(index, item: number) {
@@ -63,6 +66,6 @@ export class PaginationComponent extends BaseComponent implements OnInit {
   private isValidPage(page: number): boolean {
     return !isNaN(page) &&
             page >= 1 &&
-            page * this.pageSize <= this.total + this.pageSize;
+            page * this.pageSize < this.total + this.pageSize;
   }
 }

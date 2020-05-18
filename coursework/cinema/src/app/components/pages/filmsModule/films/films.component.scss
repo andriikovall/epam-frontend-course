@@ -1,0 +1,15 @@
+.films {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+
+  &__item {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.films-wrapper {
+  margin-top: 30px;
+}

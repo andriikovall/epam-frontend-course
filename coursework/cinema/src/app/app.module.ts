@@ -16,6 +16,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { HTPPInterseptorService } from './services/htppinterseptor.service';
 import { BaseService } from './services/base.service';
 import { BaseComponent } from './components/base.component';
+import { BasePaginationComponent } from './components/base-pagination.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BaseComponent } from './components/base.component';
     CarouselComponent,
     FooterComponent,
     BaseComponent,
+    BasePaginationComponent,
   ],
   entryComponents: [],
   imports: [
@@ -32,7 +34,7 @@ import { BaseComponent } from './components/base.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     BaseService,

@@ -1,20 +1,23 @@
 <div class="content-wrapper">
-
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-  <p>films works!</p>
-
-
+  <div class="top-loader-container" *ngIf="this.filmsLoading">
+    <app-loader [height]="'40px'"></app-loader>
+  </div>
+  <div class="films-wrapper" *ngIf="!this.filmsLoading">
+    <div class="section">
+      <h2 class="section__title">
+        Watch our films
+      </h2>
+    </div>
+    <section class="section section-transparent">
+      <ul class="films">
+        <li class="films__item" *ngFor="let film of this.paginatedFilms;trackBy:trackByFn">
+          <app-film-card [film]="film" [width]="280"></app-film-card>
+        </li>
+      </ul>
+      <div class="pagination-container" *ngIf="this.films">
+        <app-pagination [total]="this.films.length" (pageChanged)="this.onPageChanged($event)"
+          [pageSize]="this.itemsPerPage" [initialPage]="this.currentPage"></app-pagination>
+      </div>
+    </section>
+  </div>
 </div>
