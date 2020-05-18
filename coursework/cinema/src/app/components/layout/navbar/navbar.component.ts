@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ViewportScroller } from '@angular/common';
 import { BaseService } from 'src/app/services/base.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-navbar',

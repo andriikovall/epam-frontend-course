@@ -1,18 +1,18 @@
 <div class="toasts">
   <ul class="toasts__list">
 
-    <li class="toasts__item">
-      <div class="toast toast-warning">
+    <li class="toasts__item" *ngFor="let toast of this.toastService.toasts | async; trackBy:trackByFn">
+      <div class="toast {{getToastClassModifier(toast.type)}}" >
         <div class="toast__title">
-          Error title
+          {{toast.title}}
         </div>
         <div class="toasts__text">
-          Text dslfms sdkf msdkl fmds
+          {{toast.message}}
         </div>
       </div>
     </li>
 
-    <li class="toasts__item">
+    <!-- <li class="toasts__item">
       <div class="toast toast-success">
         <div class="toast__title">
           Success title
@@ -32,7 +32,7 @@
           Info text
         </div>
       </div>
-    </li>
+    </li> -->
 
   </ul>
 </div>
