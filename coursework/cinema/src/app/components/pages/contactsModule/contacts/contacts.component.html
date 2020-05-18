@@ -17,13 +17,12 @@
           <textarea placeholder="Tell us anything =)" class="form__control" formControlName="message" rows="4"
             [class.invalid]="this.messageControl.invalid && this.messageControl.touched">
         </textarea>
-          <p class="form__feedback text-danger" *ngIf="this.messageControl.invalid && this.messageControl.dirty">Enter
-            feedback</p>
+          <p class="form__feedback text-danger" *ngIf="this.messageControl.invalid && this.messageControl.dirty">
+            Enter feedback</p>
         </div>
 
-        <p class="form__feedback text-danger" *ngIf="(this.feedbackService.networkError | async)">Some error occured,
-          try again later</p>
-        <p class="form__feedback text-success" *ngIf="this.feedbackAdded">Thanks for your feedback. We will contact you
+        <p class="form__feedback text-success" *ngIf="this.feedbackAdded">
+          Thanks for your feedback. We will contact you
         </p>
 
         <button type="submit" class="btn btn-primary btn-block">

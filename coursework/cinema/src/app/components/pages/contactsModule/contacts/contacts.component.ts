@@ -3,13 +3,14 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { FeedBack } from 'src/app/models/feedback';
 import { BaseComponent } from 'src/app/components/base.component';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent extends BaseComponent implements OnInit {
+export class ContactsComponent implements OnInit {
 
   feedbackForm: FormGroup;
   feedbackAdded: boolean;
@@ -32,8 +33,9 @@ export class ContactsComponent extends BaseComponent implements OnInit {
     return this.feedbackForm.get('message');
   }
 
-  constructor(public feedbackService: FeedbackService) {
-    super();
+  constructor(public feedbackService: FeedbackService,
+              private toastService: ToastService) {
+    // super();
   }
 
   ngOnInit() {
@@ -57,6 +59,7 @@ export class ContactsComponent extends BaseComponent implements OnInit {
       .subscribe(res => {
         if (res) {
           this.feedbackAdded = true;
+          this.toastService.success('Thanks for your feedback!', 'We will answer as soon as possible');
         }
       })
   }

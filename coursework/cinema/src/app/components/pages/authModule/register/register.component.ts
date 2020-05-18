@@ -3,7 +3,9 @@ import { FormGroup, FormControl, ValidatorFn, AbstractControl } from '@angular/f
 import { trimmedMinLength } from 'src/app/utils/validators';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
-import { BaseService } from 'src/app/services/base.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-register',
@@ -26,27 +28,25 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('passwordRepeat');
   }
 
-  private redirectAfterSuccess() {
-    // @todo add query param after redirect
-    window.location.href = '/';
-  }
 
   public passwordsAreInvalid(): boolean {
     return this.passwordsDontEqual ||
-           (this.passwordControl.touched && this.passwordControl.invalid ||
-           this.passwordRepeatControl.touched && this.passwordRepeatControl.invalid);
+    (this.passwordControl.touched && this.passwordControl.invalid ||
+      this.passwordRepeatControl.touched && this.passwordRepeatControl.invalid);
 
-  }
+    }
 
-  passwordsDontEqual: boolean;
-  loginUsed: boolean;
+    passwordsDontEqual: boolean;
+    loginUsed: boolean;
 
-  constructor(public authService: AuthService) {
-  }
+    constructor(public authService: AuthService,
+                private router: Router,
+                private toastService: ToastService) {
+    }
 
-  ngOnInit() {
-    this.loginUsed = false;
-    this.registerForm = new FormGroup({
+    ngOnInit() {
+      this.loginUsed = false;
+      this.registerForm = new FormGroup({
       firstName: new FormControl(''),
       lastName: new FormControl(''),
       login: new FormControl('', [trimmedMinLength(3)]),
@@ -64,19 +64,19 @@ export class RegisterComponent implements OnInit {
     }
 
     if (this.registerForm.invalid)
-      return;
+    return;
 
     this.passwordsDontEqual = false;
     this.loginUsed = false;
 
     this.authService.register(value)
-      .subscribe(res => {
-        if (!res) {
-          this.loginUsed = true;
-        } else {
-          this.redirectAfterSuccess();
-        }
-      })
+    .subscribe(res => {
+      if (!res) {
+        this.loginUsed = true;
+      } else {
+        this.onSuccess();
+      }
+    })
 
   }
 
@@ -85,9 +85,13 @@ export class RegisterComponent implements OnInit {
     this.loginUsed = false;
 
     this.authService.onSocialAuth(user)
-    .subscribe(() => this.redirectAfterSuccess());
+    .subscribe(() => this.onSuccess());
   }
 
+  private onSuccess() {
+    this.toastService.success('You have been successfully registered', 'Please log in to continue', 6000);
+    this.router.navigate(['/auth/login']);
+  }
 }
 
 

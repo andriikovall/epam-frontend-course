@@ -8,6 +8,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { SessionsService } from 'src/app/services/sessions.service';
 import { BaseService } from 'src/app/services/base.service';
 import { BaseComponent } from '../base.component';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-session',
@@ -32,7 +33,8 @@ export class SessionComponent extends BaseComponent implements OnInit, OnDestroy
 
   constructor(public authService: AuthService,
               public sessionsService: SessionsService,
-              public baseService: BaseService) {
+              public baseService: BaseService,
+              private toastService: ToastService) {
     super();
   }
 
@@ -83,6 +85,12 @@ export class SessionComponent extends BaseComponent implements OnInit, OnDestroy
     combineLatest(
       this.tickets.map(t => this.sessionsService.updateSessionWithTicket(this.session, t))
     ).subscribe(tickets => {
+      // this.toastService.success('You have successfully booked the tickets');
+      const toastTitle = `You have successfully booked your ${tickets.length > 1 ? 'tickets' : 'ticket'}`;
+      const toastMessage = this.currentUser ?
+                      'Check out your tickets in your personal cabinet' :
+                      `Check out your tickets on the provided email: ${this.emailControl.value}`;
+      this.toastService.success(toastTitle, toastMessage, 8000);
       this.tickets = [];
       this.close.emit();
     })

@@ -22,7 +22,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               public authService: AuthService,
-              public baseService: BaseService) { }
+              public baseService: BaseService,
+              private toastService: ToastService) { }
 
   ngOnInit() {
     this.routerEventSubscription =
@@ -53,6 +54,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (confirm('Dou you want to log out?')) {
       this.authService.logout();
       this.toggleDropdown();
+      this.toastService.info('You have been logged out', '');
     }
   }
 

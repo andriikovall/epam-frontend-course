@@ -2,14 +2,14 @@
 
 .toasts {
   position: fixed;
-  top: 100px;
+  bottom: 100px;
   width: 300px;
   right: 30px;
 
   &__list {
     list-style: none;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
 }

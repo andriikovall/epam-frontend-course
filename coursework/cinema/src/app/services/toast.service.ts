@@ -15,19 +15,21 @@ export class ToastService {
     return this._toasts.value;
   }
 
+  private defaultToastDuration = 4500;
+
   private _toasts = new BehaviorSubject<ToastItem[]>([]);
 
   constructor() { }
 
-  error(title: string, message: string, duration: number): void {
+  error(title: string, message: string, duration: number = this.defaultToastDuration): void {
     this.createToast('danger', title, message, duration)
   }
 
-  success(title: string, message: string, duration: number): void {
+  success(title: string, message: string, duration: number = this.defaultToastDuration): void {
     this.createToast('success', title, message, duration);
   }
 
-  info(title: string, message: string, duration: number): void {
+  info(title: string, message: string, duration: number = this.defaultToastDuration): void {
     this.createToast('info', title, message, duration);
   }
 

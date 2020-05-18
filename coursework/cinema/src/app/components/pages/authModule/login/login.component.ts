@@ -3,6 +3,9 @@ import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from
 import { trimmedMinLength } from 'src/app/utils/validators';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user';
+import { Location } from '@angular/common';
+import { ToastService } from 'src/app/services/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +16,9 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService,
+              private router: Router,
+              private toastService: ToastService) { }
 
   public get loginControl(): AbstractControl {
     return this.loginForm.get('login');
@@ -25,9 +30,7 @@ export class LoginComponent implements OnInit {
 
   public errorOccured = false;
 
-  private navigateAfterSuccess() {
-    window.location.href = '/';
-  }
+
 
   ngOnInit() {
 
@@ -47,7 +50,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(value.login, value.password)
       .subscribe((user: User) => {
         if (user) {
-          this.navigateAfterSuccess();
+          this.onSuccess();
           this.errorOccured = false;
         }
         else {
@@ -59,8 +62,14 @@ export class LoginComponent implements OnInit {
 
   public onGoogleAuth(user) {
     this.authService.onSocialAuth(user)
-    .subscribe(() => this.navigateAfterSuccess());
+    .subscribe(() => {
+      this.onSuccess()
+    });
   }
 
+  private onSuccess() {
+    this.toastService.success('You have been successfully logged in', '');
+    this.router.navigate(['/home']);
+  }
 
 }

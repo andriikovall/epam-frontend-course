@@ -21,7 +21,7 @@ export class AuthService extends BaseService {
 
   private usersBaseUrl = environment.baseApiUrl + 'users/';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private http: HttpClient) {
     super();
     this.loadUser();
   }
@@ -52,10 +52,9 @@ export class AuthService extends BaseService {
   login(login: string, password: string): Observable<User> {
     this.authLoading.next(true);
     this.networkError.next(false);
-    return this.httpClient.get<User[]>(this.usersBaseUrl, { params: { login, password } })
+    return this.http.get<User[]>(this.usersBaseUrl, { params: { login, password } })
       .pipe(
         catchError(err => {
-          this.networkError.next(true);
           return of(null);
         }),
         map(users => users[0]),
@@ -76,7 +75,7 @@ export class AuthService extends BaseService {
         if (user)
           return of(null)
 
-        return this.httpClient.post<User>(this.usersBaseUrl, registrationValue)
+        return this.http.post<User>(this.usersBaseUrl, registrationValue)
           .pipe(
             catchError(err => of(null))
           )
@@ -94,7 +93,7 @@ export class AuthService extends BaseService {
   }
 
   private getUserByLogin(login: string): Observable<User> {
-    return this.httpClient.get<User>(this.usersBaseUrl, { params: { login } })
+    return this.http.get<User>(this.usersBaseUrl, { params: { login } })
       .pipe(
         map(users => users[0] || null)
       );
@@ -106,10 +105,14 @@ export class AuthService extends BaseService {
 
     this.saveUser(user);
     this.currentUser.next(user);
-    return this.httpClient.post<User>(this.usersBaseUrl, user)
-      .pipe(
-        catchError(err => this.httpClient.put<User>(this.usersBaseUrl + user.id, user))
-      );
+    return this.http.get<User>(this.usersBaseUrl + user.id).pipe(
+      catchError(err => {
+        return this.http.post<User>(this.usersBaseUrl, user);
+      }),
+      switchMap(user => {
+        return this.http.put<User>(this.usersBaseUrl + user.id, user);
+      })
+    )
   }
 
 

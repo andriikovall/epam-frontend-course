@@ -277,6 +277,20 @@
       "password": "111",
       "passwordRepeat": "111",
       "id": "aYitL7a"
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "login": "3333",
+      "password": "1231",
+      "passwordRepeat": "1231",
+      "id": "a9aruUO"
+    },
+    {
+      "firstName": "Александр",
+      "lastName": "Коваль",
+      "avaUrl": "https://lh4.googleusercontent.com/-t-uThpQfTns/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclQUXhaVAysKNQqtouvLfnTSDiVOw/s96-c/photo.jpg",
+      "id": "109496109824007133378"
     }
   ],
   "feedbacks": [
@@ -349,6 +363,20 @@
       "email": "anderkoval3@gmail.com",
       "timestamp": 1589284481631,
       "id": "10"
+    },
+    {
+      "name": "sad",
+      "message": "asdfdsf",
+      "email": "anderkoval3@gmail.com",
+      "timestamp": 1589808069354,
+      "id": "1bM4kGA"
+    },
+    {
+      "name": "Андрей Коваль",
+      "message": "sadsa",
+      "email": "anderkoval3@gmail.com",
+      "timestamp": 1589808240721,
+      "id": "tWDYMKK"
     }
   ],
   "sessions": [
@@ -12273,8 +12301,8 @@
           0,
           1,
           1,
-          0,
-          0,
+          1,
+          1,
           0,
           0,
           1,
@@ -12749,7 +12777,7 @@
       "filmId": "f_4",
       "sittings": [
         [
-          0,
+          1,
           0,
           0,
           0,
@@ -24405,11 +24433,11 @@
       "filmId": "f_2",
       "sittings": [
         [
-          0,
           1,
           1,
           1,
-          0,
+          1,
+          1,
           1,
           0,
           1,
@@ -26477,7 +26505,7 @@
       "filmId": "f_4",
       "sittings": [
         [
-          0,
+          1,
           0,
           0,
           1,
@@ -26549,8 +26577,8 @@
           1
         ],
         [
-          0,
-          0,
+          1,
+          1,
           0,
           0,
           0,
@@ -28221,6 +28249,91 @@
       "roomId": "r_1",
       "filmId": "f_1",
       "id": 13
+    },
+    {
+      "row": 0,
+      "col": 0,
+      "sessionId": "3845b97370",
+      "price": 90,
+      "timestamp": "2020-05-18T23:16:31.791Z",
+      "userId": "uuid_213213",
+      "roomId": "r_2",
+      "filmId": "f_4",
+      "id": 14
+    },
+    {
+      "row": 6,
+      "col": 0,
+      "sessionId": "3845b97370",
+      "price": 90,
+      "timestamp": "2020-05-18T23:16:31.791Z",
+      "userId": "Xpd7ldT",
+      "roomId": "r_2",
+      "filmId": "f_4",
+      "id": 15
+    },
+    {
+      "row": 6,
+      "col": 1,
+      "sessionId": "3845b97370",
+      "price": 90,
+      "timestamp": "2020-05-18T23:16:31.791Z",
+      "userId": "Xpd7ldT",
+      "roomId": "r_2",
+      "filmId": "f_4",
+      "id": 16
+    },
+    {
+      "row": 0,
+      "col": 0,
+      "sessionId": "79f8efe8a5",
+      "price": 60,
+      "timestamp": "2020-05-18T23:44:59.777Z",
+      "userId": "Xpd7ldT",
+      "roomId": "r_1",
+      "filmId": "f_2",
+      "id": 17
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "sessionId": "79f8efe8a5",
+      "price": 60,
+      "timestamp": "2020-05-18T23:44:59.777Z",
+      "userId": "Xpd7ldT",
+      "roomId": "r_1",
+      "filmId": "f_2",
+      "id": 18
+    },
+    {
+      "row": 0,
+      "col": 0,
+      "sessionId": "341fa9c8b1",
+      "price": 60,
+      "timestamp": "2020-05-19T18:24:14.181Z",
+      "roomId": "r_1",
+      "filmId": "f_4",
+      "id": 19
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "sessionId": "5b51e12513",
+      "price": 60,
+      "timestamp": "2020-05-19T13:58:24.578Z",
+      "roomId": "r_1",
+      "filmId": "f_2",
+      "id": 20
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "sessionId": "5b51e12513",
+      "price": 60,
+      "timestamp": "2020-05-19T13:58:24.578Z",
+      "roomId": "r_1",
+      "filmId": "f_2",
+      "id": 21
     }
   ]
 }

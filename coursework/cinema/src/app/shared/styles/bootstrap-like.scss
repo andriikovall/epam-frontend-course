@@ -157,6 +157,9 @@
 
   &:disabled {
     cursor: default;
+    &:hover {
+      background-color: initial;
+    }
   }
 
   &-block {
