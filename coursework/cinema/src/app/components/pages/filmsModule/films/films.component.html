@@ -8,16 +8,18 @@
         Watch our films
       </h2>
     </div>
-    <section class="section section-transparent">
+    <!-- <section class="section section-transparent"> -->
       <ul class="films">
         <li class="films__item" *ngFor="let film of this.paginatedFilms;trackBy:trackByFn">
           <app-film-card [film]="film" [width]="280"></app-film-card>
         </li>
       </ul>
+    <!-- </section> -->
+    <!-- <div class="section section-transparent"> -->
       <div class="pagination-container" *ngIf="this.films">
         <app-pagination [total]="this.films.length" (pageChanged)="this.onPageChanged($event)"
           [pageSize]="this.itemsPerPage" [initialPage]="this.currentPage"></app-pagination>
       </div>
-    </section>
+    <!-- </div> -->
   </div>
 </div>

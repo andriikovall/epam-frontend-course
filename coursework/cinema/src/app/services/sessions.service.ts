@@ -21,6 +21,8 @@ export class SessionsService extends BaseService {
 
   private baseUrl = environment.baseApiUrl +  'sessions/';
 
+  private sessions: Session[] = [];
+
   constructor(private http: HttpClient,
               private filmService: FilmsService,
               private roomService: RoomsService,
@@ -31,10 +33,20 @@ export class SessionsService extends BaseService {
   }
 
   getAllSessions(): Observable<Session[]> {
+    if (this.sessions.length) {
+      return of(this.sessions);
+    }
     return from(this.getAllSessionsHelper()).pipe(
+      tap(sessions => this.sessions = sessions),
       catchError(err => {
         return of(null);
       })
+    );
+  }
+
+  getFilmSessions(filmId: string): Observable<Session[]> {
+    return this.getAllSessions().pipe(
+      map(sessions => sessions.filter(s => s.film.id == filmId))
     );
   }
 

@@ -1,1 +1,65 @@
-<p>film works!</p>
+<div class="content-wrapper">
+  <div class="top-loader-container" *ngIf="this.filmLoading">
+    <app-loader height="40px"></app-loader>
+  </div>
+  <div class="section section-transparent film-page" *ngIf="!this.filmLoading">
+    <!-- <div class="film-info-row"> -->
+      <div class="film-card-wrapper section">
+        <app-film-card [film]="this.film" [flip]="false"></app-film-card>
+      </div>
+      <section class="section film-details">
+        <h2 class="section__title">
+          {{film.title}}
+        </h2>
+        <table class="details film-details">
+          <tr class="details__item">
+            <th class="details__name">Date</th>
+            <td class="details__value">{{film.date | date: 'longDate'}}</td>
+          </tr>
+          <tr class="details__item">
+            <th class="details__name">Directors</th>
+            <td class="details__value">{{film.directors.join(', ')}}</td>
+          </tr>
+          <tr class="details__item">
+            <th class="details__name">Genres</th>
+            <td class="details__value">{{film.genres.join(', ')}}</td>
+          </tr>
+          <tr class="details__item">
+            <th class="details__name">Session types</th>
+            <td class="details__value">{{film.sessionTypes.join(', ')}}</td>
+          </tr>
+          <tr class="details__item">
+            <th class="details__name">Duration</th>
+            <td class="details__value duration">
+              <span class="duration__text">
+                <i class="fas fa-clock"></i>
+                {{film.duration}} m
+              </span>
+            </td>
+          </tr>
+        </table>
+        <p class="section__text">Synopsis</p>
+        <p class="section__text">{{film.bio}}</p>
+      </section>
+    <!-- </div> -->
+    <!-- <div class="film-info-row"> -->
+      <section class="section section-date">
+        <div class="section__title">
+          Date
+        </div>
+        <app-date-picker [dates]="this.filmDates" (dateSelected)="this.onDateSelected($event)"></app-date-picker>
+      </section>
+      <section class="section section-session">
+        <div class="section__title">
+          Pick session
+        </div>
+        <app-session-picker [sessions]="this.filteredSessions" (timeSelected)="this.onSessionSelected($event)">
+        </app-session-picker>
+        <app-collapse [expanded]="this.currentSession !== null">
+          <app-session [session]="this.currentSession"></app-session>
+        </app-collapse>
+      </section>
+    <!-- </div> -->
+
+  </div>
+</div>

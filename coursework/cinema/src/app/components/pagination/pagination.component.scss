@@ -1,5 +1,8 @@
 .pagination {
 
+  display: flex;
+  justify-content: center;
+
   &__list {
     display: flex;
     list-style: none;
@@ -7,14 +10,7 @@
 
   &__item {
     margin: 0 3px;
-    // cursor: pointer;
-    // transition: .2s;
-
-    // &:hover {
-    //   background-color: ;
-    // }
   }
 
   font-size: 1.3em;
-  // font-weight: bold;
 }

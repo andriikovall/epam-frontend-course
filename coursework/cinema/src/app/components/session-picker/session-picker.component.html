@@ -4,6 +4,6 @@
     (click)="onTimeClicked(session)"
     class="btn btn-secondary"
     *ngFor="let session of sessions;trackBy:trackByFn">
-    {{session.timestamp | date:'shortTime'}}
+    {{session.timestamp | date:'shortTime'}} <span class="session-type"> {{session.sessionType}}</span>
   </button>
 </div>

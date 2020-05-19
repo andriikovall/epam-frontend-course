@@ -104,7 +104,9 @@ export class SessionsComponent extends BaseComponent implements OnInit, OnDestro
       let filteredSessions: Session[] = filmsSession.sessions;
 
       // handle case without filters;
-      const dateToFilterBy: string = filters.date || this.currentDateSelected.toDateString();
+      const dateToFilterBy: string = filters.date ||
+                                    (this.currentDateSelected && this.currentDateSelected.toDateString()) ||
+                                    new Date().toDateString();
 
       filteredSessions = filmsSession.sessions
         .filter(s => new Date(s.timestamp).toDateString() == dateToFilterBy);
