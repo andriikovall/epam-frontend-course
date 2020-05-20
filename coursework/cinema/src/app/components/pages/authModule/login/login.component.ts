@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
   public onGoogleAuth(user) {
     this.authService.onSocialAuth(user)
     .subscribe(() => {
-      this.onSuccess()
+      this.onSuccess();
     });
   }
 

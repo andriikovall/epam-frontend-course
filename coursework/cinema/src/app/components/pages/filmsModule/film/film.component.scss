@@ -64,5 +64,9 @@
   &__text {
     font-size: .8em;
     color: $main-dark-blue;
+
+    &::after {
+      content: ' m';
+    }
   }
 }

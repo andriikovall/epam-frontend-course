@@ -43,11 +43,11 @@
     margin: 10px 0;
   }
 
-  &__substitle {
-    // border-bottom: 1px solid $main-dark-blue;
-    font-size: 1.15em;
-    padding-bottom: 0.3em;
-    margin: 15px;
+  &__subtitle {
+    @extend .details__name;
+    font-size: 1.3em;
+    margin: 10px 5px;
+    font-weight: bold;
   }
 
   &-transparent {

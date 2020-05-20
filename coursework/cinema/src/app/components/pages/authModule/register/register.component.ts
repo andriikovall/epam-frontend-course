@@ -85,12 +85,17 @@ export class RegisterComponent implements OnInit {
     this.loginUsed = false;
 
     this.authService.onSocialAuth(user)
-    .subscribe(() => this.onSuccess());
+    .subscribe(() => this.onSocialAuthSuccess());
   }
 
   private onSuccess() {
     this.toastService.success('You have been successfully registered', 'Please log in to continue', 6000);
     this.router.navigate(['/auth/login']);
+  }
+
+  private onSocialAuthSuccess() {
+    this.toastService.success('You have been successfully logged in', '');
+    this.router.navigate(['/home']);
   }
 }
 
