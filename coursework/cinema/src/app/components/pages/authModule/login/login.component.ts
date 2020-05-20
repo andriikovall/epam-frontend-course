@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(value.login, value.password)
       .subscribe((user: User) => {
         if (user) {
+          console.log('user:', user)
           this.onSuccess();
           this.errorOccured = false;
         }

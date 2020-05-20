@@ -34,8 +34,6 @@ export class ToastService {
   }
 
   private createToast(type: ToastType, title: string, message: string, duration: number = 5000) {
-    console.log('title:', title)
-    console.log('message:', message)
     const toast = new ToastItem(type, title, message);
     this._toasts.next([...this.toastsValue, toast])
     this.removeToastAfterTimeout(toast.id, duration);

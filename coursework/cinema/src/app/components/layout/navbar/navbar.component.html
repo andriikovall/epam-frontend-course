@@ -5,9 +5,6 @@
           <li class="nav__item" routerLink="/films">Films</li>
           <li class="nav__item" routerLink="/sessions">Sessions</li>
           <li class="nav__item" routerLink="/contacts">Contact us</li>
-          <!-- <ng-container *ngIf="this.baseService.networkError | async">
-            <li class="nav__item" routerLink="/contacts">dsfsdf</li>
-          </ng-container> -->
 
           <ng-container *ngIf="this.authService.currentUser | async; else elseAuthTemplate">
             <li class="nav__item nav__item-dropdown ml-auto" (click)="this.toggleDropdown()">

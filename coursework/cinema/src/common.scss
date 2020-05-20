@@ -44,10 +44,9 @@
   }
 
   &__subtitle {
-    @extend .details__name;
     font-size: 1.3em;
     margin: 10px 5px;
-    font-weight: bold;
+    // font-weight: bold;
   }
 
   &-transparent {
@@ -173,14 +172,6 @@
 .fas {
   margin-left: 0.2em;
   margin-right: 0.2em;
-}
-
-.user-ava {
-  $size: 1em;
-  height: $size;
-  width: $size;
-  border-radius: 50%;
-  margin: 0 .5em;
 }
 
 

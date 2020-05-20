@@ -1,6 +1,7 @@
 import { User } from './user';
 
 export class Comment {
+  id?: string;
   user: User;
   message: string;
   timestamp: number;
@@ -8,8 +9,9 @@ export class Comment {
 }
 
 export class CommentDTO {
+  id?: string;
   userId: string;
-  massage: string;
+  message: string;
   timestamp: number;
   filmId: string;
 }

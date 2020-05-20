@@ -15,6 +15,7 @@ export class UserAvaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.src = this.src || this.defaultAvaUrl;
   }
 
 }

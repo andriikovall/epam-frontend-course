@@ -25,10 +25,7 @@ export class TicketsService {
   }
 
   getUserTickets(userId: string): Observable<Ticket[]> {
-    return this.http.get<TicketDTO[]>(this.baseUrl).pipe(
-      map(tickets => {
-        return tickets.filter(t => t.userId == userId)
-      }),
+    return this.http.get<TicketDTO[]>(this.baseUrl, { params: { userId }}).pipe(
       switchMap(tickets => {
         if (!tickets.length) {
           return of([]);

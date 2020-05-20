@@ -20,6 +20,7 @@ export class AuthService extends BaseService {
   }
 
   private usersBaseUrl = environment.baseApiUrl + 'users/';
+  private cachedUsers = new Map<string, User>();
 
   constructor(private http: HttpClient) {
     super();
@@ -60,9 +61,12 @@ export class AuthService extends BaseService {
         map(users => users[0]),
         catchError(err => of(null)),
         tap(
-          (user) => this.saveUser(user),
-          (user) => this.currentUser.next(user),
-          () => this.authLoading.next(false)
+          (user) => {
+            this.saveUser(user);
+            this.currentUser.next(user);
+            this.authLoading.next(false);
+            this.cachedUsers.set(user.id, user);
+          },
         ),
       )
   }
@@ -92,10 +96,24 @@ export class AuthService extends BaseService {
 
   }
 
+  getUserById(id: string): Observable<User> {
+    return this.http.get<User>(this.usersBaseUrl + id)
+      .pipe(
+        tap(user => {
+          if (user != null)
+            this.cachedUsers.set(user.id, user);
+        }),
+      );
+  }
+
   private getUserByLogin(login: string): Observable<User> {
     return this.http.get<User>(this.usersBaseUrl, { params: { login } })
       .pipe(
-        map(users => users[0] || null)
+        tap(user => {
+          if (user != null)
+            this.cachedUsers.set(user.id, user);
+        }),
+        map(users => users[0] || null),
       );
   }
 
@@ -111,6 +129,10 @@ export class AuthService extends BaseService {
       }),
       switchMap(user => {
         return this.http.put<User>(this.usersBaseUrl + user.id, user);
+      }),
+      tap(user => {
+        if (user != null)
+            this.cachedUsers.set(user.id, user);
       })
     )
   }

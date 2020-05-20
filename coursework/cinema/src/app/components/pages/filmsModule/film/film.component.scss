@@ -53,6 +53,39 @@
   }
 }
 
+.section-comments {
+  grid-column: span 12;
+}
+
+.comments {
+  list-style: none;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.comment {
+  display: flex;
+  margin: 20px 0;
+
+  &__author {
+    font-weight: bold;
+    margin-right: 15px;
+  }
+
+  &__text {
+    white-space: pre-wrap;
+    margin-top: 10px;
+  }
+
+  &__heading {
+    display: flex;
+  }
+
+  &__info {
+    margin-left: 10px;
+  }
+}
+
 .film-page {
   display: grid;
   grid-template-columns: repeat(12, 1fr);

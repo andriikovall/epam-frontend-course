@@ -3,63 +3,106 @@
     <app-loader height="40px"></app-loader>
   </div>
   <div class="section section-transparent film-page" *ngIf="!this.filmLoading">
-    <!-- <div class="film-info-row"> -->
-      <div class="film-card-wrapper section">
-        <app-film-card [film]="this.film" [flip]="false"></app-film-card>
+    <div class="film-card-wrapper section">
+      <app-film-card [film]="this.film" [flip]="false"></app-film-card>
+    </div>
+    <section class="section film-details">
+      <h2 class="section__title">
+        {{film.title}}
+      </h2>
+      <table class="details film-details">
+        <tr class="details__item">
+          <th class="details__name">Date</th>
+          <td class="details__value">{{film.date | date: 'longDate'}}</td>
+        </tr>
+        <tr class="details__item">
+          <th class="details__name">Directors</th>
+          <td class="details__value">{{film.directors.join(', ')}}</td>
+        </tr>
+        <tr class="details__item">
+          <th class="details__name">Genres</th>
+          <td class="details__value">{{film.genres.join(', ')}}</td>
+        </tr>
+        <tr class="details__item">
+          <th class="details__name">Session types</th>
+          <td class="details__value">{{film.sessionTypes.join(', ')}}</td>
+        </tr>
+        <tr class="details__item">
+          <th class="details__name">Duration</th>
+          <td class="details__value duration">
+            <span class="duration__text">
+              <i class="fas fa-clock"></i>
+              {{film.duration}}
+            </span>
+          </td>
+        </tr>
+      </table>
+      <h3 class="section__subtitle">Synopsis</h3>
+      <p class="section__text">{{film.bio}}</p>
+    </section>
+    <section class="section section-date">
+      <div class="section__title">
+        Date
       </div>
-      <section class="section film-details">
-        <h2 class="section__title">
-          {{film.title}}
-        </h2>
-        <table class="details film-details">
-          <tr class="details__item">
-            <th class="details__name">Date</th>
-            <td class="details__value">{{film.date | date: 'longDate'}}</td>
-          </tr>
-          <tr class="details__item">
-            <th class="details__name">Directors</th>
-            <td class="details__value">{{film.directors.join(', ')}}</td>
-          </tr>
-          <tr class="details__item">
-            <th class="details__name">Genres</th>
-            <td class="details__value">{{film.genres.join(', ')}}</td>
-          </tr>
-          <tr class="details__item">
-            <th class="details__name">Session types</th>
-            <td class="details__value">{{film.sessionTypes.join(', ')}}</td>
-          </tr>
-          <tr class="details__item">
-            <th class="details__name">Duration</th>
-            <td class="details__value duration">
-              <span class="duration__text">
-                <i class="fas fa-clock"></i>
-                {{film.duration}}
-              </span>
-            </td>
-          </tr>
-        </table>
-        <p class="section__subtitle">Synopsis</p>
-        <p class="section__text">{{film.bio}}</p>
-      </section>
-    <!-- </div> -->
-    <!-- <div class="film-info-row"> -->
-      <section class="section section-date">
-        <div class="section__title">
-          Date
-        </div>
-        <app-date-picker [dates]="this.filmDates" (dateSelected)="this.onDateSelected($event)"></app-date-picker>
-      </section>
-      <section class="section section-session">
-        <div class="section__title">
-          Pick session
-        </div>
-        <app-session-picker [sessions]="this.filteredSessions" (timeSelected)="this.onSessionSelected($event)">
-        </app-session-picker>
-        <app-collapse [expanded]="this.currentSession !== null">
-          <app-session [session]="this.currentSession"></app-session>
-        </app-collapse>
-      </section>
-    <!-- </div> -->
+      <app-date-picker [dates]="this.filmDates" (dateSelected)="this.onDateSelected($event)"></app-date-picker>
+    </section>
+    <section class="section section-session">
+      <div class="section__title">
+        Pick session
+      </div>
+      <app-session-picker [sessions]="this.filteredSessions" (timeSelected)="this.onSessionSelected($event)">
+      </app-session-picker>
+      <app-collapse [expanded]="this.currentSession !== null">
+        <app-session [session]="this.currentSession"></app-session>
+      </app-collapse>
+    </section>
+    <section class="section section-comments">
+      <div class="section__title">
+        Comments
+      </div>
 
+      <app-loader [height]="'40px'" *ngIf="this.commentsLoading"></app-loader>
+
+      <ng-container *ngIf="!this.commentsLoading">
+        <p class="section__text" *ngIf="!this.paginatedComments.length">
+          No comments for this film yet. Be the first one to post!
+        </p>
+        <ul class="comments">
+          <li class="comments__item comment" *ngFor="let comment of this.paginatedComments;trackBy:trackByFn">
+            <div class="comment__image">
+              <app-user-ava [size]="'50px'" [src]="comment.user.avaUrl"></app-user-ava>
+            </div>
+            <div class="comment__info">
+              <div class="comment__heading">
+                <div class="comment__author">{{comment.user.firstName}} {{comment.user.lastName}}</div>
+                <div class="comment__date">{{moment(comment.timestamp).fromNow()}}</div>
+              </div>
+              <div class="comment__text">{{comment.message}}</div>
+            </div>
+          </li>
+        </ul>
+
+        <p class="sectio__text text-link" *ngIf="this.paginatedComments.length < this.comments.length" (click)="this.onMoreComments()">More comments</p>
+
+        <ng-container *ngIf="(this.authService.currentUser | async); else elseAddCommentTemplate">
+          <div class="section__subtitle">
+            Add comment
+          </div>
+          <form class="form">
+            <textarea class="form__control" placeholder="Leave your film feedback here"
+              [formControl]="this.commentControl" rows="3"
+              [class.invalid]="this.commentControl.invalid && this.commentControl.dirty"></textarea>
+            <p class="form__feedback" [class.text-danger]="this.commentControl.invalid">
+              {{this.commentControl.value.length}}/{{this.maxCommentLength}}
+            </p>
+
+            <button class="btn btn-primary" style="float: right;" (click)="this.onCommentSubmit()" *appLoading="this.addingComment">Add comment</button>
+          </form>
+        </ng-container>
+        <ng-template #elseAddCommentTemplate>
+          <p class="section__text">Login to leave comments</p>
+        </ng-template>
+      </ng-container>
+    </section>
   </div>
 </div>
