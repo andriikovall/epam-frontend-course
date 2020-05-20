@@ -1,0 +1,20 @@
+.details {
+  font-size: 1.3em;
+
+  &__name {
+    text-align: left;
+  }
+
+  &__value {
+    padding-left: 1rem;
+  }
+
+  &__item {
+    margin: .6em;
+
+  }
+  &__table {
+    border-collapse:separate;
+    border-spacing: 0 .5em;
+  }
+}

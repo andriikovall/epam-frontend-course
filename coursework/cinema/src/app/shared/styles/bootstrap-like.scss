@@ -36,23 +36,6 @@
   display: flex;
 }
 
-.d-none {
-  display: none;
-}
-
-.d-block {
-  display: block;
-}
-
-.col {
-  @extend .flex-column;
-}
-
-.row {
-  @extend .d-flex;
-  flex-direction: row;
-}
-
 .flex-column {
   flex-direction: column;
 }
@@ -105,36 +88,6 @@
 
 .mr-auto {
   margin-right: auto;
-}
-
-@media screen and (max-width: $sm) {
-  .d-sm-none {
-    display: none;
-  }
-
-  .d-sm-block {
-    display: none;
-  }
-}
-
-@media screen and (max-width: $sm) {
-  .d-sm-none {
-    display: none;
-  }
-
-  .d-sm-block {
-    display: none;
-  }
-}
-
-@media screen and (max-width: $sm) {
-  .d-lg-block {
-    display: block;
-  }
-
-  .d-lg-none {
-    display: none;
-  }
 }
 
 .btn {

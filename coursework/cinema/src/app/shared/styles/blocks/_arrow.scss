@@ -1,0 +1,23 @@
+.arrow {
+  margin: 0 20px;
+  font-weight: bold;
+
+  &-left {
+    &:hover {
+      transform: translateX(-0.2em);
+      cursor: pointer;
+    }
+  }
+
+  &-right {
+    &:hover {
+      transform: translateX(0.2em);
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    transition: 0.2s;
+    cursor: pointer;
+  }
+}

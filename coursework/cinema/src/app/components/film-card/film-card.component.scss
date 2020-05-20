@@ -59,16 +59,6 @@
   }
 }
 
-.duration {
-  &__text {
-    font-size: .8em;
-    color: $main-dark-blue;
-    &::after {
-      content: ' m';
-    }
-  }
-}
-
 .button-wrapper {
   position: absolute;
   bottom: 10px;
