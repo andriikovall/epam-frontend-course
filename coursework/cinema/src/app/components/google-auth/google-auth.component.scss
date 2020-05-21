@@ -6,9 +6,10 @@
   background-color: $google-color;
   border: none;
   color: white;
-
+  border: 2px solid $google-color;
 
   &:hover {
     background-color: darken($color: $google-color, $amount: 10);
+    color: $google-color;
   }
 }
