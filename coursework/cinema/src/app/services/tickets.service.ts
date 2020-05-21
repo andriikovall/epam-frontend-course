@@ -48,10 +48,8 @@ export class TicketsService {
   private mapTicketToDTO(ticket: Ticket): TicketDTO {
     return {
       ...ticket,
-      userId: ticket.user ? ticket.user.id : undefined,
       roomId: ticket.room.id,
       filmId: ticket.film.id,
-      user: undefined,
       room: undefined,
       film: undefined
     } as TicketDTO;

@@ -6,7 +6,7 @@ export class Ticket {
   id?: string;
   sessionId: string;
   room: Room;
-  user?: User;
+  userId?: string;
   film: Film;
   row: number;
   col: number;

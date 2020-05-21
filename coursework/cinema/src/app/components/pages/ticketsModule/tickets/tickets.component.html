@@ -12,11 +12,21 @@
     <button class="btn btn-primary" routerLink="/sessions">Go to film sessions</button>
   </section>
   <ul class="tickets-container" *ngIf="tickets">
-    <li class="ticket-wrapper" *ngFor="let ticket of this.paginatedTickets; trackBy:trackByFn">
-      <app-ticket [ticket]="ticket"></app-ticket>
+    <li class="ticket-wrapper ticket-item" *ngFor="let ticket of this.paginatedTickets; trackBy:trackByFn"
+      (click)="this.onTicketClicked(ticket)">
+      <div class="ticket-item__front">
+        <app-ticket [ticket]="ticket" *ngIf="!this.selectedTicket || this.selectedTicket.id !== ticket.id"></app-ticket>
+      </div>
+      <div class="ticket-item__qr" *ngIf="this.selectedTicket && this.selectedTicket.id === ticket.id">
+        <div class="section section-qr">
+          <qrcode [qrdata]="getTicketQRData(ticket)"></qrcode>
+          <p class="section__subtitle">Show this qr code in the entrance to the room</p>
+        </div>
+      </div>
     </li>
   </ul>
   <div class="pagination-container" *ngIf="this.tickets">
-    <app-pagination [pageSize]="this.itemsPerPage" [total]="this.tickets.length" (pageChanged)="this.onPageChanged($event)" [initialPage]="this.currentPage"></app-pagination>
+    <app-pagination [pageSize]="this.itemsPerPage" [total]="this.tickets.length"
+      (pageChanged)="this.onPageChanged($event)" [initialPage]="this.currentPage"></app-pagination>
   </div>
 </div>

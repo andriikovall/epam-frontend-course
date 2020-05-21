@@ -21,6 +21,7 @@ export class TicketsComponent extends BasePaginationComponent implements OnInit 
     return this.tickets.slice(this.offset,
                                this.limit + this.offset);
   }
+  public selectedTicket: Ticket;
 
   constructor(private ticketsService: TicketsService,
               private authService: AuthService,
@@ -37,6 +38,24 @@ export class TicketsComponent extends BasePaginationComponent implements OnInit 
         this.ticketsLoading = false;
       })
     super.ngOnInit();
+  }
+
+  public onTicketClicked(ticket: Ticket) {
+    if (this.selectedTicket && this.selectedTicket.id === ticket.id)
+      this.selectedTicket = null;
+    else
+      this.selectedTicket = ticket;
+  }
+
+  public getTicketQRData(ticket: Ticket): string {
+    console.log('ticket:', ticket);
+    return JSON.stringify({
+      id: ticket.id,
+      sessionId: ticket.sessionId,
+      filmId: ticket.film.id,
+      userId: ticket.userId,
+      someServerSecret: 'Server secret which will be valid only on session date'
+    });
   }
 
 }

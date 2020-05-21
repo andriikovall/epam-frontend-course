@@ -69,7 +69,7 @@ export class SessionComponent extends BaseComponent implements OnInit, OnDestroy
       };
 
       if (this.currentUser) {
-        ticket.user = this.currentUser;
+        ticket.userId = this.currentUser.id;
       }
 
       this.tickets.push(ticket);

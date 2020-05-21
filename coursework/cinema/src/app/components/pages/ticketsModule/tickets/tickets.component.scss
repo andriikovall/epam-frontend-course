@@ -1,7 +1,7 @@
 .tickets-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 10px;
+  gap: 20px;
   grid-auto-rows: 1fr;
   align-items: stretch;
   list-style: none;
@@ -10,4 +10,22 @@
 .pagination-container {
   margin-left: 15px;
   margin-top: 0;
+}
+
+.ticket-item {
+  // $min-height: 680px;
+  cursor: pointer;
+  // min-height: $min-height;
+  transition: .2s;
+
+  perspective: 300px;
+
+  &__qr {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 }

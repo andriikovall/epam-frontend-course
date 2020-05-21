@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { QRCodeModule } from 'angularx-qrcode';
 
 import { TicketsRoutingModule } from './tickets-routing.module';
 import { TicketsComponent } from './tickets/tickets.component';
@@ -12,7 +13,8 @@ import { TicketComponent } from '../../ticket/ticket.component';
   imports: [
     CommonModule,
     TicketsRoutingModule,
-    SharedModule
+    SharedModule,
+    QRCodeModule
   ]
 })
 export class TicketsModule { }

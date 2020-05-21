@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@types/gapi.auth2": "0.0.51",
     "angularfire2": "^5.4.2",
+    "angularx-qrcode": "^2.1.1",
     "calendar": "^0.1.1",
     "firebase": "^7.14.2",
     "moment": "^2.26.0",

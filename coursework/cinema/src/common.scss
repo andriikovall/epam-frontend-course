@@ -22,3 +22,15 @@
 .top-loader-container {
   margin-top: 30px;
 }
+
+/*
+placed here because we don't have
+direct access to qrcode component
+so thet the styles cannot be applied
+elsewhere
+*/
+.qrcode {
+  display: flex;
+  justify-content: center;
+}
+
