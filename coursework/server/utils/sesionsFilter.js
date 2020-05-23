@@ -1,4 +1,4 @@
-const db = require('./db.json');
+const db = require('../db.json');
 const fs = require('fs');
 
 const filmDates = new Map();
@@ -17,4 +17,4 @@ console.log('db.sessions:', db.sessions.length)
 
 
 
-fs.writeFileSync('./db.json', JSON.stringify(db));
+fs.writeFileSync('../db.json', JSON.stringify(db));

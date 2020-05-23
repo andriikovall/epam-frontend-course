@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const db = require('./db.json');
+const db = require('../db.json');
 const fs = require('fs');
 
 function randInt(min, max) {
@@ -53,5 +53,5 @@ for (let i = 1; i <= sessionsToGenerate; i++) {
     }
     db.sessions.push(session)
 }
-fs.writeFileSync('./db.json', JSON.stringify(db));
+fs.writeFileSync('../db.json', JSON.stringify(db));
 

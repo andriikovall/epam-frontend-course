@@ -1,0 +1,13 @@
+{
+  "name": "epam-cinema",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "install": "npm install --prefix cinema && npm install --prefix server", 
+    "heroku_postinstall": "npm run build --prefix cinema", 
+    "start": "cd server && npm start"
+  },
+  "author": "",
+  "license": "ISC"
+}
