@@ -96,7 +96,9 @@
         "allow-leading-underscore",
         "allow-pascal-case"
       ]
-    }
+    },
+    "only-arrow-functions": false,
+    "object-literal-shorthand": false
   },
   "rulesDirectory": [
     "codelyzer"

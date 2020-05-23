@@ -9,23 +9,23 @@ const routes: Routes = [
   },
   {
     path: 'films',
-    loadChildren: () => import('./components/pages/filmsModule/films.module').then(({ FilmsModule }) => FilmsModule)
+    loadChildren: './components/pages/filmsModule/films.module#FilmsModule'
   },
   {
     path: 'auth',
-    loadChildren: () => import('./components/pages/authModule/auth.module').then(({ AuthModule }) => AuthModule)
+    loadChildren: './components/pages/authModule/auth.module#AuthModule'
   },
   {
     path: 'contacts',
-    loadChildren: () => import('./components/pages/contactsModule/contacts.module').then(({ ContactsModule }) => ContactsModule)
+    loadChildren: './components/pages/contactsModule/contacts.module#ContactsModule'
   },
   {
     path: 'sessions',
-    loadChildren: () => import('./components/pages/sessionsModule/sessions.module').then(({ SessionsModule }) => SessionsModule)
+    loadChildren: './components/pages/sessionsModule/sessions.module#SessionsModule'
   },
   {
     path: 'tickets',
-    loadChildren: () => import('./components/pages/ticketsModule/tickets.module').then(({ TicketsModule }) => TicketsModule),
+    loadChildren: './components/pages/ticketsModule/tickets.module#TicketsModule'
   },
   {
     path: '', redirectTo: 'home', pathMatch: 'prefix',
