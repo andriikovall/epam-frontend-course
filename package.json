@@ -1,0 +1,22 @@
+{
+  "name": "epam-frontend-course",
+  "version": "1.0.0",
+  "description": "Homeworks for university frontend cousre from Epam. Current config is used to deploy coursework project",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cd coursework && npm install",
+    "heroku_postinstall": "npm run build --prefix coursework/cinema",
+    "start": "cd coursework/server && npm start" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZioVio/epam-frontend-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZioVio/epam-frontend-course/issues"
+  },
+  "homepage": "https://github.com/ZioVio/epam-frontend-course#readme"
+}
