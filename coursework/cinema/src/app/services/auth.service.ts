@@ -97,6 +97,9 @@ export class AuthService extends BaseService {
   }
 
   getUserById(id: string): Observable<User> {
+    if (this.cachedUsers.has(id)) {
+      return of(this.cachedUsers.get(id));
+    }
     return this.http.get<User>(this.usersBaseUrl + id)
       .pipe(
         tap(user => {
