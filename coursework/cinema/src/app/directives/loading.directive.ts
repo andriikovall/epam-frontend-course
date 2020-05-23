@@ -3,7 +3,6 @@ import { LoaderComponent } from '../components/loader/loader.component';
 
 @Directive({
   selector: '[appLoading]',
-  inputs: ['appLoading']
 })
 export class LoadingDirective {
 
@@ -19,7 +18,7 @@ export class LoadingDirective {
     this.loaderFactory = this.componentFactoryResolver.resolveComponentFactory(LoaderComponent);
   }
 
-  @Input() set appLoading (isLoading: boolean) {
+  @Input() set appLoading(isLoading: boolean) {
     this.viewContainerRef.clear();
     if (isLoading) {
       this.loaderComponent = this.viewContainerRef.createComponent(this.loaderFactory);

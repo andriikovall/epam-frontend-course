@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CollapseComponent implements OnInit {
 
-  @Input() expanded: boolean = false;
+  @Input() expanded = false;
 
   constructor() { }
 

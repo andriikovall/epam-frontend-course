@@ -29,7 +29,7 @@ export class RoomsService extends BaseService {
       return this.http.get<Room[]>(this.baseUrl).pipe(
         tap(rooms => rooms.forEach((r) => this.cacheRoom(r))),
         tap(() => this.allRoomsCached = true)
-        )
+      );
     }
 
     return of([...this.cachedRooms.values()]);
@@ -47,10 +47,10 @@ export class RoomsService extends BaseService {
 
   getAllRooms(): Observable<Room[]> {
     this.networkError.next(false);
-    if (this.allRoomsCached)
+    if (this.allRoomsCached) {
       return of([...this.cachedRooms.values()]);
-    else
+    } else {
       return this.cacheRooms();
-
+    }
   }
 }

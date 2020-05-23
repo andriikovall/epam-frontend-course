@@ -24,15 +24,16 @@ export class DatePickerComponent implements OnInit {
 
   public get currentMonthDatesCalendar(): Date[] {
     const dates = this.monthDays.get(this.currentMonthIndex);
-    if (!dates)
+    if (!dates) {
       return [];
+    }
 
     const mappedDates: Date[] = [];
     const month: number[][] = this.calendar.monthDays(this.currentYear, this.currentMonthIndex);
     for (const week of month) {
       for (const day of week) {
         if (day == 0) {
-          mappedDates.push(null)
+          mappedDates.push(null);
         } else {
           const date: Date = dates.find(d => d.getDate() == day);
           mappedDates.push(date && date.getTime() >= Date.now() ? date : null);
@@ -40,8 +41,9 @@ export class DatePickerComponent implements OnInit {
       }
     }
     // find first not null date
-    if (!this.selectedDate)
+    if (!this.selectedDate) {
       this.onDateSecelted(mappedDates.find(d => d));
+    }
 
     return mappedDates;
   }
@@ -60,27 +62,31 @@ export class DatePickerComponent implements OnInit {
 
     this.currentMonthIndex = this.dates[0].getMonth() || new Date().getMonth();
 
-    if (this.initialDate && this.initialDate.getTime() >= Date.now())
+    if (this.initialDate && this.initialDate.getTime() >= Date.now()) {
       this.onDateSecelted(this.initialDate);
+    }
   }
 
   onDateSecelted(date: Date) {
-    if (!date)
+    if (!date) {
       return;
+    }
     this.dateSelected.emit(date);
     this.selectedDate = date;
   }
 
   onMonthLeftClicked() {
-    this.currentMonthIndex -=1;
-    if (!this.monthDays.get(this.currentMonthIndex))
+    this.currentMonthIndex -= 1;
+    if (!this.monthDays.get(this.currentMonthIndex)) {
       this.currentMonthIndex += 1;
+    }
   }
 
   onMonthRightClicked() {
     this.currentMonthIndex += 1;
-    if (!this.monthDays.get(this.currentMonthIndex))
-      this.currentMonthIndex -=1;
+    if (!this.monthDays.get(this.currentMonthIndex)) {
+      this.currentMonthIndex -= 1;
+    }
   }
 
   dayTrackByFn(index, day: number) {

@@ -16,6 +16,6 @@ export class SessionDTO {
   timestamp: number;
   roomId: string;
   filmId: string;
-  sittings: number[][];// 1-busy, 0-free
+  sittings: number[][]; // 1-busy, 0-free
   sessionType: string;
 }

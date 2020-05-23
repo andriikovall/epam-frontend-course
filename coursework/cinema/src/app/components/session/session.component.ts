@@ -18,7 +18,7 @@ import { ToastService } from 'src/app/services/toast.service';
 export class SessionComponent extends BaseComponent implements OnInit, OnDestroy {
 
   @Input() session: Session;
-  @Output() close = new EventEmitter();
+  @Output() closeDetails = new EventEmitter();
 
   public tickets: Ticket[] = [];
   public currentUser: User;
@@ -92,8 +92,8 @@ export class SessionComponent extends BaseComponent implements OnInit, OnDestroy
                       `Check out your tickets on the provided email: ${this.emailControl.value}`;
       this.toastService.success(toastTitle, toastMessage, 8000);
       this.tickets = [];
-      this.close.emit();
-    })
+      this.closeDetails.emit();
+    });
 
   }
 

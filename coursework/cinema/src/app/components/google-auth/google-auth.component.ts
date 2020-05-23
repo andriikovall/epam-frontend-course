@@ -40,7 +40,7 @@ export class GoogleAuthComponent implements OnInit {
             resolve();
           });
       });
-    })
+    });
   }
 
   async authenticate(): Promise<gapi.auth2.GoogleUser> {
@@ -67,7 +67,7 @@ export class GoogleAuthComponent implements OnInit {
       })
       .then(() => {
         this.authService.authLoading.next(false);
-      })
+      });
   }
 
   mapGoogleUserToDefaultModel(user: gapi.auth2.GoogleUser): User {
@@ -76,7 +76,7 @@ export class GoogleAuthComponent implements OnInit {
       firstName,
       lastName,
       avaUrl: user.getBasicProfile().getImageUrl(),
-      id: user.getBasicProfile().getId()
+      id: user.getBasicProfile().getId(),
     } as User;
   }
 

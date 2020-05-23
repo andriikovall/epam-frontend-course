@@ -14,7 +14,9 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: FormGroup;
+  public registerForm: FormGroup;
+  public passwordsDontEqual: boolean;
+  public loginUsed: boolean;
 
   public get loginControl(): AbstractControl {
     return this.registerForm.get('login');
@@ -36,8 +38,6 @@ export class RegisterComponent implements OnInit {
 
     }
 
-    passwordsDontEqual: boolean;
-    loginUsed: boolean;
 
     constructor(public authService: AuthService,
                 private router: Router,
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
       login: new FormControl('', [trimmedMinLength(3)]),
       password: new FormControl('', [trimmedMinLength(3)]),
       passwordRepeat: new FormControl('', [trimmedMinLength(3)])
-    })
+    });
 
   }
 
@@ -63,8 +63,9 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    if (this.registerForm.invalid)
-    return;
+    if (this.registerForm.invalid) {
+      return;
+    }
 
     this.passwordsDontEqual = false;
     this.loginUsed = false;
@@ -76,7 +77,7 @@ export class RegisterComponent implements OnInit {
       } else {
         this.onSuccess();
       }
-    })
+    });
 
   }
 

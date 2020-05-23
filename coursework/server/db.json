@@ -377,6 +377,13 @@
       "email": "anderkoval3@gmail.com",
       "timestamp": 1589808240721,
       "id": "tWDYMKK"
+    },
+    {
+      "name": "Андрей Коваль",
+      "message": "saddas",
+      "email": "anderkoval3@gmail.com",
+      "timestamp": 1590250972810,
+      "id": "zfDEAqj"
     }
   ],
   "sessions": [
@@ -532,9 +539,9 @@
           0,
           0,
           1,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           1,
           1
         ],
@@ -11092,7 +11099,7 @@
           0,
           0,
           1,
-          0,
+          1,
           1,
           1
         ],
@@ -11137,7 +11144,7 @@
           1,
           1,
           0,
-          0,
+          1,
           1,
           1,
           0,
@@ -11145,11 +11152,11 @@
           0
         ],
         [
-          0,
+          1,
           0,
           0,
           1,
-          0,
+          1,
           0,
           0,
           1,
@@ -23450,6 +23457,76 @@
       "roomId": "r_1",
       "filmId": "f_2",
       "id": 21
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "sessionId": "dc406b31f8",
+      "price": 90,
+      "timestamp": "2020-05-24T05:33:29.464Z",
+      "roomId": "r_2",
+      "filmId": "f_2",
+      "id": 22
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "sessionId": "dc406b31f8",
+      "price": 90,
+      "timestamp": "2020-05-24T05:33:29.464Z",
+      "roomId": "r_2",
+      "filmId": "f_2",
+      "id": 23
+    },
+    {
+      "row": 0,
+      "col": 7,
+      "sessionId": "dc406b31f8",
+      "price": 90,
+      "timestamp": "2020-05-24T05:33:29.464Z",
+      "roomId": "r_2",
+      "filmId": "f_2",
+      "id": 24
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "sessionId": "dc406b31f8",
+      "price": 90,
+      "timestamp": "2020-05-24T05:33:29.464Z",
+      "roomId": "r_2",
+      "filmId": "f_2",
+      "id": 25
+    },
+    {
+      "row": 0,
+      "col": 8,
+      "sessionId": "17a86fb25c",
+      "price": 60,
+      "timestamp": 1590880886555,
+      "roomId": "r_1",
+      "filmId": "f_2",
+      "id": 26
+    },
+    {
+      "row": 0,
+      "col": 7,
+      "sessionId": "17a86fb25c",
+      "price": 60,
+      "timestamp": 1590880886555,
+      "roomId": "r_1",
+      "filmId": "f_2",
+      "id": 27
+    },
+    {
+      "row": 0,
+      "col": 9,
+      "sessionId": "17a86fb25c",
+      "price": 60,
+      "timestamp": 1590880886555,
+      "roomId": "r_1",
+      "filmId": "f_2",
+      "id": 28
     }
   ],
   "comments": [
@@ -23673,6 +23750,19 @@
       "timestamp": 1589990797263,
       "userId": "116296055330750796735",
       "id": 17
+    },
+    {
+      "filmId": "f_1",
+      "message": "sadasdasdsadsad",
+      "user": {
+        "firstName": "Андрей",
+        "lastName": "Коваль",
+        "avaUrl": "https://lh5.googleusercontent.com/-icX0vm8uMA4/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuckxgEg8Wmy__Ph_fYAqjsjjpKDlyA/s96-c/photo.jpg",
+        "id": "116296055330750796735"
+      },
+      "timestamp": 1590251033255,
+      "userId": "116296055330750796735",
+      "id": 18
     }
   ]
 }

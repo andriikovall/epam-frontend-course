@@ -23,8 +23,8 @@ export class SessionsComponent extends BaseComponent implements OnInit, OnDestro
               private filmsService: FilmsService,
               private route: ActivatedRoute,
               private router: Router) {
-                super();
-              }
+    super();
+  }
 
   public sessions: Session[];
   public sessionsLoading: boolean;
@@ -62,12 +62,12 @@ export class SessionsComponent extends BaseComponent implements OnInit, OnDestro
         this.createFilmsSessions();
         this.createDates();
         this.createInitialFiltersFromQuery();
-      })
+      });
 
     this.paramsSubscription = this.route.queryParams
       .subscribe((params) => this.onQueryParamsChanged(params));
 
-    this.route.snapshot.queryParamMap
+    // this.route.snapshot.queryParamMap
     this.sessionTypesForm = new FormGroup({
       '2D': new FormControl(false),
       '3D': new FormControl(false)
@@ -75,19 +75,20 @@ export class SessionsComponent extends BaseComponent implements OnInit, OnDestro
   }
 
   private onQueryParamsChanged(params: Params) {
-    if (this.filmsSessions)
+    if (this.filmsSessions) {
       this.updateSessionsByFilters(params);
+    }
   }
 
   private updateQueryParams(filter: SessionFilter) {
 
     const params: Params = Object.keys(filter)
-    .reduce((accum, key) => {
-      if (filter[key]) {
-        accum[key] = filter[key];
-      }
-      return accum;
-    }, {});
+      .reduce((accum, key) => {
+        if (filter[key]) {
+          accum[key] = filter[key];
+        }
+        return accum;
+      }, {});
 
     this.router.navigate(
       [],
@@ -105,8 +106,8 @@ export class SessionsComponent extends BaseComponent implements OnInit, OnDestro
 
       // handle case without filters;
       const dateToFilterBy: string = filters.date ||
-                                    (this.currentDateSelected && this.currentDateSelected.toDateString()) ||
-                                    new Date().toDateString();
+        (this.currentDateSelected && this.currentDateSelected.toDateString()) ||
+        new Date().toDateString();
 
       filteredSessions = filmsSession.sessions
         .filter(s => new Date(s.timestamp).toDateString() == dateToFilterBy);
@@ -118,10 +119,10 @@ export class SessionsComponent extends BaseComponent implements OnInit, OnDestro
           if (sessionTypes.length) {
             filteredSessions = filteredSessions.filter(s => sessionTypes.includes(s.sessionType));
           }
-        } catch (err) {}
+        } catch (err) { }
       }
 
-        return { ...filmsSession, sessions: filteredSessions};
+      return { ...filmsSession, sessions: filteredSessions };
     });
   }
 
@@ -157,7 +158,7 @@ export class SessionsComponent extends BaseComponent implements OnInit, OnDestro
     let initialSessionsTypes: string[] = [];
     try {
       initialSessionsTypes = JSON.parse(this.route.snapshot.queryParamMap.get('sessionTypes'));
-    } catch(err) {}
+    } catch (err) { }
 
     this.updateSessionsByFilters({
       date: date.toDateString(),
@@ -168,8 +169,9 @@ export class SessionsComponent extends BaseComponent implements OnInit, OnDestro
   }
 
   setInitialSessionsTypesFormValues(values: string[]) {
-    if (!values)
+    if (!values) {
       return;
+    }
     values.forEach((curr) => {
       this.sessionTypesForm.get(curr).setValue(true);
     });

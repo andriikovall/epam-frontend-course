@@ -17,38 +17,39 @@ import { trigger, state, style, transition, animate, sequence } from '@angular/a
         opacity: 0,
       })),
       transition('opened => closed', [
-        animate('0.8s ease')
+        animate('0.8s ease'),
       ]),
       transition('closed => opened', [
-        animate('0.8s ease')
-      ])
-    ])
-  ]
+        animate('0.8s ease'),
+      ]),
+    ]),
+  ],
 })
 export class CarouselComponent implements OnInit {
 
   public items: CarouselItem[];
   public dots: any[];
 
-  public get currentCarouselIndex() {
-    return this._currentCarouselIndex;
-  }
 
-  public set currentCarouselIndex(index: number) {
-    this._currentCarouselIndex = index;
-    this.resetChangingInterval();
-  }
-
-  private _currentCarouselIndex = 0;
+  private currentCarouselIndex = 0;
   private intervalObj: any;
   private intervalTime = 5000;
+
+  public getCurrentCarouselIndex() {
+    return this.currentCarouselIndex;
+  }
+
+  public setCurrentCarouselIndex(index: number) {
+    this.currentCarouselIndex = index;
+    this.resetChangingInterval();
+  }
 
   constructor() {
     this.items = [
       { title: 'Feel it, see it', backgroudSrc: 'assets/carousel/1.jpg' },
       { title: 'Best technologies', backgroudSrc: 'assets/carousel/2.png' },
       { title: 'You will remember it...', backgroudSrc: 'assets/carousel/3.jpg' },
-    ]
+    ];
     this.dots = new Array(this.items.length);
     this.setChangingInterval();
   }
@@ -57,19 +58,23 @@ export class CarouselComponent implements OnInit {
   }
 
   next(event = null) {
-    if (event)
-      this.resetChangingInterval()
-    this._currentCarouselIndex += 1;
-    if (this._currentCarouselIndex >= this.items.length)
-      this._currentCarouselIndex = 0;
+    if (event) {
+      this.resetChangingInterval();
+    }
+    this.currentCarouselIndex += 1;
+    if (this.currentCarouselIndex >= this.items.length) {
+      this.currentCarouselIndex = 0;
+    }
   }
 
   prev(event = null) {
-    if (event)
+    if (event) {
       this.resetChangingInterval();
-    this._currentCarouselIndex -= 1;
-    if (this._currentCarouselIndex < 0)
-      this._currentCarouselIndex = this.items.length - 1;
+    }
+    this.currentCarouselIndex -= 1;
+    if (this.currentCarouselIndex < 0) {
+      this.currentCarouselIndex = this.items.length - 1;
+    }
   }
 
   setChangingInterval() {

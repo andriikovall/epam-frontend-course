@@ -15,7 +15,7 @@ export class ContactsComponent implements OnInit {
   feedbackForm: FormGroup;
   feedbackAdded: boolean;
 
-  public mapsWigth = 600
+  public mapsWigth = 600;
   public mapsHeigth = 300;
 
   private mdBreakpoint = 1200;
@@ -52,16 +52,16 @@ export class ContactsComponent implements OnInit {
     this.feedbackForm.markAllAsTouched();
     this.feedbackAdded = false;
     if (this.feedbackForm.invalid) {
-      return
+      return;
     }
-    const feedback: FeedBack = { ...formValue, timestamp: Date.now() }
+    const feedback: FeedBack = { ...formValue, timestamp: Date.now() };
     this.feedbackService.saveFeedback(feedback)
       .subscribe(res => {
         if (res) {
           this.feedbackAdded = true;
           this.toastService.success('Thanks for your feedback!', 'We will answer as soon as possible');
         }
-      })
+      });
   }
 
   onResize() {

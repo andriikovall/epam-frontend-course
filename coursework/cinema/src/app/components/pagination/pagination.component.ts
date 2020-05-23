@@ -16,12 +16,13 @@ export class PaginationComponent extends BaseComponent implements OnInit {
 
   @Output() pageChanged = new EventEmitter<PaginationEvent>();
 
+  public currentPage: number;
+
   public getPagesNumbersList(): number[] {
     const length = Math.ceil(this.total / this.pageSize);
     return new Array(length).fill(1).map((_, index) => index + 1);
   }
 
-  public currentPage: number;
 
   constructor() {
     super();
@@ -39,7 +40,7 @@ export class PaginationComponent extends BaseComponent implements OnInit {
   }
 
   onPageSelected(page: number) {
-    if(this.isValidPage(page)) {
+    if (this.isValidPage(page)) {
       this.changePage(page);
     }
   }

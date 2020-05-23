@@ -13,9 +13,7 @@
 }
 
 .ticket-item {
-  // $min-height: 680px;
   cursor: pointer;
-  // min-height: $min-height;
   transition: .2s;
   &:hover {
     transform: rotateY(-7deg);

@@ -22,7 +22,7 @@ export class ToastService {
   constructor() { }
 
   error(title: string, message: string, duration: number = this.defaultToastDuration): void {
-    this.createToast('danger', title, message, duration)
+    this.createToast('danger', title, message, duration);
   }
 
   success(title: string, message: string, duration: number = this.defaultToastDuration): void {
@@ -35,7 +35,7 @@ export class ToastService {
 
   private createToast(type: ToastType, title: string, message: string, duration: number = 5000) {
     const toast = new ToastItem(type, title, message);
-    this._toasts.next([...this.toastsValue, toast])
+    this._toasts.next([...this.toastsValue, toast]);
     this.removeToastAfterTimeout(toast.id, duration);
   }
 

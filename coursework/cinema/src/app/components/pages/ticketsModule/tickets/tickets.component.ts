@@ -15,8 +15,9 @@ export class TicketsComponent extends BasePaginationComponent implements OnInit 
   public tickets: Ticket[];
   public ticketsLoading: boolean;
   public get paginatedTickets(): Ticket[] {
-    if (!this.tickets)
+    if (!this.tickets) {
       return null;
+    }
 
     return this.tickets.slice(this.offset,
                                this.limit + this.offset);
@@ -36,19 +37,19 @@ export class TicketsComponent extends BasePaginationComponent implements OnInit 
       .subscribe(tickets => {
         this.tickets = tickets;
         this.ticketsLoading = false;
-      })
+      });
     super.ngOnInit();
   }
 
   public onTicketClicked(ticket: Ticket) {
-    if (this.selectedTicket && this.selectedTicket.id === ticket.id)
+    if (this.selectedTicket && this.selectedTicket.id === ticket.id) {
       this.selectedTicket = null;
-    else
+    } else {
       this.selectedTicket = ticket;
+    }
   }
 
   public getTicketQRData(ticket: Ticket): string {
-    console.log('ticket:', ticket);
     return JSON.stringify({
       id: ticket.id,
       sessionId: ticket.sessionId,

@@ -68,7 +68,7 @@ export class AuthService extends BaseService {
             this.cachedUsers.set(user.id, user);
           },
         ),
-      )
+      );
   }
 
   register(registrationValue): Observable<User> {
@@ -76,21 +76,22 @@ export class AuthService extends BaseService {
     this.networkError.next(false);
     return this.getUserByLogin(registrationValue.login).pipe(
       switchMap((user) => {
-        if (user)
-          return of(null)
+        if (user) {
+          return of(null);
+        }
 
         return this.http.post<User>(this.usersBaseUrl, registrationValue)
           .pipe(
             catchError(err => of(null))
-          )
+          );
       }),
       tap(
-        (user) => {this.currentUser.next(user)},
+        (user) => { this.currentUser.next(user); },
         (user) => this.saveUser(user),
         () => this.authLoading.next(false),
       ),
       catchError((err) => {
-        return of(null)
+        return of(null);
       }),
     );
 
@@ -103,8 +104,9 @@ export class AuthService extends BaseService {
     return this.http.get<User>(this.usersBaseUrl + id)
       .pipe(
         tap(user => {
-          if (user != null)
+          if (user != null) {
             this.cachedUsers.set(user.id, user);
+          }
         }),
       );
   }
@@ -113,16 +115,18 @@ export class AuthService extends BaseService {
     return this.http.get<User>(this.usersBaseUrl, { params: { login } })
       .pipe(
         tap(user => {
-          if (user != null)
+          if (user != null) {
             this.cachedUsers.set(user.id, user);
+          }
         }),
         map(users => users[0] || null),
       );
   }
 
   onSocialAuth(user: User): Observable<User> {
-    if (!user)
+    if (!user) {
       return;
+    }
 
     this.saveUser(user);
     this.currentUser.next(user);
@@ -134,10 +138,11 @@ export class AuthService extends BaseService {
         return this.http.put<User>(this.usersBaseUrl + user.id, user);
       }),
       tap(user => {
-        if (user != null)
-            this.cachedUsers.set(user.id, user);
+        if (user != null) {
+          this.cachedUsers.set(user.id, user);
+        }
       })
-    )
+    );
   }
 
 

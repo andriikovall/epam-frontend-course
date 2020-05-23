@@ -2,7 +2,7 @@
   <div class="carousel__items d-flex">
     <div class="carousel__item" *ngFor="let item of items; index as index"
       [ngStyle]="{'background-image': 'url(' + item.backgroudSrc + ')'}"
-      [@openedClosed]="index === currentCarouselIndex ? 'opened' : 'closed'">
+      [@openedClosed]="index === getCurrentCarouselIndex() ? 'opened' : 'closed'">
       <div class="overlay">
         <p class="overlay__text">{{item.title}}</p>
       </div>
@@ -11,8 +11,8 @@
   <div class="carousel__dots d-flex justify-content-center">
     <div class="carousel__dot"
     *ngFor="let dot of dots; index as index"
-    [class.carousel__dot-active]="index === currentCarouselIndex"
-    (click)="this.currentCarouselIndex = index"
+    [class.carousel__dot-active]="index === getCurrentCarouselIndex()"
+    (click)="this.setCurrentCarouselIndex(index)"
     ></div>
   </div>
 </section>

@@ -40,24 +40,23 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       login: new FormControl('', loginValidators),
       password: new FormControl('', passwordValidators)
-    })
+    });
   }
 
   public onSubmit(value) {
     this.loginForm.markAllAsTouched();
-    if (!this.loginForm.valid)
+    if (!this.loginForm.valid) {
       return;
+    }
     this.authService.login(value.login, value.password)
       .subscribe((user: User) => {
         if (user) {
-          console.log('user:', user)
           this.onSuccess();
           this.errorOccured = false;
-        }
-        else {
+        } else {
           this.errorOccured = true;
         }
-      })
+      });
 
   }
 

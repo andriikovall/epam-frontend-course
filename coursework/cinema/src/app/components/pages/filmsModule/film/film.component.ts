@@ -102,7 +102,7 @@ export class FilmComponent extends BaseComponent implements OnInit {
       this.onCommentsLoadError();
     }, () => {
       this.commentsLoading = false;
-    })
+    });
   }
 
   createFilmDates() {
@@ -118,7 +118,7 @@ export class FilmComponent extends BaseComponent implements OnInit {
   }
 
   onCommentPostError() {
-    this.toastService.error('Failed to post comment', 'Check your internet connection or internal server error')
+    this.toastService.error('Failed to post comment', 'Check your internet connection or internal server error');
   }
 
   onCommentPostSuccess() {
@@ -151,7 +151,7 @@ export class FilmComponent extends BaseComponent implements OnInit {
       message: this.commentControl.value,
       user: this.authService.currentUser.getValue(),
       timestamp: Date.now()
-    }
+    };
 
     this.addingComment = true;
     this.commentsService.addComment(comment).subscribe(res => {
@@ -161,13 +161,13 @@ export class FilmComponent extends BaseComponent implements OnInit {
       this.onCommentPostError();
     }, () => {
       this.addingComment = false;
-    })
+    });
   }
 
   onMoreComments() {
     setTimeout(() => {
       this.commentsLimit += this.commentsOpeningStep;
-    })
+    });
   }
 
 }

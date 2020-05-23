@@ -30,7 +30,7 @@ export class TicketsService {
         if (!tickets.length) {
           return of([]);
         }
-        return combineLatest(tickets.map(t => this.mapDTOToTicket(t)))
+        return combineLatest(tickets.map(t => this.mapDTOToTicket(t)));
       })
     );
   }
