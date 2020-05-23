@@ -19,7 +19,7 @@
         <div class="section__title">
           Session types
         </div>
-        <form class="form" [formGroup]="this.sessionTypesForm" (change)="onSessionsFormChange($event)">
+        <form class="form" [formGroup]="this.sessionTypesForm" (change)="onSessionsFormChange()">
           <div class="form__group d-flex">
             <input class="form__control checkox" type="checkbox" id="type-2d" formControlName="2D">
             <label for="type-2d">2D</label>

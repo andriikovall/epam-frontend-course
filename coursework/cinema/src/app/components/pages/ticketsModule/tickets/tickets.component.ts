@@ -4,6 +4,7 @@ import { TicketsService } from 'src/app/services/tickets.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BasePaginationComponent } from 'src/app/components/base-pagination.component';
+import { PaginationService } from 'src/app/services/pagination.service';
 
 @Component({
   selector: 'app-tickets',
@@ -27,8 +28,10 @@ export class TicketsComponent extends BasePaginationComponent implements OnInit 
   constructor(private ticketsService: TicketsService,
               private authService: AuthService,
               public route: ActivatedRoute,
-              public router: Router) {
-    super(route, router, ['tickets']);
+              public router: Router,
+              private paginationService: PaginationService) {
+    super(route, router, paginationService);
+    this.paginationService.routePrefix.next(['tickets']);
   }
 
   ngOnInit() {

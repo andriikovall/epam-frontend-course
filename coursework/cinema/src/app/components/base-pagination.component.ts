@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaginationEvent } from '../models/helpers/paginationEvent';
 import { BaseComponent } from './base.component';
+import { PaginationService } from '../services/pagination.service';
 
 @Component({
   selector: 'app-base-pagination',
@@ -9,14 +10,14 @@ import { BaseComponent } from './base.component';
 })
 export class BasePaginationComponent extends BaseComponent implements OnInit {
 
-  constructor(protected route: ActivatedRoute,
-              protected router: Router,
-              private routePrefix: string[]) {
-    super();
+  constructor(public route: ActivatedRoute,
+              public router: Router,
+              private pageniationService: PaginationService) {
+                super();
   }
 
-  protected currentPage: number = 1;
-  protected itemsPerPage = 5;
+  public currentPage: number = 1;
+  public itemsPerPage = 5;
 
   protected get limit(): number {
     return this.itemsPerPage;
@@ -33,7 +34,7 @@ export class BasePaginationComponent extends BaseComponent implements OnInit {
 
   setCurrentPage(page: number) {
     this.currentPage = page;
-    this.router.navigate([...this.routePrefix, 'page', page]);
+    this.router.navigate([...this.pageniationService.routePrefix.value, 'page', page]);
   }
 
   onPageChanged(event: PaginationEvent) {

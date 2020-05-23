@@ -3,6 +3,7 @@ import { BasePaginationComponent } from 'src/app/components/base-pagination.comp
 import { ActivatedRoute, Router } from '@angular/router';
 import { FilmsService } from 'src/app/services/films.service';
 import { Film } from 'src/app/models/film';
+import { PaginationService } from 'src/app/services/pagination.service';
 
 @Component({
   selector: 'app-films',
@@ -23,8 +24,10 @@ export class FilmsComponent extends BasePaginationComponent implements OnInit {
 
   constructor(public route: ActivatedRoute,
               public router: Router,
-              private filmsService: FilmsService) {
-    super(route, router, ['films']);
+              private filmsService: FilmsService,
+              private paginationService: PaginationService) {
+    super(route, router, paginationService);
+    this.paginationService.routePrefix.next(['films']);
   }
 
   ngOnInit() {
