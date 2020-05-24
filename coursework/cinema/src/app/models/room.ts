@@ -4,4 +4,6 @@ export class Room {
   cols: number;
   price: number;
   name: string;
+  bio: string;
+  photoUrl: string;
 }

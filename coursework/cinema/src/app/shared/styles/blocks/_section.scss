@@ -2,8 +2,8 @@
 @import '../animations.scss';
 
 .section {
-  padding: 1.3em;
-  margin: 1.3em;
+  padding: 1rem;
+  margin: 1rem;
   background: white;
   border-radius: 10px;
   display: flex;
@@ -18,8 +18,32 @@
   }
 
   &__image {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__img {
     display: block;
-    width: 30%;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+  }
+
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  &__items {
+    list-style: none;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
   }
 
   &__text {
@@ -28,20 +52,11 @@
     line-height: 1.3em;
   }
 
-  &__image-left {
-    float: left;
-    margin-right: 1em;
-  }
-
-  &__image-right {
-    float: right;
-  }
-
   &__title {
     border-bottom: 1px solid $main-dark-blue;
     font-size: 1.4em;
     padding-bottom: 0.5em;
-    margin: 10px 0;
+    margin: 7px 0;
   }
 
   &__subtitle {
@@ -51,6 +66,15 @@
 
   &-transparent {
     background: $color-bg;
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: ($md + $sm) / 2) {
+      flex-direction: column;
+    }
   }
 
   @media screen and (max-width: $sm) {
