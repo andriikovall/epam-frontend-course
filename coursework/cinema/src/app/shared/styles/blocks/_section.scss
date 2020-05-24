@@ -1,4 +1,5 @@
 @import '../variables.scss';
+@import '../animations.scss';
 
 .section {
   padding: 1.3em;
@@ -51,16 +52,10 @@
   &-transparent {
     background: $color-bg;
   }
-}
 
-@keyframes fade-in {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  @media screen and (max-width: $sm) {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }
+

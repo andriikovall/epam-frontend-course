@@ -2,7 +2,7 @@
   <div class="top-loader-container" *ngIf="this.filmLoading">
     <app-loader height="40px"></app-loader>
   </div>
-  <div class="section section-transparent film-page" *ngIf="!this.filmLoading">
+  <div class="film-page" *ngIf="!this.filmLoading">
     <div class="film-card-wrapper section">
       <app-film-card [film]="this.film" [flip]="false"></app-film-card>
     </div>

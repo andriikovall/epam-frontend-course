@@ -1,13 +1,13 @@
 @import '../../../shared/styles/variables.scss';
 
-.section-wrapper {
-  background-image: url('../../../../assets/auth/login-bg.jpg');
+.auth-section-wrapper {
+  background-image: url("../../../../assets/auth/login-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -22,10 +22,9 @@
   max-width: $sm;
   margin-top: $nav-heigth-big;
   margin-left: 600px;
-  @media screen and (max-width: $md){
-    top: $nav-heigth-small;
+  @media screen and (max-width: $md) {
+    // top: $nav-heigth-small / 2;
     margin: 0 auto;
   }
-
 }
 

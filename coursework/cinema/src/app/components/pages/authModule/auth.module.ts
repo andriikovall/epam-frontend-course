@@ -7,10 +7,11 @@ import { LoginComponent } from './login/login.component';
 
 import { GoogleAuthComponent } from '../../google-auth/google-auth.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AuthShellComponent } from './auth-shell/auth-shell.component';
 
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, GoogleAuthComponent],
+  declarations: [RegisterComponent, LoginComponent, GoogleAuthComponent, AuthShellComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

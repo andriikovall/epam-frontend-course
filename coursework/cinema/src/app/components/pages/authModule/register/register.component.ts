@@ -47,13 +47,12 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
       this.loginUsed = false;
       this.registerForm = new FormGroup({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      login: new FormControl('', [trimmedMinLength(3)]),
-      password: new FormControl('', [trimmedMinLength(3)]),
-      passwordRepeat: new FormControl('', [trimmedMinLength(3)])
-    });
-
+        firstName: new FormControl(''),
+        lastName: new FormControl(''),
+        login: new FormControl('', [trimmedMinLength(3)]),
+        password: new FormControl('', [trimmedMinLength(3)]),
+        passwordRepeat: new FormControl('', [trimmedMinLength(3)])
+      });
   }
 
   public onSubmit(value) {

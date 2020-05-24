@@ -1,42 +1,41 @@
-<div class="section-wrapper">
-  <section class="auth-section section">
-    <form class="form" [formGroup]="this.loginForm" (submit)="this.onSubmit(this.loginForm.value)">
-      <div class="form__group">
-        <input class="form__control" type="text" [formControlName]="'login'" placeholder="Login"
-          [class.invalid]="this.loginControl.invalid && this.loginControl.touched">
-      </div>
-      <div class="form__group">
-        <input type="password" class="form__control" [formControlName]="'password'" placeholder="Password"
-          [class.invalid]="this.passwordControl.invalid && this.passwordControl.touched">
-      </div>
+<section class="auth-section section">
+  <form class="form" [formGroup]="this.loginForm" (submit)="this.onSubmit(this.loginForm.value)">
+  <div class="form__group">
+    <input class="form__control" type="text" [formControlName]="'login'" placeholder="Login"
+    [class.invalid]="this.loginControl.invalid && this.loginControl.touched">
+  </div>
+  <div class="form__group">
+    <input type="password" class="form__control" [formControlName]="'password'" placeholder="Password"
+    [class.invalid]="this.passwordControl.invalid && this.passwordControl.touched">
+  </div>
 
-      <p class="form__feedback text-danger" *ngIf="(this.authService.networkError | async)">A network error occured, try again later</p>
+  <p class="form__feedback text-danger" *ngIf="(this.authService.networkError | async)">A network error occured, try
+    again later</p>
 
-      <button type="submit" class="btn btn-primary btn-block"
-        [disabled]="(this.authService.authLoading | async)">
-        <ng-container *ngIf="(this.authService.authLoading | async); else elseButton">
-          <app-loader></app-loader>
-        </ng-container>
-        <ng-template #elseButton>
-          Login
-        </ng-template>
-      </button>
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="(this.authService.authLoading | async)">
+      <ng-container *ngIf="(this.authService.authLoading | async); else elseButton">
+        <app-loader></app-loader>
+      </ng-container>
+      <ng-template #elseButton>
+        Login
+      </ng-template>
+    </button>
 
-      <p class="form__feedback text-danger" *ngIf="this.errorOccured && !(this.authService.authLoading | async) && !(this.authService.networkError | async)">
-        No user found with such login or password</p>
-      <div class="form__divider divider">
-        <p class="divider__text">
-          Or use social networks
-        </p>
-      </div>
-      <div class="social-btns d-flex justify-content-around">
-        <app-google-auth (userAuthenticated)="onGoogleAuth($event)"></app-google-auth>
-      </div>
-      <div class="form__divider divider">
-        <p class="divider__text">
-          Don't have an account? <a class="text-link" routerLink="/auth/register">Sign up</a>
-        </p>
-      </div>
-    </form>
-  </section>
-</div>
+    <p class="form__feedback text-danger"
+    *ngIf="this.errorOccured && !(this.authService.authLoading | async) && !(this.authService.networkError | async)">
+    No user found with such login or password</p>
+    <div class="form__divider divider">
+      <p class="divider__text">
+        Or use social networks
+      </p>
+    </div>
+    <div class="social-btns d-flex justify-content-around">
+      <app-google-auth (userAuthenticated)="onGoogleAuth($event)"></app-google-auth>
+    </div>
+    <div class="form__divider divider">
+      <p class="divider__text">
+        Don't have an account? <a class="text-link" routerLink="/auth/register">Sign up</a>
+      </p>
+    </div>
+  </form>
+</section>
