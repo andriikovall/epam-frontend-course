@@ -12,11 +12,11 @@ function randomElement(arr) {
     return arr[randInt(0,  arr.length - 1)];
 }
 
-db.films.forEach(f => {
-    f.sessionTypes = randomElement([
-        ['2d'], ['3d'], ['2d', '3d'] 
-    ])
-});
+// db.films.forEach(f => {
+//     f.sessionTypes = randomElement([
+//         ['2d'], ['3d'], ['2d', '3d'] 
+//     ])
+// });
 
 function getFilmSessionTypes(filmId) {
     const film = db.films.find(f => f.id == filmId);
@@ -26,8 +26,10 @@ function getFilmSessionTypes(filmId) {
 }
 
 db.sessions.forEach(s => {
-    const sessionTypes = getFilmSessionTypes(s.filmId);
-    s.sessionType = randomElement(sessionTypes);
+    if (!s.sessionType) {
+        const sessionTypes = getFilmSessionTypes(s.filmId);
+        s.sessionType = randomElement(sessionTypes);
+    }
 })
 
 fs.writeFileSync('../db.json', JSON.stringify(db));
