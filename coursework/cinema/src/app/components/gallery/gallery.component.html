@@ -1,0 +1,11 @@
+<div class="gallery">
+  <div class="gallery__arrow arrow arrow-left" (click)="onLeft()">left</div>
+  <div class="gallery__arrow arrow arrow-right" (click)="onRight()">right</div>
+  <div class="gallery__items" [ngStyle]="{'margin-left': this.offset + 'px'}">
+    <img src="{{item.src}}" class="gallery__item"
+    [ngStyle]="{'width': this.itemSize + 'px',
+                'height': this.itemSize + 'px',
+                'margin': '0 ' + this.gap + 'px'}"
+      alt="gallery item" *ngFor="let item of items">
+  </div>
+</div>

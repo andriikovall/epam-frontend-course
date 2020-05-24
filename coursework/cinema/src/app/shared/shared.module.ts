@@ -13,6 +13,7 @@ import { PaginationComponent } from '../components/pagination/pagination.compone
 import { LoadingDirective } from '../directives/loading.directive';
 import { ToastsContainerComponent } from '../components/toasts-container/toasts-container.component';
 import { RouterModule } from '@angular/router';
+import { GalleryComponent } from '../components/gallery/gallery.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     LoadingDirective,
     PaginationComponent,
     ToastsContainerComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    GalleryComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,8 @@ import { RouterModule } from '@angular/router';
     LoadingDirective,
     PaginationComponent,
     ToastsContainerComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    GalleryComponent
   ],
   entryComponents: [
     LoaderComponent

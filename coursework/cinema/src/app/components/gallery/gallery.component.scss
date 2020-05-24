@@ -1,0 +1,12 @@
+.gallery {
+  &__items {
+    display: flex;
+    overflow: hidden;
+    transition: all .2s;
+  }
+
+  &__item {
+    margin: 0 20px;
+    object-fit: cover;
+  }
+}

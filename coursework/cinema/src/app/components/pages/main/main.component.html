@@ -32,7 +32,7 @@
     </h2>
     <app-loader *ngIf="roomsLoading" heigth="100px"></app-loader>
     <ul class="section__items">
-      <li class="section__item section section-row" *ngFor="let room of rooms | async;trackBy:trackByFn">
+      <!-- <li class="section__item section section-row" *ngFor="let room of rooms | async;trackBy:trackByFn">
         <div class="section__image">
           <img src="{{room.photoUrl}}" class="section__img" alt="{{room.name}} room"/>
         </div>
@@ -40,7 +40,8 @@
           <div class="section__title">{{room.name}}</div>
           <p class="section__text">{{room.bio}}</p>
         </div>
-      </li>
+      </li> -->
+      <app-gallery [items]="(galleryItems | async)"></app-gallery>
       <!-- <li class="section__item section section-row">
         <img class="section__image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZV0-YRqmah4mHG7c5onOLaBpOYFhdB-d5mVN0g6vjKUT0De6d&usqp=CAU" />
         <div class="section__body">
