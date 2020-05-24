@@ -5,6 +5,7 @@
   grid-auto-rows: 1fr;
   align-items: stretch;
   list-style: none;
+  perspective: 1000px;
 }
 
 .pagination-container {
@@ -16,10 +17,9 @@
   cursor: pointer;
   transition: .2s;
   &:hover {
-    transform: rotateY(-7deg);
+    transform: rotateY(-5deg);
   }
 
-  perspective: 300px;
 
   &__qr {
     margin-top: auto;
