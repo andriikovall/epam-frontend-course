@@ -9,7 +9,7 @@
     }
 
     &[class*=arrow-image] {
-      content: url('/arrow-left.svg');
+      content: url('/assets/arrows/arrow-left.svg');
     }
   }
 
@@ -20,7 +20,7 @@
     }
 
     &[class*=arrow-image] {
-      content: url('/arrow-right.svg');
+      content: url('/assets/arrows/arrow-right.svg');
     }
   }
 
