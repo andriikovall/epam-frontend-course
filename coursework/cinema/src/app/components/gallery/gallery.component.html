@@ -1,7 +1,19 @@
-<div class="gallery">
-  <div class="gallery__arrow arrow arrow-left" (click)="onLeft()">left</div>
-  <div class="gallery__arrow arrow arrow-right" (click)="onRight()">right</div>
-  <div class="gallery__items" [ngStyle]="{'margin-left': this.offset + 'px'}">
+<div class="gallery" *ngIf="this.items && this.items.length" #gallery>
+  <div class="gallery__arrow gallery__arrow-left">
+    <div class="arrow arrow-left arrow-image" (click)="onLeft()"
+    [ngStyle]="{'width': (this.itemSize/9) + 'px',
+                'height': (this.itemSize/3) + 'px'}">
+    </div>
+  </div>
+  <div class="gallery__arrow gallery__arrow-right">
+    <div class="arrow arrow-right arrow-image" (click)="onRight()"
+    [ngStyle]="{'width': (this.itemSize/9) + 'px',
+                'height': (this.itemSize/3) + 'px'}">
+    </div>
+  </div>
+  <div class="gallery__items"
+  [ngStyle]="{'transform':  'translateX(' + this.offset + 'px)',
+              'width': ((this.itemSize + this.gap) * this.items.length - this.gap) + 'px'}">
     <img src="{{item.src}}" class="gallery__item"
     [ngStyle]="{'width': this.itemSize + 'px',
                 'height': this.itemSize + 'px',

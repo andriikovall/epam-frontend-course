@@ -16,10 +16,13 @@ import { GalleryItem } from 'src/app/models/helpers/galleryItem';
 export class MainComponent extends BaseComponent implements OnInit {
 
   public newestFilms: Observable<Film[]>;
+  // Removed observable to pass items to gallery component.
+  // Had an issue that async pipe didn't work -_-
+  public galleryItems: GalleryItem[];
   public rooms: Observable<Room[]>;
-  public galleryItems: Observable<GalleryItem[]>;
   public filmsLoading: boolean;
   public roomsLoading: boolean;
+
 
   constructor(private filmsService: FilmsService,
               private roomsService: RoomsService) {
@@ -31,10 +34,10 @@ export class MainComponent extends BaseComponent implements OnInit {
     this.newestFilms = this.filmsService.getNewestFilms().pipe(
       tap(() => { setTimeout(() => this.filmsLoading = false, 0); })
     );
-    this.galleryItems = this.roomsService.getAllRooms().pipe(
+    this.roomsService.getAllRooms().pipe(
+      map(rooms => rooms.map(r => ({ src: r.photoUrl }))),
       tap(() => { setTimeout(() => this.roomsLoading = false, 0); }),
-      map(rooms => rooms.map(r => ({ src: r.photoUrl })))
-    );
+    ).subscribe(gi => this.galleryItems = gi);
   }
 
 }

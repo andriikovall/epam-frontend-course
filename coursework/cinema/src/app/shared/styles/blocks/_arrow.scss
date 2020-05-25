@@ -7,12 +7,20 @@
       transform: translateX(-0.2em);
       cursor: pointer;
     }
+
+    &[class*=arrow-image] {
+      content: url('/arrow-left.svg');
+    }
   }
 
   &-right {
     &:hover {
       transform: translateX(0.2em);
       cursor: pointer;
+    }
+
+    &[class*=arrow-image] {
+      content: url('/arrow-right.svg');
     }
   }
 
