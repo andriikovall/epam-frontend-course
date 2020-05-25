@@ -34,6 +34,7 @@ export class MainComponent extends BaseComponent implements OnInit {
     this.newestFilms = this.filmsService.getNewestFilms().pipe(
       tap(() => { setTimeout(() => this.filmsLoading = false, 0); })
     );
+    this.roomsLoading = true;
     this.roomsService.getAllRooms().pipe(
       map(rooms => rooms.map(r => ({ src: r.photoUrl }))),
       tap(() => { setTimeout(() => this.roomsLoading = false, 0); }),
