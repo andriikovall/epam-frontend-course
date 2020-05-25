@@ -13,6 +13,14 @@ const middlewares = jsonServer.defaults({
     static: distDir
 });
 
+const mockedServerDelay = 400;
+server.use(async (req, res, next) => {
+    await new Promise((resolve) => {
+        setTimeout(() => resolve(null), mockedServerDelay);
+    });
+    next();
+});
+
 server.use(cors());
 server.use(middlewares);
 server.use('/api', router);
