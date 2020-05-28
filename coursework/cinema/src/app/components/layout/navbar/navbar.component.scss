@@ -26,15 +26,15 @@ $sm: 600px;
     padding-bottom: .3em;
     width: 100%;
 
-    @media screen and (mAx-width: $sm) {
+    @media screen and (max-width: $sm) {
       display: none;
       flex-direction: column;
     }
 
     &-active {
       display: block;
+      animation: opacity .1s ease-in;
       height: auto;
-      transition: all 0.2s;
       opacity: 1;
     }
   }
@@ -116,13 +116,11 @@ $sm: 600px;
       .nav__items {
         top: 100vh;
         position: absolute;
-        opacity: 0;
-        transition: opacity 0.2s;
 
         &-dropped {
           top: 100%;
-          opacity: 1;
           display: block;
+          animation: opacity .2s ease-in;
         }
       }
     }
@@ -181,9 +179,15 @@ $sm: 600px;
     position: absolute;
     height: $height;
     background-color: $color-primary;
-    animation-name: loader-animation;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    animation: loader-animation 3s infinite ease-in-out;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: .5;
+  }
+  to {
+    opacity: 1;
   }
 }
