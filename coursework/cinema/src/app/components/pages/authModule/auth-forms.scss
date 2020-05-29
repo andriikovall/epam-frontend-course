@@ -23,8 +23,11 @@
   margin-top: $nav-heigth-big;
   margin-left: 600px;
   @media screen and (max-width: $md) {
-    // top: $nav-heigth-small / 2;
     margin: 0 auto;
   }
 }
 
+.social-btns {
+  display: flex;
+  justify-content: center;
+}

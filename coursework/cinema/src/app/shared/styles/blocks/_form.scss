@@ -62,6 +62,11 @@
 
   &__group {
     margin: 0.5em 0.1em;
+
+    &-row {
+      display: flex;
+      flex-direction: row;
+    }
   }
 }
 

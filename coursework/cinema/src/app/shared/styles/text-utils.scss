@@ -1,0 +1,33 @@
+@import './variables.scss';
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: start;
+}
+
+.text-right {
+  text-align: end;
+}
+
+.text-link {
+  color: rgb(74, 86, 153);
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.text-danger {
+  color: $color-warning;
+}
+
+.text-success {
+  color: $color-success;
+}
+
+.text-info {
+  color: $color-info;
+}

@@ -26,10 +26,15 @@
     max-width: 100%;
   }
 
-  @media screen and(max-width: $sm){
+  @media screen and(max-width: $sm) {
     &__grid {
       grid-template-columns: 1fr;
     }
   }
+}
+
+.film-card-wrapper {
+  display: flex;
+  justify-content: center;
 }
 

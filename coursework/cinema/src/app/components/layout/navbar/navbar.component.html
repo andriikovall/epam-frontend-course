@@ -7,19 +7,19 @@
           <li class="nav__item" routerLink="/contacts">Contact us</li>
 
           <ng-container *ngIf="this.authService.currentUser | async; else elseAuthTemplate">
-            <li class="nav__item nav__item-dropdown ml-auto" (click)="this.toggleDropdown()">
-              <div class="nav__item nav__item-user d-flex">
+            <li class="nav__item nav__item-dropdown nav__item-ml" (click)="this.toggleDropdown()">
+              <div class="nav__item nav__item-user">
                 <app-user-ava [src]="(this.authService.currentUser | async).avaUrl"></app-user-ava>
                 {{(this.authService.currentUser | async).firstName}} {{(this.authService.currentUser | async).lastName}}
               </div>
-              <ul class="nav__items d-flex flex-column" [class.nav__items-dropped]="this.isDropdoenExpanded">
+              <ul class="nav__items" [class.nav__items-dropped]="this.isDropdoenExpanded">
                 <li class="nav__item" routerLink="/tickets">My tickets</li>
                 <li class="nav__item" (click)="this.onLogout()">Log out<i class="fas fa-sign-out-alt"></i></li>
               </ul>
             </li>
           </ng-container>
           <ng-template #elseAuthTemplate>
-            <li class="nav__item ml-auto" routerLink="/auth/login">Login</li>
+            <li class="nav__item nav__item-ml" routerLink="/auth/login">Login</li>
             <li class="nav__item" routerLink="/auth/register">Sign up</li>
           </ng-template>
 

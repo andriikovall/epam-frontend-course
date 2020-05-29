@@ -20,7 +20,7 @@
           Session types
         </div>
         <form class="form" [formGroup]="this.sessionTypesForm" (change)="onSessionsFormChange()">
-          <div class="form__group d-flex">
+          <div class="form__group form__group-row">
             <input class="form__control checkox" type="checkbox" id="type-2d" formControlName="2D">
             <label for="type-2d">2D</label>
 
@@ -48,7 +48,7 @@
             </h3>
             <div class="film-session">
               <div class="film-session__grid">
-                <div class="d-flex justify-content-center">
+                <div class="film-card-wrapper">
                   <app-film-card [film]="filmSessions.film" [width]=240></app-film-card>
                 </div>
                 <app-session-picker [sessions]="filmSessions.sessions" (timeSelected)="onTimeSelected($event)">

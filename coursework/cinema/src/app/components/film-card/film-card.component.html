@@ -4,7 +4,7 @@
       <img src="{{film.imageUrl}}" alt="{{film.title + ' image'}}" class="film-item__image">
     </figure>
   </div>
-  <div class="film-card__back d-flex justify-content-around" [class.film-card__flipable]="this.flip" *ngIf="this.flip">
+  <div class="film-card__back" [class.film-card__flipable]="this.flip" *ngIf="this.flip">
       <figcaption class="film-details">
 
         <div class="film-details__title text-center">
@@ -40,7 +40,7 @@
         </div>
       </figcaption>
 
-    <div class="button-wrapper d-flex justify-content-around">
+    <div class="button-wrapper">
       <button routerLink="/films/{{film.id}}"  class="button-wrapper__btn btn btn-secondary">Buy tickets</button>
     </div>
   </div>

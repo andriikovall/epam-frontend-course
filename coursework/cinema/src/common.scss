@@ -4,6 +4,8 @@
 @import './app/shared/styles/blocks/form';
 @import './app/shared/styles/blocks/arrow';
 @import './app/shared/styles/blocks/duration';
+@import './app/shared/styles/text-utils';
+@import './app/shared/styles/buttons';
 
 .content-wrapper {
   padding: 0.5em;
@@ -24,10 +26,9 @@
 }
 
 /*
-placed here because we don't have
-direct access to qrcode component
-so thet the styles cannot be applied
-elsewhere
+  placed here because we don't have
+  the direct access to qrcode component
+  so that the styles cannot be applied elsewhere
 */
 .qrcode {
   display: flex;

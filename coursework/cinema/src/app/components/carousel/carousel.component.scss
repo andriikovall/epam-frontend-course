@@ -21,6 +21,11 @@
   height: 100%;
   position: relative;
   margin-bottom: 2em;
+
+  &__items {
+    display: flex;
+  }
+
   &__item {
     height: 100%;
     width: 100%;
@@ -33,6 +38,8 @@
 
   &__dots {
     margin-top: -2em;
+    display: flex;
+    justify-content: center;
   }
 
   &__dot {

@@ -102,6 +102,14 @@ $sm: 600px;
     justify-content: center;
     background-color: $main-black;
 
+    &-user {
+      display: flex;
+    }
+
+    &-ml {
+      margin-left: auto;
+    }
+
 
     &-dropdown {
       padding: 0;
@@ -118,8 +126,9 @@ $sm: 600px;
         position: absolute;
 
         &-dropped {
+          display: flex;
+          flex-direction: column;
           top: 100%;
-          display: block;
           animation: opacity .2s ease-in;
         }
       }
