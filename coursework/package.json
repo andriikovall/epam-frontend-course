@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1", 
     "install": "npm install --prefix cinema && npm install --prefix server", 
-    "start": "cd server && npm start"
+    "start": "cd server && npm start",
+    "start:client": "npm start --prefix cinema"
   },
   "author": "",
   "license": "ISC"
