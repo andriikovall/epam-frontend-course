@@ -1,6 +1,6 @@
 <div class="session-picker-container">
   <button
-    [class.active]="this.selectedSession && this.selectedSession.id === session.id"
+    [class.active]="this.selectedSession && this.selectedSession.id === session.id && this.isActive"
     (click)="onTimeClicked(session)"
     class="btn btn-secondary"
     *ngFor="let session of sessions;trackBy:trackByFn">

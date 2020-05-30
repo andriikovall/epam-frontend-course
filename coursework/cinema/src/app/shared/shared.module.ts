@@ -14,6 +14,7 @@ import { LoadingDirective } from '../directives/loading.directive';
 import { ToastsContainerComponent } from '../components/toasts-container/toasts-container.component';
 import { RouterModule } from '@angular/router';
 import { GalleryComponent } from '../components/gallery/gallery.component';
+import { ModalComponent } from '../components/modal/modal.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { GalleryComponent } from '../components/gallery/gallery.component';
     PaginationComponent,
     ToastsContainerComponent,
     FilmCardComponent,
-    GalleryComponent
+    GalleryComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,

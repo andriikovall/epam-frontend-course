@@ -51,7 +51,7 @@
                 <div class="film-card-wrapper">
                   <app-film-card [film]="filmSessions.film" [width]=240></app-film-card>
                 </div>
-                <app-session-picker [sessions]="filmSessions.sessions" (timeSelected)="onTimeSelected($event)">
+                <app-session-picker [isActive]="this.selectedSession && this.selectedSession.film.id == filmSessions.film.id" [sessions]="filmSessions.sessions" (timeSelected)="onTimeSelected($event)">
                 </app-session-picker>
               </div>
               <div class="film-session__session" *ngIf="this.selectedSession">

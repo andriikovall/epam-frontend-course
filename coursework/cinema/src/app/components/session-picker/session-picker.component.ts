@@ -10,6 +10,7 @@ import { BaseComponent } from '../base.component';
 export class SessionPickerComponent extends BaseComponent implements OnInit {
 
   @Input() sessions: Session[] = [];
+  @Input() isActive: boolean = true;
 
   @Output() timeSelected = new EventEmitter<Session>();
 
