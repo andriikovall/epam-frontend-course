@@ -1,5 +1,11 @@
-<div class="session" *ngIf="this.session">
-  <div class="session__details details">
+<section class="section">
+  <h3 class="section__title">
+    Session details
+    <span class="section__close" (click)="onClose()">✖</span>
+  </h3>
+
+  <div class="session" *ngIf="this.session">
+    <div class="session__details details">
     <table class="details__table">
       <tr class="details__item">
         <th class="details__name">Movie</th>
@@ -24,7 +30,7 @@
     <ng-container *ngFor="let row of this.session.sittings; index as i">
       <div class="sittings__row">
         <button *ngFor="let col of row; index as j;" class="sittings__item btn btn-secondary"
-          [class.active]="col"
+        [class.active]="col"
           (click)="onPlaceSelected(i, j)">
           <span *ngIf="isSittingSelected(i, j)">
             &#10004;
@@ -71,16 +77,18 @@
         Otherwise recieve your tickets via email.
       </p>
       <input type="email" class="form__control" placeholder="Enter your email" [formControl]="this.emailControl"
-        [class.invalid]="this.emailControl.dirty && this.emailControl.invalid">
+      [class.invalid]="this.emailControl.dirty && this.emailControl.invalid">
       <p class="form__feedback text-danger" *ngIf="this.emailControl.dirty && this.emailControl.invalid">
         Enter valid email
       </p>
     </ng-container>
     <button type="submit" class="controls__buy-btn btn btn-primary" (click)="this.onBuyClicked()"
-      *appLoading="(this.sessionsService.sessionUpdating | async)">
-      Buy tickets
+    *appLoading="(this.sessionsService.sessionUpdating | async)">
+    Buy tickets
     </button>
     <p *ngIf="(this.baseService.networkError | async)" class="text-danger">Some error occured</p>
 
   </div>
 </div>
+
+</section>

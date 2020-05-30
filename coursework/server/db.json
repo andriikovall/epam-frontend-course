@@ -578,8 +578,8 @@
           1,
           1,
           1,
-          0,
-          0,
+          1,
+          1,
           1,
           1,
           1,
@@ -6542,8 +6542,8 @@
           1,
           0,
           1,
-          0,
-          0,
+          1,
+          1,
           1,
           0,
           1
@@ -8762,23 +8762,23 @@
         [
           1,
           1,
-          0,
           1,
-          0,
+          1,
+          1,
           1
         ],
         [
           1,
           0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           1
         ],
         [
           0,
           1,
-          0,
+          1,
           1,
           1,
           1
@@ -23773,6 +23773,110 @@
       "roomId": "r_2",
       "filmId": "f_2",
       "id": 29
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "sessionId": "cd50780671",
+      "price": 90,
+      "timestamp": 1592011951351,
+      "roomId": "r_3",
+      "filmId": "f_4",
+      "id": 30
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "sessionId": "cd50780671",
+      "price": 90,
+      "timestamp": 1592011951351,
+      "roomId": "r_3",
+      "filmId": "f_4",
+      "id": 31
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "sessionId": "cd50780671",
+      "price": 90,
+      "timestamp": 1592011951351,
+      "roomId": "r_3",
+      "filmId": "f_4",
+      "id": 32
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "sessionId": "cd50780671",
+      "price": 90,
+      "timestamp": 1592011951351,
+      "roomId": "r_3",
+      "filmId": "f_4",
+      "id": 33
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "sessionId": "cd50780671",
+      "price": 90,
+      "timestamp": 1592011951351,
+      "roomId": "r_3",
+      "filmId": "f_4",
+      "id": 34
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "sessionId": "cd50780671",
+      "price": 90,
+      "timestamp": 1592011951351,
+      "roomId": "r_3",
+      "filmId": "f_4",
+      "id": 35
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "sessionId": "17a86fb25c",
+      "price": 60,
+      "timestamp": 1590880886555,
+      "userId": "116296055330750796735",
+      "roomId": "r_1",
+      "filmId": "f_2",
+      "id": 36
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "sessionId": "17a86fb25c",
+      "price": 60,
+      "timestamp": 1590880886555,
+      "userId": "116296055330750796735",
+      "roomId": "r_1",
+      "filmId": "f_2",
+      "id": 37
+    },
+    {
+      "row": 1,
+      "col": 6,
+      "sessionId": "473391fbe3",
+      "price": 90,
+      "timestamp": 1592645999145,
+      "userId": "116296055330750796735",
+      "roomId": "r_2",
+      "filmId": "f_2",
+      "id": 38
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "sessionId": "473391fbe3",
+      "price": 90,
+      "timestamp": 1592645999145,
+      "userId": "116296055330750796735",
+      "roomId": "r_2",
+      "filmId": "f_2",
+      "id": 39
     }
   ],
   "comments": [

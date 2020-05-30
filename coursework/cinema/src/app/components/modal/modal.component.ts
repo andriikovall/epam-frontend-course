@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -8,10 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ModalComponent implements OnInit {
 
   @Input() title: string = '';
+  @Input() show: boolean = true;
+  @Input() size: 'sm' | 'md' | 'lg' = 'sm';
 
-  constructor() { }
+
+  constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
   }
+
+  onClose() {
+
+  }
+
 
 }

@@ -170,4 +170,8 @@ export class FilmComponent extends BaseComponent implements OnInit {
     });
   }
 
+  onCloseSessionDetails() {
+    this.currentSession = null;
+  }
+
 }

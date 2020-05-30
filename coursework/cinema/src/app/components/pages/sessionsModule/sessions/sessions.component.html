@@ -55,9 +55,11 @@
                 </app-session-picker>
               </div>
               <div class="film-session__session" *ngIf="this.selectedSession">
-                <app-collapse [expanded]="this.selectedSession.film.id === filmSessions.film.id">
-                  <app-session [session]="this.selectedSession" (closeDetails)="this.onCloseSessionDetails()"></app-session>
-                </app-collapse>
+                <app-modal [show]="this.selectedSession.film.id === filmSessions.film.id">
+                  <!-- <app-collapse [expanded]="this.selectedSession.film.id === filmSessions.film.id"> -->
+                    <app-session [session]="this.selectedSession" (closeDetails)="this.onCloseSessionDetails()"></app-session>
+                  <!-- </app-collapse> -->
+                </app-modal>
               </div>
             </div>
           </div>

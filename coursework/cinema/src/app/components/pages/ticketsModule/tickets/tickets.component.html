@@ -15,18 +15,24 @@
     <li class="ticket-wrapper ticket-item" *ngFor="let ticket of this.paginatedTickets; trackBy:trackByFn"
       (click)="this.onTicketClicked(ticket)">
       <div class="ticket-item__front">
-        <app-ticket [ticket]="ticket" *ngIf="!this.selectedTicket || this.selectedTicket.id !== ticket.id"></app-ticket>
-      </div>
-      <div class="ticket-item__qr" *ngIf="this.selectedTicket && this.selectedTicket.id === ticket.id">
-        <div class="section section-qr">
-          <qrcode [qrdata]="getTicketQRData(ticket)"></qrcode>
-          <p class="section__subtitle">Show this qr code in the entrance to the room</p>
-        </div>
+        <app-ticket [ticket]="ticket"></app-ticket>
       </div>
     </li>
   </ul>
   <div class="pagination-container" *ngIf="this.tickets">
     <app-pagination [pageSize]="this.itemsPerPage" [total]="this.tickets.length"
-      (pageChanged)="this.onPageChanged($event)" [initialPage]="this.currentPage"></app-pagination>
+    (pageChanged)="this.onPageChanged($event)" [initialPage]="this.currentPage"></app-pagination>
   </div>
 </div>
+
+<app-modal [show]="this.selectedTicket != null" size="sm">
+  <div class="section" *ngIf="this.selectedTicket">
+    <h3 class="section__title">
+      Your ticket QR code
+      <span class="section__close" (click)="this.selectedTicket = null">✖</span>
+    </h3>
+    <qrcode [qrdata]="getTicketQRData(this.selectedTicket)"></qrcode>
+    <p class="section__subtitle text-center">Show this QR code in the entrance to the room</p>
+  </div>
+</app-modal>
+

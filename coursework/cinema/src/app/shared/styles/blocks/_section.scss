@@ -57,6 +57,18 @@
     font-size: 1.4em;
     padding-bottom: 0.5em;
     margin: 7px 0;
+    position: relative;
+  }
+
+  &__close {
+    position: absolute;
+    right: 0;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      transition: transform .2s;
+    }
   }
 
   &__subtitle {

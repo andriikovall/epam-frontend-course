@@ -101,6 +101,10 @@ export class SessionComponent extends BaseComponent implements OnInit, OnDestroy
     return `${ticket.row}_${ticket.col}`;
   }
 
+  onClose() {
+    this.closeDetails.emit();
+  }
+
 
   ngOnDestroy(): void {
     this.authServiceSubsription.unsubscribe();

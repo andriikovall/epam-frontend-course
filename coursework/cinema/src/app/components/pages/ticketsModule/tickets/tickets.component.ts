@@ -58,8 +58,9 @@ export class TicketsComponent extends BasePaginationComponent implements OnInit 
       sessionId: ticket.sessionId,
       filmId: ticket.film.id,
       userId: ticket.userId,
-      someServerSecret: 'Server secret which will be valid only on session date'
+      someServerSecret: 'Some secret server token which will be valid only on session date',
+      row: ticket.row + 1,
+      sitting: ticket.col + 1
     });
   }
-
 }

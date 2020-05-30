@@ -51,7 +51,8 @@ import { ModalComponent } from '../components/modal/modal.component';
     PaginationComponent,
     ToastsContainerComponent,
     FilmCardComponent,
-    GalleryComponent
+    GalleryComponent,
+    ModalComponent
   ],
   entryComponents: [
     LoaderComponent

@@ -1,7 +1,10 @@
-<div class="modal-wrapper">
-  <div class="modal">
-    <h2 class="modal__title">
-      Title
-    </h2>
+<div class="modal" *ngIf="show" #wrapper>
+  <div class="modal__body"
+  [ngClass]="{
+    'modal__body-lg': size == 'lg',
+    'modal__body-md': size == 'md',
+    'modal__body-sm': size == 'sm'
+  }">
+  <ng-content></ng-content>
   </div>
 </div>
