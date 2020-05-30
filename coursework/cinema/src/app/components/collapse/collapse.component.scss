@@ -1,3 +1,5 @@
+@import '../../shared/styles/animations.scss';
+
 .collapse-container {
   max-width: 98%;
   height: 0;
@@ -8,5 +10,5 @@
 .expanded {
   height: auto;
   opacity: 1;
-  transition: all .5s;
+  animation: fade-in .2s ease-in;
 }

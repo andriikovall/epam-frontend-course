@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserAvaComponent implements OnInit {
 
-  private defaultAvaUrl = 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png';
+  private defaultAvaUrl = '/assets/img/user-ava-placeholder.jpg';
 
   @Input() src: string | Blob = this.defaultAvaUrl;
   @Input() size: string = '1em';
