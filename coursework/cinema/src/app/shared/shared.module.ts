@@ -15,6 +15,7 @@ import { ToastsContainerComponent } from '../components/toasts-container/toasts-
 import { RouterModule } from '@angular/router';
 import { GalleryComponent } from '../components/gallery/gallery.component';
 import { ModalComponent } from '../components/modal/modal.component';
+import { AlertsContainerComponent } from '../components/alerts-container/alerts-container.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ModalComponent } from '../components/modal/modal.component';
     ToastsContainerComponent,
     FilmCardComponent,
     GalleryComponent,
-    ModalComponent
+    ModalComponent,
+    AlertsContainerComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,8 @@ import { ModalComponent } from '../components/modal/modal.component';
     ToastsContainerComponent,
     FilmCardComponent,
     GalleryComponent,
-    ModalComponent
+    ModalComponent,
+    AlertsContainerComponent
   ],
   entryComponents: [
     LoaderComponent

@@ -1,0 +1,32 @@
+<!-- confirm modal -->
+<app-modal [show]="(alertService.showConfirm | async)" size="sm">
+  <section class="section">
+    <div class="section__title">
+      {{alertService.confirmTitle}}
+    </div>
+    <div class="section__text">
+      {{alertService.confirmText}}
+    </div>
+
+    <div class="section__controls">
+      <button class="section__control btn btn-primary btn-block" (click)="this.alertService.respondConfirm(true)">{{alertService.confirmOkText}}</button>
+      <button class="section__control btn btn-secondary btn-block"(click)="this.alertService.respondConfirm(false)">{{alertService.confirmNoText}}</button>
+    </div>
+
+  </section>
+</app-modal>
+
+<!-- alert modal -->
+<app-modal [show]="(alertService.showAlert | async)" size="sm">
+  <section class="section">
+    <div class="section__title">
+      {{alertService.alertTitle}}
+    </div>
+    <div class="section__text">
+      {{alertService.alertText}}
+    </div>
+    <div class="section__controls">
+      <button class="section__control btn btn-primary" (click)="this.alertService.responseAlert()">{{alertService.alertOkText}}</button>
+    </div>
+  </section>
+</app-modal>

@@ -76,6 +76,17 @@
     margin: 10px 5px;
   }
 
+  &__controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  &__control {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
   &-transparent {
     background: $color-bg;
   }

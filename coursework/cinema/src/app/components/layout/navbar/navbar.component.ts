@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ViewportScroller } from '@angular/common';
 import { BaseService } from 'src/app/services/base.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-navbar',
@@ -23,7 +24,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               public authService: AuthService,
               public baseService: BaseService,
-              private toastService: ToastService) { }
+              private toastService: ToastService,
+              private alertsService: AlertService) { }
 
   ngOnInit() {
     this.routerEventSubscription =
@@ -51,11 +53,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   onLogout() {
-    if (confirm('Dou you want to log out?')) {
-      this.authService.logout();
-      this.toggleDropdown();
-      this.toastService.info('You have been logged out', '');
-    }
+    this.alertsService.confirm('Log out', 'Dou you want to log out?').then(res => {
+      if (res) {
+        this.authService.logout();
+        this.toggleDropdown();
+        this.toastService.info('You have been logged out', '');
+        this.router.navigate(['/']);
+      }
+    });
   }
 
   public scrollToTop(): void {

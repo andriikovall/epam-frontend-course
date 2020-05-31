@@ -9,6 +9,7 @@ import { SessionsService } from 'src/app/services/sessions.service';
 import { BaseService } from 'src/app/services/base.service';
 import { BaseComponent } from '../base.component';
 import { ToastService } from 'src/app/services/toast.service';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-session',
@@ -34,7 +35,8 @@ export class SessionComponent extends BaseComponent implements OnInit, OnDestroy
   constructor(public authService: AuthService,
               public sessionsService: SessionsService,
               public baseService: BaseService,
-              private toastService: ToastService) {
+              private toastService: ToastService,
+              private alertService: AlertService) {
     super();
   }
 
@@ -81,11 +83,18 @@ export class SessionComponent extends BaseComponent implements OnInit, OnDestroy
       this.emailControl.markAsDirty();
       return;
     }
+    this.alertService.confirm('Buy tickets?', 'Are you sure you want to buy selected tickets?')
+      .then(res => {
+        if (res) {
+          this.onBuyConfirmed();
+        }
+      });
+  }
 
+  onBuyConfirmed() {
     combineLatest(
       this.tickets.map(t => this.sessionsService.updateSessionWithTicket(this.session, t))
     ).subscribe(tickets => {
-      // this.toastService.success('You have successfully booked the tickets');
       const toastTitle = `You have successfully booked your ${tickets.length > 1 ? 'tickets' : 'ticket'}`;
       const toastMessage = this.currentUser ?
                       'Check out your tickets in your personal cabinet' :
@@ -94,7 +103,6 @@ export class SessionComponent extends BaseComponent implements OnInit, OnDestroy
       this.tickets = [];
       this.closeDetails.emit();
     });
-
   }
 
   ticketTrackFn(index, ticket: Ticket) {
