@@ -50,7 +50,7 @@
       <div class="section__title">
         Pick session
       </div>
-      <app-session-picker [isActive]="this.filteredSessions.includes(this.currentSession)" [sessions]="this.filteredSessions" (timeSelected)="this.onSessionSelected($event)">
+      <app-session-picker [isActive]="this.filteredSessions && this.filteredSessions.includes(this.currentSession)" [sessions]="this.filteredSessions" (timeSelected)="this.onSessionSelected($event)">
       </app-session-picker>
       <app-modal [show]="this.currentSession !== null">
         <app-session [session]="this.currentSession" (closeDetails)="onCloseSessionDetails()"></app-session>

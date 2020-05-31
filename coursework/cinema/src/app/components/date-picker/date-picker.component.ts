@@ -64,6 +64,11 @@ export class DatePickerComponent implements OnInit {
 
     if (this.initialDate && this.initialDate.getTime() >= Date.now()) {
       this.onDateSecelted(this.initialDate);
+    } else if (this.dates && this.dates.length) {
+      const preselectedDate = this.dates.find(d => d.getTime() > Date.now());
+      if (preselectedDate) {
+        this.onDateSecelted(preselectedDate);
+      }
     }
   }
 
@@ -73,6 +78,9 @@ export class DatePickerComponent implements OnInit {
     }
     this.dateSelected.emit(date);
     this.selectedDate = date;
+    if (this.currentMonthIndex != date.getMonth()) {
+      this.currentMonthIndex = date.getMonth();
+    }
   }
 
   onMonthLeftClicked() {
