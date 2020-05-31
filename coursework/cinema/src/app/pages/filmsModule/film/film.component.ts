@@ -12,14 +12,14 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FormControl, Validators } from '@angular/forms';
 import { CommentsService } from 'src/app/services/comments.service';
 import { Comment } from 'src/app/models/comment';
-import { BaseComponent } from 'src/app/components/base.component';
+import { BasePageComponent } from 'src/app/components/base-page.component';
 
 @Component({
   selector: 'app-film',
   templateUrl: './film.component.html',
   styleUrls: ['./film.component.scss']
 })
-export class FilmComponent extends BaseComponent implements OnInit {
+export class FilmComponent extends BasePageComponent implements OnInit {
 
   public film: Film;
   public filmLoading: boolean;

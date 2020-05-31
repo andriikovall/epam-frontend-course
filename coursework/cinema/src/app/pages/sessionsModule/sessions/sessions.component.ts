@@ -8,16 +8,16 @@ import { Session } from 'src/app/models/session';
 import { FilmSessions } from 'src/app/models/filmSessions';
 import { FilmsService } from 'src/app/services/films.service';
 import { Film } from 'src/app/models/film';
-import { isValidDate } from '../../../../utils/date';
+import { isValidDate } from '../../../utils/date';
 import { SessionFilter } from 'src/app/models/sessionFilter';
-import { BaseComponent } from 'src/app/components/base.component';
+import { BasePageComponent } from 'src/app/components/base-page.component';
 
 @Component({
   selector: 'app-sessions',
   templateUrl: './sessions.component.html',
   styleUrls: ['./sessions.component.scss']
 })
-export class SessionsComponent extends BaseComponent implements OnInit, OnDestroy {
+export class SessionsComponent extends BasePageComponent implements OnInit, OnDestroy {
 
   constructor(private sessionsService: SessionsService,
               private filmsService: FilmsService,

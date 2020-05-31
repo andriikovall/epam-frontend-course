@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './components/pages/main/main.component';
+import { MainComponent } from './pages/main/main.component';
 
 
 const routes: Routes = [
@@ -9,23 +9,23 @@ const routes: Routes = [
   },
   {
     path: 'films',
-    loadChildren: './components/pages/filmsModule/films.module#FilmsModule'
+    loadChildren: './pages/filmsModule/films.module#FilmsModule'
   },
   {
     path: 'auth',
-    loadChildren: './components/pages/authModule/auth.module#AuthModule'
+    loadChildren: './pages/authModule/auth.module#AuthModule'
   },
   {
     path: 'contacts',
-    loadChildren: './components/pages/contactsModule/contacts.module#ContactsModule'
+    loadChildren: './pages/contactsModule/contacts.module#ContactsModule'
   },
   {
     path: 'sessions',
-    loadChildren: './components/pages/sessionsModule/sessions.module#SessionsModule'
+    loadChildren: './pages/sessionsModule/sessions.module#SessionsModule'
   },
   {
     path: 'tickets',
-    loadChildren: './components/pages/ticketsModule/tickets.module#TicketsModule'
+    loadChildren: './pages/ticketsModule/tickets.module#TicketsModule'
   },
   {
     path: '', redirectTo: 'home', pathMatch: 'prefix',

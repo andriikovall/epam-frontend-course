@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { PaginationEvent } from 'src/app/models/helpers/paginationEvent';
-import { BaseComponent } from '../base.component';
+import { BasePageComponent } from '../base-page.component';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent extends BaseComponent implements OnInit {
+export class PaginationComponent extends BasePageComponent implements OnInit {
 
   @Input() total: number = 0;
   @Input() pageSize: number = 0;

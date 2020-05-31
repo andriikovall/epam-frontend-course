@@ -426,6 +426,13 @@
       "email": "anderkoval3@gmail.com",
       "timestamp": 1590758416450,
       "id": "t7RwuYb"
+    },
+    {
+      "name": "sdf",
+      "message": "sad",
+      "email": "anderkoval3@gmail.com",
+      "timestamp": 1590944582655,
+      "id": "Nv442_y"
     }
   ],
   "sessions": [
@@ -5014,14 +5021,14 @@
         [
           0,
           1,
-          0,
+          1,
           1,
           1,
           1
         ],
         [
           1,
-          0,
+          1,
           1,
           1,
           1,
@@ -6528,7 +6535,7 @@
           0,
           1,
           1,
-          0,
+          1,
           1,
           0,
           1,
@@ -9858,7 +9865,7 @@
           0,
           1,
           0,
-          0,
+          1,
           1,
           0,
           0,
@@ -23908,6 +23915,50 @@
       "roomId": "r_1",
       "filmId": "f_1",
       "id": 42
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "sessionId": "b87e8a2b64",
+      "price": 90,
+      "timestamp": 1591071700721,
+      "userId": "116296055330750796735",
+      "roomId": "r_2",
+      "filmId": "f_4",
+      "id": 43
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "sessionId": "7f0f11997f",
+      "price": 90,
+      "timestamp": 1591342443784,
+      "userId": "116296055330750796735",
+      "roomId": "r_3",
+      "filmId": "f_2",
+      "id": 44
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "sessionId": "7f0f11997f",
+      "price": 90,
+      "timestamp": 1591342443784,
+      "userId": "116296055330750796735",
+      "roomId": "r_3",
+      "filmId": "f_2",
+      "id": 45
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "sessionId": "473391fbe3",
+      "price": 90,
+      "timestamp": 1592645999145,
+      "userId": "116296055330750796735",
+      "roomId": "r_2",
+      "filmId": "f_2",
+      "id": 46
     }
   ],
   "comments": [

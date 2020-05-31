@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-base',
   template: '',
 })
-export class BaseComponent implements OnInit {
+export class BasePageComponent implements OnInit {
 
   constructor() { }
 
