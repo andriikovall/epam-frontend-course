@@ -2,9 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { FeedBack } from 'src/app/models/feedback';
-import { BaseComponent } from 'src/app/components/base.component';
 import { ToastService } from 'src/app/services/toast.service';
-import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-contacts',

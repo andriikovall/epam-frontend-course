@@ -7,7 +7,7 @@ import { User } from 'src/app/models/user';
 import { FormControl, Validators } from '@angular/forms';
 import { SessionsService } from 'src/app/services/sessions.service';
 import { BaseService } from 'src/app/services/base.service';
-import { BaseComponent } from '../base.component';
+import { BasePageComponent } from '../base-page.component';
 import { ToastService } from 'src/app/services/toast.service';
 import { AlertService } from 'src/app/services/alert.service';
 
@@ -16,7 +16,7 @@ import { AlertService } from 'src/app/services/alert.service';
   templateUrl: './session.component.html',
   styleUrls: ['./session.component.scss']
 })
-export class SessionComponent extends BaseComponent implements OnInit, OnDestroy {
+export class SessionComponent extends BasePageComponent implements OnInit, OnDestroy {
 
   @Input() session: Session;
   @Output() closeDetails = new EventEmitter();

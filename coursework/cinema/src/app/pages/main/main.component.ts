@@ -4,7 +4,7 @@ import { map, tap } from 'rxjs/operators';
 import { Film } from 'src/app/models/film';
 import { FilmsService } from 'src/app/services/films.service';
 import { RoomsService } from 'src/app/services/rooms.service';
-import { BaseComponent } from '../../base.component';
+import { BasePageComponent } from '../../components/base-page.component';
 import { Room } from 'src/app/models/room';
 import { GalleryItem } from 'src/app/models/helpers/galleryItem';
 
@@ -13,7 +13,7 @@ import { GalleryItem } from 'src/app/models/helpers/galleryItem';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent extends BaseComponent implements OnInit {
+export class MainComponent extends BasePageComponent implements OnInit {
 
   public newestFilms: Observable<Film[]>;
   // Removed observable to pass items to gallery component.

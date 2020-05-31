@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaginationEvent } from '../models/helpers/paginationEvent';
-import { BaseComponent } from './base.component';
+import { BasePageComponent } from './base-page.component';
 import { PaginationService } from '../services/pagination.service';
 
 @Component({
   selector: 'app-base-pagination',
   template: '',
 })
-export class BasePaginationComponent extends BaseComponent implements OnInit {
+export class BasePaginationComponent extends BasePageComponent implements OnInit {
 
   constructor(public route: ActivatedRoute,
               public router: Router,

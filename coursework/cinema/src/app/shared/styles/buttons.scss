@@ -32,7 +32,7 @@
 
   &-primary {
     background-color: $color-primary;
-    border-color: $color-primary;
+    border-color: $color-primary!important;
     color: white;
 
     &:hover, &[class*=active] {
@@ -49,7 +49,7 @@
 
   &-secondary {
     background-color: $color-secondary;
-    border-color: $color-secondary;
+    border-color: $color-secondary!important;
     color: white;
 
     &:hover, &[class*=active] {
@@ -66,7 +66,7 @@
 
   &-info {
     background-color: $color-info;
-    border-color: $color-info;
+    border-color: $color-info!important;
     color: white;
 
     &:hover, &[class*=active] {
